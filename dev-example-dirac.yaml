@@ -1,0 +1,54 @@
+_member: &memberConfig
+  date: &analysisDate '2024-05-27T00:00:00Z'
+  state variables: &incvars [air_pressure_at_surface,water_vapor_mixing_ratio_wrt_moist_air, air_temperature, northward_wind, eastward_wind]
+  stream name: ensemble
+geometry:
+  nml_file: ./namelist.atmosphere
+  streams_file: ./dirac_streams.atmosphere
+  deallocate non-da fields: true
+  interpolation type: unstructured
+background:
+  state variables:  *incvars
+  filename: data/mpasout.2024-05-27_00.00.00.nc
+  date: *analysisDate
+background error:
+  covariance model: SABER 
+  saber central block:
+    saber block name: MGBF_covariance
+    mgbf namelist file: dr-mgbf-fix/staticB-jim_line_2G-D1La55L28-35kmv6-5var-p196.nml
+  saber outer blocks:
+  -  saber block name: interpolation
+     inner geometry:
+       function space: StructuredColumns
+       grid:
+         type : "regional"
+         nx : 224
+         ny : 224
+         dx : 35.0e3
+         dy : 35.0e3
+         lonlat(centre) : [261, 40]
+         projection :
+           type       : lambert_conformal_conic
+           latitude0  : 40
+           longitude0 : 261
+           units: "degrees"
+         y_numbering : 1
+       partitioner: checkerboard
+
+       halo: 1
+
+     forward interpolator:
+       local interpolator type: oops unstructured grid interpolator
+     inverse interpolator:
+       local nterpolator type: oops unstructured grid interpolator
+dirac:
+  ndir: 1 
+  dirLats: [ 35.0165443420410160 ] 
+  dirLons: [ 269.9974 ]
+  ildir: 30 
+  dirvar: eastward_wind 
+
+output dirac:
+  filename: Data/dirac/mpas.Dirac_bumpcov_%id%.$Y-$M-$D_$h.$m.$s.nc
+  date: *analysisDate
+
