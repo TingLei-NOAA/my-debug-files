@@ -5,7 +5,6 @@ _member: &memberConfig
 geometry:
   nml_file: ./namelist.atmosphere
   streams_file: ./dirac_streams.atmosphere
-  deallocate non-da fields: true
   interpolation type: unstructured
 background:
   state variables:  *incvars
@@ -40,7 +39,7 @@ background error:
      forward interpolator:
        local interpolator type: oops unstructured grid interpolator
      inverse interpolator:
-       local nterpolator type: oops unstructured grid interpolator
+       local interpolator type: oops unstructured grid interpolator
 dirac:
   ndir: 1 
   dirLats: [ 35.0165443420410160 ] 
@@ -51,4 +50,5 @@ dirac:
 output dirac:
   filename: Data/dirac/mpas.Dirac_bumpcov_%id%.$Y-$M-$D_$h.$m.$s.nc
   date: *analysisDate
+  stream: control
 
