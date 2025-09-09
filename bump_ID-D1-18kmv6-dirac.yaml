@@ -1,0 +1,87 @@
+geometry:
+  fms initialization:
+    namelist filename: DataFix/fmsmpp.nml
+    field table filename: DataFix/field_table
+  namelist filename: DataFix/p64_input_lam_C775.nml
+  akbk: DataFix/fix/akbk61.nc
+  # input.nml
+  npz: 60
+  layout: [8,8]
+  io_layout: [1,1]
+  ntiles: 1 
+
+
+background:
+  datetime: 2022-05-26T19:00:00Z
+  filetype: fms restart
+  datapath: Data/bkg
+  filename_core: fv3_dynvars.nc
+  filename_trcr: fv3_tracer.nc
+  filename_sfcd: fv3_sfcdata.nc
+  filename_sfcw: fv3_srf_wnd.nc
+  filename_cplr: coupler.res
+  state variables: [air_temperature,air_pressure_thickness,water_vapor_mixing_ratio_wrt_moist_air,cloud_liquid_ice,cloud_liquid_water,ozone_mass_mixing_ratio] 
+  field io names: &field_io_names
+    eastward_wind: ua
+    northward_wind: va
+    air_temperature: T
+    virtual_temperature: T_fake
+    air_pressure_thickness: delp
+    water_vapor_mixing_ratio_wrt_moist_air: sphum
+    cloud_liquid_ice: ice_wat
+    cloud_liquid_water: liq_wat
+    ozone_mass_mixing_ratio: o3mr
+    geopotential_height_times_gravity_at_surface: phis
+    skin_temperature_at_surface: tsea
+    soilMoistureVolumetric: smc
+    totalSnowDepth: snwdph
+    eastward_wind_at_surface: u_srf
+    northward_wind_at_surface: v_srf
+background error:
+  covariance model: SABER
+  saber central block:
+    saber block name: ID 
+  saber outer blocks:
+  -  saber block name: interpolation
+     inner geometry:
+       function space: StructuredColumns
+       grid:
+         type : "regional"
+         nx : 448 
+         ny : 448 
+         dx : 18.0e3
+         dy : 18.0e3
+         lonlat(centre) : [261,40]
+         projection :
+           type       : lambert_conformal_conic
+           latitude0  : 40
+           longitude0 : 261
+           units: "degrees" 
+         y_numbering : 1
+       partitioner: checkerboard
+
+       halo: 1 
+
+     forward interpolator:
+       local interpolator type: oops unstructured grid interpolator
+     inverse interpolator:
+       local nterpolator type: oops unstructured grid interpolator
+
+output dirac:
+  filetype: fms restart
+  datapath: Data/mgbf_ams2025/
+  filename_core: bump_ID-18kmv6-mgbf-D1-p64_dirac_%id%_lam.fv_core.res.nc
+  filename_trcr: bump_ID-18kmv6-mgbf-D1-p64_dirac_%id%_lam.fv_tracer.res.nc
+  filename_sfcd: bump_ID-18kmv6-mgbf-D1-p64_dirac_%id%_lam.sfc_data.nc
+  filename_sfcw: bump_ID-18kmv6-mgbf-D1-p64_dirac_%id%_lam.fv_srf_wnd.res.nc
+  filename_cplr: bump_ID-18kmv6-mgbf-D1-p64_dirac_%id%_lam.coupler.res
+dirac:
+  ndir: 6 
+  ixdir: [50,100,150,200,250,300]
+  iydir: [10,10,150,20,5,2]
+  ildir: [30,30,30,60,1,30]
+  itdir: [1,1,1,1,1,1]
+  ifdir: [air_temperature,air_temperature,air_temperature,air_temperature,air_temperature,air_temperature] 
+
+
+
