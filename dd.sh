@@ -46,7 +46,7 @@ pid=""
 host=""
 i=0
 while [ $i -lt 20 ]; do
-  set -- $(scontrol listpids "$SLURM_JOB_ID" | awk 'NR==2{print $2, $NF}')
+  set -- $(scontrol listpids "$SLURM_JOB_ID" | awk 'NR==2{print $2, $(NF-2)}')
   pid="${1:-}"
   host="${2:-}"
   [ -n "$pid" ] && [ -n "$host" ] && break
