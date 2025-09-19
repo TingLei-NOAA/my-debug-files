@@ -68,36 +68,27 @@ set logging file gdb_rank0.log
 set logging on
 set breakpoint pending on
 set backtrace limit 1000
-set $bpnum = -1
-rbreak MPI_Finalize
-if $bpnum >= 0
-  commands $bpnum
-    silent
-    echo \n=== Hit MPI_Finalize (rank0) ===\n
-    bt full
-    continue
-  end
-end
-set $bpnum = -1
-rbreak PMPI_Comm_dup
-if $bpnum >= 0
-  commands $bpnum
-    silent
-    echo \n=== Hit PMPI_Comm_dup (rank0) ===\n
-    bt full
-    continue
-  end
-end
-handle SIGABRT stop print pass
-set $bpnum = -1
-break abort
-if $bpnum >= 0
-  commands $bpnum
-    silent
-    echo \n=== Hit abort() (rank0) ===\n
-    bt full
-    continue
-  end
+python
+import gdb
+
+def attach_commands(message):
+    bps = gdb.breakpoints()
+    if not bps:
+        return
+    bp = bps[-1]
+    gdb.execute("commands {}\n  silent\n  echo {}\n\n  bt full\n  continue\nend".format(bp.number, message), to_string=True)
+
+attach_commands('=== Hit MPI_Finalize (rank0) ===')
+gdb.execute('rbreak MPI_Finalize', to_string=True)
+attach_commands('=== Hit MPI_Finalize (rank0) ===')
+
+gdb.execute('rbreak PMPI_Comm_dup', to_string=True)
+attach_commands('=== Hit PMPI_Comm_dup (rank0) ===')
+
+gdb.execute('handle SIGABRT stop print pass', to_string=True)
+
+gdb.execute('break abort', to_string=True)
+attach_commands('=== Hit abort() (rank0) ===')
 end
 continue
 EOF
