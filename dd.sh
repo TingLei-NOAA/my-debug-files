@@ -13,7 +13,9 @@
 #SBATCH --exclusive
 
 source /apps/lmod/lmod/init/bash
-# Safer shell opts for /bin/sh (no pipefail here)
+
+# Safer shell opts for bash
+set -euo pipefail
 
 ulimit -s unlimited
 ulimit -v unlimited
@@ -38,23 +40,28 @@ srun -l -n 196 --ntasks-per-node=22 --cpus-per-task=8 --exclusive \
   "$jexec" "$yaml" "$out" &
 main_step=$!
 
-# 2) Wait briefly, then find rank-0 PID and host (pure /bin/sh)
+# 2) Wait briefly, then find rank-0 PID and host
 sleep 8
 pid=""
 host=""
 i=0
-while [ $i -lt 20 ]; do
-  set -- $(scontrol listpids "$SLURM_JOB_ID" | awk 'NR>1 { split($1, step, "."); if (step[2] != "0") next; pid=$4; host=""; for (f=NF; f>=1; --f) { if ($f !~ /^[0-9]+$/ && $f != "extern" && $f != "batch") { host=$f; break } } if (pid != "" && host != "") { print pid, host; exit } }')
-  pid="${1:-}"
-  host="${2:-}"
-  [ -n "$pid" ] && [ -n "$host" ] && break
-  sleep 1
+while [ $i -lt 30 ]; do
+  host=$(scontrol show hostnames "$SLURM_JOB_NODELIST" | sed -n '1p')
+  if [ -n "$host" ]; then
+    pid=$(srun --overlap -N1 -n1 -w "$host" --ntasks-per-node=1 --cpus-per-task=1 \
+      pgrep -fn "$jexec" 2>/dev/null || true)
+  fi
+  if [ -n "$pid" ] && [ -n "$host" ]; then
+    break
+  fi
+  sleep 2
   i=$((i+1))
 done
-echo "Attaching to host=$host pid=$pid" 1>&2
 
-# 3) gdb command file (no variable expansion inside)
-cat > gdb.cmds <<'EOF'
+if [ -n "$pid" ] && [ -n "$host" ]; then
+  echo "Attaching to host=$host pid=$pid" 1>&2
+
+  cat > gdb.cmds <<'EOF'
 set pagination off
 set print pretty on
 set logging file gdb_rank0.log
@@ -85,14 +92,14 @@ end
 continue
 EOF
 
-# 4) Attach gdb to rank 0 on its node
-#    IMPORTANT: override per-step resources so it doesnt inherit 228.
-#    If your site disallows --overlap, you can remove it because we left slack.
-srun --overlap -N1 -n1 -w "$host" --ntasks-per-node=1 --cpus-per-task=1 \
-  gdb -q -p "$pid" \
-    -ex "set solib-search-path $libdir" \
-    -ex "sharedlibrary" \
-    -x gdb.cmds
+  srun --overlap -N1 -n1 -w "$host" --ntasks-per-node=1 --cpus-per-task=1 \
+    gdb -q -p "$pid" \
+      -ex "set solib-search-path $libdir" \
+      -ex "sharedlibrary" \
+      -x gdb.cmds
+else
+  echo "Skipping gdb attach; missing PID or host" 1>&2
+fi
 
 # 5) Wait for the main step to finish
 wait "$main_step"
