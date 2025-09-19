@@ -46,7 +46,7 @@ pid=""
 host=""
 i=0
 while [ $i -lt 20 ]; do
-  set -- $(scontrol listpids "$SLURM_JOB_ID" | awk 'NR==2{print $1, $2}')
+  set -- $(scontrol listpids "$SLURM_JOB_ID" | awk 'NR==2{print $2, $NF}')
   pid="${1:-}"
   host="${2:-}"
   [ -n "$pid" ] && [ -n "$host" ] && break
@@ -98,4 +98,3 @@ srun --overlap -N1 -n1 -w "$host" --ntasks-per-node=1 --cpus-per-task=1 \
 
 # 5) Wait for the main step to finish
 wait "$main_step"
-
