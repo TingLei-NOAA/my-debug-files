@@ -44,7 +44,7 @@ pid=""
 host=""
 i=0
 while [ $i -lt 20 ]; do
-  set -- $(scontrol listpids "$SLURM_JOB_ID" | awk 'NR>1 && $1 ~ /\.0$/ { pid=$4; host=""; for (i=NF; i>=1; --i) if ($i ~ /[[:alpha:]]/) { host=$i; break } print pid, host; exit }')
+  set -- $(scontrol listpids "$SLURM_JOB_ID" | awk 'NR>1 { split($1, step, "."); if (step[2] != "0") next; pid=$4; host=""; for (f=NF; f>=1; --f) { if ($f !~ /^[0-9]+$/ && $f != "extern" && $f != "batch") { host=$f; break } } if (pid != "" && host != "") { print pid, host; exit } }')
   pid="${1:-}"
   host="${2:-}"
   [ -n "$pid" ] && [ -n "$host" ] && break
