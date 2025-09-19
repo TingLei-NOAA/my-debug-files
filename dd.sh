@@ -66,28 +66,38 @@ set pagination off
 set print pretty on
 set logging file gdb_rank0.log
 set logging on
+set breakpoint pending on
 set backtrace limit 1000
+set $bpnum = -1
 rbreak MPI_Finalize
-commands
-  silent
-  echo \n=== Hit MPI_Finalize (rank0) ===\n
-  bt full
-  continue
+if $bpnum >= 0
+  commands $bpnum
+    silent
+    echo \n=== Hit MPI_Finalize (rank0) ===\n
+    bt full
+    continue
+  end
 end
+set $bpnum = -1
 rbreak PMPI_Comm_dup
-commands
-  silent
-  echo \n=== Hit PMPI_Comm_dup (rank0) ===\n
-  bt full
-  continue
+if $bpnum >= 0
+  commands $bpnum
+    silent
+    echo \n=== Hit PMPI_Comm_dup (rank0) ===\n
+    bt full
+    continue
+  end
 end
 handle SIGABRT stop print pass
+set $bpnum = -1
 break abort
-commands
-  silent
-  echo \n=== Hit abort() (rank0) ===\n
-  bt full
-  continue
+if $bpnum >= 0
+  commands $bpnum
+    silent
+    echo \n=== Hit abort() (rank0) ===\n
+    bt full
+    continue
+  end
 end
 continue
 EOF
