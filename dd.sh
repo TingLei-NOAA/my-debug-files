@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #SBATCH --account=fv3-cam
 #SBATCH --qos=debug
 #SBATCH -t 00:30:00
@@ -15,7 +15,6 @@
 . /apps/lmod/lmod/init/sh
 
 # Safer shell opts for /bin/sh (no pipefail here)
-set -eu
 
 ulimit -s unlimited
 ulimit -v unlimited
