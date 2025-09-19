@@ -12,8 +12,7 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --exclusive
 
-. /apps/lmod/lmod/init/sh
-
+source /apps/lmod/lmod/init/bash
 # Safer shell opts for /bin/sh (no pipefail here)
 
 ulimit -s unlimited
@@ -45,7 +44,7 @@ pid=""
 host=""
 i=0
 while [ $i -lt 20 ]; do
-  set -- $(scontrol listpids "$SLURM_JOB_ID" | awk 'NR==2{print $2, $(NF-2)}')
+  set -- $(scontrol listpids "$SLURM_JOB_ID" | awk 'NR>1 && $1 ~ /\.0$/ { pid=$4; host=""; for (i=NF; i>=1; --i) if ($i ~ /[[:alpha:]]/) { host=$i; break } print pid, host; exit }')
   pid="${1:-}"
   host="${2:-}"
   [ -n "$pid" ] && [ -n "$host" ] && break
