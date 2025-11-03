@@ -1,0 +1,1112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE workflow [
+
+<!--
+Parameters needed by the job scheduler.
+-->
+<!ENTITY ACCOUNT         "RRFS-DEV">
+<!ENTITY SERVICE_ACCOUNT "RRFS-DEV">
+<!ENTITY HPSS_ACCOUNT    "RRFS-DEV">
+<!ENTITY SCHED           "pbspro">
+<!ENTITY QUEUE_DEFAULT   "dev">
+<!ENTITY QUEUE_HPSS      "dev_transfer">
+<!ENTITY QUEUE_FCST      "dev">
+<!ENTITY QUEUE_POST      "dev">
+<!ENTITY QUEUE_PRDGEN    "dev">
+<!ENTITY QUEUE_ANALYSIS  "dev">
+<!ENTITY QUEUE_GRAPHICS  "dev">
+<!ENTITY RRFS_RESERVE  "">
+<!ENTITY RRFS_POST_RESERVE  "">
+
+<!--
+Workflow task names.
+-->
+<!ENTITY MAKE_GRID_TN            "make_grid">
+<!ENTITY MAKE_OROG_TN            "make_orog">
+<!ENTITY MAKE_SFC_CLIMO_TN       "make_sfc_climo">
+<!ENTITY MAKE_ICS_TN             "make_ics">
+<!ENTITY BLEND_ICS_TN            "blend_ics">
+<!ENTITY MAKE_LBCS_TN            "make_lbcs">
+<!ENTITY RUN_FCST_TN             "run_fcst">
+<!ENTITY RUN_POST_TN             "run_post">
+<!ENTITY RUN_PRDGEN_TN           "run_prdgen">
+<!ENTITY RUN_BUFRSND_TN          "run_bufrsnd">
+<!ENTITY ANALYSIS_JEDI_TN        "analysis_jedi_input">
+<!ENTITY ANALYSIS_GSI_TN         "analysis_gsi_input">
+<!ENTITY ANALYSIS_GSIDIAG_TN     "analysis_gsi_diag">
+<!ENTITY ANALYSIS_SD_GSI_TN      "analysis_sd_gsi_input">
+<!ENTITY POSTANAL_TN             "postanal_input">
+<!ENTITY OBSERVER_GSI_ENSMEAN_TN "observer_gsi_ensmean">
+<!ENTITY OBSERVER_GSI_TN         "observer_gsi">
+<!ENTITY PREP_CYC_SPINUP_TN      "prep_cyc_spinup">
+<!ENTITY PREP_CYC_PROD_TN        "prep_cyc_prod">
+<!ENTITY PREP_CYC_TN             "prep_cyc">
+<!ENTITY CALC_ENSMEAN_TN         "calc_ensmean">
+<!ENTITY PROCESS_RADAR_REF_TN    "process_radarref">
+<!ENTITY PROCESS_LIGHTNING_TN    "process_lightning">
+<!ENTITY PROCESS_GLMFED_TN       "process_glmfed">
+<!ENTITY PROCESS_BUFR_TN         "process_bufr">
+<!ENTITY RADAR_REFL2TTEN_TN      "radar_refl2tten">
+<!ENTITY CLDANL_NONVAR_TN        "cldanl_nonvar">
+<!ENTITY SAVE_RESTART_TN         "save_restart">
+<!ENTITY SAVE_DA_OUTPUT_TN       "save_da_output">
+<!ENTITY IODA_BUFR_TN            "ioda_bufr">
+<!ENTITY PROCESS_SMOKE_TN        "process_smoke">
+<!ENTITY PROCESS_PM_TN           "process_pm">
+<!ENTITY ADD_AEROSOL_TN          "add_aerosol">
+
+<!ENTITY RUN_PREPSTART_TN     "run_prepstart">
+<!ENTITY RUN_ANALYSIS_TN      "run_analysis_gsi">
+<!ENTITY RUN_ANALYSIS_JEDI_TN "run_analysis_jedi">
+<!ENTITY HYBRID_RADAR_REF_TN  "hybrid_radar_ref">
+<!ENTITY RUN_ENKFUPDT_TN      "run_enkfupdt">
+<!ENTITY ENKF_RADAR_REF_TN    "enkf_radarref">
+<!ENTITY RUN_RECENTER_TN      "run_recenter">
+<!ENTITY RUN_BUFR_TN          "run_bufr">
+<!ENTITY CLEAN_TN             "run_clean">
+<!ENTITY ARCHIVE_TN           "run_archive">
+<!ENTITY RUN_SMOKE_TN         "run_proc_smoke">
+<!ENTITY RUN_PM_TN            "run_proc_pm">
+<!ENTITY RUN_IODA_BUFR_TN     "run_ioda_bufr">
+
+<!ENTITY TAG  "c13">
+<!ENTITY NET  "rrfs">
+
+<!--
+Flags that determine whether to run the specific tasks.
+-->
+<!ENTITY RUN_TASK_MAKE_GRID      "TRUE">
+<!ENTITY RUN_TASK_MAKE_OROG      "TRUE">
+<!ENTITY RUN_TASK_MAKE_SFC_CLIMO "TRUE">
+
+<!--
+Number of physical cores per node for the current machine.  This is used
+below in the <nodesize> tag, but that tag is not clearly documented.  This
+parameter may be unnecessary since each task now has its own variable that
+specifies the number of processes per node being used (the PPN_... entities).
+-->
+<!ENTITY NCORES_PER_NODE "128">
+
+<!--
+Directories and files.
+-->
+<!ENTITY JOBSdir                  "/lfs/h2/emc/da/noscrub/Ting.Lei/dr-fv3-rrfs-workflow/rrfs-workflow/jobs">
+<!ENTITY LOG_BASEDIR              "/lfs/h2/emc/ptmp/ting.lei/runs_NA_6km/logs">
+<!ENTITY LOGDIR                   "/lfs/h2/emc/ptmp/ting.lei/runs_NA_6km/logs/rrfs.@Y@m@d/@H">
+<!ENTITY OBSPATH                  "/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/obs_rap">
+<!ENTITY OBSPATH_PM               "/lfs4/BMC/public/data/airnow/hourly_aqobs">
+<!ENTITY CYCLE_BASEDIR            "/lfs/h2/emc/stmp/ting.lei/runs_NA_6km/stmp">
+<!ENTITY NWGES_BASEDIR            "/lfs/h2/emc/ptmp/ting.lei/runs_NA_6km/nwges">
+<!ENTITY ENSCTRL_CYCLE_BASEDIR    "/base/path/of/directory/containing/model/input/and/raw/output/files">
+<!ENTITY ENSCTRL_NWGES_BASEDIR    "/base/path/of/directory/containing/model/restart/files">
+<!ENTITY ENSCTRL_COMOUT_BASEDIR   "/base/path/of/directory/containing/postprocessed/output/files/prod">
+<!ENTITY ENSCTRL_COMOUT_DIR       "/base/path/of/directory/containing/postprocessed/output/files/prod/experiment_name.@Y@m@d">
+<!ENTITY RRFSE_FG_ROOT            "/lfs/h2/emc/ptmp/ting.lei/runs_NA_6km/nwges_enkf">
+<!ENTITY FG_ROOT                  "/lfs/h2/emc/ptmp/ting.lei/runs_NA_6km/nwges">
+<!ENTITY GLOBAL_VAR_DEFNS_FP      "/lfs/h3/emc/lam/noscrub/ting.lei/runs_NA_6km/rrfs.v0.8.6/rrfs_NA_6km/var_defns.sh">
+<!ENTITY LOAD_MODULES_RUN_TASK_FP "/lfs/h2/emc/da/noscrub/Ting.Lei/dr-fv3-rrfs-workflow/rrfs-workflow/ush/load_modules_run_task.sh">
+
+<!--
+Reservation types.  Reservations specify the queue/partition and account
+to use for a given task.  The "DEFAULT" reservation type is used for most
+tasks.
+-->
+<!ENTITY RSRV_DEFAULT "<account>&ACCOUNT;</account><queue>&QUEUE_DEFAULT;</queue>">
+<!ENTITY RSRV_HPSS    "<account>&HPSS_ACCOUNT;</account><queue>&QUEUE_HPSS;</queue>">
+<!ENTITY RSRV_FCST    "<account>&ACCOUNT;</account><queue>&QUEUE_FCST;</queue>">
+<!ENTITY RSRV_ANALYSIS    "<account>&ACCOUNT;</account><queue>&QUEUE_ANALYSIS;</queue>">
+<!ENTITY RSRV_ENKF    "<account>&ACCOUNT;</account><queue>&QUEUE_ANALYSIS;</queue>">
+<!ENTITY RSRV_POST    "<account>&SERVICE_ACCOUNT;</account><queue>&QUEUE_POST;</queue>">
+<!ENTITY RSRV_PRDGEN    "<account>&SERVICE_ACCOUNT;</account><queue>&QUEUE_PRDGEN;</queue>">
+<!ENTITY RSRV_GRAPHICS   "<account>&SERVICE_ACCOUNT;</account><queue>&QUEUE_GRAPHICS;</queue><native>--exclusive</native>">
+
+<!--
+define resources used for each tasks
+-->
+<!ENTITY RESOURCES_PROC_SMOKE     "<nodes>1:ppn=1</nodes>">
+<!ENTITY RESOURCES_PROC_PM        "<nodes>1:ppn=1</nodes>">
+<!ENTITY RESOURCES_PROC_RADAR     "<nodes>2:ppn=24</nodes>">
+<!ENTITY RESOURCES_PROC_LIGHTNING "<nodes>1:ppn=1</nodes>">
+<!ENTITY RESOURCES_PROC_GLMFED    "<nodes>1:ppn=1</nodes>">
+<!ENTITY RESOURCES_PROC_BUFR      "<nodes>1:ppn=1</nodes>">
+<!ENTITY RESOURCES_ADD_AEROSOL    "<nodes>1:ppn=9</nodes>">
+<!ENTITY RESOURCES_PREP_CYC       "<nodes>1:ppn=1</nodes>">
+<!ENTITY RESOURCES_SAVE_RESTART   "<nodes>1:ppn=1</nodes>">
+<!ENTITY RESOURCES_RUN_RECENTER   "<nodes>6:ppn=20</nodes>">
+<!ENTITY RESOURCES_POSTANAL       "<nodes>1:ppn=1</nodes>">
+<!ENTITY RESOURCES_GSIDIAG        "<nodes>1:ppn=24</nodes>">
+<!ENTITY RESOURCES_RUN_PRDGEN     "<nodes>1:ppn=1</nodes>">
+<!ENTITY RESOURCES_NONVAR_CLD     "<nodes>20:ppn=6</nodes>">
+<!ENTITY RESOURCES_RUN_BUFRSND  "<nodes>1:ppn=28:tpp=1</nodes>">
+<!ENTITY RESOURCES_RUN_POST     "<nodes>2:ppn=24:tpp=1</nodes>">
+<!ENTITY RESOURCES_RUN_ENKF     "<nodes>90:ppn=1:tpp=1</nodes>">
+<!ENTITY RESOURCES_MAKE_ICS     "<nodes>4:ppn=12:tpp=1</nodes>">
+<!ENTITY RESOURCES_BLEND_ICS    "<nodes>1:ppn=8</nodes>">
+<!ENTITY RESOURCES_MAKE_LBCS    "<nodes>4:ppn=12:tpp=2</nodes>">
+<!ENTITY RESOURCES_ANALYSIS_JEDI "<nodes>10:ppn=24:tpp=1</nodes>">
+<!ENTITY RESOURCES_ANALYSIS_GSI "<nodes>16:ppn=24:tpp=1</nodes>">
+<!ENTITY RESOURCES_FCST_SPINUP  "<nodes>76:ppn=24:tpp=1</nodes>">
+<!ENTITY RESOURCES_FCST_PROD    "<nodes>76:ppn=24:tpp=1</nodes>">
+<!ENTITY NODESIZE_ALL    "">
+<!ENTITY NATIVE_ALL          "<native>-l place=excl</native>">
+<!ENTITY NATIVE_ANALYSIS_JEDI "<native>-l place=excl</native>">
+<!ENTITY NATIVE_ANALYSIS_GSI "<native>-l place=excl</native>">
+<!ENTITY NATIVE_FCST_SPINUP  "<native>-l place=excl</native>">
+<!ENTITY NATIVE_FCST_PROD    "<native>-l place=excl</native>">
+
+<!ENTITY WALLTIME_PROC_SMOKE      "00:25:00">
+<!ENTITY WALLTIME_PROC_PM         "00:25:00">
+<!ENTITY WALLTIME_PROC_RADAR      "00:25:00">
+<!ENTITY WALLTIME_PROC_LIGHTNING  "00:25:00">
+<!ENTITY WALLTIME_PROC_BUFR       "00:25:00">
+<!ENTITY WALLTIME_PREP_CYC        "00:20:00">
+<!ENTITY WALLTIME_SAVE_RESTART    "00:15:00">
+<!ENTITY WALLTIME_RUN_RECENTER    "01:00:00">
+<!ENTITY WALLTIME_POSTANAL        "00:30:00">
+<!ENTITY WALLTIME_RUN_PRDGEN      "00:40:00">
+<!ENTITY WALLTIME_NONVAR_CLD      "00:20:00">
+<!ENTITY WALLTIME_RUN_POST        "00:15:00">
+<!ENTITY WALLTIME_RUN_ENKF        "01:00:00">
+<!ENTITY WALLTIME_MAKE_ICS        "00:30:00">
+<!ENTITY WALLTIME_BLEND_ICS       "00:30:00">
+<!ENTITY WALLTIME_MAKE_LBCS       "02:00:00">
+<!ENTITY WALLTIME_ANALYSIS_JEDI    "00:50:00">
+<!ENTITY WALLTIME_ANALYSIS_GSI    "00:50:00">
+<!ENTITY WALLTIME_FCST_SPINUP     "00:30:00">
+<!ENTITY WALLTIME_FCST_PROD       "00:45:00">
+<!ENTITY WALLTIME_FCST_PROD_LONG  "06:30:00">
+<!ENTITY WALLTIME_POSTANAL        "00:30:00">
+<!ENTITY WALLTIME_GSIDIAG         "00:15:00">
+<!ENTITY WALLTIME_PROC_GLMFED     "00:25:00">
+<!ENTITY WALLTIME_ADD_AEROSOL     "00:30:00">
+<!ENTITY MEMO_PROC_SMOKE   "40G">
+<!ENTITY MEMO_PROC_PM      "40G">
+<!ENTITY MEMO_PROC_BUFR    "20G">
+<!ENTITY MEMO_PREP_CYC     "<memory>40G</memory>">
+<!ENTITY MEMO_RUN_PRDGEN   "24G">
+<!ENTITY MEMO_NONVAR_CLD   "20G">
+<!ENTITY MEMO_PROC_GLMFED  "70G">
+<!ENTITY MEMO_SAVE_DA_OUTPUT "40G">
+<!ENTITY MEMO_ADD_AEROSOL  "70G">
+<!ENTITY DEADLINE_PRE      "999:00:00">
+<!ENTITY DEADLINE_ANALYSIS "999:00:00">
+<!ENTITY DEADLINE_FCST     "999:30:00">
+<!ENTITY DEADLINE_POST     "999:00:00">
+<!ENTITY DEADLINE_GRAPHICS "999:00:00">
+<!ENTITY DEADLINE_RECENTER "999:00:00">
+<!ENTITY DEADLINE_SAVE_RESTART "999:00:00">
+<!ENTITY WALL_LIMIT_PRE ''>
+<!ENTITY WALL_LIMIT_ANALYSIS ''>
+<!ENTITY WALL_LIMIT_FCST ''>
+<!ENTITY WALL_LIMIT_POST ''>
+<!ENTITY WALL_LIMIT_BUFR ''>
+<!ENTITY WALL_LIMIT_BUFRSND ''>
+<!ENTITY WALL_LIMIT_GRAPHICS ''>
+<!ENTITY WALL_LIMIT_RECENTER ''>
+<!ENTITY WALL_LIMIT_SAVE_RESTART ''>
+
+<!ENTITY START_TIME_SPINUP "01:30:00">
+<!ENTITY START_TIME_PROD "01:40:00">
+<!ENTITY START_TIME_CONVENTIONAL_SPINUP "00:40:00">
+<!ENTITY START_TIME_BLENDING "04:00:00">
+<!ENTITY START_TIME_LATE_ANALYSIS "01:40:00">
+<!ENTITY START_TIME_CONVENTIONAL "00:50:00">
+<!ENTITY START_TIME_IODA_BUFR "00:40:00">
+<!ENTITY START_TIME_NSSLMOSIAC   "00:55:00">
+<!ENTITY START_TIME_LIGHTNINGNC  "00:55:00">
+<!ENTITY START_TIME_PROC_GLMFED  "00:45:00">
+<!ENTITY START_TIME_PROCSMOKE  "00:50:00">
+<!ENTITY START_TIME_PROCPM  "00:45:00">
+<!ENTITY STARTYEAR  "2024">
+<!ENTITY STARTMONTH "5">
+<!ENTITY STARTDAY   "6">
+<!ENTITY STARTHOUR  "0">
+<!ENTITY ENDYEAR  "2024">
+<!ENTITY ENDMONTH "5">
+<!ENTITY ENDDAY   "12">
+<!ENTITY ENDHOUR  "23">
+
+]>
+<workflow realtime="F" scheduler="&SCHED;" cyclethrottle="12">
+
+
+  <cycledef group="at_start">00 01 01 01 2100 * </cycledef>
+
+  <cycledef group="initial"> 202405060000 202405122300 12:00:00 </cycledef>
+  <cycledef group="boundary"> 202405060000 202405122300 12:00:00 </cycledef>
+
+  <cycledef group="spinupcyc"> 00 01 01 01 2100 * </cycledef>
+  <cycledef group="prodcyc"> 00 01-11,13-23 6-12 5 2024 * </cycledef>
+  <cycledef group="prodcyc_long"> 00 00-23/12 6-12 5 2024 * </cycledef>
+  <cycledef group="recentercyc"> 00 01 01 01 2100 * </cycledef>
+  <cycledef group="archive">  00 01 01 01 2100 * </cycledef> 
+
+  <log>
+    <cyclestr>&LOGDIR;/FV3LAM_wflow_&TAG;.log</cyclestr>
+  </log>
+
+<!-- 
+The following command works to call the J-job for a given task (in this
+case the MAKE_GRID_TN task) if in the script LOAD_MODULES_RUN_TASK_FP we 
+do NOT call exec to run the J-job.  The command first sources the script
+LOAD_MODULES_RUN_TASK_FP and then runs the J-job, so it is simpler than
+calling exec and thus preferred if NCO accepts it.  Note that the portion
+of the command that sources LOAD_MODULES_RUN_TASK_FP also passes an 
+argument to it (the argument being the name of the task).  This works in
+bash but it probably won't work in sh.
+
+If this method is acceptable to NCO, then for clarity maybe we can
+source LOAD_MODULES_RUN_TASK_FP within the J-job instead of here since
+we are already sourcing other files in the J-job anyway.
+-->
+<!--
+    <command>{ . &LOAD_MODULES_RUN_TASK_FP; "&MAKE_GRID_TN;";
+               &JOBSdir;/JRRFS_MAKE_GRID;
+             }</command>
+-->
+<!--
+The following command works if we call exec in LOAD_MODULES_RUN_TASK_FP
+to run the J-job.  This passes the J-job script as the second argument
+to LOAD_MODULES_RUN_TASK_FP (the first argument is the task name).  The
+J-job then uses exec to run the J-job (while also terminating the LOAD_-
+MODULES_RUN_TASK_FP script.
+-->
+<!--
+************************************************************************
+************************************************************************
+-->
+  <task name="&MAKE_GRID_TN;" cycledefs="at_start" maxtries="2">
+
+    &RSRV_DEFAULT;
+    <command>&LOAD_MODULES_RUN_TASK_FP; "&MAKE_GRID_TN;" "&JOBSdir;/JRRFS_MAKE_GRID"</command>
+    <nodes>1:ppn=24</nodes>
+    <walltime>00:20:00</walltime>
+    &NODESIZE_ALL;
+    <jobname>&TAG;_&MAKE_GRID_TN;</jobname>
+    <join><cyclestr>&LOGDIR;/&MAKE_GRID_TN;.log</cyclestr></join>
+
+    <envar><name>GLOBAL_VAR_DEFNS_FP</name><value>&GLOBAL_VAR_DEFNS_FP;</value></envar>
+
+  </task>
+
+<!--
+************************************************************************
+************************************************************************
+-->
+  <task name="&MAKE_OROG_TN;" cycledefs="at_start" maxtries="2">
+
+    &RSRV_DEFAULT;
+    <command>&LOAD_MODULES_RUN_TASK_FP; "&MAKE_OROG_TN;" "&JOBSdir;/JRRFS_MAKE_OROG"</command>
+    <nodes>1:ppn=24</nodes>
+    <walltime>00:40:00</walltime>
+    &NODESIZE_ALL;
+    <jobname>&TAG;_&MAKE_OROG_TN;</jobname>
+    <join><cyclestr>&LOGDIR;/&MAKE_OROG_TN;.log</cyclestr></join>
+
+    <envar><name>GLOBAL_VAR_DEFNS_FP</name><value>&GLOBAL_VAR_DEFNS_FP;</value></envar>
+
+    <dependency>
+      <or>
+        <taskdep task="&MAKE_GRID_TN;"/>
+        <streq><left>&RUN_TASK_MAKE_GRID;</left><right>FALSE</right></streq>
+      </or>
+    </dependency>
+
+  </task>
+
+<!--
+************************************************************************
+************************************************************************
+-->
+  <task name="&MAKE_SFC_CLIMO_TN;" cycledefs="at_start" maxtries="2">
+
+    &RSRV_DEFAULT;
+    <command>&LOAD_MODULES_RUN_TASK_FP; "&MAKE_SFC_CLIMO_TN;" "&JOBSdir;/JRRFS_MAKE_SFC_CLIMO"</command>
+    <nodes>2:ppn=24</nodes>
+    <walltime>00:20:00</walltime>
+    &NODESIZE_ALL;
+    <jobname>&TAG;_&MAKE_SFC_CLIMO_TN;</jobname>
+    <join><cyclestr>&LOGDIR;/&MAKE_SFC_CLIMO_TN;.log</cyclestr></join>
+
+    <envar><name>GLOBAL_VAR_DEFNS_FP</name><value>&GLOBAL_VAR_DEFNS_FP;</value></envar>
+
+    <dependency>
+      <and>
+        <or>
+          <taskdep task="&MAKE_GRID_TN;"/>
+          <streq><left>&RUN_TASK_MAKE_GRID;</left><right>FALSE</right></streq>
+        </or>
+        <or>
+          <taskdep task="&MAKE_OROG_TN;"/>
+          <streq><left>&RUN_TASK_MAKE_OROG;</left><right>FALSE</right></streq>
+        </or>
+      </and>
+    </dependency>
+
+  </task>
+
+<!-- beginning of meta block for prod spinup  -->
+<metatask name="data_preprocessing">
+  <var name="cycletype">prodcyc,prodcyc_long</var>
+  <var name="type">prod</var>
+</metatask>
+ 
+
+<!--
+************************************************************************
+************************************************************************
+-->
+
+
+<!--
+************************************************************************
+************************************************************************
+-->
+  <task name="&MAKE_ICS_TN;" cycledefs="initial" maxtries="2">
+
+    &RSRV_DEFAULT;
+    &WALL_LIMIT_PRE;
+
+    <command>&LOAD_MODULES_RUN_TASK_FP; "&MAKE_ICS_TN;" "&JOBSdir;/JRRFS_MAKE_ICS"</command>
+    &RESOURCES_MAKE_ICS;
+    &NATIVE_ALL;
+    <walltime>&WALLTIME_MAKE_ICS;</walltime>
+    &NODESIZE_ALL;
+    <jobname>&TAG;_&MAKE_ICS_TN;</jobname>
+    <join><cyclestr>&LOGDIR;/&MAKE_ICS_TN;_&TAG;_@Y@m@d@H.log</cyclestr></join>
+
+    <envar><name>GLOBAL_VAR_DEFNS_FP</name><value>&GLOBAL_VAR_DEFNS_FP;</value></envar>
+    <envar><name>PDY</name><value><cyclestr>@Y@m@d</cyclestr></value></envar>
+    <envar><name>CDATE</name><value><cyclestr>@Y@m@d@H</cyclestr></value></envar>
+    <envar><name>CYCLE_DIR</name><value><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+    <envar><name>NWGES_DIR</name><value><cyclestr>&NWGES_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+    <envar><name>FG_ROOT</name><value><cyclestr>&FG_ROOT;</cyclestr></value></envar>
+    <envar><name>EXTRN_MDL_NAME</name><value>FV3GFS</value></envar>
+    <envar><name>SLASH_ENSMEM_SUBDIR</name><value><cyclestr></cyclestr></value></envar>
+    <envar><name>GEFS_INPUT_SUBDIR</name><value>#subdirGE#</value></envar>
+    <envar><name>WRF_MEM_NAME</name><value>#memNameWRF#</value></envar>
+    <envar><name>GDASENKF_INPUT_SUBDIR</name><value>#subdirGDAS#</value></envar>
+    <envar><name>GDAS_MEM_NAME</name><value>#memNameGDAS#</value></envar>
+
+    <dependency>
+      <and>
+        <or>
+          <taskdep task="&MAKE_GRID_TN;"/>
+          <streq><left>&RUN_TASK_MAKE_GRID;</left><right>FALSE</right></streq>
+        </or>
+        <or>
+          <taskdep task="&MAKE_OROG_TN;"/>
+          <streq><left>&RUN_TASK_MAKE_OROG;</left><right>FALSE</right></streq>
+        </or>
+        <or>
+          <taskdep task="&MAKE_SFC_CLIMO_TN;"/>
+          <streq><left>&RUN_TASK_MAKE_SFC_CLIMO;</left><right>FALSE</right></streq>
+        </or>
+        <or>
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000006</cyclestr></datadep>
+                
+          
+        </or>
+      </and>
+    </dependency>
+
+  </task>
+
+  
+
+<!--
+************************************************************************
+************************************************************************
+-->
+<metatask name="&MAKE_LBCS_TN;">
+  <var name="bcgrp"> 00 01 02 03</var>
+
+  <task name="&MAKE_LBCS_TN;_#bcgrp#" cycledefs="boundary" maxtries="2">
+
+    &RSRV_DEFAULT;
+    &WALL_LIMIT_PRE;
+
+    <command>&LOAD_MODULES_RUN_TASK_FP; "&MAKE_LBCS_TN;" "&JOBSdir;/JRRFS_MAKE_LBCS"</command>
+    &RESOURCES_MAKE_LBCS;
+    &NATIVE_ALL;
+    <walltime>&WALLTIME_MAKE_LBCS;</walltime>
+    &NODESIZE_ALL;
+    <jobname>&TAG;_&MAKE_LBCS_TN;_#bcgrp#</jobname>
+    <join><cyclestr>&LOGDIR;/&MAKE_LBCS_TN;_&TAG;_@Y@m@d@H_#bcgrp#.log</cyclestr></join>
+
+    <envar><name>GLOBAL_VAR_DEFNS_FP</name><value>&GLOBAL_VAR_DEFNS_FP;</value></envar>
+    <envar><name>PDY</name><value><cyclestr>@Y@m@d</cyclestr></value></envar>
+    <envar><name>CDATE</name><value><cyclestr>@Y@m@d@H</cyclestr></value></envar>
+    <envar><name>CYCLE_DIR</name><value><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+    <envar><name>NWGES_DIR</name><value><cyclestr>&NWGES_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+    <envar><name>EXTRN_MDL_NAME</name><value>FV3GFS</value></envar>
+    <envar><name>BOUNDARY_LEN</name><value>18</value></envar>
+    <envar><name>SLASH_ENSMEM_SUBDIR</name><value><cyclestr></cyclestr></value></envar>
+    <envar><name>GEFS_INPUT_SUBDIR</name><value>#subdirGE#</value></envar>
+    <envar><name>GDASENKF_INPUT_SUBDIR</name><value>#subdirGDAS#</value></envar>
+    <envar><name>GDAS_MEM_NAME</name><value>#memNameGDAS#</value></envar>
+    <envar><name>bcgrp</name><value>#bcgrp#</value></envar>
+    <envar><name>bcgrpnum</name><value>4</value></envar>
+
+    <dependency>
+      <and>
+        <or>
+          <taskdep task="&MAKE_GRID_TN;"/>
+          <streq><left>&RUN_TASK_MAKE_GRID;</left><right>FALSE</right></streq>
+        </or>
+        <or>
+          <taskdep task="&MAKE_OROG_TN;"/>
+          <streq><left>&RUN_TASK_MAKE_OROG;</left><right>FALSE</right></streq>
+        </or>
+        <or>
+          <taskdep task="&MAKE_SFC_CLIMO_TN;"/>
+          <streq><left>&RUN_TASK_MAKE_SFC_CLIMO;</left><right>FALSE</right></streq>
+        </or>
+        <and> 
+<!-- Dependencies from the GET_GEFS_LBCS task -->
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000006</cyclestr></datadep>
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000007</cyclestr></datadep>
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000008</cyclestr></datadep>
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000009</cyclestr></datadep>
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000010</cyclestr></datadep>
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000011</cyclestr></datadep>
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000012</cyclestr></datadep>
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000013</cyclestr></datadep>
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000014</cyclestr></datadep>
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000015</cyclestr></datadep>
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000016</cyclestr></datadep>
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000017</cyclestr></datadep>
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000018</cyclestr></datadep>
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000019</cyclestr></datadep>
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000020</cyclestr></datadep>
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000021</cyclestr></datadep>
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000022</cyclestr></datadep>
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000023</cyclestr></datadep>
+          <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">/lfs/h3/emc/lam/noscrub/donald.e.lippi/rrfs-stagedata/gfs/0p25deg/grib2/@y@j@H000024</cyclestr></datadep>
+        </and>
+      </and>
+    </dependency>
+
+  </task>
+
+</metatask>  <!-- not do_ensfcst -->
+
+<!-- beginning of prod block -->
+<!--
+************************************************************************
+************************************************************************
+-->
+  <task name="&PREP_CYC_PROD_TN;" cycledefs="prodcyc,prodcyc_long" maxtries="2">
+
+    &RSRV_DEFAULT;
+    &WALL_LIMIT_PRE;
+
+    <command>&LOAD_MODULES_RUN_TASK_FP; "&RUN_PREPSTART_TN;" "&JOBSdir;/JRRFS_PREP_CYC"</command>
+    &RESOURCES_PREP_CYC;
+    &NATIVE_ALL;
+    <walltime>&WALLTIME_PREP_CYC;</walltime>
+    &NODESIZE_ALL;
+    &MEMO_PREP_CYC;
+    <jobname>&TAG;_&PREP_CYC_PROD_TN;</jobname>
+    <join><cyclestr>&LOGDIR;/&PREP_CYC_PROD_TN;_&TAG;_@Y@m@d@H.log</cyclestr></join>
+
+    <envar><name>GLOBAL_VAR_DEFNS_FP</name><value>&GLOBAL_VAR_DEFNS_FP;</value></envar>
+    <envar><name>PDY</name><value><cyclestr>@Y@m@d</cyclestr></value></envar>
+    <envar><name>CDATE</name><value><cyclestr>@Y@m@d@H</cyclestr></value></envar>
+    <envar><name>HH</name><value><cyclestr>@H</cyclestr></value></envar>
+    <envar><name>CYCLE_DIR</name><value><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+    <envar><name>FG_ROOT</name><value><cyclestr>&FG_ROOT;</cyclestr></value></envar>
+    <envar><name>LBCS_ROOT</name><value><cyclestr>&FG_ROOT;</cyclestr></value></envar>
+    <envar><name>CYCLE_TYPE</name><value><cyclestr>prod</cyclestr></value></envar>
+    <envar><name>SLASH_ENSMEM_SUBDIR</name><value><cyclestr></cyclestr></value></envar>
+    <envar><name>NWGES_BASEDIR</name><value>&NWGES_BASEDIR;</value></envar>
+
+    <dependency>
+       <or>
+<!-- for start product cycle -->
+         <and>
+           <or>
+             <streq><left>00</left><right><cyclestr>@H</cyclestr></right></streq>
+             <streq><left>12</left><right><cyclestr>@H</cyclestr></right></streq>
+           </or>
+           <and>
+             <datadep age="00:00:05:00"><cyclestr>&FG_ROOT;/@Y@m@d@H/ics/gfs_data.tile7.halo0.nc</cyclestr></datadep>
+             <or>
+             <datadep age="00:00:05:00"><cyclestr offset="-0:00:00">&FG_ROOT;/@Y@m@d@H/lbcs/gfs_bndy.tile7.018.nc</cyclestr></datadep>
+             <datadep age="00:00:05:00"><cyclestr offset="-1:00:00">&FG_ROOT;/@Y@m@d@H/lbcs/gfs_bndy.tile7.018.nc</cyclestr></datadep>
+             <datadep age="00:00:05:00"><cyclestr offset="-2:00:00">&FG_ROOT;/@Y@m@d@H/lbcs/gfs_bndy.tile7.018.nc</cyclestr></datadep>
+             <datadep age="00:00:05:00"><cyclestr offset="-3:00:00">&FG_ROOT;/@Y@m@d@H/lbcs/gfs_bndy.tile7.018.nc</cyclestr></datadep>
+             <datadep age="00:00:05:00"><cyclestr offset="-4:00:00">&FG_ROOT;/@Y@m@d@H/lbcs/gfs_bndy.tile7.018.nc</cyclestr></datadep>
+             <datadep age="00:00:05:00"><cyclestr offset="-5:00:00">&FG_ROOT;/@Y@m@d@H/lbcs/gfs_bndy.tile7.018.nc</cyclestr></datadep>
+             <datadep age="00:00:05:00"><cyclestr offset="-6:00:00">&FG_ROOT;/@Y@m@d@H/lbcs/gfs_bndy.tile7.018.nc</cyclestr></datadep>
+             </or>
+           </and>
+
+         </and>
+<!-- for continue product cycles  -->
+         <and>
+           <strneq><left>00</left><right><cyclestr>@H</cyclestr></right></strneq>
+           <strneq><left>12</left><right><cyclestr>@H</cyclestr></right></strneq>
+           <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&FG_ROOT;/@Y@m@d@H/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+
+         </and>
+       </or>
+    </dependency>
+
+  </task>
+
+
+<!--
+************************************************************************
+************************************************************************
+-->
+<!--
+************************************************************************
+************************************************************************
+-->
+  <task name="&ANALYSIS_GSI_TN;_prod" cycledefs="prodcyc,prodcyc_long" maxtries="2">
+
+    &RSRV_ANALYSIS;
+    &WALL_LIMIT_ANALYSIS;
+
+    <command>&LOAD_MODULES_RUN_TASK_FP; "&RUN_ANALYSIS_TN;" "&JOBSdir;/JRRFS_ANALYSIS_GSI"</command>
+
+    &RESOURCES_ANALYSIS_GSI;
+    &NATIVE_ANALYSIS_GSI;
+    <walltime>&WALLTIME_ANALYSIS_GSI;</walltime>
+    &NODESIZE_ALL;
+    <jobname>&TAG;_&ANALYSIS_GSI_TN;_prod</jobname>
+    <join><cyclestr>&LOGDIR;/&ANALYSIS_GSI_TN;_&TAG;_prod_@Y@m@d@H.log</cyclestr></join>
+
+    <envar><name>GLOBAL_VAR_DEFNS_FP</name><value>&GLOBAL_VAR_DEFNS_FP;</value></envar>
+    <envar><name>PDY</name><value><cyclestr>@Y@m@d</cyclestr></value></envar>
+    <envar><name>cyc</name><value><cyclestr>@H</cyclestr></value></envar>
+    <envar><name>CDATE</name><value><cyclestr>@Y@m@d@H</cyclestr></value></envar>
+    <envar><name>CYCLE_DIR</name><value><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+    <envar><name>CYCLE_ROOT</name><value><cyclestr>&CYCLE_BASEDIR;</cyclestr></value></envar>
+    <envar><name>RRFSE_FG_ROOT</name><value><cyclestr>&RRFSE_FG_ROOT;</cyclestr></value></envar>
+    <envar><name>CYCLE_TYPE</name><value><cyclestr>prod</cyclestr></value></envar>
+    <envar><name>GSI_TYPE</name><value><cyclestr>ANALYSIS</cyclestr></value></envar>
+    <envar><name>MEM_TYPE</name><value><cyclestr>MEMBER</cyclestr></value></envar>
+    <envar><name>SLASH_ENSMEM_SUBDIR</name><value><cyclestr></cyclestr></value></envar>
+    <envar><name>SATBIAS_DIR</name><value><cyclestr>&NWGES_BASEDIR;/satbias</cyclestr></value></envar>
+    <envar><name>nens</name><value>30</value></envar>
+
+    <dependency>
+       <and>
+         <timedep><cyclestr offset="&START_TIME_CONVENTIONAL;">@Y@m@d@H@M00</cyclestr></timedep>
+         <or>
+           <datadep age="02:00"><cyclestr>&OBSPATH;/@Y@m@d@H.rap.t@Hz.prepbufr.tm00</cyclestr></datadep>
+           <datadep age="02:00"><cyclestr>&OBSPATH;/rap.@Y@m@d/rap.t@Hz.prepbufr.tm00</cyclestr></datadep>
+         </or>
+         <taskdep task="&PREP_CYC_TN;_prod"/>
+         <or> 
+            <and>
+             
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0001/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0002/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0003/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0004/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0005/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0006/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0007/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0008/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0009/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0010/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0011/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0012/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0013/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0014/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0015/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0016/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0017/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0018/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0019/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0020/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0021/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0022/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0023/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0024/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0025/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0026/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0027/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0028/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0029/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+             <datadep age="00:00:01:00"><cyclestr offset="-1:00:00">&RRFSE_FG_ROOT;/@Y@m@d@H/mem0030/fcst_fv3lam/RESTART/</cyclestr><cyclestr>@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+            </and> 
+         </or>
+       </and>
+    </dependency>
+
+  </task>
+<!--
+************************************************************************
+************************************************************************
+-->
+  <task name="&POSTANAL_TN;_prod" cycledefs="prodcyc,prodcyc_long" maxtries="2">
+
+    &RSRV_DEFAULT;
+    &WALL_LIMIT_POST;
+
+    <command>&LOAD_MODULES_RUN_TASK_FP; "&RUN_POST_TN;" "&JOBSdir;/JRRFS_UPDATE_LBC_SOIL"</command>
+    &RESOURCES_POSTANAL;
+    &NATIVE_ALL;
+    <walltime>&WALLTIME_POSTANAL;</walltime>
+    &NODESIZE_ALL;
+    <jobname>&TAG;_&POSTANAL_TN;_prod</jobname>
+    <join><cyclestr>&LOGDIR;/&POSTANAL_TN;_prod_&TAG;_@Y@m@d@H.log</cyclestr></join>
+
+    <envar><name>GLOBAL_VAR_DEFNS_FP</name><value>&GLOBAL_VAR_DEFNS_FP;</value></envar>
+    <envar><name>PDY</name><value><cyclestr>@Y@m@d</cyclestr></value></envar>
+    <envar><name>cyc</name><value><cyclestr>@H</cyclestr></value></envar>
+    <envar><name>CDATE</name><value><cyclestr>@Y@m@d@H</cyclestr></value></envar>
+    <envar><name>CYCLE_DIR</name><value><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+    <envar><name>CYCLE_ROOT</name><value><cyclestr>&CYCLE_BASEDIR;</cyclestr></value></envar>
+    <envar><name>RRFSE_FG_ROOT</name><value><cyclestr>&RRFSE_FG_ROOT;</cyclestr></value></envar>
+    <envar><name>CYCLE_TYPE</name><value><cyclestr>prod</cyclestr></value></envar>
+    <envar><name>GSI_TYPE</name><value><cyclestr>ANALYSIS</cyclestr></value></envar>
+    <envar><name>MEM_TYPE</name><value><cyclestr>MEMBER</cyclestr></value></envar>
+    <envar><name>SLASH_ENSMEM_SUBDIR</name><value><cyclestr></cyclestr></value></envar>
+    <envar><name>SATBIAS_DIR</name><value><cyclestr>&NWGES_BASEDIR;/satbias</cyclestr></value></envar>
+    <envar><name>nens</name><value>30</value></envar>
+
+    <dependency>
+       <taskdep task="&ANALYSIS_GSI_TN;_prod"/>
+    </dependency>
+
+  </task>
+<!--
+************************************************************************
+************************************************************************
+-->
+  <task name="&ANALYSIS_GSIDIAG_TN;_prod" cycledefs="prodcyc,prodcyc_long" maxtries="2">
+
+    &RSRV_DEFAULT;
+    &WALL_LIMIT_ANALYSIS;
+
+    <command>&LOAD_MODULES_RUN_TASK_FP; "&RUN_ANALYSIS_TN;" "&JOBSdir;/JRRFS_ANALYSIS_GSIDIAG"</command>
+    &RESOURCES_GSIDIAG;
+    &NATIVE_ALL;
+    <walltime>&WALLTIME_GSIDIAG;</walltime>
+    &NODESIZE_ALL;
+    <jobname>&TAG;_&ANALYSIS_GSIDIAG_TN;_prod</jobname>
+    <join><cyclestr>&LOGDIR;/&ANALYSIS_GSIDIAG_TN;prod_&TAG;@Y@m@d@H.log</cyclestr></join>
+
+    <envar><name>GLOBAL_VAR_DEFNS_FP</name><value>&GLOBAL_VAR_DEFNS_FP;</value></envar>
+    <envar><name>PDY</name><value><cyclestr>@Y@m@d</cyclestr></value></envar>
+    <envar><name>cyc</name><value><cyclestr>@H</cyclestr></value></envar>
+    <envar><name>CDATE</name><value><cyclestr>@Y@m@d@H</cyclestr></value></envar>
+    <envar><name>CYCLE_DIR</name><value><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+    <envar><name>CYCLE_ROOT</name><value><cyclestr>&CYCLE_BASEDIR;</cyclestr></value></envar>
+    <envar><name>CYCLE_TYPE</name><value><cyclestr>prod</cyclestr></value></envar>
+    <envar><name>GSI_TYPE</name><value><cyclestr>ANALYSIS</cyclestr></value></envar>
+    <envar><name>MEM_TYPE</name><value><cyclestr>MEMBER</cyclestr></value></envar>
+    <envar><name>SLASH_ENSMEM_SUBDIR</name><value><cyclestr></cyclestr></value></envar>
+    <envar><name>SATBIAS_DIR</name><value><cyclestr>&NWGES_BASEDIR;/satbias</cyclestr></value></envar>
+
+    <dependency>
+       <and>
+         <taskdep task="&ANALYSIS_GSI_TN;_prod"/>
+       </and>
+    </dependency>
+
+  </task>
+
+
+<!--
+************************************************************************
+************************************************************************
+-->
+
+  <task name="&RUN_FCST_TN;_prod" cycledefs="prodcyc" maxtries="2">
+
+    &RSRV_FCST;
+    &WALL_LIMIT_FCST;
+
+    <command>&LOAD_MODULES_RUN_TASK_FP; "&RUN_FCST_TN;" "&JOBSdir;/JRRFS_FORECAST"</command>
+
+    &RESOURCES_FCST_PROD;
+    <walltime>&WALLTIME_FCST_PROD;</walltime>
+    &NATIVE_ALL;
+    &NATIVE_FCST_PROD;
+    &NODESIZE_ALL;
+    <jobname>&TAG;_&RUN_FCST_TN;_prod</jobname>
+    <join><cyclestr>&LOGDIR;/&RUN_FCST_TN;_prod_&TAG;_@Y@m@d@H.log</cyclestr></join>
+
+    <envar><name>GLOBAL_VAR_DEFNS_FP</name><value>&GLOBAL_VAR_DEFNS_FP;</value></envar>
+    <envar><name>PDY</name><value><cyclestr>@Y@m@d</cyclestr></value></envar>
+    <envar><name>CDATE</name><value><cyclestr>@Y@m@d@H</cyclestr></value></envar>
+    <envar><name>HH</name><value><cyclestr>@H</cyclestr></value></envar>
+    <envar><name>CYCLE_DIR</name><value><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+    <envar><name>SLASH_ENSMEM_SUBDIR</name><value><cyclestr></cyclestr></value></envar>
+    <envar><name>ENSMEM_INDX</name><value><cyclestr>##</cyclestr></value></envar>
+    <envar><name>CYCLE_TYPE</name><value><cyclestr>prod</cyclestr></value></envar>
+    <envar><name>NWGES_BASEDIR</name><value>&NWGES_BASEDIR;</value></envar>
+    <envar><name>RESTART_HRS</name><value><cyclestr>1</cyclestr></value></envar>
+  
+    <dependency>
+        <taskdep task="&POSTANAL_TN;_prod"/>
+    </dependency>
+
+  </task>
+
+<!-- ******************************************************************* -->
+  <task name="&RUN_FCST_TN;_prod_long" cycledefs="prodcyc_long" maxtries="2">
+
+    &RSRV_FCST;
+    &WALL_LIMIT_FCST;
+
+    <command>&LOAD_MODULES_RUN_TASK_FP; "&RUN_FCST_TN;" "&JOBSdir;/JRRFS_FORECAST"</command>
+
+    &RESOURCES_FCST_PROD;
+    <walltime>&WALLTIME_FCST_PROD_LONG;</walltime>
+    &NATIVE_ALL;
+    &NATIVE_FCST_PROD;
+    &NODESIZE_ALL;
+    <jobname>&TAG;_&RUN_FCST_TN;_prod</jobname>
+    <join><cyclestr>&LOGDIR;/&RUN_FCST_TN;_prod_&TAG;_@Y@m@d@H.log</cyclestr></join>
+
+    <envar><name>GLOBAL_VAR_DEFNS_FP</name><value>&GLOBAL_VAR_DEFNS_FP;</value></envar>
+    <envar><name>PDY</name><value><cyclestr>@Y@m@d</cyclestr></value></envar>
+    <envar><name>CDATE</name><value><cyclestr>@Y@m@d@H</cyclestr></value></envar>
+    <envar><name>HH</name><value><cyclestr>@H</cyclestr></value></envar>
+    <envar><name>CYCLE_DIR</name><value><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+    <envar><name>SLASH_ENSMEM_SUBDIR</name><value><cyclestr></cyclestr></value></envar>
+    <envar><name>ENSMEM_INDX</name><value><cyclestr>##</cyclestr></value></envar>
+    <envar><name>CYCLE_TYPE</name><value><cyclestr>prod</cyclestr></value></envar>
+    <envar><name>NWGES_BASEDIR</name><value>&NWGES_BASEDIR;</value></envar>
+    <envar><name>RESTART_HRS</name><value><cyclestr>1</cyclestr></value></envar>
+  
+    <dependency>
+        <taskdep task="&POSTANAL_TN;_prod"/>
+    </dependency>
+
+  </task>
+<!--
+************************************************************************
+************************************************************************
+-->
+  <metatask name="&SAVE_RESTART_TN;_prod">
+
+    <var name="fhr"> 1 </var>
+
+    <task name="&SAVE_RESTART_TN;_prod_f#fhr#" cycledefs="prodcyc" maxtries="2">
+
+      &RSRV_DEFAULT;
+      &WALL_LIMIT_SAVE_RESTART;
+      <command>&LOAD_MODULES_RUN_TASK_FP; "&SAVE_RESTART_TN;" "&JOBSdir;/JRRFS_SAVE_RESTART"</command>
+      <nodes>1:ppn=1</nodes>
+      <walltime>00:15:00</walltime>
+      &NATIVE_ALL;
+      &NODESIZE_ALL;
+      &MEMO_PREP_CYC;
+      <jobname>&TAG;_&SAVE_RESTART_TN;_f#fhr#</jobname>
+      <join><cyclestr>&LOGDIR;/&SAVE_RESTART_TN;_&TAG;_f#fhr#_@Y@m@d@H.log</cyclestr></join>
+
+      <envar><name>GLOBAL_VAR_DEFNS_FP</name><value>&GLOBAL_VAR_DEFNS_FP;</value></envar>
+      <envar><name>PDY</name><value><cyclestr>@Y@m@d</cyclestr></value></envar>
+      <envar><name>CDATE</name><value><cyclestr>@Y@m@d@H</cyclestr></value></envar>
+      <envar><name>CYCLE_DIR</name><value><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+      <envar><name>NWGES_DIR</name><value><cyclestr>&NWGES_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+      <envar><name>SURFACE_DIR</name><value><cyclestr>&NWGES_BASEDIR;/surface</cyclestr></value></envar>
+      <envar><name>SLASH_ENSMEM_SUBDIR</name><value><cyclestr></cyclestr></value></envar>
+      <envar><name>cyc</name><value><cyclestr>@H</cyclestr></value></envar>
+      <envar><name>fhr</name><value>#fhr#</value></envar>
+      <envar><name>CYCLE_TYPE</name><value><cyclestr>prod</cyclestr></value></envar>
+
+      <dependency>
+        <and>
+          <timedep><cyclestr offset="&START_TIME_CONVENTIONAL;">@Y@m@d@H@M00</cyclestr></timedep>
+          <or>
+            <datadep age="00:30"><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H/fcst_fv3lam/RESTART/coupler.res</cyclestr></datadep>
+            <datadep age="00:30"><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H/fcst_fv3lam/RESTART/</cyclestr><cyclestr offset="#fhr#:00:00">@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+          </or>
+        </and>
+      </dependency>
+
+    </task>
+
+  </metatask>
+  <metatask name="&SAVE_RESTART_TN;_prod_long">
+
+    <var name="fhr"> 1 </var>
+
+    <task name="&SAVE_RESTART_TN;_prod_long_f#fhr#" cycledefs="prodcyc_long" maxtries="2">
+
+      &RSRV_DEFAULT;
+      &WALL_LIMIT_SAVE_RESTART;
+      <command>&LOAD_MODULES_RUN_TASK_FP; "&SAVE_RESTART_TN;" "&JOBSdir;/JRRFS_SAVE_RESTART"</command>
+      <nodes>1:ppn=1</nodes>
+      <walltime>00:15:00</walltime>
+      &NODESIZE_ALL;
+      &NATIVE_ALL;
+      &MEMO_PREP_CYC;
+      <jobname>&TAG;_&SAVE_RESTART_TN;_f#fhr#</jobname>
+      <join><cyclestr>&LOGDIR;/&SAVE_RESTART_TN;_&TAG;_f#fhr#_@Y@m@d@H.log</cyclestr></join>
+
+      <envar><name>GLOBAL_VAR_DEFNS_FP</name><value>&GLOBAL_VAR_DEFNS_FP;</value></envar>
+      <envar><name>PDY</name><value><cyclestr>@Y@m@d</cyclestr></value></envar>
+      <envar><name>CDATE</name><value><cyclestr>@Y@m@d@H</cyclestr></value></envar>
+      <envar><name>CYCLE_DIR</name><value><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+      <envar><name>NWGES_DIR</name><value><cyclestr>&NWGES_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+      <envar><name>SURFACE_DIR</name><value><cyclestr>&NWGES_BASEDIR;/surface</cyclestr></value></envar>
+      <envar><name>SLASH_ENSMEM_SUBDIR</name><value><cyclestr></cyclestr></value></envar>
+      <envar><name>cyc</name><value><cyclestr>@H</cyclestr></value></envar>
+      <envar><name>fhr</name><value>#fhr#</value></envar>
+      <envar><name>CYCLE_TYPE</name><value><cyclestr>prod</cyclestr></value></envar>
+
+      <dependency>
+        <and>
+          <timedep><cyclestr offset="&START_TIME_CONVENTIONAL;">@Y@m@d@H@M00</cyclestr></timedep>
+          <or>
+            <datadep age="00:30"><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H/fcst_fv3lam/RESTART/coupler.res</cyclestr></datadep>
+            <datadep age="00:30"><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H/fcst_fv3lam/RESTART/</cyclestr><cyclestr offset="#fhr#:00:00">@Y@m@d.@H0000.coupler.res</cyclestr></datadep>
+          </or>
+        </and>
+      </dependency>
+
+    </task>
+
+  </metatask>
+<!--
+************************************************************************
+************************************************************************
+-->
+  <metatask name="&RUN_POST_TN;">
+    <var name="fhr">  000 001 002 003 </var>
+
+    <task name="&RUN_POST_TN;_f#fhr#" cycledefs="prodcyc" maxtries="2">
+
+      &RSRV_POST;
+      &WALL_LIMIT_POST;
+      <command>&LOAD_MODULES_RUN_TASK_FP; "&RUN_POST_TN;" "&JOBSdir;/JRRFS_POST"</command>
+      &RESOURCES_RUN_POST;
+      &NATIVE_ALL;
+      <walltime>&WALLTIME_RUN_POST;</walltime>
+      &NODESIZE_ALL;
+      <jobname>&TAG;_&RUN_POST_TN;_f#fhr#</jobname>
+      <join><cyclestr>&LOGDIR;/&RUN_POST_TN;_&TAG;_f#fhr#_@Y@m@d@H.log</cyclestr></join>
+
+      <envar><name>GLOBAL_VAR_DEFNS_FP</name><value>&GLOBAL_VAR_DEFNS_FP;</value></envar>
+      <envar><name>PDY</name><value><cyclestr>@Y@m@d</cyclestr></value></envar>
+      <envar><name>CDATE</name><value><cyclestr>@Y@m@d@H</cyclestr></value></envar>
+      <envar><name>CYCLE_DIR</name><value><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+      <envar><name>NWGES_DIR</name><value><cyclestr>&NWGES_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+      <envar><name>SLASH_ENSMEM_SUBDIR</name><value><cyclestr></cyclestr></value></envar>
+      <envar><name>ENSMEM_INDX</name><value><cyclestr>##</cyclestr></value></envar>
+      <envar><name>cyc</name><value><cyclestr>@H</cyclestr></value></envar>
+      <envar><name>fhr</name><value>#fhr#</value></envar>
+      <envar><name>TMMARK</name><value>tm00</value></envar>
+
+      <dependency>
+          <datadep age="01:30"><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H/fcst_fv3lam/log.atm.f#fhr#</cyclestr></datadep>
+      </dependency>
+
+    </task>
+  </metatask>
+
+  <metatask name="&RUN_POST_TN;_long">
+    <var name="fhr">  000 001 002 003 004 005 006 007 008 009 010 011 012 </var>
+
+    <task name="&RUN_POST_TN;_f#fhr#_long" cycledefs="prodcyc_long" maxtries="2">
+
+      &RSRV_POST;
+      &WALL_LIMIT_POST;
+      <command>&LOAD_MODULES_RUN_TASK_FP; "&RUN_POST_TN;" "&JOBSdir;/JRRFS_POST"</command>
+      &RESOURCES_RUN_POST;
+      &NATIVE_ALL;
+      <walltime>&WALLTIME_RUN_POST;</walltime>
+      &NODESIZE_ALL;
+      <jobname>&TAG;_&RUN_POST_TN;_f#fhr#</jobname>
+      <join><cyclestr>&LOGDIR;/&RUN_POST_TN;_&TAG;_f#fhr#_@Y@m@d@H.log</cyclestr></join>
+
+      <envar><name>GLOBAL_VAR_DEFNS_FP</name><value>&GLOBAL_VAR_DEFNS_FP;</value></envar>
+      <envar><name>PDY</name><value><cyclestr>@Y@m@d</cyclestr></value></envar>
+      <envar><name>CDATE</name><value><cyclestr>@Y@m@d@H</cyclestr></value></envar>
+      <envar><name>CYCLE_DIR</name><value><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+      <envar><name>NWGES_DIR</name><value><cyclestr>&NWGES_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+      <envar><name>SLASH_ENSMEM_SUBDIR</name><value><cyclestr></cyclestr></value></envar>
+      <envar><name>ENSMEM_INDX</name><value><cyclestr>##</cyclestr></value></envar>
+      <envar><name>cyc</name><value><cyclestr>@H</cyclestr></value></envar>
+      <envar><name>fhr</name><value>#fhr#</value></envar>
+      <envar><name>TMMARK</name><value>tm00</value></envar>
+
+      <dependency>
+         <datadep age="01:30"><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H/fcst_fv3lam/log.atm.f#fhr#</cyclestr></datadep>
+      </dependency>
+
+    </task>
+  </metatask>
+<!--
+************************************************************************
+************************************************************************
+-->
+<metatask name="&RUN_PRDGEN_TN;">
+    <var name="fhr">  000 001 002 003 </var>
+
+    <task name="&RUN_PRDGEN_TN;_f#fhr#" cycledefs="prodcyc" maxtries="2">
+
+      &RSRV_PRDGEN;
+      &WALL_LIMIT_POST;
+      <command>&LOAD_MODULES_RUN_TASK_FP; "&RUN_PRDGEN_TN;" "&JOBSdir;/JRRFS_PRDGEN"</command>
+      &RESOURCES_RUN_PRDGEN;
+      &NATIVE_ALL;
+      <walltime>&WALLTIME_RUN_PRDGEN;</walltime>
+      &NODESIZE_ALL;
+      <memory>&MEMO_RUN_PRDGEN;</memory>
+      <jobname>&TAG;_&RUN_PRDGEN_TN;_f#fhr#</jobname>
+      <join><cyclestr>&LOGDIR;/&RUN_PRDGEN_TN;_&TAG;_f#fhr#_@Y@m@d@H.log</cyclestr></join>
+
+      <envar><name>GLOBAL_VAR_DEFNS_FP</name><value>&GLOBAL_VAR_DEFNS_FP;</value></envar>
+      <envar><name>PDY</name><value><cyclestr>@Y@m@d</cyclestr></value></envar>
+      <envar><name>CDATE</name><value><cyclestr>@Y@m@d@H</cyclestr></value></envar>
+      <envar><name>CYCLE_DIR</name><value><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+      <envar><name>SLASH_ENSMEM_SUBDIR</name><value><cyclestr></cyclestr></value></envar>
+      <envar><name>ENSMEM_INDX</name><value><cyclestr>##</cyclestr></value></envar>
+      <envar><name>cyc</name><value><cyclestr>@H</cyclestr></value></envar>
+      <envar><name>fhr</name><value>#fhr#</value></envar>
+      <envar><name>TMMARK</name><value>tm00</value></envar>
+
+      <dependency>
+        <taskdep task="&RUN_POST_TN;_f#fhr#"/>
+      </dependency>
+
+    </task>
+  </metatask>
+
+<metatask name="&RUN_PRDGEN_TN;_long">
+    <var name="fhr">  000 001 002 003 004 005 006 007 008 009 010 011 012 </var>
+
+    <task name="&RUN_PRDGEN_TN;_f#fhr#_long" cycledefs="prodcyc_long" maxtries="2">
+
+      &RSRV_PRDGEN;
+      &WALL_LIMIT_POST;
+      <command>&LOAD_MODULES_RUN_TASK_FP; "&RUN_PRDGEN_TN;" "&JOBSdir;/JRRFS_PRDGEN"</command>
+      &RESOURCES_RUN_PRDGEN;
+      &NATIVE_ALL;
+      <walltime>&WALLTIME_RUN_PRDGEN;</walltime>
+      &NODESIZE_ALL;
+      <memory>&MEMO_RUN_PRDGEN;</memory>
+      <jobname>&TAG;_&RUN_PRDGEN_TN;_f#fhr#</jobname>
+      <join><cyclestr>&LOGDIR;/&RUN_PRDGEN_TN;_&TAG;_f#fhr#_@Y@m@d@H.log</cyclestr></join>
+
+      <envar><name>GLOBAL_VAR_DEFNS_FP</name><value>&GLOBAL_VAR_DEFNS_FP;</value></envar>
+      <envar><name>PDY</name><value><cyclestr>@Y@m@d</cyclestr></value></envar>
+      <envar><name>CDATE</name><value><cyclestr>@Y@m@d@H</cyclestr></value></envar>
+      <envar><name>CYCLE_DIR</name><value><cyclestr>&CYCLE_BASEDIR;/@Y@m@d@H</cyclestr></value></envar>
+      <envar><name>SLASH_ENSMEM_SUBDIR</name><value><cyclestr></cyclestr></value></envar>
+      <envar><name>ENSMEM_INDX</name><value><cyclestr>##</cyclestr></value></envar>
+      <envar><name>cyc</name><value><cyclestr>@H</cyclestr></value></envar>
+      <envar><name>fhr</name><value>#fhr#</value></envar>
+      <envar><name>TMMARK</name><value>tm00</value></envar>
+
+      <dependency>
+        <taskdep task="&RUN_POST_TN;_f#fhr#_long"/>
+      </dependency>
+
+    </task>
+  </metatask>
+
+
+<!--
+************************************************************************
+************************************************************************
+-->
+  <task name="&CLEAN_TN;" cycledefs="archive" maxtries="2">
+
+    &RSRV_POST;
+
+    <command>&JOBSdir;/../scripts/exrrfs_clean.ksh</command>
+    <nodes> 1:ppn=1</nodes>
+    <walltime>00:15:00</walltime>
+    <jobname>&TAG;_&CLEAN_TN;</jobname>
+    <join><cyclestr>&LOGDIR;/&CLEAN_TN;_&TAG;_@Y@m@d@H.log</cyclestr></join>
+
+    <envar><name>GLOBAL_VAR_DEFNS_FP</name><value>&GLOBAL_VAR_DEFNS_FP;</value></envar>
+    <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
+    <envar><name>CDATE</name><value><cyclestr offset="-4:00:00">@Y@m@d@H</cyclestr></value></envar>
+    <envar><name>NWGES_BASEDIR</name><value><cyclestr>&NWGES_BASEDIR;</cyclestr></value></envar>
+    <envar><name>nens</name><value><cyclestr>0</cyclestr></value></envar>
+
+    <dependency>
+       <or>
+          <and>
+            <or>
+             <streq><left>00</left><right><cyclestr offset="-6:00:00">@H</cyclestr></right></streq>
+             <streq><left>06</left><right><cyclestr offset="-6:00:00">@H</cyclestr></right></streq>
+             <streq><left>12</left><right><cyclestr offset="-6:00:00">@H</cyclestr></right></streq>
+             <streq><left>18</left><right><cyclestr offset="-6:00:00">@H</cyclestr></right></streq>
+            </or>
+            <taskdep task="&RUN_PRDGEN_TN;_f084" cycle_offset="-6:00:00"/>
+          </and>
+          <and>
+            <or>
+              <streq><left>03</left><right><cyclestr offset="-6:00:00">@H</cyclestr></right></streq>
+              <streq><left>09</left><right><cyclestr offset="-6:00:00">@H</cyclestr></right></streq>
+              <streq><left>15</left><right><cyclestr offset="-6:00:00">@H</cyclestr></right></streq>
+              <streq><left>21</left><right><cyclestr offset="-6:00:00">@H</cyclestr></right></streq>
+            </or>
+            <taskdep task="&RUN_PRDGEN_TN;_f012" cycle_offset="-6:00:00"/>
+          </and>
+       </or>
+    </dependency>
+
+  </task>
+<!--
+************************************************************************
+************************************************************************
+-->
+  <task name="&ARCHIVE_TN;" cycledefs="archive" maxtries="2">
+
+    &RSRV_HPSS;
+
+    <command>&JOBSdir;/../scripts/exrrfs_archive_retro.ksh</command>
+    <nodes>1:ppn=1</nodes>
+    <walltime>05:55:00</walltime>
+    <jobname>&TAG;_&ARCHIVE_TN;</jobname>
+    <join><cyclestr>&LOGDIR;/&ARCHIVE_TN;_&TAG;_@Y@m@d@H.log</cyclestr></join>
+
+    <envar><name>GLOBAL_VAR_DEFNS_FP</name><value>&GLOBAL_VAR_DEFNS_FP;</value></envar>
+    <envar><name>CDATE</name><value><cyclestr>@Y@m@d@H</cyclestr></value></envar>
+
+    <dependency>
+       <or>
+          <and>
+            <or>
+             <streq><left>00</left><right><cyclestr>@H</cyclestr></right></streq>
+             <streq><left>06</left><right><cyclestr>@H</cyclestr></right></streq>
+             <streq><left>12</left><right><cyclestr>@H</cyclestr></right></streq>
+             <streq><left>18</left><right><cyclestr>@H</cyclestr></right></streq>
+            </or>
+            <taskdep task="&RUN_PRDGEN_TN;_f084"/>
+          </and>
+          <and>
+            <or>
+              <streq><left>03</left><right><cyclestr>@H</cyclestr></right></streq>
+              <streq><left>09</left><right><cyclestr>@H</cyclestr></right></streq>
+              <streq><left>15</left><right><cyclestr>@H</cyclestr></right></streq>
+              <streq><left>21</left><right><cyclestr>@H</cyclestr></right></streq>
+            </or>
+            <taskdep task="&RUN_PRDGEN_TN;_f012"/>
+          </and>
+          <and>
+            <or>
+              <streq><left>01</left><right><cyclestr>@H</cyclestr></right></streq>
+              <streq><left>02</left><right><cyclestr>@H</cyclestr></right></streq>
+              <streq><left>04</left><right><cyclestr>@H</cyclestr></right></streq>
+              <streq><left>05</left><right><cyclestr>@H</cyclestr></right></streq>
+              <streq><left>07</left><right><cyclestr>@H</cyclestr></right></streq>
+              <streq><left>08</left><right><cyclestr>@H</cyclestr></right></streq>
+              <streq><left>10</left><right><cyclestr>@H</cyclestr></right></streq>
+              <streq><left>11</left><right><cyclestr>@H</cyclestr></right></streq>
+            </or>
+            <taskdep task="&RUN_PRDGEN_TN;_f003"/>
+          </and>
+       </or>
+    </dependency>
+
+  </task>
+
+
+
+</workflow>
