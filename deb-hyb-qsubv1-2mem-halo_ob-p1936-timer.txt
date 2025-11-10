@@ -1,0 +1,390 @@
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
+OOPS_STATS --------------------------------------------------------------------------------------------
+OOPS_STATS Name                                                :   total (ms)   count    time/call (ms)
+OOPS_STATS ObsFilter::Background Check::ObsFilter              :         0.96      16            0.0602
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Background Check::postFilter             :       333.01      16           20.8128
+OOPS_STATS ObsFilter::Background Check::preProcess             :         0.29      16            0.0183
+OOPS_STATS ObsFilter::Background Check::priorFilter            :         0.01      16            0.0007
+OOPS_STATS ObsFilter::Bounds Check::ObsFilter                  :        82.12       9            9.1243
+OOPS_STATS ObsFilter::Bounds Check::postFilter                 :         0.00       9            0.0002
+OOPS_STATS ObsFilter::Bounds Check::preProcess                 :       370.46       9           41.1626
+OOPS_STATS ObsFilter::Bounds Check::priorFilter                :         1.32       9            0.1467
+OOPS_STATS ObsFilter::Domain Check::ObsFilter                  :         1.23       3            0.4090
+OOPS_STATS ObsFilter::Domain Check::postFilter                 :         0.00       3            0.0002
+OOPS_STATS ObsFilter::Domain Check::preProcess                 :       202.73       3           67.5755
+OOPS_STATS ObsFilter::Domain Check::priorFilter                :         0.00       3            0.0004
+OOPS_STATS ObsFilter::Final Check::ObsFilter                   :         0.03       9            0.0033
+OOPS_STATS ObsFilter::Final Check::postFilter                  :        18.66       9            2.0728
+OOPS_STATS ObsFilter::Final Check::preProcess                  :         0.00       9            0.0004
+OOPS_STATS ObsFilter::Final Check::priorFilter                 :        23.36       9            2.5959
+OOPS_STATS ObsFilter::Perform Action::ObsFilter                :        27.16      31            0.8760
+OOPS_STATS ObsFilter::Perform Action::postFilter               :      1824.40      31           58.8516
+OOPS_STATS ObsFilter::Perform Action::preProcess               :     18469.85      31          595.8016
+OOPS_STATS ObsFilter::Perform Action::priorFilter              :      1996.86      31           64.4148
+OOPS_STATS ObsFilter::QCmanager::ObsFilter                     :       nid001000.cactus.wcoss2.ncep.noaa.gov 0:   7.37       9            0.8194
+OOPS_STATS ObsFilter::QCmanager::postFilter                    :        14.98       9            1.6643
+OOPS_STATS ObsFilter::QCmanager::preProcess                    :         0.00       9            0.0001
+OOPS_STATS ObsFilter::QCmanager::priorFilter                   :         0.00       9            0.0002
+OOPS_STATS ObsFilter::RejectList::ObsFilter                    :         2.38       3            0.7930
+OOPS_STATS ObsFilter::RejectList::postFilter                   :         0.00       3            0.0003
+OOPS_STATS ObsFilter::RejectList::preProcess                   :       243.60       3           81.1995
+OOPS_STATS ObsFilter::RejectList::priorFilter                  :         0.00       3            0.0005
+OOPS_STATS ObsFilter::Variable Assignment::ObsFilter           :         0.33       4            0.0820
+OOPS_STATS ObsFilter::Variable Assignment::postFilter          :         5.90       4            1.4739
+OOPS_STATS ObsFilter::Variable Assignment::preProcess          :         0.44       4            0.1089
+OOPS_STATS ObsFilter::Variable Assignment::priorFilter         :         0.01       4            0.0018
+OOPS_STATS Vader::Vader                                        :        13.08       9            1.4528
+OOPS_STATS Vader::changeVar                                    :       280.92       5           56.1839
+OOPS_STATS Vader::changeVarTraj                                :        50.55       4           12.6377
+OOPS_STATS fv3jedi::IOFms::IOFms                               :         1.40       6            0.2333
+OOPS_STATS fv3jedi::IOFms::read state                          :    404881.84       5        80976.3688
+OOPS_STATS fv3jedi::IOFms::write state                         :     78324.67       1        78324.6677
+OOPS_STATS fv3jedi::IOFms::~IOFms                              :        64.18       6           10.6961
+OOPS_STATS fv3jedi::LinVarChaC2A::LinVarChaC2A                 :        33.56       2           16.7807
+OOPS_STATS fv3jedi::LinVarChaC2A::multnid001000.cactus.wcoss2.ncep.noaa.gov 0: iply                     :       763.61     120            6.3634
+OOPS_STATS fv3jedi::LinVarChaC2A::multiplyAD                   :      5145.36     120           42.8780
+OOPS_STATS fv3jedi::LinVarChaC2A::~LinVarChaC2A                :         0.04       2            0.0182
+OOPS_STATS fv3jedi::LinVarChaModel2GeoVaLs::LinVarChaModel2Geo :         4.14       2            2.0722
+OOPS_STATS fv3jedi::LinVarChaModel2GeoVaLs::multiplyAD         :       162.98      87            1.8734
+OOPS_STATS fv3jedi::LinVarChaModel2GeoVaLs::~LinVarChaModel2Ge :         0.17       2            0.0834
+OOPS_STATS fv3jedi::VarChaModel2GeoVaLs::VarChaModel2GeoVaLs   :         3.10       5            0.6192
+OOPS_STATS fv3jedi::VarChaModel2GeoVaLs::changeVar             :       111.83       5           22.3653
+OOPS_STATS fv3jedi::VarChaModel2GeoVaLs::~VarChaModel2GeoVaLs  :         0.02       5            0.0038
+OOPS_STATS oops::Covariance::EnsembleCovariance                :    271547.24       2       135773.6211
+OOPS_STATS oops::Covariance::HybridCovariance                  :    338871.16       2       169435.5795
+OOPS_STATS oops::Covariance::SABER::Constructor                :        75.09       2           37.5451
+OOPS_STATS oops::Covariance::SABER::multiply                   :    167860.92     120         1398.8410
+OOPS_STATS oops::Covariance::ensemble::Constructor             :         0.01       2            0.0061
+OOPS_STATS oops::Covariance::ensemble::multiply                :     59143.92     120          492.8660
+OOPS_STATS oops::Covariance::hybrid::Constructor               :         0.02       2            0.0086
+OOPS_STATS oops::Covariance::hybrid::inverseMultiply           :     70486.22       3        23495.4076
+OOPS_STATS oops::Covariance::hybrid::multiply                  :    228957.24     120         1907.9770
+OOPS_STATS oops::GeoVaLs::GeoVaLs                              :      1342.69     531            2.5286
+OOPS_STATS oops::GeoVaLs::fill                                 :      1280.67  208507            0.0061
+OOPS_nid001000.cactus.wcoss2.ncep.noaa.gov 0: STATS oops::GeoVaLs::fillAD                               :       961.92  188094            0.0051
+OOPS_STATS oops::GeoVaLs::~GeoVaLs                             :        18.07     531            0.0340
+OOPS_STATS oops::Geometry::Geometry                            :     66751.06       3        22250.3536
+OOPS_STATS oops::Geometry::variableSizes                       :         0.21      55            0.0038
+OOPS_STATS oops::Geometry::~Geometry                           :      1001.80       3          333.9321
+OOPS_STATS oops::GeometryData::containingTriangleAndBarycentri :     17324.43  128298            0.1350
+OOPS_STATS oops::GeometryData::setGlobalTree                   :     16376.76       7         2339.5372
+OOPS_STATS oops::GeometryData::setLocalTree                    :        79.61       7           11.3735
+OOPS_STATS oops::GeometryData::setMeshAndTriangulation         :     11018.77       7         1574.1101
+OOPS_STATS oops::GetValuePosts::preProcessModelData            :     16612.03       3         5537.3422
+OOPS_STATS oops::GetValueTLADs::preProcessModelData            :     26048.17     174          149.7021
+OOPS_STATS oops::GetValues::GetValues                          :     80326.62      15         5355.1082
+OOPS_STATS oops::GetValues::fillGeoVaLs                        :      7179.17      15          478.6111
+OOPS_STATS oops::GetValues::fillGeoVaLsAD                      :      2992.83     261           11.4668
+OOPS_STATS oops::GetValues::fillGeoVaLsTL                      :    204315.10     255          801.2357
+OOPS_STATS oops::GetValues::finalize                           :       198.92      15           13.2610
+OOPS_STATS oops::GetValues::finalizeAD                         :    115288.62     261          441.7189
+OOPS_STATS oops::GetValues::finalizeTL                         :      1307.84     255            5.1288
+OOPS_STATS oops::GetValues::initialize                         :        37.95      15            2.5297
+OOPS_STATS oops::GetValues::initializeAD                       :        21.3nid001000.cactus.wcoss2.ncep.noaa.gov 0: 5     261            0.0818
+OOPS_STATS oops::GetValues::initializeTL                       :       140.49     255            0.5509
+OOPS_STATS oops::GetValues::process                            :       333.49      15           22.2324
+OOPS_STATS oops::GetValues::processAD                          :      1714.60     261            6.5693
+OOPS_STATS oops::GetValues::processTL                          :      2382.92     255            9.3448
+OOPS_STATS oops::Increment::Increment                          :      7259.23    1801            4.0307
+OOPS_STATS oops::Increment::axpy                               :      6017.67    2405            2.5022
+OOPS_STATS oops::Increment::deserialize                        :       475.42     240            1.9809
+OOPS_STATS oops::Increment::diff                               :       198.94       9           22.1044
+OOPS_STATS oops::Increment::dot_product_with                   :    191108.58    2485           76.9049
+OOPS_STATS oops::Increment::fromFieldSet                       :      7872.79     447           17.6125
+OOPS_STATS oops::Increment::operator*=                         :      1015.14     590            1.7206
+OOPS_STATS oops::Increment::operator+=                         :      1953.89     826            2.3655
+OOPS_STATS oops::Increment::operator+=(State, Increment)       :        25.69       2           12.8473
+OOPS_STATS oops::Increment::operator-=                         :        16.44       7            2.3482
+OOPS_STATS oops::Increment::operator=                          :      4029.47    1729            2.3305
+OOPS_STATS oops::Increment::print                              :      9030.54     253           35.6938
+OOPS_STATS oops::Increment::schur_product_with                 :      1184.25     480            2.4672
+OOPS_STATS oops::Increment::serialSize                         :         0.97     622            0.0016
+OOPS_STATS oops::Increment::serialize                          :      1883.34     240            7.8472
+OOPS_STATS oops::Increment::toFieldSet     nid001000.cactus.wcoss2.ncep.noaa.gov 0:                     :      3281.61     532            6.1684
+OOPS_STATS oops::Increment::zero                               :       478.18     417            1.1467
+OOPS_STATS oops::Increment::~Increment                         :        39.90    1801            0.0222
+OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::Lin :        15.31       2            7.6563
+OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::req :         0.19     176            0.0011
+OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::set :       276.88       2          138.4412
+OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::sim :       109.71      87            1.2610
+OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::sim :       155.32      85            1.8273
+OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::~Li :         0.04       2            0.0194
+OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::L :         0.08       2            0.0422
+OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::r :         0.14     176            0.0008
+OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::s :         4.04       2            2.0180
+OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::s :         6.16      87            0.0708
+OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::s :         6.13      85            0.0721
+OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::~ :         0.01       2            0.0052
+OOPS_STATS oops::LinearObsOper::aircar_winds_233::LinearObsOpe :         0.09       2            0.0462
+OOPS_STATS oops::LinearObsOper::aircar_winds_233::requiredVars :         0.06     176            0.0003
+OOPS_STATS oops::LinearObsOper::aircar_winds_233::setTrajector :        42.51       2           21.2536
+OOPS_STATS oops::LinearObsOper::aircar_winds_233::simulateObsA :       386.98      87            4.4481
+OOPS_STATS oops::LinearObsOper::aircar_winds_233::simulateObsT :       368.21      85            4.3319
+OOPS_STATSnid001000.cactus.wcoss2.ncep.noaa.gov 0:  oops::LinearObsOper::aircar_winds_233::~LinearObsOp :         0.08       2            0.0388
+OOPS_STATS oops::LinearVariableChange::LinearVariableChange    :         2.02       4            0.5043
+OOPS_STATS oops::LinearVariableChange::changeVarAD             :     12113.82     207           58.5209
+OOPS_STATS oops::LinearVariableChange::changeVarTL             :     26801.16     205          130.7374
+OOPS_STATS oops::LinearVariableChange::changeVarTraj           :       132.65       4           33.1621
+OOPS_STATS oops::LinearVariableChange::~LinearVariableChange   :         5.33       4            1.3322
+OOPS_STATS oops::Localization::Localization                    :      5767.90       2         2883.9502
+OOPS_STATS oops::Localization::multiply                        :     51996.79     240          216.6533
+OOPS_STATS oops::Localization::~Localization                   :     10775.87       2         5387.9368
+OOPS_STATS oops::ModelAuxControl::ModelAuxControl              :         0.01       5            0.0016
+OOPS_STATS oops::ModelAuxControl::print                        :         0.00       6            0.0005
+OOPS_STATS oops::ModelAuxControl::~ModelAuxControl             :         0.00       5            0.0010
+OOPS_STATS oops::ModelAuxCovariance::ModelAuxCovariance        :         0.00       1            0.0040
+OOPS_STATS oops::ModelAuxCovariance::inverseMultiply           :         0.00       3            0.0002
+OOPS_STATS oops::ModelAuxCovariance::linearize                 :         0.00       2            0.0001
+OOPS_STATS oops::ModelAuxCovariance::multiply                  :         0.02      87            0.0002
+OOPS_STATS oops::ModelAuxCovariance::~ModelAuxCovariance       :         0.00       1            0.0007
+OOPS_STATS oops::ModelAuxIncrement::ModelAuxIncrement          :         0.18     382            0.0005
+OOPS_STATS oops::ModelAuxIncrement::axpy                       :         0.67    2075            0.0003
+OOPS_STATS oops::ModelAuxIncrement::diff                       :         0.00    nid001000.cactus.wcoss2.ncep.noaa.gov 0:    5            0.0002
+OOPS_STATS oops::ModelAuxIncrement::dot_product_with           :         0.63    2257            0.0003
+OOPS_STATS oops::ModelAuxIncrement::operator*=                 :         0.05     168            0.0003
+OOPS_STATS oops::ModelAuxIncrement::operator+=                 :         0.09     255            0.0004
+OOPS_STATS oops::ModelAuxIncrement::operator+=ModelAuxControl  :         0.00       2            0.0001
+OOPS_STATS oops::ModelAuxIncrement::operator=                  :         0.03      93            0.0004
+OOPS_STATS oops::ModelAuxIncrement::print                      :         0.01      13            0.0008
+OOPS_STATS oops::ModelAuxIncrement::serialSize                 :         0.02     382            0.0000
+OOPS_STATS oops::ModelAuxIncrement::zero                       :         0.03      87            0.0003
+OOPS_STATS oops::ModelAuxIncrement::~ModelAuxIncrement         :         0.11     382            0.0003
+OOPS_STATS oops::ModelData::ModelData                          :         0.01       4            0.0019
+OOPS_STATS oops::ModelData::modelData                          :         0.35       4            0.0872
+OOPS_STATS oops::ModelData::~ModelData                         :         0.01       4            0.0016
+OOPS_STATS oops::ObsAuxControl::ObsAuxControl                  :         0.23      15            0.0152
+OOPS_STATS oops::ObsAuxControl::print                          :         0.01      18            0.0004
+OOPS_STATS oops::ObsAuxControl::requiredHdiagnostics           :         0.00       9            0.0002
+OOPS_STATS oops::ObsAuxControl::requiredVars                   :         0.01      30            0.0002
+OOPS_STATS oops::ObsAuxControl::write                          :       215.43       3           71.8096
+OOPS_STATS oops::ObsAuxControl::~ObsAuxControl                 :         0.06      15            0.0040
+OOPS_STATS oops::ObsAuxCovariance::ObsAuxCovariance            :       268.06       3           89.3526
+OOPS_STATS oops::ObsAuxCovariance::inverseMultipnid001000.cactus.wcoss2.ncep.noaa.gov 0: ly             :         0.22     270            0.0008
+OOPS_STATS oops::ObsAuxCovariance::linearize                   :        56.78       6            9.4625
+OOPS_STATS oops::ObsAuxCovariance::multiply                    :         0.39     261            0.0015
+OOPS_STATS oops::ObsAuxCovariance::preconditioner              :         0.04       6            0.0065
+OOPS_STATS oops::ObsAuxCovariance::write                       :         0.04       3            0.0141
+OOPS_STATS oops::ObsAuxCovariance::~ObsAuxCovariance           :         0.49       3            0.1637
+OOPS_STATS oops::ObsAuxIncrement::ObsAuxIncrement              :        84.63    1146            0.0738
+OOPS_STATS oops::ObsAuxIncrement::axpy                         :         3.46    6225            0.0006
+OOPS_STATS oops::ObsAuxIncrement::diff                         :         0.95      15            0.0634
+OOPS_STATS oops::ObsAuxIncrement::dot_product_with             :         3.56    6771            0.0005
+OOPS_STATS oops::ObsAuxIncrement::operator*=                   :         0.27     504            0.0005
+OOPS_STATS oops::ObsAuxIncrement::operator+=                   :         0.49     765            0.0006
+OOPS_STATS oops::ObsAuxIncrement::operator=                    :         0.17     279            0.0006
+OOPS_STATS oops::ObsAuxIncrement::print                        :         9.83      39            0.2520
+OOPS_STATS oops::ObsAuxIncrement::serialSize                   :         0.08    2292            0.0000
+OOPS_STATS oops::ObsAuxIncrement::zero                         :         0.17     261            0.0006
+OOPS_STATS oops::ObsAuxIncrement::~ObsAuxIncrement             :         1.27    1146            0.0011
+OOPS_STATS oops::ObsAuxPreconditioner::multiply                :         0.11     261            0.0004
+OOPS_STATS oops::ObsAuxPreconditioner::~ObsAuxPreconditioner   :         0.02      18            0.0009
+OOPS_STATS oops::ObsDataVector::ObsDataVector                  :         4.31      21            0.2053
+OOPS_STATS oopsnid001000.cactus.wcoss2.ncep.noaa.gov 0: ::ObsDataVector::mask                           :         0.16       9            0.0182
+OOPS_STATS oops::ObsDataVector::operator=                      :         0.24      15            0.0158
+OOPS_STATS oops::ObsDataVector::print                          :        86.53       9            9.6144
+OOPS_STATS oops::ObsDataVector::save                           :       207.46      18           11.5257
+OOPS_STATS oops::ObsDataVector::~ObsDataVector                 :         0.08      21            0.0039
+OOPS_STATS oops::ObsDiagnostics::ObsDiagnostics                :         2.43       9            0.2698
+OOPS_STATS oops::ObsDiagnostics::~ObsDiagnostics               :         0.42       9            0.0462
+OOPS_STATS oops::ObsError::ObsErrors                           :       144.70       3           48.2345
+OOPS_STATS oops::ObsError::getRMSE                             :        15.48      18            0.8599
+OOPS_STATS oops::ObsError::inverseMultiply                     :        11.32     264            0.0429
+OOPS_STATS oops::ObsError::obserrors                           :         0.36       9            0.0398
+OOPS_STATS oops::ObsError::print                               :         6.86       9            0.7623
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsError::update                              :       297.19       9           33.0206
+OOPS_STATS oops::ObsError::~ObsError                           :         0.01       3            0.0034
+OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::ObsOp :       329.02       3          109.6750
+OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::compu :         0.24       5            0.0485
+OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::locat :        20.00       5            4.0007
+OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::requi :         0.01       5            0.0016
+OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::simul :       461.08       3          153.6932
+OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::~ObsO :        20.12       3            6.7052
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::Obs :         0.26       3            0.0869
+OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::com :         0.07       5            0.0148
+OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::loc :         2.27       5            0.4533
+OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::req :         0.00       5            0.0009
+OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::sim :         4.93       3            1.6448
+OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::~Ob :         0.01       3            0.0039
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_winds_233::ObsOperator    :         0.32       3            0.1063
+OOPS_STATS oops::ObsOperator::aircar_winds_233::computeReduced :         0.14       5            0.0286
+OOPS_STATS oops::ObsOperator::aircar_winds_233::locations      :        21.06       5            4.2121
+OOPS_STATS oops::ObsOperator::aircar_winds_233::requiredVars   :         0.00       5            0.0006
+OOPS_STATS oops::ObsOperator::aircar_winds_233::simulateObs    :        68.34       3           22.7786
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_winds_233::~ObsOperator   :         0.01       3            0.0031
+OOPS_STATS oops::ObsSpace::ObsSpace                            :      2946.58       3          982.1919
+OOPS_STATS oops::ObsSpace::obsvariables                        :         0.00      15            0.0000
+OOPS_STATS oops::ObsSpace::save                                :      3608.11       3         1202.7029
+OOPS_STATS oops::ObsSpace::~ObsSpace                           :       112.32       3           37.4386
+OOPS_STATS oops::ObsVector::ObsVector                          :       365.50     579            0.6313
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::dot_product                        :         4.34      18            0.2410
+OOPS_STATS oops::ObsVector::info                               :        45.02      27            1.6674
+OOPS_STATS oops::ObsVector::invert                             :         0.73      12            0.0612
+OOPS_STATS oops::ObsVector::operator*=                         :        11.83     285            0.0415
+OOPS_STATS oops::ObsVector::operator-=                         :         0.38       9            0.0418
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::operator=                          :        15.25      39            0.3911
+OOPS_STATS oops::ObsVector::rms                                :         8.02      18            0.4456
+OOPS_STATS oops::ObsVector::save                               :        11.93      27            0.4419
+OOPS_STATS oops::ObsVector::zero                               :         1.68     264            0.0063
+OOPS_STATS oops::ObsVector::~ObsVector                         :         0.84     579            0.0015
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Parameters::deserialize                       :      1694.21     260            6.5162
+OOPS_STATS oops::Parameters::serialize                         :        33.41     308            0.1085
+OOPS_STATS oops::SampledLocations::SampledLocations            :         0.01      21            0.0004
+OOPS_STATS oops::SampledLocations::latitudes                   :         0.00      15            0.0001
+OOPS_STATS oops::SampledLocations::longitudes                  :         0.00      15            0.0001
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::SampledLocations::times                       :         0.00      15            0.0001
+OOPS_STATS oops::SampledLocations::~SampledLocations           :         1.31      42            0.0312
+OOPS_STATS oops::State::State                                  :    405348.38      28        14476.7280
+OOPS_STATS oops::State::print                                  :        63.52       6           10.5875
+OOPS_STATS oops::State::toFieldSet                             :        86.06      12            7.1715
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::State::variables                              :         0.00       4            0.0000
+OOPS_STATS oops::State::write                                  :     78772.00       1        78771.9952
+OOPS_STATS oops::State::zero                                   :         5.58       4            1.3961
+OOPS_STATS oops::State::~State                                 :         1.21      28            0.0432
+OOPS_STATS oops::UnstructuredInterpolator::UnstructuredInterpo :     17412.21   40656            0.4283
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::UnstructuredInterpolator::apply               :     14733.42 1227424            0.0120
+OOPS_STATS oops::UnstructuredInterpolator::applyAD             :      8075.62 1202256            0.0067
+OOPS_STATS oops::VariableChange::VariableChange                :       239.38       5           47.8754
+OOPS_STATS oops::VariableChange::changeVar                     :       666.07       5          133.2144
+OOPS_STATS oops::VariableChange::~VariableChange               :         7.15       5            1.4294
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::mpi::broadcast                                :      2931.38     360            8.1427
+OOPS_STATS saber::ErrorCovariance::doMultiply                  :    130292.41     120         1085.7700
+OOPS_STATS saber::ErrorCovariance::~ErrorCovariance            :         0.00       2            0.0003
+OOPS_STATS saber::Interpolation::multiply                      :     30371.33     360           84.3648
+OOPS_STATS saber::Interpolation::multiplyAD                    :     22283.96     360           61.8999
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::Localization::Localization                   :      5767.88       2         2883.9409
+OOPS_STATS saber::Localization::multiply                       :     48362.25     240          201.5094
+OOPS_STATS saber::Localization::~Localization                  :         0.00       2            0.0002
+OOPS_STATS saber::gsi::StaticCovariance::multiply              :    103096.67     120          859.1390
+OOPS_STATS saber::gsi::StaticCovariance::~StaticCovariance     :        33.86       2           16.9278
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::mgbf::Covariance::Covariance                 :      1119.89       2          559.9458
+OOPS_STATS saber::mgbf::Covariance::multiply                   :      7393.16     240           30.8048
+OOPS_STATS saber::mgbf::Covariance::~Covariance                :     10770.69       2         5385.3450
+OOPS_STATS ufo::ObsFilter::ObsFilter                           :       121.65      84            1.4483
+OOPS_STATS ufo::ObsFilter::checkFilterData                     :         0.09     252            0.0003
+OOPS_STATS ufo::ObsFilter::postFilter                          :      2197.06      84           26.1555
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ufo::ObsFilter::preProcess                          :     19287.48      84          229.6129
+OOPS_STATS ufo::ObsFilter::priorFilter                         :      2021.70      84           24.0678
+OOPS_STATS ufo::ObsFilter::~ObsFilter                          :     44335.64     201          220.5753
+OOPS_STATS util::Timers::Total                                 :   1633767.14       1      1633767.1383
+OOPS_STATS util::Timers::measured                              :   1631851.18       1      1631851.1840
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: 
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ------------------------------------------------------------------------------------------------------------------
+OOPS_STATS ---------------------------------- Parallel Timing Statistics (1936 MPI tasks) -----------------------------------
+OOPS_STATS ------------------------------------------------------------------------------------------------------------------
+OOPS_STATS Name                                                :     min (ms)    max (ms)    avg (ms)     % total   imbal (%)
+OOPS_STATS oops::Covariance::EnsembleCovariance                :    268298.70   271780.56   270404.67       16.55        1.29
+OOPS_STATS oops::Covariance::HybridCovariance                  :    338740.99   339048.76   338871.43       20.74        0.09
+OOPS_STATS oops::Covariance::SABER::multiply                   :    167816.78   168021.82   167940.53       10.28        0.12
+OOPS_STATS oops::Covariance::ensemble::multiply                :     57318.93    60389.35    58911.09        3.61        5.21
+OOPS_STATS oops::Covariance::hybrid::inverseMultiply           :     70482.42    70486.93    70485.96        4.31        0.01
+OOPS_STATS oops::Covariance::hybrid::multiply                  :    227156.85   230258.15   228779.12       14.00        1.36
+OOPS_STATS oops::Geometry::Geometry                            :     35560.76    71062.32    70159.60        4.29       50.60
+OOPS_STATS oops::GeometryData::setGlobalTree                   :     15692.34    17115.81    16220.91        0.99        8.78
+OOPS_STATS oops::GeometryData::setMeshAndTriangulation         :     10936.01    11190.63    11037.36        0.68        2.31
+OOPS_STATS oops::GetValuePosts::preProcessModelData            :       246.55    37517.44    18160.31        1.11      205.23
+OOPS_STATS oops::GetValueTLADs::preProcessModelData            :      6135.25   274424.41    73900.18        4.52      363.04
+OOPS_STATS oops::GetValues::GetValues                          :     65591.32   209869.06    67715.34        4.14      213.07
+OOPS_STATS oops::GetValues::filnid001000.cactus.wcoss2.ncep.noaa.gov 0: lGeoVaLs                        :      1229.89    11124.88     9794.50        0.60      101.03
+OOPS_STATS oops::GetValues::fillGeoVaLsAD                      :      2015.73   109150.07     4892.03        0.30     2189.98
+OOPS_STATS oops::GetValues::fillGeoVaLsTL                      :     22662.21   215785.24   201574.60       12.34       95.81
+OOPS_STATS oops::GetValues::finalizeAD                         :     29636.02   138010.56   110760.56        6.78       97.85
+OOPS_STATS oops::GetValues::processAD                          :      1566.25   157598.19     3560.70        0.22     4382.06
+OOPS_STATS oops::GetValues::processTL                          :      1761.41   148371.62     3669.10        0.22     3995.81
+OOPS_STATS oops::Increment::Increment                          :      6837.74     7533.82     7191.88        0.44        9.68
+OOPS_STATS oops::Increment::axpy                               :      5765.75     6217.41     5914.06        0.36        7.64
+OOPS_STATS oops::Increment::dot_product_with                   :      8244.03   236593.61   145030.60        8.88      157.45
+OOPS_STATS oops::Increment::fromFieldSet                       :      7044.76    10135.75     7763.33        0.48       39.82
+OOPS_STATS oops::Increment::operator+=                         :      1890.21     1990.62     1932.21        0.12        5.20
+OOPS_STATS oops::Increment::operator=                          :      3849.81     4147.35     3975.41        0.24        7.48
+OOPS_STATS oops::Increment::print                              :      5275.25    11507.80     9128.63        0.56       68.27
+OOPS_STATS oops::Increment::serialize                          :      1523.79     2357.73     2007.02        0.12       41.55
+OOPS_STATS oops::Increment::toFieldSet                         :      3132.22     3665.52     3252.67        0.20       16.40
+OOPS_STATS oops::LinearVariableChange::changeVarAD             :     11951.73    14607.38    12217.56        0.75       21.74
+OOPS_STATS oops::LinearVariableChange::changeVarTL            nid001000.cactus.wcoss2.ncep.noaa.gov 0:  :     21546.69    29663.48    27537.83        1.69       29.48
+OOPS_STATS oops::Localization::Localization                    :      5614.21     5919.03     5752.84        0.35        5.30
+OOPS_STATS oops::Localization::multiply                        :     50076.39    53402.82    51811.80        3.17        6.42
+OOPS_STATS oops::Localization::~Localization                   :     10448.49    11086.08    10894.82        0.67        5.85
+OOPS_STATS oops::ObsSpace::ObsSpace                            :      2682.38     3023.78     2899.03        0.18       11.78
+OOPS_STATS oops::ObsSpace::save                                :      3608.11     3948.47     3911.30        0.24        8.70
+OOPS_STATS oops::Parameters::deserialize                       :       801.71    10851.20     1852.99        0.11      542.34
+OOPS_STATS oops::State::State                                  :    402111.98   405667.13   404188.89       24.74        0.88
+OOPS_STATS oops::State::write                                  :     62010.91    80478.15    79600.66        4.87       23.20
+OOPS_STATS oops::UnstructuredInterpolator::apply               :     13529.15   170536.00    18837.99        1.15      833.46
+OOPS_STATS oops::UnstructuredInterpolator::applyAD             :      7728.74   157090.65    11876.50        0.73     1257.63
+OOPS_STATS oops::VariableChange::changeVar                     :       408.39    18421.16     3174.09        0.19      567.49
+OOPS_STATS oops::mpi::broadcast                                :      2493.33     3378.45     3018.16        0.18       29.33
+OOPS_STATS saber::ErrorCovariance::doMultiply                  :    127343.31   135544.68   129558.60        7.93        6.33
+OOPS_STATS saber::Interpolation::multiply                      :     25621.49    33762.87    29769.75        1.82       27.35
+OOPS_STATS saber::Interpolation::multiplyAD                    :     18864.18    27349.66    23580.38        1.44       35.99
+OOPS_STATS saber::Localization::Localization                   :      5614.19     5919.01    nid001000.cactus.wcoss2.ncep.noaa.gov 0:  5752.82        0.35        5.30
+OOPS_STATS saber::Localization::multiply                       :     46438.09    49540.55    48105.82        2.94        6.45
+OOPS_STATS saber::gsi::StaticCovariance::multiply              :    102289.84   104027.53   102903.15        6.30        1.69
+OOPS_STATS saber::mgbf::Covariance::multiply                   :      3064.46    10468.84     6306.11        0.39      117.42
+OOPS_STATS saber::mgbf::Covariance::~Covariance                :     10442.36    11081.43    10889.22        0.67        5.87
+OOPS_STATS util::Timers::Total                                 :   1633501.69  1634350.12  1633944.55      100.00        0.05
+OOPS_STATS util::Timers::measured                              :   1631529.15  1633073.11  1632429.90       99.91        0.09
+OOPS_STATS ---------------------------------- Parallel Timing Statistics (1936 MPI tasks) -----------------------------------
+
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS Run end                                  - Runtime:   1672.33 sec,  Memory: total: 15720.13 Gb, per task: min =     7.72 Gb, max =    31.06 Gb
+Run: Finishing oops::Variational<FV3JEDI, UFO and IODA observations> with status = 0
+nid001000.cactus.wcoss2.ncep.noaa.gov 0: OOPS Ending   2025-11-05 18:56:09 (UTC+0000)
+PBS: Running epilogue on parent mom node: nid001000...
+##### Job 224140445.cbqs01 - PBS Job Script:
+(Note: Duplicate #PBS entries are a function how PBS interprets and caches the original job script.)
+
+#!/bin/bash
+#PBS -A RRFS-DEV
+#PBS -q dev
+#PBS -l walltime=01:45:00
+#PBS -l select=484:mpiprocs=128:ncpus=128
+#PBS -l place=vscatter:exclhost
+#PBS -N deb-hyb-qsubv1-2mem-halo_ob-1936-mgbf 
+##PBS -l debug=true
+#PBS -j oe -o deb-hyb-qsubv1-2mem-halo_ob-p1936.log
+
+
+#/lfs/h2/emc/da/noscrub/Shun.Liu/rrfs/testD/ufs-srweather-app/regional_workflow/ush/load_modules_run_task.sh run_anal_gsi /lfs/h2/emc/da/noscrub/Shun.Liu/rrfs/testD/ufs-srweather-app/regional_workflow/jobs/JREGIONAL_RUN_ANAL
+
+#source /lfs/h2/emc/lam/noscrub/emc.lam/rrfs/v0.6.9/ufs-srweather-app/env/build_wcoss2_intel.env
+moduledir="/lfs/h2/emc/da/noscrub/Ting.Lei/dr-sams-rdasapp/RDASApp/modulefiles"
+module use $moduledir
+module load RDAS/wcoss2.intel
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/opt/cray/pe/mpich/8.1.19/ofi/intel/19.0/lib"
+
+
+ulimit -s unlimited
+ulimit -a
+
+echo "start time:"
+date
+
+
+#rundir=/lfs/h2/emc/ptmp/emc.lam/Shun.Liu/anal_conv_gsi_spinup
+rundir=/lfs/h2/emc/da/noscrub/Ting.Lei/dr-NA-Ens3Dvar-MGBF/fv3_2024052700_nadomain
+
+cd $rundir
+
+#last_run=$(ls nodiagwrt_nosat_stdout.* 2>/dev/null | sort -n -t. -k 2 | tail -1)
+
+EXEC=/lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle/jedi-bundle/build/bin/fv3jedi_var.x
+export JEDI_LIBS="/lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle/jedi-bundle/build/lib64:/lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle/jedi-bundle/build/lib"
+# add subproject libs if present:
+# JEDI_LIBS="$JEDI_LIBS:/lfs/.../oops/build/lib64:/lfs/.../saber/build/lib64:/lfs/.../ufo/build/lib64"
+
+# include MKL/compiler runtimes if you linked them:
+module load intel-oneapi-mkl intel-oneapi-compiler  # or whatever sets MKLROOT
+export LD_LIBRARY_PATH="$JEDI_LIBS:$MKLROOT/lib/intel64:$LD_LIBRARY_PATH"
+export MPICH_OFI_STARTUP_CONNECT=1
+
+# make sure mpiexec propagates env (Hydra/PALS understands -env or -genv):
+mpiexec -n 1936 -ppn 4 --cpu-bind core --depth 16 --label \
+  -env LD_LIBRARY_PATH "$LD_LIBRARY_PATH" \
+  /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle/jedi-bundle/build/bin/fv3jedi_var.x \
+  hyb-2mem-halo_ob-rrfs_fv3jedi_2024052700_3Dvar.yaml hyb-qsubv1-2mem-halo_ob-rrfs_fv3jedi_2024052700_3Dvar.out
+exit
+
+
+##### End of job script
+------------------------------------------------------------------
+
