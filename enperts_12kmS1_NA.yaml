@@ -1,0 +1,126 @@
+_layout: &fv3_layout [44, 44]
+_xlayout: &xlayout 44
+_ylayout: &ylayout 44
+
+state variables: &state_vars
+  - eastward_wind
+  - northward_wind
+  - air_temperature
+  - air_pressure_thickness
+  - water_vapor_mixing_ratio_wrt_moist_air
+  - cloud_liquid_ice
+  - cloud_liquid_water
+  - ozone_mass_mixing_ratio
+
+field io names: &io_names
+  eastward_wind: ua
+  northward_wind: va
+  air_temperature: T
+  air_pressure_thickness: delp
+  water_vapor_mixing_ratio_wrt_moist_air: sphum
+  cloud_liquid_ice: ice_wat
+  cloud_liquid_water: liq_wat
+  ozone_mass_mixing_ratio: o3mr
+  geopotential_height_times_gravity_at_surface: phis
+  skin_temperature_at_surface: tsfc
+  soilt: tslb
+  soilm: smois
+  eastward_wind_at_surface: u_srf
+  northward_wind_at_surface: v_srf
+
+geometry:
+  fms initialization:
+    namelist filename: ./dr-3km/DataFix/fmsmpp.nml
+    field table filename: ./dr-3km/DataFix/field_table
+  namelist filename: ../dr-convert2state-NA-12kmS1/dr-12kmS1/INPUT/sam_p480_input.nml
+  akbk: ./dr-3km/DataFix/fix/akbk66.nc
+  npz: 65
+  layout: *fv3_layout
+  io_layout: [1, 1]
+  ntiles: 1
+  fieldsets:
+    - fieldset: ./dr-3km/DataFix/fix/dynamics_lam_cmaq.yaml
+
+model:
+  name: PSEUDO
+  filetype: fms restart
+  tstep: PT0H
+  datapath: ./dr-12kmS1/mem001
+  filename_core: 20240527.010000.NA_12km.fv_core.res.nc
+  filename_trcr: 20240527.010000.NA_12km.fv_tracer.res.nc
+  filename_cplr: 20240527.010000.NA_12km.coupler.res
+  state variables: *state_vars
+  field io names: *io_names
+
+initial condition:
+  datetime: 2024-05-27T01:00:00Z
+  filetype: fms restart
+  datapath: ./dr-12kmS1/mem001 
+  filename_core: 20240527.010000.NA_12km.fv_core.res.nc
+  filename_trcr: 20240527.010000.NA_12km.fv_tracer.res.nc
+  filename_cplr: 20240527.010000.NA_12km.coupler.res
+  state variables: *state_vars
+  field io names: *io_names
+
+background error:
+  covariance model: SABER
+  saber central block:
+    saber block name: gsi static covariance
+    read:
+      gsi akbk: ./dr-3km/DataFix/fix/akbk66.nc
+      gsi error covariance file: berror_stats
+      gsi berror namelist file: gsiparm_regional_3kmNA.anl
+      processor layout x direction: *xlayout
+      processor layout y direction: *ylayout
+      debugging deep bypass gsi B error: false
+      debugging mode: false
+      regional mode: true
+  saber outer blocks:
+    - saber block name: interpolation
+      inner geometry:
+        function space: StructuredColumns
+        custom grid matching gsi:
+          type: rotated_lonlat
+          lats: "1360"
+          lons: "1985"
+          lat_start: "-36.6574659140194"
+          lat_end: "36.6574659140194"
+          lon_start: "-60.0310278618037"
+          lon_end: "60.0310278618037"
+          north_pole_lat: "34.9999966097"
+          north_pole_lon: "67.4999923706"
+        custom partitioner matching gsi:
+          bands: *ylayout
+        halo: 1
+      forward interpolator:
+        local interpolator type: oops unstructured grid interpolator
+      inverse interpolator:
+        local interpolator type: oops unstructured grid interpolator
+      state variables to inverse:
+        - eastward_wind
+        - northward_wind
+        - air_temperature
+        - water_vapor_mixing_ratio_wrt_moist_air
+        - air_pressure_at_surface
+        - air_pressure_thickness
+  linear variable change:
+    linear variable change name: Control2Analysis
+    input variables: [eastward_wind, northward_wind, virtual_temperature, water_vapor_mixing_ratio_wrt_moist_air, cloud_liquid_ice, cloud_liquid_water, ozone_mass_mixing_ratio, air_pressure_at_surface]
+    output variables: [eastward_wind, northward_wind, air_temperature, water_vapor_mixing_ratio_wrt_moist_air, cloud_liquid_ice, cloud_liquid_water, ozone_mass_mixing_ratio, air_pressure_at_surface]
+
+randomization size: 30
+members: 30
+perturbed variables: *state_vars
+forecast length: PT0H
+include control: false
+
+output:
+  filetype: fms restart
+  datapath: ./dr-12kmS1/pert_mem%mem%
+  filename_core: 20240527.010000.NA_12km.fv_core.res.nc
+  filename_trcr: 20240527.010000.NA_12km.fv_tracer.res.nc
+  filename_cplr: 20240527.010000.NA_12km.coupler.res
+  member pattern: '%mem%'
+  first: PT0H
+  frequency: PT0H
+
