@@ -153,6 +153,44 @@ def stitch_grids(
     return full_lon, full_lat
 
 
+def infer_indices_from_centers(
+    grids: list[tuple[Path, np.ndarray, np.ndarray, int | None, int | None]],
+    tiles_x: int,
+    tiles_y: int,
+    tol_decimals: int = 6,
+) -> list[tuple[Path, np.ndarray, np.ndarray, int, int]]:
+    """Assign (tx, ty) based on tile centroid lon/lat ordering (west->east, south->north)."""
+    lon_centers = []
+    lat_centers = []
+    for _, lon_tile, lat_tile, _, _ in grids:
+        lon_centers.append(np.nanmean(lon_tile))
+        lat_centers.append(np.nanmean(lat_tile))
+    lon_centers = np.array(lon_centers)
+    lat_centers = np.array(lat_centers)
+
+    # Unwrap longitudes to avoid dateline jumps, then round to clusters.
+    lon_unwrapped = np.degrees(np.unwrap(np.radians(lon_centers)))
+    uniq_lon = np.unique(np.round(lon_unwrapped, tol_decimals))
+    uniq_lat = np.unique(np.round(lat_centers, tol_decimals))
+    if len(uniq_lon) != tiles_x or len(uniq_lat) != tiles_y:
+        raise ValueError(
+            f"Auto layout: unique lon centers={len(uniq_lon)} (need {tiles_x}), "
+            f"unique lat centers={len(uniq_lat)} (need {tiles_y})."
+        )
+    uniq_lon_sorted = np.sort(uniq_lon)
+    uniq_lat_sorted = np.sort(uniq_lat)
+
+    remapped = []
+    for (path, lon_tile, lat_tile, _, _) , lon_c, lat_c in zip(grids, lon_unwrapped, lat_centers):
+        lon_key = np.round(lon_c, tol_decimals)
+        lat_key = np.round(lat_c, tol_decimals)
+        tx = int(np.where(uniq_lon_sorted == lon_key)[0][0])
+        ty = int(np.where(uniq_lat_sorted == lat_key)[0][0])
+        remapped.append((path, lon_tile, lat_tile, tx, ty))
+    # Note: ty grows northward because lat_key increases northward in sorting
+    return remapped
+
+
 def validate_latlon(lon: np.ndarray, lat: np.ndarray) -> None:
     """Validate lat/lon arrays and raise if abnormal values are present."""
     if lon.size != lat.size:
@@ -349,6 +387,7 @@ def run(
     tile_index_order: str,
     seam_threshold_km: float,
     monotonic_tol_deg: float,
+    auto_layout: bool,
     plot_subdomains: bool,
 ) -> None:
     grids, files = collect_grids(
@@ -363,6 +402,9 @@ def run(
     if not grids:
         print(f"No lat/lon points found for pattern '{pattern}'. Files seen: {[str(f) for f in files]}")
         return
+
+    if auto_layout:
+        grids = infer_indices_from_centers(grids, tiles_x=tiles_x, tiles_y=tiles_y)
 
     for path, lon_grid, lat_grid, tx, ty in grids:
         validate_latlon(lon_grid.flatten(), lat_grid.flatten())
@@ -498,6 +540,11 @@ def main(argv: Iterable[str] | None = None) -> None:
         help="Order of capture groups for tile indices: 'xy' means first is x (west->east), second is y (south->north).",
     )
     parser.add_argument(
+        "--auto-layout",
+        action="store_true",
+        help="Infer tile positions from centroid lon/lat (west->east, south->north) instead of filename order/regex.",
+    )
+    parser.add_argument(
         "--seam-threshold-km",
         type=float,
         default=1000.0,
@@ -528,6 +575,7 @@ def main(argv: Iterable[str] | None = None) -> None:
         tile_index_order=args.tile_index_order,
         seam_threshold_km=args.seam_threshold_km,
         monotonic_tol_deg=args.monotonic_tol_deg,
+        auto_layout=args.auto_layout,
         plot_subdomains=args.plot_subdomains,
     )
 
