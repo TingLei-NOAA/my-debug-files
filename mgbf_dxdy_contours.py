@@ -85,9 +85,6 @@ def collect_grids(
     core_nlon: int | None,
     core_nlat: int | None,
     input_order: str,
-    tile_index_regex: str | None = None,
-    tile_index_base: int = 0,
-    tile_index_order: str = "xy",
 ):
     """Read all files that match the pattern and return per-file lon/lat grids plus optional indices."""
     grids = []
@@ -95,19 +92,12 @@ def collect_grids(
     for path in files:
         lon, lat = parse_fieldimpl_latlon(path, core_nlon=core_nlon, core_nlat=core_nlat, input_order=input_order)
         if lon.size and lat.size:
-            tx = ty = None
-            if tile_index_regex:
-                m = re.search(tile_index_regex, path.name)
-                if not m or len(m.groups()) < 2:
-                    raise ValueError(f"Could not extract tile indices from {path.name} with regex '{tile_index_regex}'")
-                g1, g2 = int(m.group(1)) - tile_index_base, int(m.group(2)) - tile_index_base
-                if tile_index_order.lower() == "xy":
-                    tx, ty = g1, g2
-                else:
-                    tx, ty = g2, g1
-                if tx < 0 or ty < 0:
-                    raise ValueError(f"Negative tile indices from {path.name}: ({tx},{ty})")
-            grids.append((path, lon, lat, tx, ty))
+            # Parse MPI rank from filename suffix (expects ..._<rank>.txt)
+            m = re.search(r"_([0-9]+)\\.txt$", path.name)
+            if not m:
+                raise ValueError(f"Could not extract rank index from {path.name} (expected ..._<rank>.txt)")
+            rank = int(m.group(1))
+            grids.append((path, lon, lat, rank, None))
         else:
             print(f"Warning: no lon/lat values parsed from {path}")
     return grids, files
@@ -119,6 +109,7 @@ def stitch_grids(
     tile_nlat: int,
     tiles_x: int,
     tiles_y: int,
+    rank_order: str = "row",
 ) -> tuple[np.ndarray, np.ndarray]:
     """
     Assemble individual tile grids into one stitched domain.
@@ -133,17 +124,21 @@ def stitch_grids(
     full_lon = np.full((full_nlat, full_nlon), np.nan)
     full_lat = np.full((full_nlat, full_nlon), np.nan)
 
-    use_indices = any(g[3] is not None and g[4] is not None for g in grids)
+    resolved = []
+    for path, lon_tile, lat_tile, rank, _ in grids:
+        if rank is None:
+            raise ValueError("Missing rank for tile placement.")
+        if rank < 0 or rank >= tiles_x * tiles_y:
+            raise ValueError(f"Rank {rank} out of range for tiles {tiles_x}x{tiles_y}")
+        if rank_order.lower() == "row":
+            row = rank // tiles_x
+            col = rank % tiles_x
+        else:  # col-major
+            col = rank // tiles_y
+            row = rank % tiles_y
+        resolved.append((path, lon_tile, lat_tile, col, row))
 
-    for idx, (_, lon_tile, lat_tile, tx, ty) in enumerate(grids):
-        if use_indices:
-            if tx is None or ty is None:
-                raise ValueError("Tile index parsing failed for one or more files while others succeeded.")
-            col = tx
-            row = ty
-        else:
-            row = idx // tiles_x  # south to north
-            col = idx % tiles_x   # west to east
+    for _, lon_tile, lat_tile, col, row in resolved:
         y0 = row * tile_nlat
         x0 = col * tile_nlon
         full_lon[y0:y0 + tile_nlat, x0:x0 + tile_nlon] = lon_tile
@@ -382,13 +377,11 @@ def run(
     tiles_x: int,
     tiles_y: int,
     input_order: str,
-    tile_index_regex: str | None,
-    tile_index_base: int,
-    tile_index_order: str,
     seam_threshold_km: float,
     monotonic_tol_deg: float,
     auto_layout: bool,
     auto_layout_decimals: int,
+    rank_order: str,
     dump_stitched: bool,
     plot_subdomains: bool,
 ) -> None:
@@ -397,9 +390,6 @@ def run(
         core_nlon=expected_nlon,
         core_nlat=expected_nlat,
         input_order=input_order,
-        tile_index_regex=tile_index_regex,
-        tile_index_base=tile_index_base,
-        tile_index_order=tile_index_order,
     )
     if not grids:
         print(f"No lat/lon points found for pattern '{pattern}'. Files seen: {[str(f) for f in files]}")
@@ -455,7 +445,9 @@ def run(
     if expected_nlon is None or expected_nlat is None:
         raise ValueError("expected_nlon and expected_nlat must be provided to stitch the domain.")
 
-    lon_full, lat_full = stitch_grids(grids, expected_nlon, expected_nlat, tiles_x=tiles_x, tiles_y=tiles_y)
+    lon_full, lat_full = stitch_grids(
+        grids, expected_nlon, expected_nlat, tiles_x=tiles_x, tiles_y=tiles_y, rank_order=rank_order
+    )
     seam_stats = seam_diagnostics(lon_full, lat_full, expected_nlon, expected_nlat, tiles_x, tiles_y)
     for lbl, stats in seam_stats.items():
         if stats["mean"] == stats["mean"]:  # not NaN
@@ -551,34 +543,22 @@ def main(argv: Iterable[str] | None = None) -> None:
         help="Order of the 2D core in the file: 'latlon' (rows = lat, cols = lon) or 'lonlat' (rows = lon, cols = lat).",
     )
     parser.add_argument(
-        "--tile-index-regex",
+        "--rank-order",
         type=str,
-        default=None,
-        help="Regex with two capture groups to extract (x,y) tile indices from filenames (optional).",
-    )
-    parser.add_argument(
-        "--tile-index-base",
-        type=int,
-        default=0,
-        help="Base for tile indices parsed from filenames (0 or 1, default: %(default)s)",
-    )
-    parser.add_argument(
-        "--tile-index-order",
-        type=str,
-        default="xy",
-        choices=["xy", "yx"],
-        help="Order of capture groups for tile indices: 'xy' means first is x (west->east), second is y (south->north).",
+        default="row",
+        choices=["row", "col"],
+        help="If a single rank is parsed, map it row-major ('row': west->east then south->north) or column-major ('col').",
     )
     parser.add_argument(
         "--auto-layout",
         action="store_true",
-        help="Infer tile positions from centroid lon/lat (west->east, south->north) instead of filename order/regex.",
+        help="(Deprecated) Infer tile positions from centroid lon/lat; rank-based placement is recommended.",
     )
     parser.add_argument(
         "--auto-layout-decimals",
         type=int,
         default=3,
-        help="Rounding decimals for centroid clustering when using --auto-layout (default: %(default)s)",
+        help="(Deprecated) Rounding decimals for centroid clustering when using --auto-layout",
     )
     parser.add_argument(
         "--seam-threshold-km",
@@ -611,13 +591,11 @@ def main(argv: Iterable[str] | None = None) -> None:
         tiles_x=args.tiles_x,
         tiles_y=args.tiles_y,
         input_order=args.input_order,
-        tile_index_regex=args.tile_index_regex,
-        tile_index_base=args.tile_index_base,
-        tile_index_order=args.tile_index_order,
         seam_threshold_km=args.seam_threshold_km,
         monotonic_tol_deg=args.monotonic_tol_deg,
         auto_layout=args.auto_layout,
         auto_layout_decimals=args.auto_layout_decimals,
+        rank_order=args.rank_order,
         dump_stitched=args.dump_stitched,
         plot_subdomains=args.plot_subdomains,
     )
