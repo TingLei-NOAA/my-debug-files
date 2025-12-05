@@ -93,9 +93,12 @@ def collect_grids(
         lon, lat = parse_fieldimpl_latlon(path, core_nlon=core_nlon, core_nlat=core_nlat, input_order=input_order)
         if lon.size and lat.size:
             # Parse MPI rank from filename suffix (expects ..._<rank>.txt)
-            m = re.search(r"_([0-9]+)\\.txt$", path.name)
+            m = re.search(r"_([0-9]+)(?:\\.[^.]+)?$", path.name)
             if not m:
-                raise ValueError(f"Could not extract rank index from {path.name} (expected ..._<rank>.txt)")
+                raise ValueError(
+                    f"Could not extract rank index from {path.name} (expected trailing _<rank>.txt; "
+                    f"example: mgbf_filtering_grid_latlon_43.txt)"
+                )
             rank = int(m.group(1))
             grids.append((path, lon, lat, rank, None))
         else:
