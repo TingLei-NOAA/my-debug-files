@@ -25,12 +25,18 @@ import numpy as np
 
 
 def parse_fieldimpl_latlon(
-    path: Path, core_nlon: int | None = None, core_nlat: int | None = None
+    path: Path,
+    core_nlon: int | None = None,
+    core_nlat: int | None = None,
+    input_order: str = "latlon",
 ) -> Tuple[np.ndarray, np.ndarray]:
     """
     Extract lon/lat pairs from a FieldImpl dump.
     If core_nlon/core_nlat are provided, only the first (core_nlon * core_nlat) points
     are retained (assuming halo points follow). Returns 2D arrays (lon_grid, lat_grid).
+    input_order controls how the flat core is reshaped:
+      - "latlon": reshape to (nlat, nlon) directly (lat-major rows)
+      - "lonlat": reshape to (nlon, nlat) then transpose to (nlat, nlon)
     If parsing fails, both arrays are empty.
     """
     text = path.read_text()
@@ -56,8 +62,16 @@ def parse_fieldimpl_latlon(
                 f"{path}: not enough points for expected core grid: "
                 f"found {lon.size} but need at least {core_expected} (including halo)"
             )
-        lon = lon[:core_expected].reshape(core_nlat, core_nlon)
-        lat = lat[:core_expected].reshape(core_nlat, core_nlon)
+        lon = lon[:core_expected]
+        lat = lat[:core_expected]
+        if input_order == "latlon":
+            lon = lon.reshape(core_nlat, core_nlon)
+            lat = lat.reshape(core_nlat, core_nlon)
+        elif input_order == "lonlat":
+            lon = lon.reshape(core_nlon, core_nlat).T
+            lat = lat.reshape(core_nlon, core_nlat).T
+        else:
+            raise ValueError(f"Unsupported input_order '{input_order}'. Use 'latlon' or 'lonlat'.")
     else:
         # No shape expectations; return as 1D
         lon = lon
@@ -66,21 +80,41 @@ def parse_fieldimpl_latlon(
     return lon, lat
 
 
-def collect_grids(pattern: str, core_nlon: int | None, core_nlat: int | None):
-    """Read all files that match the pattern and return per-file lon/lat grids."""
+def collect_grids(
+    pattern: str,
+    core_nlon: int | None,
+    core_nlat: int | None,
+    input_order: str,
+    tile_index_regex: str | None = None,
+    tile_index_base: int = 0,
+    tile_index_order: str = "xy",
+):
+    """Read all files that match the pattern and return per-file lon/lat grids plus optional indices."""
     grids = []
     files = sorted(Path(".").glob(pattern))
     for path in files:
-        lon, lat = parse_fieldimpl_latlon(path, core_nlon=core_nlon, core_nlat=core_nlat)
+        lon, lat = parse_fieldimpl_latlon(path, core_nlon=core_nlon, core_nlat=core_nlat, input_order=input_order)
         if lon.size and lat.size:
-            grids.append((path, lon, lat))
+            tx = ty = None
+            if tile_index_regex:
+                m = re.search(tile_index_regex, path.name)
+                if not m or len(m.groups()) < 2:
+                    raise ValueError(f"Could not extract tile indices from {path.name} with regex '{tile_index_regex}'")
+                g1, g2 = int(m.group(1)) - tile_index_base, int(m.group(2)) - tile_index_base
+                if tile_index_order.lower() == "xy":
+                    tx, ty = g1, g2
+                else:
+                    tx, ty = g2, g1
+                if tx < 0 or ty < 0:
+                    raise ValueError(f"Negative tile indices from {path.name}: ({tx},{ty})")
+            grids.append((path, lon, lat, tx, ty))
         else:
             print(f"Warning: no lon/lat values parsed from {path}")
     return grids, files
 
 
 def stitch_grids(
-    grids: list[tuple[Path, np.ndarray, np.ndarray]],
+    grids: list[tuple[Path, np.ndarray, np.ndarray, int | None, int | None]],
     tile_nlon: int,
     tile_nlat: int,
     tiles_x: int,
@@ -99,9 +133,17 @@ def stitch_grids(
     full_lon = np.full((full_nlat, full_nlon), np.nan)
     full_lat = np.full((full_nlat, full_nlon), np.nan)
 
-    for idx, (_, lon_tile, lat_tile) in enumerate(grids):
-        row = idx // tiles_x  # south to north
-        col = idx % tiles_x   # west to east
+    use_indices = any(g[3] is not None and g[4] is not None for g in grids)
+
+    for idx, (_, lon_tile, lat_tile, tx, ty) in enumerate(grids):
+        if use_indices:
+            if tx is None or ty is None:
+                raise ValueError("Tile index parsing failed for one or more files while others succeeded.")
+            col = tx
+            row = ty
+        else:
+            row = idx // tiles_x  # south to north
+            col = idx % tiles_x   # west to east
         y0 = row * tile_nlat
         x0 = col * tile_nlon
         full_lon[y0:y0 + tile_nlat, x0:x0 + tile_nlon] = lon_tile
@@ -217,6 +259,31 @@ def compute_dx_dy(lon_grid: np.ndarray, lat_grid: np.ndarray) -> Tuple[np.ndarra
     return dx, dy, ratio
 
 
+def seam_diagnostics(lon_full: np.ndarray, lat_full: np.ndarray, tile_nlon: int, tile_nlat: int, tiles_x: int, tiles_y: int) -> None:
+    """Report seam gaps between tiles to catch ordering/placement issues."""
+    # Vertical seams (between columns)
+    gaps_vert = []
+    for c in range(1, tiles_x):
+        left_col = c * tile_nlon - 1
+        right_col = c * tile_nlon
+        gaps_vert.append(haversine(lon_full[:, left_col], lat_full[:, left_col], lon_full[:, right_col], lat_full[:, right_col]))
+    # Horizontal seams (between rows)
+    gaps_horz = []
+    for r in range(1, tiles_y):
+        bottom_row = r * tile_nlat - 1
+        top_row = r * tile_nlat
+        gaps_horz.append(haversine(lon_full[bottom_row, :], lat_full[bottom_row, :], lon_full[top_row, :], lat_full[top_row, :]))
+
+    def report(gaps, label):
+        if not gaps:
+            return
+        merged = np.concatenate(gaps)
+        print(f"{label} seam gaps (meters): mean={np.nanmean(merged):.2f}, max={np.nanmax(merged):.2f}")
+
+    report(gaps_vert, "Vertical")
+    report(gaps_horz, "Horizontal")
+
+
 def plot_field_grid(
     field: np.ndarray,
     lon: np.ndarray,
@@ -248,8 +315,27 @@ def plot_field_grid(
     print(f"Wrote {outfile}")
 
 
-def run(pattern: str, output_dir: Path, expected_nlon: int | None, expected_nlat: int | None, tiles_x: int, tiles_y: int) -> None:
-    grids, files = collect_grids(pattern, core_nlon=expected_nlon, core_nlat=expected_nlat)
+def run(
+    pattern: str,
+    output_dir: Path,
+    expected_nlon: int | None,
+    expected_nlat: int | None,
+    tiles_x: int,
+    tiles_y: int,
+    input_order: str,
+    tile_index_regex: str | None,
+    tile_index_base: int,
+    tile_index_order: str,
+) -> None:
+    grids, files = collect_grids(
+        pattern,
+        core_nlon=expected_nlon,
+        core_nlat=expected_nlat,
+        input_order=input_order,
+        tile_index_regex=tile_index_regex,
+        tile_index_base=tile_index_base,
+        tile_index_order=tile_index_order,
+    )
     if not grids:
         print(f"No lat/lon points found for pattern '{pattern}'. Files seen: {[str(f) for f in files]}")
         return
@@ -267,6 +353,7 @@ def run(pattern: str, output_dir: Path, expected_nlon: int | None, expected_nlat
 
     lon_full, lat_full = stitch_grids(grids, expected_nlon, expected_nlat, tiles_x=tiles_x, tiles_y=tiles_y)
     dx_full, dy_full, ratio_full = compute_dx_dy(lon_full, lat_full)
+    seam_diagnostics(lon_full, lat_full, expected_nlon, expected_nlat, tiles_x, tiles_y)
 
     output_dir.mkdir(parents=True, exist_ok=True)
     plot_field_grid(dx_full / 1000.0, lon_full, lat_full, "dx (km) across domain", output_dir / "mgbf_dx_km.png", cmap="magma", units="km")
@@ -311,8 +398,45 @@ def main(argv: Iterable[str] | None = None) -> None:
         default=22,
         help="Number of subdomains south->north (default: %(default)s)",
     )
+    parser.add_argument(
+        "--input-order",
+        type=str,
+        default="lonlat",
+        choices=["latlon", "lonlat"],
+        help="Order of the 2D core in the file: 'latlon' (rows = lat, cols = lon) or 'lonlat' (rows = lon, cols = lat).",
+    )
+    parser.add_argument(
+        "--tile-index-regex",
+        type=str,
+        default=None,
+        help="Regex with two capture groups to extract (x,y) tile indices from filenames (optional).",
+    )
+    parser.add_argument(
+        "--tile-index-base",
+        type=int,
+        default=0,
+        help="Base for tile indices parsed from filenames (0 or 1, default: %(default)s)",
+    )
+    parser.add_argument(
+        "--tile-index-order",
+        type=str,
+        default="xy",
+        choices=["xy", "yx"],
+        help="Order of capture groups for tile indices: 'xy' means first is x (west->east), second is y (south->north).",
+    )
     args = parser.parse_args(list(argv) if argv is not None else None)
-    run(args.pattern, args.output_dir, args.expected_nlon, args.expected_nlat, tiles_x=args.tiles_x, tiles_y=args.tiles_y)
+    run(
+        args.pattern,
+        args.output_dir,
+        args.expected_nlon,
+        args.expected_nlat,
+        tiles_x=args.tiles_x,
+        tiles_y=args.tiles_y,
+        input_order=args.input_order,
+        tile_index_regex=args.tile_index_regex,
+        tile_index_base=args.tile_index_base,
+        tile_index_order=args.tile_index_order,
+    )
 
 
 if __name__ == "__main__":
