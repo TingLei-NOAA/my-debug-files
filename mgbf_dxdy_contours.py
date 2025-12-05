@@ -340,7 +340,7 @@ def run(
         print(f"No lat/lon points found for pattern '{pattern}'. Files seen: {[str(f) for f in files]}")
         return
 
-    for path, lon_grid, lat_grid in grids:
+    for path, lon_grid, lat_grid, tx, ty in grids:
         validate_latlon(lon_grid.flatten(), lat_grid.flatten())
         if expected_nlat and expected_nlon:
             if lon_grid.shape != (expected_nlat, expected_nlon):
