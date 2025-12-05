@@ -351,6 +351,7 @@ def plot_field_grid(
     outfile: Path,
     cmap: str = "viridis",
     units: str | None = None,
+    cbar_label: str | None = None,
 ) -> None:
     """Contour plot on the stitched structured grid."""
     valid = np.isfinite(field) & np.isfinite(lon) & np.isfinite(lat)
@@ -364,9 +365,8 @@ def plot_field_grid(
     ax.coastlines()
     ax.gridlines(draw_labels=True, linestyle=":")
     cbar = fig.colorbar(cf, ax=ax, orientation="vertical", pad=0.02)
-    label = units if units else ""
-    if label:
-        cbar.set_label(label)
+    label = cbar_label if cbar_label is not None else (units if units else "")
+    cbar.set_label(label)
     ax.set_title(title)
     fig.tight_layout()
     fig.savefig(outfile, dpi=200)
@@ -477,8 +477,26 @@ def run(
         np.savetxt(output_dir / "stitched_lat.txt", lat_full, fmt="%.8f")
         print(f"Wrote stitched lon/lat to {output_dir / 'stitched_lon.txt'} and {output_dir / 'stitched_lat.txt'}")
         # Quick plots of stitched lon/lat surfaces
-        plot_field_grid(lon_full, lon_full, lat_full, "Stitched Lon", output_dir / "stitched_lon.png", cmap="coolwarm", units="deg")
-        plot_field_grid(lat_full, lon_full, lat_full, "Stitched Lat", output_dir / "stitched_lat.png", cmap="coolwarm", units="deg")
+        plot_field_grid(
+            lon_full,
+            lon_full,
+            lat_full,
+            "Stitched Lon",
+            output_dir / "stitched_lon.png",
+            cmap="coolwarm",
+            units="deg",
+            cbar_label="Longitude (deg)",
+        )
+        plot_field_grid(
+            lat_full,
+            lon_full,
+            lat_full,
+            "Stitched Lat",
+            output_dir / "stitched_lat.png",
+            cmap="coolwarm",
+            units="deg",
+            cbar_label="Latitude (deg)",
+        )
 
     dx_full, dy_full, ratio_full = compute_dx_dy(lon_full, lat_full)
 
