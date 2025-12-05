@@ -70,6 +70,18 @@ def collect_latlon(pattern: str, max_pairs: int | None) -> Tuple[np.ndarray, np.
     return np.concatenate(lons), np.concatenate(lats), files
 
 
+def validate_latlon(lon: np.ndarray, lat: np.ndarray) -> None:
+    """Validate lat/lon arrays and raise if abnormal values are present."""
+    if lon.size != lat.size:
+        raise ValueError(f"Mismatched lon/lat sizes: {lon.size} vs {lat.size}")
+    if not np.all(np.isfinite(lon)) or not np.all(np.isfinite(lat)):
+        bad = (~np.isfinite(lon)) | (~np.isfinite(lat))
+        raise ValueError(f"Found non-finite lon/lat entries at indices: {np.where(bad)[0].tolist()}")
+    if np.any((lat < -90) | (lat > 90)):
+        bad = np.where((lat < -90) | (lat > 90))[0].tolist()
+        raise ValueError(f"Found latitudes outside [-90, 90] at indices: {bad}")
+
+
 def infer_structured_grid(
     lon: np.ndarray, lat: np.ndarray, tol: float = 1e-5
 ) -> Tuple[np.ndarray, np.ndarray]:
@@ -118,7 +130,10 @@ def infer_structured_grid(
 
 
 def haversine(lon1: np.ndarray, lat1: np.ndarray, lon2: np.ndarray, lat2: np.ndarray) -> np.ndarray:
-    """Great-circle distance (meters) between paired lon/lat arrays."""
+    """Great-circle distance (meters) between paired lon/lat arrays. Raises on invalid inputs."""
+    if not (np.all(np.isfinite(lon1)) and np.all(np.isfinite(lat1)) and np.all(np.isfinite(lon2)) and np.all(np.isfinite(lat2))):
+        raise ValueError("NaN/inf values passed to haversine; inputs must be fully finite.")
+
     lon1_rad = np.radians(lon1)
     lon2_rad = np.radians(lon2)
     lat1_rad = np.radians(lat1)
@@ -126,6 +141,10 @@ def haversine(lon1: np.ndarray, lat1: np.ndarray, lon2: np.ndarray, lat2: np.nda
     dlon = lon2_rad - lon1_rad
     dlat = lat2_rad - lat1_rad
     a = np.sin(dlat / 2) ** 2 + np.cos(lat1_rad) * np.cos(lat2_rad) * np.sin(dlon / 2) ** 2
+    if np.any((a < -1e-12) | (a > 1 + 1e-12)):
+        bad_idx = np.where((a < -1e-12) | (a > 1 + 1e-12))[0].tolist()
+        raise ValueError(f"haversine encountered invalid 'a' values outside [0,1]; indices: {bad_idx}, min={a.min()}, max={a.max()}")
+    a = np.clip(a, 0.0, 1.0)
     c = 2 * np.arcsin(np.sqrt(a))
     return 6_371_000.0 * c
 
@@ -137,6 +156,11 @@ def compute_dx_dy(lon_grid: np.ndarray, lat_grid: np.ndarray) -> Tuple[np.ndarra
 
     dx[:, :-1] = haversine(lon_grid[:, :-1], lat_grid[:, :-1], lon_grid[:, 1:], lat_grid[:, 1:])
     dy[:-1, :] = haversine(lon_grid[:-1, :], lat_grid[:-1, :], lon_grid[1:, :], lat_grid[1:, :])
+    if np.any(~np.isfinite(dx)) or np.any(~np.isfinite(dy)):
+        raise ValueError("Non-finite dx/dy encountered; check input grid ordering.")
+    if np.any(dy == 0):
+        zero_idx = np.where(dy == 0)
+        raise ValueError(f"Zero dy encountered at indices {list(zip(zero_idx[0].tolist(), zero_idx[1].tolist()))}")
     ratio = dx / dy
     return dx, dy, ratio
 
@@ -183,6 +207,7 @@ def run(pattern: str, output_dir: Path, expected_nlon: int | None, expected_nlat
         return
 
     print(f"Loaded {lon.size} points from {len(files)} files")
+    validate_latlon(lon, lat)
     lon_grid, lat_grid = infer_structured_grid(lon, lat)
     if lon_grid.size == 0 or lat_grid.size == 0:
         print("Failed to build a structured grid from the input points.")
