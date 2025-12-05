@@ -93,7 +93,7 @@ def collect_grids(
         lon, lat = parse_fieldimpl_latlon(path, core_nlon=core_nlon, core_nlat=core_nlat, input_order=input_order)
         if lon.size and lat.size:
             # Parse MPI rank from filename suffix (expects ..._<rank>.txt)
-            m = re.search(r"_([0-9]+)(?:\\.[^.]+)?$", path.name)
+            m = re.search(r"_([0-9]+)(?:\.[^.]+)?$", path.name)
             if not m:
                 print(f"[rank-parse-fail] filename='{path.name}'")
                 raise ValueError(
