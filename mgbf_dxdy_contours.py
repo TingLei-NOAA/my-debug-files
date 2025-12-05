@@ -24,50 +24,66 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def parse_fieldimpl_latlon(path: Path, max_pairs: int | None = None) -> Tuple[np.ndarray, np.ndarray]:
+def parse_fieldimpl_latlon(
+    path: Path, core_nlon: int | None = None, core_nlat: int | None = None, halo: int = 1
+) -> Tuple[np.ndarray, np.ndarray]:
     """
     Extract lon/lat pairs from a FieldImpl dump.
-    Returns two 1D arrays (lon, lat). If parsing fails, both arrays are empty.
-    If max_pairs is provided, only the first max_pairs pairs are kept (e.g., to drop halo points).
+    If core_nlon/core_nlat are provided, the dump is assumed to include halo points,
+    sized (core_nlon + 2*halo) x (core_nlat + 2*halo). The returned lon/lat cover ONLY
+    the core (halo stripped).
+    Returns 2D arrays (lon_grid, lat_grid). If parsing fails, both arrays are empty.
     """
     text = path.read_text()
     match = re.search(r"values:\s*\[(.*?)\]", text, re.DOTALL)
     if not match:
-        return np.array([]), np.array([])
+        return np.array([[]]), np.array([[]])
 
     numbers = [float(x) for x in re.findall(r"[-+]?\d*\.?\d+(?:[eE][-+]?\d+)?", match.group(1))]
     if len(numbers) < 2:
-        return np.array([]), np.array([])
+        return np.array([[]]), np.array([[]])
 
     values = np.asarray(numbers)
     if values.size % 2:
         values = values[:-1]
 
-    if max_pairs is not None:
-        values = values[: 2 * max_pairs]
-
     lon = values[0::2]
     lat = values[1::2]
+
+    if core_nlon and core_nlat:
+        expected_with_halo = (core_nlon + 2 * halo) * (core_nlat + 2 * halo)
+        if lon.size < expected_with_halo or lat.size < expected_with_halo:
+            raise ValueError(
+                f"{path}: not enough points for expected haloed grid: "
+                f"found {lon.size} but need {expected_with_halo}"
+            )
+        lon = lon[:expected_with_halo]
+        lat = lat[:expected_with_halo]
+        full_nlon = core_nlon + 2 * halo
+        full_nlat = core_nlat + 2 * halo
+        lon = lon.reshape(full_nlat, full_nlon)
+        lat = lat.reshape(full_nlat, full_nlon)
+        lon = lon[halo:-halo, halo:-halo]  # strip halo
+        lat = lat[halo:-halo, halo:-halo]
+    else:
+        # No shape expectations; return as 1D
+        lon = lon
+        lat = lat
+
     return lon, lat
 
 
-def collect_latlon(pattern: str, max_pairs: int | None) -> Tuple[np.ndarray, np.ndarray, list[Path]]:
-    """Read all files that match the pattern and concatenate lon/lat arrays."""
-    lons: list[np.ndarray] = []
-    lats: list[np.ndarray] = []
+def collect_grids(pattern: str, core_nlon: int | None, core_nlat: int | None, halo: int = 1):
+    """Read all files that match the pattern and return per-file lon/lat grids."""
+    grids = []
     files = sorted(Path(".").glob(pattern))
     for path in files:
-        lon, lat = parse_fieldimpl_latlon(path, max_pairs=max_pairs)
+        lon, lat = parse_fieldimpl_latlon(path, core_nlon=core_nlon, core_nlat=core_nlat, halo=halo)
         if lon.size and lat.size:
-            lons.append(lon)
-            lats.append(lat)
+            grids.append((path, lon, lat))
         else:
             print(f"Warning: no lon/lat values parsed from {path}")
-
-    if not lons:
-        return np.array([]), np.array([]), files
-
-    return np.concatenate(lons), np.concatenate(lats), files
+    return grids, files
 
 
 def validate_latlon(lon: np.ndarray, lat: np.ndarray) -> None:
@@ -196,36 +212,26 @@ def plot_field(
     print(f"Wrote {outfile}")
 
 
-def run(pattern: str, output_dir: Path, expected_nlon: int | None, expected_nlat: int | None) -> None:
-    max_pairs = None
-    if expected_nlon and expected_nlat:
-        max_pairs = expected_nlon * expected_nlat
-
-    lon, lat, files = collect_latlon(pattern, max_pairs=max_pairs)
-    if not lon.size:
+def run(pattern: str, output_dir: Path, expected_nlon: int | None, expected_nlat: int | None, halo: int = 1) -> None:
+    grids, files = collect_grids(pattern, core_nlon=expected_nlon, core_nlat=expected_nlat, halo=halo)
+    if not grids:
         print(f"No lat/lon points found for pattern '{pattern}'. Files seen: {[str(f) for f in files]}")
         return
 
-    print(f"Loaded {lon.size} points from {len(files)} files")
-    validate_latlon(lon, lat)
-    lon_grid, lat_grid = infer_structured_grid(lon, lat)
-    if lon_grid.size == 0 or lat_grid.size == 0:
-        print("Failed to build a structured grid from the input points.")
-        return
-
-    print(f"Inferred grid shape: {lon_grid.shape[0]} rows x {lon_grid.shape[1]} columns")
-    if expected_nlat and expected_nlon:
-        if lon_grid.shape != (expected_nlat, expected_nlon):
-            print(
-                f"Warning: expected grid {expected_nlat}x{expected_nlon}, "
-                f"but inferred {lon_grid.shape[0]}x{lon_grid.shape[1]} (rows x cols)"
-            )
-
-    dx, dy, ratio = compute_dx_dy(lon_grid, lat_grid)
     output_dir.mkdir(parents=True, exist_ok=True)
-    plot_field(dx / 1000.0, lon_grid, lat_grid, "dx (km)", output_dir / "mgbf_dx_km.png", cmap="magma", units="km")
-    plot_field(dy / 1000.0, lon_grid, lat_grid, "dy (km)", output_dir / "mgbf_dy_km.png", cmap="magma", units="km")
-    plot_field(ratio, lon_grid, lat_grid, "dx/dy", output_dir / "mgbf_dx_over_dy.png", cmap="coolwarm")
+    for path, lon_grid, lat_grid in grids:
+        validate_latlon(lon_grid.flatten(), lat_grid.flatten())
+        if expected_nlat and expected_nlon:
+            if lon_grid.shape != (expected_nlat, expected_nlon):
+                print(
+                    f"Warning: {path.name}: expected grid {expected_nlat}x{expected_nlon}, "
+                    f"but got {lon_grid.shape[0]}x{lon_grid.shape[1]}"
+                )
+        dx, dy, ratio = compute_dx_dy(lon_grid, lat_grid)
+        stem = path.stem
+        plot_field(dx / 1000.0, lon_grid, lat_grid, f"{stem} dx (km)", output_dir / f"{stem}_dx_km.png", cmap="magma", units="km")
+        plot_field(dy / 1000.0, lon_grid, lat_grid, f"{stem} dy (km)", output_dir / f"{stem}_dy_km.png", cmap="magma", units="km")
+        plot_field(ratio, lon_grid, lat_grid, f"{stem} dx/dy", output_dir / f"{stem}_dx_over_dy.png", cmap="coolwarm")
 
 
 def main(argv: Iterable[str] | None = None) -> None:
@@ -253,8 +259,14 @@ def main(argv: Iterable[str] | None = None) -> None:
         default=14,
         help="Expected number of latitudes per subdomain grid (default: %(default)s)",
     )
+    parser.add_argument(
+        "--halo",
+        type=int,
+        default=1,
+        help="Halo width to strip from each side of the subdomain grid before computing dx/dy (default: %(default)s)",
+    )
     args = parser.parse_args(list(argv) if argv is not None else None)
-    run(args.pattern, args.output_dir, args.expected_nlon, args.expected_nlat)
+    run(args.pattern, args.output_dir, args.expected_nlon, args.expected_nlat, halo=args.halo)
 
 
 if __name__ == "__main__":
