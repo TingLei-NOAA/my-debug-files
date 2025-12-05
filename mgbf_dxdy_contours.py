@@ -163,14 +163,25 @@ def compute_dx_dy(lon_grid: np.ndarray, lat_grid: np.ndarray) -> Tuple[np.ndarra
     dx = np.full_like(lon_grid, np.nan, dtype=float)
     dy = np.full_like(lon_grid, np.nan, dtype=float)
 
+    # Forward differences for interior points
     dx[:, :-1] = haversine(lon_grid[:, :-1], lat_grid[:, :-1], lon_grid[:, 1:], lat_grid[:, 1:])
     dy[:-1, :] = haversine(lon_grid[:-1, :], lat_grid[:-1, :], lon_grid[1:, :], lat_grid[1:, :])
-    if np.any(~np.isfinite(dx)) or np.any(~np.isfinite(dy)):
-        raise ValueError("Non-finite dx/dy encountered; check input grid ordering.")
+    # Boundary differences using inside neighbor
+    dx[:, -1] = haversine(lon_grid[:, -1], lat_grid[:, -1], lon_grid[:, -2], lat_grid[:, -2])
+    dy[-1, :] = haversine(lon_grid[-1, :], lat_grid[-1, :], lon_grid[-2, :], lat_grid[-2, :])
+
+    # Validate all entries
+    if np.any(~np.isfinite(dx)):
+        bad = np.argwhere(~np.isfinite(dx)).tolist()
+        raise ValueError(f"Non-finite dx encountered at indices (row,col): {bad[:10]}...")
+    if np.any(~np.isfinite(dy)):
+        bad = np.argwhere(~np.isfinite(dy)).tolist()
+        raise ValueError(f"Non-finite dy encountered at indices (row,col): {bad[:10]}...")
     if np.any(dy == 0):
-        zero_idx = np.where(dy == 0)
-        raise ValueError(f"Zero dy encountered at indices {list(zip(zero_idx[0].tolist(), zero_idx[1].tolist()))}")
-    ratio = dx / dy
+        zero_idx = np.argwhere(dy == 0).tolist()
+        raise ValueError(f"Zero dy encountered at indices (row,col): {zero_idx[:10]}...")
+
+    ratio = np.divide(dx, dy, out=np.full_like(dx, np.nan, dtype=float), where=np.isfinite(dx) & np.isfinite(dy) & (dy != 0))
     return dx, dy, ratio
 
 
