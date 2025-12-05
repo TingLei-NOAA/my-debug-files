@@ -326,6 +326,7 @@ def run(
     tile_index_regex: str | None,
     tile_index_base: int,
     tile_index_order: str,
+    plot_subdomains: bool,
 ) -> None:
     grids, files = collect_grids(
         pattern,
@@ -348,6 +349,38 @@ def run(
                     f"Warning: {path.name}: expected grid {expected_nlat}x{expected_nlon}, "
                     f"but got {lon_grid.shape[0]}x{lon_grid.shape[1]}"
                 )
+        if plot_subdomains:
+            dx_tile, dy_tile, ratio_tile = compute_dx_dy(lon_grid, lat_grid)
+            stem = path.stem
+            suffix = ""
+            if tx is not None and ty is not None:
+                suffix = f"_tx{tx}_ty{ty}"
+            plot_field_grid(
+                dx_tile / 1000.0,
+                lon_grid,
+                lat_grid,
+                f"{stem}{suffix} dx (km)",
+                output_dir / f"{stem}{suffix}_dx_km.png",
+                cmap="magma",
+                units="km",
+            )
+            plot_field_grid(
+                dy_tile / 1000.0,
+                lon_grid,
+                lat_grid,
+                f"{stem}{suffix} dy (km)",
+                output_dir / f"{stem}{suffix}_dy_km.png",
+                cmap="magma",
+                units="km",
+            )
+            plot_field_grid(
+                ratio_tile,
+                lon_grid,
+                lat_grid,
+                f"{stem}{suffix} dx/dy",
+                output_dir / f"{stem}{suffix}_dx_over_dy.png",
+                cmap="coolwarm",
+            )
     if expected_nlon is None or expected_nlat is None:
         raise ValueError("expected_nlon and expected_nlat must be provided to stitch the domain.")
 
@@ -424,6 +457,11 @@ def main(argv: Iterable[str] | None = None) -> None:
         choices=["xy", "yx"],
         help="Order of capture groups for tile indices: 'xy' means first is x (west->east), second is y (south->north).",
     )
+    parser.add_argument(
+        "--plot-subdomains",
+        action="store_true",
+        help="Also plot dx/dy/dx_over_dy for each subdomain separately.",
+    )
     args = parser.parse_args(list(argv) if argv is not None else None)
     run(
         args.pattern,
@@ -436,6 +474,7 @@ def main(argv: Iterable[str] | None = None) -> None:
         tile_index_regex=args.tile_index_regex,
         tile_index_base=args.tile_index_base,
         tile_index_order=args.tile_index_order,
+        plot_subdomains=args.plot_subdomains,
     )
 
 
