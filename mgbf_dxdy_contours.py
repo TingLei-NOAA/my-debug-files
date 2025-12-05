@@ -388,6 +388,7 @@ def run(
     seam_threshold_km: float,
     monotonic_tol_deg: float,
     auto_layout: bool,
+    auto_layout_decimals: int,
     plot_subdomains: bool,
 ) -> None:
     grids, files = collect_grids(
@@ -404,7 +405,7 @@ def run(
         return
 
     if auto_layout:
-        grids = infer_indices_from_centers(grids, tiles_x=tiles_x, tiles_y=tiles_y)
+        grids = infer_indices_from_centers(grids, tiles_x=tiles_x, tiles_y=tiles_y, tol_decimals=auto_layout_decimals)
 
     for path, lon_grid, lat_grid, tx, ty in grids:
         validate_latlon(lon_grid.flatten(), lat_grid.flatten())
@@ -545,6 +546,12 @@ def main(argv: Iterable[str] | None = None) -> None:
         help="Infer tile positions from centroid lon/lat (west->east, south->north) instead of filename order/regex.",
     )
     parser.add_argument(
+        "--auto-layout-decimals",
+        type=int,
+        default=3,
+        help="Rounding decimals for centroid clustering when using --auto-layout (default: %(default)s)",
+    )
+    parser.add_argument(
         "--seam-threshold-km",
         type=float,
         default=1000.0,
@@ -576,6 +583,7 @@ def main(argv: Iterable[str] | None = None) -> None:
         seam_threshold_km=args.seam_threshold_km,
         monotonic_tol_deg=args.monotonic_tol_deg,
         auto_layout=args.auto_layout,
+        auto_layout_decimals=args.auto_layout_decimals,
         plot_subdomains=args.plot_subdomains,
     )
 
