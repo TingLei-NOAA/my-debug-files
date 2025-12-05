@@ -349,8 +349,12 @@ def run(
                     f"Warning: {path.name}: expected grid {expected_nlat}x{expected_nlon}, "
                     f"but got {lon_grid.shape[0]}x{lon_grid.shape[1]}"
                 )
+        dx_tile, dy_tile, ratio_tile = compute_dx_dy(lon_grid, lat_grid)
+        max_dx_km = np.nanmax(dx_tile) / 1000.0
+        if max_dx_km > 1000.0:
+            raise ValueError(f"{path.name}: dx exceeds 1000 km (max={max_dx_km:.2f} km)")
+
         if plot_subdomains:
-            dx_tile, dy_tile, ratio_tile = compute_dx_dy(lon_grid, lat_grid)
             stem = path.stem
             suffix = ""
             if tx is not None and ty is not None:
