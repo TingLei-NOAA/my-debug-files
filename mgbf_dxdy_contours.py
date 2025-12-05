@@ -389,6 +389,7 @@ def run(
     monotonic_tol_deg: float,
     auto_layout: bool,
     auto_layout_decimals: int,
+    dump_stitched: bool,
     plot_subdomains: bool,
 ) -> None:
     grids, files = collect_grids(
@@ -469,6 +470,16 @@ def run(
         )
 
     monotonic_checks(lon_full, lat_full, tol_deg=monotonic_tol_deg)
+
+    if dump_stitched:
+        output_dir.mkdir(parents=True, exist_ok=True)
+        np.savetxt(output_dir / "stitched_lon.txt", lon_full, fmt="%.8f")
+        np.savetxt(output_dir / "stitched_lat.txt", lat_full, fmt="%.8f")
+        print(f"Wrote stitched lon/lat to {output_dir / 'stitched_lon.txt'} and {output_dir / 'stitched_lat.txt'}")
+        # Quick plots of stitched lon/lat surfaces
+        plot_field_grid(lon_full, lon_full, lat_full, "Stitched Lon", output_dir / "stitched_lon.png", cmap="coolwarm", units="deg")
+        plot_field_grid(lat_full, lon_full, lat_full, "Stitched Lat", output_dir / "stitched_lat.png", cmap="coolwarm", units="deg")
+
     dx_full, dy_full, ratio_full = compute_dx_dy(lon_full, lat_full)
 
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -564,6 +575,11 @@ def main(argv: Iterable[str] | None = None) -> None:
         help="Tolerance (degrees) for detecting decreases in lon/lat across stitched grid (default: %(default)s)",
     )
     parser.add_argument(
+        "--dump-stitched",
+        action="store_true",
+        help="Write stitched lon/lat grids to text files for inspection.",
+    )
+    parser.add_argument(
         "--plot-subdomains",
         action="store_true",
         help="Also plot dx/dy/dx_over_dy for each subdomain separately.",
@@ -584,6 +600,7 @@ def main(argv: Iterable[str] | None = None) -> None:
         monotonic_tol_deg=args.monotonic_tol_deg,
         auto_layout=args.auto_layout,
         auto_layout_decimals=args.auto_layout_decimals,
+        dump_stitched=args.dump_stitched,
         plot_subdomains=args.plot_subdomains,
     )
 
