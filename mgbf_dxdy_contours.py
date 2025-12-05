@@ -259,8 +259,8 @@ def compute_dx_dy(lon_grid: np.ndarray, lat_grid: np.ndarray) -> Tuple[np.ndarra
     return dx, dy, ratio
 
 
-def seam_diagnostics(lon_full: np.ndarray, lat_full: np.ndarray, tile_nlon: int, tile_nlat: int, tiles_x: int, tiles_y: int) -> None:
-    """Report seam gaps between tiles to catch ordering/placement issues."""
+def seam_diagnostics(lon_full: np.ndarray, lat_full: np.ndarray, tile_nlon: int, tile_nlat: int, tiles_x: int, tiles_y: int) -> dict:
+    """Compute seam gaps between tiles to catch ordering/placement issues."""
     # Vertical seams (between columns)
     gaps_vert = []
     for c in range(1, tiles_x):
@@ -274,14 +274,35 @@ def seam_diagnostics(lon_full: np.ndarray, lat_full: np.ndarray, tile_nlon: int,
         top_row = r * tile_nlat
         gaps_horz.append(haversine(lon_full[bottom_row, :], lat_full[bottom_row, :], lon_full[top_row, :], lat_full[top_row, :]))
 
-    def report(gaps, label):
+    def summarize(gaps):
         if not gaps:
-            return
+            return {"mean": np.nan, "max": np.nan}
         merged = np.concatenate(gaps)
-        print(f"{label} seam gaps (meters): mean={np.nanmean(merged):.2f}, max={np.nanmax(merged):.2f}")
+        return {"mean": float(np.nanmean(merged)), "max": float(np.nanmax(merged))}
 
-    report(gaps_vert, "Vertical")
-    report(gaps_horz, "Horizontal")
+    vert = summarize(gaps_vert)
+    horz = summarize(gaps_horz)
+    return {"vertical": vert, "horizontal": horz}
+
+
+def monotonic_checks(lon_full: np.ndarray, lat_full: np.ndarray, tol_deg: float) -> None:
+    """
+    Ensure longitude increases west->east and latitude increases south->north.
+    Longitudes are unwrapped along x to handle dateline crossings.
+    """
+    # Unwrap longitudes along x-direction to avoid artificial jumps at -180/180
+    lon_unwrapped = np.degrees(np.unwrap(np.radians(lon_full), axis=1))
+    dlon = np.diff(lon_unwrapped, axis=1)
+    dlat = np.diff(lat_full, axis=0)
+    min_dlon = float(np.nanmin(dlon))
+    max_dlon = float(np.nanmax(dlon))
+    min_dlat = float(np.nanmin(dlat))
+    max_dlat = float(np.nanmax(dlat))
+    print(f"Monotonic check: lon step min/max = {min_dlon:.6f}/{max_dlon:.6f} deg; lat step min/max = {min_dlat:.6f}/{max_dlat:.6f} deg")
+    if min_dlon < -tol_deg:
+        raise ValueError(f"Longitude decreases eastward (min step {min_dlon:.6f} deg < -{tol_deg} deg). Check tile ordering/layout.")
+    if min_dlat < -tol_deg:
+        raise ValueError(f"Latitude decreases northward (min step {min_dlat:.6f} deg < -{tol_deg} deg). Check tile ordering/layout.")
 
 
 def plot_field_grid(
@@ -326,6 +347,8 @@ def run(
     tile_index_regex: str | None,
     tile_index_base: int,
     tile_index_order: str,
+    seam_threshold_km: float,
+    monotonic_tol_deg: float,
     plot_subdomains: bool,
 ) -> None:
     grids, files = collect_grids(
@@ -389,8 +412,21 @@ def run(
         raise ValueError("expected_nlon and expected_nlat must be provided to stitch the domain.")
 
     lon_full, lat_full = stitch_grids(grids, expected_nlon, expected_nlat, tiles_x=tiles_x, tiles_y=tiles_y)
+    seam_stats = seam_diagnostics(lon_full, lat_full, expected_nlon, expected_nlat, tiles_x, tiles_y)
+    for lbl, stats in seam_stats.items():
+        if stats["mean"] == stats["mean"]:  # not NaN
+            print(f"{lbl.capitalize()} seam gaps (meters): mean={stats['mean']:.2f}, max={stats['max']:.2f}")
+    if (
+        seam_stats["vertical"]["max"] / 1000.0 > seam_threshold_km
+        or seam_stats["horizontal"]["max"] / 1000.0 > seam_threshold_km
+    ):
+        raise ValueError(
+            f"Seam gaps exceed {seam_threshold_km} km (vertical max={seam_stats['vertical']['max']/1000.0:.2f} km, "
+            f"horizontal max={seam_stats['horizontal']['max']/1000.0:.2f} km). Check tile ordering/indices."
+        )
+
+    monotonic_checks(lon_full, lat_full, tol_deg=monotonic_tol_deg)
     dx_full, dy_full, ratio_full = compute_dx_dy(lon_full, lat_full)
-    seam_diagnostics(lon_full, lat_full, expected_nlon, expected_nlat, tiles_x, tiles_y)
 
     output_dir.mkdir(parents=True, exist_ok=True)
     plot_field_grid(dx_full / 1000.0, lon_full, lat_full, "dx (km) across domain", output_dir / "mgbf_dx_km.png", cmap="magma", units="km")
@@ -462,6 +498,18 @@ def main(argv: Iterable[str] | None = None) -> None:
         help="Order of capture groups for tile indices: 'xy' means first is x (west->east), second is y (south->north).",
     )
     parser.add_argument(
+        "--seam-threshold-km",
+        type=float,
+        default=1000.0,
+        help="Raise an error if any seam gap exceeds this threshold (km). Default: %(default)s",
+    )
+    parser.add_argument(
+        "--monotonic-tol-deg",
+        type=float,
+        default=1e-4,
+        help="Tolerance (degrees) for detecting decreases in lon/lat across stitched grid (default: %(default)s)",
+    )
+    parser.add_argument(
         "--plot-subdomains",
         action="store_true",
         help="Also plot dx/dy/dx_over_dy for each subdomain separately.",
@@ -478,6 +526,8 @@ def main(argv: Iterable[str] | None = None) -> None:
         tile_index_regex=args.tile_index_regex,
         tile_index_base=args.tile_index_base,
         tile_index_order=args.tile_index_order,
+        seam_threshold_km=args.seam_threshold_km,
+        monotonic_tol_deg=args.monotonic_tol_deg,
         plot_subdomains=args.plot_subdomains,
     )
 
