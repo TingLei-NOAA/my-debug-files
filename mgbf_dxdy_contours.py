@@ -79,6 +79,38 @@ def collect_grids(pattern: str, core_nlon: int | None, core_nlat: int | None):
     return grids, files
 
 
+def stitch_grids(
+    grids: list[tuple[Path, np.ndarray, np.ndarray]],
+    tile_nlon: int,
+    tile_nlat: int,
+    tiles_x: int,
+    tiles_y: int,
+) -> tuple[np.ndarray, np.ndarray]:
+    """
+    Assemble individual tile grids into one stitched domain.
+    tiles_x runs west->east (fast index), tiles_y runs south->north (rows).
+    """
+    expected_tiles = tiles_x * tiles_y
+    if len(grids) != expected_tiles:
+        raise ValueError(f"Expected {expected_tiles} tiles but found {len(grids)}")
+
+    full_nlon = tiles_x * tile_nlon
+    full_nlat = tiles_y * tile_nlat
+    full_lon = np.full((full_nlat, full_nlon), np.nan)
+    full_lat = np.full((full_nlat, full_nlon), np.nan)
+
+    for idx, (_, lon_tile, lat_tile) in enumerate(grids):
+        row = idx // tiles_x  # south to north
+        col = idx % tiles_x   # west to east
+        y0 = row * tile_nlat
+        x0 = col * tile_nlon
+        full_lon[y0:y0 + tile_nlat, x0:x0 + tile_nlon] = lon_tile
+        full_lat[y0:y0 + tile_nlat, x0:x0 + tile_nlon] = lat_tile
+
+    validate_latlon(full_lon.flatten(), full_lat.flatten())
+    return full_lon, full_lat
+
+
 def validate_latlon(lon: np.ndarray, lat: np.ndarray) -> None:
     """Validate lat/lon arrays and raise if abnormal values are present."""
     if lon.size != lat.size:
@@ -185,7 +217,7 @@ def compute_dx_dy(lon_grid: np.ndarray, lat_grid: np.ndarray) -> Tuple[np.ndarra
     return dx, dy, ratio
 
 
-def plot_field(
+def plot_field_grid(
     field: np.ndarray,
     lon: np.ndarray,
     lat: np.ndarray,
@@ -194,15 +226,15 @@ def plot_field(
     cmap: str = "viridis",
     units: str | None = None,
 ) -> None:
-    """Contour-plot a 2D field on a PlateCarree map."""
-    fig = plt.figure(figsize=(10, 8))
-    ax = plt.axes(projection=ccrs.PlateCarree())
+    """Contour plot on the stitched structured grid."""
     valid = np.isfinite(field) & np.isfinite(lon) & np.isfinite(lat)
     if not np.any(valid):
         print(f"Skipping plot for {outfile}: no valid data")
         return
 
-    cf = ax.contourf(lon, lat, field, 40, transform=ccrs.PlateCarree(), cmap=cmap)
+    fig = plt.figure(figsize=(10, 8))
+    ax = plt.axes(projection=ccrs.PlateCarree())
+    cf = ax.contourf(lon, lat, field, 60, transform=ccrs.PlateCarree(), cmap=cmap)
     ax.coastlines()
     ax.gridlines(draw_labels=True, linestyle=":")
     cbar = fig.colorbar(cf, ax=ax, orientation="vertical", pad=0.02)
@@ -216,13 +248,12 @@ def plot_field(
     print(f"Wrote {outfile}")
 
 
-def run(pattern: str, output_dir: Path, expected_nlon: int | None, expected_nlat: int | None) -> None:
+def run(pattern: str, output_dir: Path, expected_nlon: int | None, expected_nlat: int | None, tiles_x: int, tiles_y: int) -> None:
     grids, files = collect_grids(pattern, core_nlon=expected_nlon, core_nlat=expected_nlat)
     if not grids:
         print(f"No lat/lon points found for pattern '{pattern}'. Files seen: {[str(f) for f in files]}")
         return
 
-    output_dir.mkdir(parents=True, exist_ok=True)
     for path, lon_grid, lat_grid in grids:
         validate_latlon(lon_grid.flatten(), lat_grid.flatten())
         if expected_nlat and expected_nlon:
@@ -231,11 +262,16 @@ def run(pattern: str, output_dir: Path, expected_nlon: int | None, expected_nlat
                     f"Warning: {path.name}: expected grid {expected_nlat}x{expected_nlon}, "
                     f"but got {lon_grid.shape[0]}x{lon_grid.shape[1]}"
                 )
-        dx, dy, ratio = compute_dx_dy(lon_grid, lat_grid)
-        stem = path.stem
-        plot_field(dx / 1000.0, lon_grid, lat_grid, f"{stem} dx (km)", output_dir / f"{stem}_dx_km.png", cmap="magma", units="km")
-        plot_field(dy / 1000.0, lon_grid, lat_grid, f"{stem} dy (km)", output_dir / f"{stem}_dy_km.png", cmap="magma", units="km")
-        plot_field(ratio, lon_grid, lat_grid, f"{stem} dx/dy", output_dir / f"{stem}_dx_over_dy.png", cmap="coolwarm")
+    if expected_nlon is None or expected_nlat is None:
+        raise ValueError("expected_nlon and expected_nlat must be provided to stitch the domain.")
+
+    lon_full, lat_full = stitch_grids(grids, expected_nlon, expected_nlat, tiles_x=tiles_x, tiles_y=tiles_y)
+    dx_full, dy_full, ratio_full = compute_dx_dy(lon_full, lat_full)
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    plot_field_grid(dx_full / 1000.0, lon_full, lat_full, "dx (km) across domain", output_dir / "mgbf_dx_km.png", cmap="magma", units="km")
+    plot_field_grid(dy_full / 1000.0, lon_full, lat_full, "dy (km) across domain", output_dir / "mgbf_dy_km.png", cmap="magma", units="km")
+    plot_field_grid(ratio_full, lon_full, lat_full, "dx/dy across domain", output_dir / "mgbf_dx_over_dy.png", cmap="coolwarm")
 
 
 def main(argv: Iterable[str] | None = None) -> None:
@@ -263,8 +299,20 @@ def main(argv: Iterable[str] | None = None) -> None:
         default=14,
         help="Expected number of latitudes per subdomain grid (default: %(default)s)",
     )
+    parser.add_argument(
+        "--tiles-x",
+        type=int,
+        default=24,
+        help="Number of subdomains west->east (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--tiles-y",
+        type=int,
+        default=24,
+        help="Number of subdomains south->north (default: %(default)s)",
+    )
     args = parser.parse_args(list(argv) if argv is not None else None)
-    run(args.pattern, args.output_dir, args.expected_nlon, args.expected_nlat)
+    run(args.pattern, args.output_dir, args.expected_nlon, args.expected_nlat, tiles_x=args.tiles_x, tiles_y=args.tiles_y)
 
 
 if __name__ == "__main__":
