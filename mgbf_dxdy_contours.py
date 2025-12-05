@@ -25,14 +25,13 @@ import numpy as np
 
 
 def parse_fieldimpl_latlon(
-    path: Path, core_nlon: int | None = None, core_nlat: int | None = None, halo: int = 1
+    path: Path, core_nlon: int | None = None, core_nlat: int | None = None
 ) -> Tuple[np.ndarray, np.ndarray]:
     """
     Extract lon/lat pairs from a FieldImpl dump.
-    If core_nlon/core_nlat are provided, the dump is assumed to include halo points,
-    sized (core_nlon + 2*halo) x (core_nlat + 2*halo). The returned lon/lat cover ONLY
-    the core (halo stripped).
-    Returns 2D arrays (lon_grid, lat_grid). If parsing fails, both arrays are empty.
+    If core_nlon/core_nlat are provided, only the first (core_nlon * core_nlat) points
+    are retained (assuming halo points follow). Returns 2D arrays (lon_grid, lat_grid).
+    If parsing fails, both arrays are empty.
     """
     text = path.read_text()
     match = re.search(r"values:\s*\[(.*?)\]", text, re.DOTALL)
@@ -51,20 +50,14 @@ def parse_fieldimpl_latlon(
     lat = values[1::2]
 
     if core_nlon and core_nlat:
-        expected_with_halo = (core_nlon + 2 * halo) * (core_nlat + 2 * halo)
-        if lon.size < expected_with_halo or lat.size < expected_with_halo:
+        core_expected = core_nlon * core_nlat
+        if lon.size < core_expected or lat.size < core_expected:
             raise ValueError(
-                f"{path}: not enough points for expected haloed grid: "
-                f"found {lon.size} but need {expected_with_halo}"
+                f"{path}: not enough points for expected core grid: "
+                f"found {lon.size} but need at least {core_expected} (including halo)"
             )
-        lon = lon[:expected_with_halo]
-        lat = lat[:expected_with_halo]
-        full_nlon = core_nlon + 2 * halo
-        full_nlat = core_nlat + 2 * halo
-        lon = lon.reshape(full_nlat, full_nlon)
-        lat = lat.reshape(full_nlat, full_nlon)
-        lon = lon[halo:-halo, halo:-halo]  # strip halo
-        lat = lat[halo:-halo, halo:-halo]
+        lon = lon[:core_expected].reshape(core_nlat, core_nlon)
+        lat = lat[:core_expected].reshape(core_nlat, core_nlon)
     else:
         # No shape expectations; return as 1D
         lon = lon
@@ -73,12 +66,12 @@ def parse_fieldimpl_latlon(
     return lon, lat
 
 
-def collect_grids(pattern: str, core_nlon: int | None, core_nlat: int | None, halo: int = 1):
+def collect_grids(pattern: str, core_nlon: int | None, core_nlat: int | None):
     """Read all files that match the pattern and return per-file lon/lat grids."""
     grids = []
     files = sorted(Path(".").glob(pattern))
     for path in files:
-        lon, lat = parse_fieldimpl_latlon(path, core_nlon=core_nlon, core_nlat=core_nlat, halo=halo)
+        lon, lat = parse_fieldimpl_latlon(path, core_nlon=core_nlon, core_nlat=core_nlat)
         if lon.size and lat.size:
             grids.append((path, lon, lat))
         else:
@@ -212,8 +205,8 @@ def plot_field(
     print(f"Wrote {outfile}")
 
 
-def run(pattern: str, output_dir: Path, expected_nlon: int | None, expected_nlat: int | None, halo: int = 1) -> None:
-    grids, files = collect_grids(pattern, core_nlon=expected_nlon, core_nlat=expected_nlat, halo=halo)
+def run(pattern: str, output_dir: Path, expected_nlon: int | None, expected_nlat: int | None) -> None:
+    grids, files = collect_grids(pattern, core_nlon=expected_nlon, core_nlat=expected_nlat)
     if not grids:
         print(f"No lat/lon points found for pattern '{pattern}'. Files seen: {[str(f) for f in files]}")
         return
@@ -259,14 +252,8 @@ def main(argv: Iterable[str] | None = None) -> None:
         default=14,
         help="Expected number of latitudes per subdomain grid (default: %(default)s)",
     )
-    parser.add_argument(
-        "--halo",
-        type=int,
-        default=1,
-        help="Halo width to strip from each side of the subdomain grid before computing dx/dy (default: %(default)s)",
-    )
     args = parser.parse_args(list(argv) if argv is not None else None)
-    run(args.pattern, args.output_dir, args.expected_nlon, args.expected_nlat, halo=args.halo)
+    run(args.pattern, args.output_dir, args.expected_nlon, args.expected_nlat)
 
 
 if __name__ == "__main__":
