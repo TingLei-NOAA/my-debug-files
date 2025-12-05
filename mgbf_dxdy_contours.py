@@ -1,14 +1,13 @@
 """
 Build dx/dy contour plots for the MGBF filtering grid.
 
-The script reads the `FieldImpl[...] array=[values: ...]` text dumps that
-match a glob such as `mgbf_filtering*latlon_*.txt`, remaps the scattered
-points back onto the rotated structured grid described in the fv3jedi
-configuration, computes great–circle distances in the x/y directions,
-and writes three contour plots:
-    1) dx over the full domain
-    2) dy over the full domain
-    3) dx/dy ratio over the full domain
+This version does **not** rely on an external grid description. It:
+ 1) reads all FieldImpl lat/lon dumps matching a glob (default:
+    `mgbf_filtering*latlon_*.txt`),
+ 2) infers the structured grid by grouping points with nearly-equal
+    latitudes into rows and sorting longitudes within each row,
+ 3) computes great-circle dx (east-west) and dy (north-south),
+ 4) writes three contour plots: dx, dy, and dx/dy.
 """
 
 from __future__ import annotations
@@ -25,24 +24,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-# Grid description taken from the provided StructuredColumns space.
-GRID_SPEC = {
-    "nx": 308,
-    "ny": 308,
-    "x_start": -60.0310278618037,
-    "x_end": 60.0310278618037,
-    "y_start": -36.6574659140194,
-    "y_end": 36.6574659140194,
-    "halo": 1,
-    "north_pole_lon": 67.4999923706,
-    "north_pole_lat": 34.9999966097,
-}
-
-
-def parse_fieldimpl_latlon(path: Path) -> Tuple[np.ndarray, np.ndarray]:
+def parse_fieldimpl_latlon(path: Path, max_pairs: int | None = None) -> Tuple[np.ndarray, np.ndarray]:
     """
     Extract lon/lat pairs from a FieldImpl dump.
     Returns two 1D arrays (lon, lat). If parsing fails, both arrays are empty.
+    If max_pairs is provided, only the first max_pairs pairs are kept (e.g., to drop halo points).
     """
     text = path.read_text()
     match = re.search(r"values:\s*\[(.*?)\]", text, re.DOTALL)
@@ -57,18 +43,21 @@ def parse_fieldimpl_latlon(path: Path) -> Tuple[np.ndarray, np.ndarray]:
     if values.size % 2:
         values = values[:-1]
 
+    if max_pairs is not None:
+        values = values[: 2 * max_pairs]
+
     lon = values[0::2]
     lat = values[1::2]
     return lon, lat
 
 
-def collect_latlon(pattern: str) -> Tuple[np.ndarray, np.ndarray, list[Path]]:
+def collect_latlon(pattern: str, max_pairs: int | None) -> Tuple[np.ndarray, np.ndarray, list[Path]]:
     """Read all files that match the pattern and concatenate lon/lat arrays."""
     lons: list[np.ndarray] = []
     lats: list[np.ndarray] = []
     files = sorted(Path(".").glob(pattern))
     for path in files:
-        lon, lat = parse_fieldimpl_latlon(path)
+        lon, lat = parse_fieldimpl_latlon(path, max_pairs=max_pairs)
         if lon.size and lat.size:
             lons.append(lon)
             lats.append(lat)
@@ -81,66 +70,51 @@ def collect_latlon(pattern: str) -> Tuple[np.ndarray, np.ndarray, list[Path]]:
     return np.concatenate(lons), np.concatenate(lats), files
 
 
-def build_rotated_axes(spec: dict) -> Tuple[np.ndarray, np.ndarray, float, float]:
+def infer_structured_grid(
+    lon: np.ndarray, lat: np.ndarray, tol: float = 1e-5
+) -> Tuple[np.ndarray, np.ndarray]:
     """
-    Construct the rotated-grid x/y axes (including halo) and their spacings.
-    Halo cells are created by extending the start/end by one native spacing.
+    Build 2D lon/lat grids by grouping points with nearly-equal latitudes into rows
+    and sorting longitudes within each row. All points are kept; rows are padded
+    with NaN where column counts differ.
     """
-    dx = (spec["x_end"] - spec["x_start"]) / (spec["nx"] - 1)
-    dy = (spec["y_end"] - spec["y_start"]) / (spec["ny"] - 1)
-    nx = spec["nx"] + 2 * spec["halo"]
-    ny = spec["ny"] + 2 * spec["halo"]
+    order = np.lexsort((lon, lat))  # primary sort by lat, then lon
+    lon = lon[order]
+    lat = lat[order]
 
-    x0 = spec["x_start"] - spec["halo"] * dx
-    y0 = spec["y_start"] - spec["halo"] * dy
-    x = x0 + np.arange(nx) * dx
-    y = y0 + np.arange(ny) * dy
-    return x, y, dx, dy
+    row_lons: list[list[float]] = []
+    row_lats: list[list[float]] = []
+    current_row_lon: list[float] = [lon[0]]
+    current_row_lat: list[float] = [lat[0]]
+    current_lat_ref = lat[0]
 
-
-def map_points_to_grid(
-    lon: np.ndarray, lat: np.ndarray, spec: dict, rotated_crs: ccrs.CRS
-) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
-    """
-    Map scattered geodetic lon/lat pairs onto the expected rotated grid cells.
-    Returns (lon_grid, lat_grid, expected_lon_grid, expected_lat_grid).
-    """
-    x_axis, y_axis, dx_rot, dy_rot = build_rotated_axes(spec)
-    nx = x_axis.size
-    ny = y_axis.size
-    lon_grid = np.full((ny, nx), np.nan)
-    lat_grid = np.full((ny, nx), np.nan)
-
-    # Convert input geodetic coords to rotated coords, then snap to the nearest cell.
-    rotated_points = rotated_crs.transform_points(ccrs.Geodetic(), lon, lat)
-    rot_lon = rotated_points[:, 0]
-    rot_lat = rotated_points[:, 1]
-
-    x_idx = np.rint((rot_lon - x_axis[0]) / dx_rot).astype(int)
-    y_idx = np.rint((rot_lat - y_axis[0]) / dy_rot).astype(int)
-
-    rejected = 0
-    collisions = 0
-    for i, j, g_lon, g_lat in zip(x_idx, y_idx, lon, lat):
-        if 0 <= i < nx and 0 <= j < ny:
-            if math.isnan(lon_grid[j, i]):
-                lon_grid[j, i] = g_lon
-                lat_grid[j, i] = g_lat
-            else:
-                collisions += 1
+    for lo, la in zip(lon[1:], lat[1:]):
+        if abs(la - current_lat_ref) <= tol:
+            current_row_lon.append(lo)
+            current_row_lat.append(la)
         else:
-            rejected += 1
+            row_lons.append(sorted(current_row_lon))
+            mean_lat = sum(current_row_lat) / len(current_row_lat)
+            row_lats.append([mean_lat] * len(current_row_lat))
+            current_row_lon = [lo]
+            current_row_lat = [la]
+            current_lat_ref = la
 
-    if rejected:
-        print(f"Warning: {rejected} points fell outside the expected grid bounds")
-    if collisions:
-        print(f"Warning: {collisions} grid cells received more than one point")
+    row_lons.append(sorted(current_row_lon))
+    mean_lat = sum(current_row_lat) / len(current_row_lat)
+    row_lats.append([mean_lat] * len(current_row_lat))
 
-    xx, yy = np.meshgrid(x_axis, y_axis)
-    expected_geo = ccrs.Geodetic().transform_points(rotated_crs, xx, yy)
-    expected_lon = expected_geo[..., 0]
-    expected_lat = expected_geo[..., 1]
-    return lon_grid, lat_grid, expected_lon, expected_lat
+    if not row_lons:
+        return np.array([[]]), np.array([[]])
+
+    max_cols = max(len(r) for r in row_lons)
+    padded_lon = np.full((len(row_lons), max_cols), np.nan)
+    padded_lat = np.full((len(row_lats), max_cols), np.nan)
+    for idx, (lons_row, lats_row) in enumerate(zip(row_lons, row_lats)):
+        padded_lon[idx, : len(lons_row)] = lons_row
+        padded_lat[idx, : len(lats_row)] = lats_row
+
+    return padded_lon, padded_lat
 
 
 def haversine(lon1: np.ndarray, lat1: np.ndarray, lon2: np.ndarray, lat2: np.ndarray) -> np.ndarray:
@@ -198,36 +172,29 @@ def plot_field(
     print(f"Wrote {outfile}")
 
 
-def print_alignment_stats(lon_grid: np.ndarray, lat_grid: np.ndarray, exp_lon: np.ndarray, exp_lat: np.ndarray) -> None:
-    """Report how well the ingested points line up with the configured grid."""
-    valid = np.isfinite(lon_grid) & np.isfinite(lat_grid)
-    coverage = valid.sum()
-    print(f"Mapped {coverage} points onto the grid")
-    if not coverage:
-        return
+def run(pattern: str, output_dir: Path, expected_nlon: int | None, expected_nlat: int | None) -> None:
+    max_pairs = None
+    if expected_nlon and expected_nlat:
+        max_pairs = expected_nlon * expected_nlat
 
-    # Normalize longitudes before differencing.
-    lon_diff = ((lon_grid[valid] - exp_lon[valid] + 180.0) % 360.0) - 180.0
-    lat_diff = lat_grid[valid] - exp_lat[valid]
-    print(
-        f"Alignment vs rotated grid (lon/lat degrees): "
-        f"mean abs [{np.mean(np.abs(lon_diff)):.4f}, {np.mean(np.abs(lat_diff)):.4f}] "
-        f"max abs [{np.max(np.abs(lon_diff)):.4f}, {np.max(np.abs(lat_diff)):.4f}]"
-    )
-
-
-def run(pattern: str, output_dir: Path) -> None:
-    lon, lat, files = collect_latlon(pattern)
+    lon, lat, files = collect_latlon(pattern, max_pairs=max_pairs)
     if not lon.size:
         print(f"No lat/lon points found for pattern '{pattern}'. Files seen: {[str(f) for f in files]}")
         return
 
     print(f"Loaded {lon.size} points from {len(files)} files")
-    rotated_crs = ccrs.RotatedPole(
-        pole_longitude=GRID_SPEC["north_pole_lon"], pole_latitude=GRID_SPEC["north_pole_lat"]
-    )
-    lon_grid, lat_grid, exp_lon, exp_lat = map_points_to_grid(lon, lat, GRID_SPEC, rotated_crs)
-    print_alignment_stats(lon_grid, lat_grid, exp_lon, exp_lat)
+    lon_grid, lat_grid = infer_structured_grid(lon, lat)
+    if lon_grid.size == 0 or lat_grid.size == 0:
+        print("Failed to build a structured grid from the input points.")
+        return
+
+    print(f"Inferred grid shape: {lon_grid.shape[0]} rows x {lon_grid.shape[1]} columns")
+    if expected_nlat and expected_nlon:
+        if lon_grid.shape != (expected_nlat, expected_nlon):
+            print(
+                f"Warning: expected grid {expected_nlat}x{expected_nlon}, "
+                f"but inferred {lon_grid.shape[0]}x{lon_grid.shape[1]} (rows x cols)"
+            )
 
     dx, dy, ratio = compute_dx_dy(lon_grid, lat_grid)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -249,8 +216,20 @@ def main(argv: Iterable[str] | None = None) -> None:
         default=Path("figures"),
         help="Directory to write plots (default: %(default)s)",
     )
+    parser.add_argument(
+        "--expected-nlon",
+        type=int,
+        default=14,
+        help="Expected number of longitudes per subdomain grid (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--expected-nlat",
+        type=int,
+        default=14,
+        help="Expected number of latitudes per subdomain grid (default: %(default)s)",
+    )
     args = parser.parse_args(list(argv) if argv is not None else None)
-    run(args.pattern, args.output_dir)
+    run(args.pattern, args.output_dir, args.expected_nlon, args.expected_nlat)
 
 
 if __name__ == "__main__":
