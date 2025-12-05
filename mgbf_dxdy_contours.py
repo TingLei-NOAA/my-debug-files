@@ -284,7 +284,7 @@ def main(argv: Iterable[str] | None = None) -> None:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path("figures"),
+        default=Path("dr-figures"),
         help="Directory to write plots (default: %(default)s)",
     )
     parser.add_argument(
@@ -302,13 +302,13 @@ def main(argv: Iterable[str] | None = None) -> None:
     parser.add_argument(
         "--tiles-x",
         type=int,
-        default=24,
+        default=22,
         help="Number of subdomains west->east (default: %(default)s)",
     )
     parser.add_argument(
         "--tiles-y",
         type=int,
-        default=24,
+        default=22,
         help="Number of subdomains south->north (default: %(default)s)",
     )
     args = parser.parse_args(list(argv) if argv is not None else None)
