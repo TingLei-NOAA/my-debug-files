@@ -95,6 +95,7 @@ def collect_grids(
             # Parse MPI rank from filename suffix (expects ..._<rank>.txt)
             m = re.search(r"_([0-9]+)(?:\\.[^.]+)?$", path.name)
             if not m:
+                print(f"[rank-parse-fail] filename='{path.name}'")
                 raise ValueError(
                     f"Could not extract rank index from {path.name} (expected trailing _<rank>.txt; "
                     f"example: mgbf_filtering_grid_latlon_43.txt)"
