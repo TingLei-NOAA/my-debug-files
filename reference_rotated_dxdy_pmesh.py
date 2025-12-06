@@ -22,6 +22,7 @@ from pathlib import Path
 
 import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mticker
 import numpy as np
 
 
@@ -54,7 +55,7 @@ def _unwrap_lon_for_plot(lon: np.ndarray) -> np.ndarray:
     return lon_wrap
 
 
-def plot_pmesh(field: np.ndarray, lon: np.ndarray, lat: np.ndarray, title: str, outfile: Path, cmap: str, units: str):
+def plot_pmesh(field: np.ndarray, lon: np.ndarray, lat: np.ndarray, title: str, outfile: Path, cmap: str, units: str, fmt: str | None = None):
     fig = plt.figure(figsize=(10, 8))
     ax = plt.axes(projection=ccrs.PlateCarree())
     lon_plot = _unwrap_lon_for_plot(lon)
@@ -63,6 +64,10 @@ def plot_pmesh(field: np.ndarray, lon: np.ndarray, lat: np.ndarray, title: str, 
     ax.coastlines()
     ax.gridlines(draw_labels=True, linestyle=":")
     cbar = fig.colorbar(pm, ax=ax, orientation="vertical", pad=0.02)
+    if fmt:
+        formatter = mticker.FormatStrFormatter(fmt)
+        cbar.formatter = formatter
+        cbar.update_ticks()
     cbar.set_label(units)
     ax.set_title(title)
     fig.tight_layout()
@@ -105,11 +110,11 @@ def main():
     print(f"[reference] dy row-std km: mean={np.nanmean(dy_row_std):.3f}, min={np.nanmin(dy_row_std):.3f}, max={np.nanmax(dy_row_std):.3f}")
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    plot_pmesh(dx / 1000.0, lon, lat, "Reference dx (km)", args.output_dir / "reference_dx_km_pmesh.png", cmap="magma", units="km")
-    plot_pmesh(dy / 1000.0, lon, lat, "Reference dy (km)", args.output_dir / "reference_dy_km_pmesh.png", cmap="magma", units="km")
-    plot_pmesh(ratio, lon, lat, "Reference dx/dy", args.output_dir / "reference_dx_over_dy_pmesh.png", cmap="coolwarm", units="ratio")
-    plot_pmesh(lon, lon, lat, "Reference lon", args.output_dir / "reference_lon_pmesh.png", cmap="coolwarm", units="deg")
-    plot_pmesh(lat, lon, lat, "Reference lat", args.output_dir / "reference_lat_pmesh.png", cmap="coolwarm", units="deg")
+    plot_pmesh(dx / 1000.0, lon, lat, "Reference dx (km)", args.output_dir / "reference_dx_km_pmesh.png", cmap="magma", units="km", fmt="%.3f")
+    plot_pmesh(dy / 1000.0, lon, lat, "Reference dy (km)", args.output_dir / "reference_dy_km_pmesh.png", cmap="magma", units="km", fmt="%.3f")
+    plot_pmesh(ratio, lon, lat, "Reference dx/dy", args.output_dir / "reference_dx_over_dy_pmesh.png", cmap="coolwarm", units="ratio", fmt="%.3f")
+    plot_pmesh(lon, lon, lat, "Reference lon", args.output_dir / "reference_lon_pmesh.png", cmap="coolwarm", units="deg", fmt="%.2f")
+    plot_pmesh(lat, lon, lat, "Reference lat", args.output_dir / "reference_lat_pmesh.png", cmap="coolwarm", units="deg", fmt="%.2f")
 
 
 if __name__ == "__main__":
