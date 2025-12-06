@@ -96,6 +96,14 @@ def main():
 
     dx, dy, ratio = compute_dx_dy(lon, lat)
 
+    # Diagnostics
+    print(f"[reference] dx km mean/min/max: {np.nanmean(dx)/1000.0:.3f} / {np.nanmin(dx)/1000.0:.3f} / {np.nanmax(dx)/1000.0:.3f}")
+    print(f"[reference] dy km mean/min/max: {np.nanmean(dy)/1000.0:.3f} / {np.nanmin(dy)/1000.0:.3f} / {np.nanmax(dy)/1000.0:.3f}")
+    dx_row_std = np.nanstd(dx/1000.0, axis=1)
+    dy_row_std = np.nanstd(dy/1000.0, axis=1)
+    print(f"[reference] dx row-std km: mean={np.nanmean(dx_row_std):.3f}, min={np.nanmin(dx_row_std):.3f}, max={np.nanmax(dx_row_std):.3f}")
+    print(f"[reference] dy row-std km: mean={np.nanmean(dy_row_std):.3f}, min={np.nanmin(dy_row_std):.3f}, max={np.nanmax(dy_row_std):.3f}")
+
     args.output_dir.mkdir(parents=True, exist_ok=True)
     plot_pmesh(dx / 1000.0, lon, lat, "Reference dx (km)", args.output_dir / "reference_dx_km_pmesh.png", cmap="magma", units="km")
     plot_pmesh(dy / 1000.0, lon, lat, "Reference dy (km)", args.output_dir / "reference_dy_km_pmesh.png", cmap="magma", units="km")

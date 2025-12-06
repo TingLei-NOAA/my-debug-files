@@ -40,11 +40,13 @@ def parse_field(path: Path, nlon: int, nlat: int, input_order: str) -> tuple[np.
     lon = core[0::2]
     lat = core[1::2]
     if input_order == "lonlat":
-        lon = lon.reshape(nlon, nlat).T
-        lat = lat.reshape(nlon, nlat).T
-    else:
+        # Flattened with lon varying fastest, lat second: reshape to (nlat, nlon)
         lon = lon.reshape(nlat, nlon)
         lat = lat.reshape(nlat, nlon)
+    else:
+        # Flattened with lat varying fastest: reshape to (nlon, nlat) then transpose
+        lon = lon.reshape(nlon, nlat).T
+        lat = lat.reshape(nlon, nlat).T
     return lon, lat
 
 
@@ -127,6 +129,7 @@ def main():
     parser.add_argument("--rank-order", type=str, default="col", choices=["col", "row"], help="Map rank to tiles: col=column-major (south->north fast)")
     parser.add_argument("--output-dir", type=Path, default=Path("dr-figures"), help="Output directory")
     parser.add_argument("--dump-stitched", action="store_true", help="Dump stitched lon/lat arrays and plots")
+    parser.add_argument("--swap-axes", action="store_true", help="Transpose stitched lon/lat before computing dx/dy (for layout debugging)")
     args = parser.parse_args()
 
     files = sorted(Path(".").glob(args.pattern))
@@ -141,7 +144,19 @@ def main():
         grids.append((path, lon_tile, lat_tile, rank))
 
     lon_full, lat_full = stitch(grids, args.tiles_x, args.tiles_y, args.nlon, args.nlat, col_major=(args.rank_order == "col"))
+    if args.swap_axes:
+        lon_full = lon_full.T
+        lat_full = lat_full.T
     dx, dy, ratio = compute_dx_dy(lon_full, lat_full)
+
+    # Diagnostics
+    print(f"dx km mean/min/max: {np.nanmean(dx)/1000.0:.3f} / {np.nanmin(dx)/1000.0:.3f} / {np.nanmax(dx)/1000.0:.3f}")
+    print(f"dy km mean/min/max: {np.nanmean(dy)/1000.0:.3f} / {np.nanmin(dy)/1000.0:.3f} / {np.nanmax(dy)/1000.0:.3f}")
+    # Variation with latitude (per row)
+    dx_row_std = np.nanstd(dx/1000.0, axis=1)
+    dy_row_std = np.nanstd(dy/1000.0, axis=1)
+    print(f"dx row-std km: mean={np.nanmean(dx_row_std):.3f}, min={np.nanmin(dx_row_std):.3f}, max={np.nanmax(dx_row_std):.3f}")
+    print(f"dy row-std km: mean={np.nanmean(dy_row_std):.3f}, min={np.nanmin(dy_row_std):.3f}, max={np.nanmax(dy_row_std):.3f}")
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
     plot_pmesh(dx / 1000.0, lon_full, lat_full, "Real dx (km)", args.output_dir / "real_dx_km_pmesh.png", cmap="magma", units="km")
