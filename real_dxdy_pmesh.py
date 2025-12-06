@@ -40,13 +40,11 @@ def parse_field(path: Path, nlon: int, nlat: int, input_order: str) -> tuple[np.
     lon = core[0::2]
     lat = core[1::2]
     if input_order == "lonlat":
-        # Flattened with lon varying fastest, lat second: reshape to (nlat, nlon)
-        lon = lon.reshape(nlat, nlon)
-        lat = lat.reshape(nlat, nlon)
-    else:
-        # Flattened with lat varying fastest: reshape to (nlon, nlat) then transpose
         lon = lon.reshape(nlon, nlat).T
         lat = lat.reshape(nlon, nlat).T
+    else:
+        lon = lon.reshape(nlat, nlon)
+        lat = lat.reshape(nlat, nlon)
     return lon, lat
 
 
