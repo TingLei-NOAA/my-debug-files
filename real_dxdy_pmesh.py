@@ -118,6 +118,40 @@ def stitch(grids: list[tuple[Path, np.ndarray, np.ndarray, int]], tiles_x: int, 
     return full_lon, full_lat
 
 
+def seam_diagnostics(lon_full: np.ndarray, lat_full: np.ndarray, nlon: int, nlat: int, tiles_x: int, tiles_y: int) -> dict:
+    gaps_vert = []
+    for c in range(1, tiles_x):
+        lc = c * nlon - 1
+        rc = c * nlon
+        gaps_vert.append(haversine(lon_full[:, lc], lat_full[:, lc], lon_full[:, rc], lat_full[:, rc]))
+    gaps_horz = []
+    for r in range(1, tiles_y):
+        br = r * nlat - 1
+        tr = r * nlat
+        gaps_horz.append(haversine(lon_full[br, :], lat_full[br, :], lon_full[tr, :], lat_full[tr, :]))
+
+    def summarize(gaps):
+        if not gaps:
+            return {"mean": np.nan, "max": np.nan}
+        merged = np.concatenate(gaps)
+        return {"mean": float(np.nanmean(merged)), "max": float(np.nanmax(merged))}
+
+    return {"vertical": summarize(gaps_vert), "horizontal": summarize(gaps_horz)}
+
+
+def monotonic_checks(lon_full: np.ndarray, lat_full: np.ndarray, tol_deg: float = 1e-3) -> None:
+    lon_unw = np.degrees(np.unwrap(np.radians(lon_full), axis=1))
+    dlon = np.diff(lon_unw, axis=1)
+    dlat = np.diff(lat_full, axis=0)
+    min_dlon = float(np.nanmin(dlon))
+    min_dlat = float(np.nanmin(dlat))
+    print(f"Monotonic check: dlon min={min_dlon:.6f} deg, dlat min={min_dlat:.6f} deg")
+    if min_dlon < -tol_deg:
+        print(f"Warning: longitude decreases eastward (min step {min_dlon:.6f} deg < -{tol_deg} deg)")
+    if min_dlat < -tol_deg:
+        print(f"Warning: latitude decreases northward (min step {min_dlat:.6f} deg < -{tol_deg} deg)")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Stitch real MGBF grid and plot dx/dy with pcolormesh")
     parser.add_argument("--pattern", default="mgbf_filtering_grid_latlon_*.txt", help="Glob for input tiles")
@@ -130,6 +164,7 @@ def main():
     parser.add_argument("--output-dir", type=Path, default=Path("dr-figures"), help="Output directory")
     parser.add_argument("--dump-stitched", action="store_true", help="Dump stitched lon/lat arrays and plots")
     parser.add_argument("--swap-axes", action="store_true", help="Transpose stitched lon/lat before computing dx/dy (for layout debugging)")
+    parser.add_argument("--seam-threshold-km", type=float, default=5000.0, help="Warn if seam gaps exceed this (km)")
     args = parser.parse_args()
 
     files = sorted(Path(".").glob(args.pattern))
@@ -148,6 +183,14 @@ def main():
         lon_full = lon_full.T
         lat_full = lat_full.T
     dx, dy, ratio = compute_dx_dy(lon_full, lat_full)
+
+    seam_stats = seam_diagnostics(lon_full, lat_full, args.nlon, args.nlat, args.tiles_x, args.tiles_y)
+    for lbl, stats in seam_stats.items():
+        if stats["mean"] == stats["mean"]:
+            print(f"{lbl.capitalize()} seam gaps (meters): mean={stats['mean']:.2f}, max={stats['max']:.2f}")
+    if seam_stats["vertical"]["max"]/1000.0 > args.seam_threshold_km or seam_stats["horizontal"]["max"]/1000.0 > args.seam_threshold_km:
+        print(f"Warning: seam gaps exceed {args.seam_threshold_km} km; layout may be mis-ordered.")
+    monotonic_checks(lon_full, lat_full)
 
     # Diagnostics
     print(f"dx km mean/min/max: {np.nanmean(dx)/1000.0:.3f} / {np.nanmin(dx)/1000.0:.3f} / {np.nanmax(dx)/1000.0:.3f}")
