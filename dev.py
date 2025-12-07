@@ -44,31 +44,37 @@ xaxis_1 = None
 yaxis_1 = None
 
 
-def cumulative_axis(widths: np.ndarray, center_idx: int) -> np.ndarray:
+def build_xy_from_dxdy(dx: np.ndarray, dy: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
     """
-    Build a 1-D coordinate axis (in meters) from cell widths (dx or dy).
-    widths length = N. The coordinate is 0 at center_idx and accumulates widths outward.
+    Build 2D physical coordinates (meters) from dx, dy on the T grid.
+    x increases eastward using cumulative dx along the second dimension.
+    y increases northward using cumulative dy along the first dimension.
+    Origin is (0,0) at [0,0].
     """
-    axis = np.zeros_like(widths, dtype=float)
-    # left (decreasing index)
-    for i in range(center_idx - 1, -1, -1):
-        axis[i] = axis[i + 1] - widths[i]
-    # right (increasing index)
-    for i in range(center_idx + 1, len(widths)):
-        axis[i] = axis[i - 1] + widths[i - 1]
-    return axis
+    ny, nx = dx.shape
+    x = np.zeros((ny, nx), dtype=float)
+    y = np.zeros((ny, nx), dtype=float)
+    # accumulate x along columns
+    for j in range(ny):
+        for i in range(1, nx):
+            x[j, i] = x[j, i - 1] + dx[j, i - 1]
+    # accumulate y along rows
+    for j in range(1, ny):
+        y[j, :] = y[j - 1, :] + dy[j - 1, :]
+    return x, y
 
 # Create a figure with two subplots
 #fig, (ax1, ax2,ax3) = plt.subplots(1, 3, figsize=(15, 6))
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
 
-# Load dx/dy grid for physical horizontal coordinates
+# Load dx/dy grid for physical horizontal coordinates and build 2D x/y (meters)
 dxdy_path = Path("fv3_grid_dxdy.nc")
 if not dxdy_path.exists():
     raise FileNotFoundError(f"{dxdy_path} not found; place fv3_grid_dxdy.nc alongside dev.py")
 dxdy_nc = nc.Dataset(dxdy_path, mode="r")
 dx_grid = dxdy_nc.variables["dx"][:]  # (grid_yt, grid_xt) meters
 dy_grid = dxdy_nc.variables["dy"][:]  # (grid_yt, grid_xt) meters
+x_grid, y_grid = build_xy_from_dxdy(dx_grid, dy_grid)
 
 # Subplot 1: Vertical profiles
 for index, file_path in enumerate(file_paths):
@@ -88,19 +94,17 @@ for index, file_path in enumerate(file_paths):
         zend=min(math.ceil(Z+6*Lgv),len(zaxis_1)-1)
         zslice=slice(zstart,zend)
     if xaxis_1 is None:
-        # Build physical x-axis (meters) from dx at the selected Y row
         xstart=max(math.floor(X-8*Lgh),0)
-        xend=min(math.ceil(X+8*Lgh), dx_grid.shape[1]-1)
+        xend=min(math.ceil(X+8*Lgh), x_grid.shape[1]-1)
         xslice=slice(xstart,xend)
-        xaxis_1 = cumulative_axis(dx_grid[Y, :], X)
+        xaxis_1 = x_grid[Y, :]
         print("zslice is ",zslice)
         print("xslice is ",xslice)
     if yaxis_1 is None:
-        # Build physical y-axis (meters) from dy at the selected X column
         ystart=max(math.floor(Y-8*Lgh),0)
-        yend=min(math.ceil(Y+8*Lgh), dx_grid.shape[0]-1)
+        yend=min(math.ceil(Y+8*Lgh), y_grid.shape[0]-1)
         yslice=slice(ystart,yend)
-        yaxis_1 = cumulative_axis(dy_grid[:, X], Y)
+        yaxis_1 = y_grid[:, X]
     temperature = dataset.variables['air_temperature'][:]  # Assuming 'T' corresponds to temperature
     print(f"thinkdeb max temp is {np.max(temperature)}")
 
