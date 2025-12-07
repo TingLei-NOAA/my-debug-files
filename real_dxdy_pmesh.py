@@ -108,11 +108,23 @@ def stitch(grids: list[tuple[Path, np.ndarray, np.ndarray, int]], tiles_x: int, 
         if rank_order == "col":
             col = rank // tiles_y
             row = rank % tiles_y
+        elif rank_order == "col_flip_cols":
+            col = tiles_x - 1 - (rank // tiles_y)
+            row = rank % tiles_y
+        elif rank_order == "col_flip_rows":
+            col = rank // tiles_y
+            row = tiles_y - 1 - (rank % tiles_y)
         elif rank_order == "col_rev":
             col = tiles_x - 1 - (rank // tiles_y)
             row = tiles_y - 1 - (rank % tiles_y)
         elif rank_order == "row":
             row = rank // tiles_x
+            col = rank % tiles_x
+        elif rank_order == "row_flip_cols":
+            row = rank // tiles_x
+            col = tiles_x - 1 - (rank % tiles_x)
+        elif rank_order == "row_flip_rows":
+            row = tiles_y - 1 - (rank // tiles_x)
             col = rank % tiles_x
         elif rank_order == "row_rev":
             row = tiles_y - 1 - (rank // tiles_x)
@@ -183,8 +195,8 @@ def main():
         "--rank-order",
         type=str,
         default="col",
-        choices=["col", "row", "col_rev", "row_rev"],
-        help="Rank to tile mapping: 'col' column-major south->north, 'row' row-major west->east, 'col_rev'/'row_rev' are mirrored",
+        choices=["col", "col_flip_cols", "col_flip_rows", "col_rev", "row", "row_flip_cols", "row_flip_rows", "row_rev"],
+        help="Rank to tile mapping: column- or row-major with optional flips",
     )
     parser.add_argument("--output-dir", type=Path, default=Path("dr-figures"), help="Output directory")
     parser.add_argument("--dump-stitched", action="store_true", help="Dump stitched lon/lat arrays and plots")
