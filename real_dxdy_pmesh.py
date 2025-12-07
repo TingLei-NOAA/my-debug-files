@@ -40,12 +40,13 @@ def parse_field(path: Path, nlon: int, nlat: int, input_order: str) -> tuple[np.
     lon = core[0::2]
     lat = core[1::2]
     if input_order == "lonlat":
-        # Match mgbf_dxdy_contours.py: reshape to (nlon, nlat) then transpose -> (nlat, nlon)
-        lon = lon.reshape(nlon, nlat).T
-        lat = lat.reshape(nlon, nlat).T
-    else:  # latlon
+        # lon varies fastest (west->east), then lat (south->north): shape (nlat, nlon)
         lon = lon.reshape(nlat, nlon)
         lat = lat.reshape(nlat, nlon)
+    else:  # latlon
+        # lat varies fastest: reshape and transpose to get (nlat, nlon)
+        lon = lon.reshape(nlon, nlat).T
+        lat = lat.reshape(nlon, nlat).T
     return lon, lat
 
 
@@ -151,6 +152,21 @@ def monotonic_checks(lon_full: np.ndarray, lat_full: np.ndarray, tol_deg: float 
         print(f"Warning: latitude decreases northward (min step {min_dlat:.6f} deg < -{tol_deg} deg)")
 
 
+def enforce_orientation(lon_full: np.ndarray, lat_full: np.ndarray) -> tuple[np.ndarray, np.ndarray, dict]:
+    """Flip rows/cols if needed so lon increases west->east and lat increases south->north."""
+    info = {"flip_cols": False, "flip_rows": False}
+    lon_unw = np.degrees(np.unwrap(np.radians(lon_full), axis=1))
+    if np.nanmean(np.diff(lon_unw, axis=1)) < 0:
+        lon_full = np.fliplr(lon_full)
+        lat_full = np.fliplr(lat_full)
+        info["flip_cols"] = True
+    if np.nanmean(np.diff(lat_full, axis=0)) < 0:
+        lon_full = np.flipud(lon_full)
+        lat_full = np.flipud(lat_full)
+        info["flip_rows"] = True
+    return lon_full, lat_full, info
+
+
 def main():
     parser = argparse.ArgumentParser(description="Stitch real MGBF grid and plot dx/dy with pcolormesh")
     parser.add_argument("--pattern", default="mgbf_filtering_grid_latlon_*.txt", help="Glob for input tiles")
@@ -181,6 +197,10 @@ def main():
     if args.swap_axes:
         lon_full = lon_full.T
         lat_full = lat_full.T
+    # Enforce orientation so lon increases eastward, lat northward
+    lon_full, lat_full, flip_info = enforce_orientation(lon_full, lat_full)
+    if flip_info["flip_cols"] or flip_info["flip_rows"]:
+        print(f"Applied orientation fix: flip_cols={flip_info['flip_cols']}, flip_rows={flip_info['flip_rows']}")
     dx, dy, ratio = compute_dx_dy(lon_full, lat_full)
 
     seam_stats = seam_diagnostics(lon_full, lat_full, args.nlon, args.nlat, args.tiles_x, args.tiles_y)
