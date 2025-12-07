@@ -2,6 +2,7 @@ import netCDF4 as nc
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+from pathlib import Path
 
 # List of NetCDF file paths
 file_paths = [
@@ -42,9 +43,32 @@ zaxis_1 = None
 xaxis_1 = None
 yaxis_1 = None
 
+
+def cumulative_axis(widths: np.ndarray, center_idx: int) -> np.ndarray:
+    """
+    Build a 1-D coordinate axis (in meters) from cell widths (dx or dy).
+    widths length = N. The coordinate is 0 at center_idx and accumulates widths outward.
+    """
+    axis = np.zeros_like(widths, dtype=float)
+    # left (decreasing index)
+    for i in range(center_idx - 1, -1, -1):
+        axis[i] = axis[i + 1] - widths[i]
+    # right (increasing index)
+    for i in range(center_idx + 1, len(widths)):
+        axis[i] = axis[i - 1] + widths[i - 1]
+    return axis
+
 # Create a figure with two subplots
 #fig, (ax1, ax2,ax3) = plt.subplots(1, 3, figsize=(15, 6))
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
+
+# Load dx/dy grid for physical horizontal coordinates
+dxdy_path = Path("fv3_grid_dxdy.nc")
+if not dxdy_path.exists():
+    raise FileNotFoundError(f"{dxdy_path} not found; place fv3_grid_dxdy.nc alongside dev.py")
+dxdy_nc = nc.Dataset(dxdy_path, mode="r")
+dx_grid = dxdy_nc.variables["dx"][:]  # (grid_yt, grid_xt) meters
+dy_grid = dxdy_nc.variables["dy"][:]  # (grid_yt, grid_xt) meters
 
 # Subplot 1: Vertical profiles
 for index, file_path in enumerate(file_paths):
@@ -64,19 +88,19 @@ for index, file_path in enumerate(file_paths):
         zend=min(math.ceil(Z+6*Lgv),len(zaxis_1)-1)
         zslice=slice(zstart,zend)
     if xaxis_1 is None:
-        xaxis_1 = dataset.variables['xaxis_1'][:]
-        xaxis_1[:] = np.arange(xaxis_1.size).reshape(xaxis_1.shape)
+        # Build physical x-axis (meters) from dx at the selected Y row
         xstart=max(math.floor(X-8*Lgh),0)
-        xend=min(math.ceil(X+8*Lgh), len(xaxis_1)-1)
+        xend=min(math.ceil(X+8*Lgh), dx_grid.shape[1]-1)
         xslice=slice(xstart,xend)
+        xaxis_1 = cumulative_axis(dx_grid[Y, :], X)
         print("zslice is ",zslice)
         print("xslice is ",xslice)
     if yaxis_1 is None:
-        yaxis_1 = dataset.variables['yaxis_1'][:]
-        yaxis_1[:] = np.arange(yaxis_1.size).reshape(yaxis_1.shape)
+        # Build physical y-axis (meters) from dy at the selected X column
         ystart=max(math.floor(Y-8*Lgh),0)
-        yend=min(math.ceil(Y+8*Lgh), len(yaxis_1)-1)
+        yend=min(math.ceil(Y+8*Lgh), dx_grid.shape[0]-1)
         yslice=slice(ystart,yend)
+        yaxis_1 = cumulative_axis(dy_grid[:, X], Y)
     temperature = dataset.variables['air_temperature'][:]  # Assuming 'T' corresponds to temperature
     print(f"thinkdeb max temp is {np.max(temperature)}")
 
@@ -129,6 +153,7 @@ for index, file_path in enumerate(file_paths):
 
 vfgaussian=np.exp(-((zaxis_1 - zaxis_1[Z]) ** 2) / (Lgv ** 2))
 #ax1.plot(vfgaussian[zslice], zaxis_1[zslice], label=f"Gaussian Curve with R={Lgv} grid units")
+# Horizontal axes now meters; scale Lgh accordingly if desired (kept as-is)
 hfgaussian=np.exp(-((xaxis_1 - xaxis_1[X]) ** 2) / (Lgh ** 2))
 hyfgaussian=np.exp(-((yaxis_1 - yaxis_1[X]) ** 2) / (Lgh ** 2))
 #ax2.plot(xaxis_1[xslice],hfgaussian[xslice],  label=f"Gaussian Curve approximating 250km cut-off")
@@ -147,7 +172,7 @@ ax1.legend()  # Add a legend to distinguish between the different files
 #ax3.set_ylabel('Response Amplitude')
 #ax3.set_title(f'Response Amplitude in the Y-Direction')
 #ax3.legend()  # Add a legend to distinguish between the different files
-ax2.set_xlabel('X (Grid Units)')
+ax2.set_xlabel('Horizontal distance (m)')
 ax2.set_ylabel('Response Amplitude')
 ax2.set_title(f'Response Amplitude in the X-Direction')
 ax2.legend()  # Add a legend to distinguish between the different files
@@ -156,4 +181,4 @@ ax2.legend()  # Add a legend to distinguish between the different files
 plt.tight_layout()
 # Show the plot
 plt.savefig('deb.png')
-quit()
+dxdy_nc.close()
