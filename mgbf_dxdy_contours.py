@@ -68,8 +68,8 @@ def parse_fieldimpl_latlon(
             lon = lon.reshape(core_nlat, core_nlon)
             lat = lat.reshape(core_nlat, core_nlon)
         elif input_order == "lonlat":
-            lon = lon.reshape(core_nlon, core_nlat).T
-            lat = lat.reshape(core_nlon, core_nlat).T
+            lon = lon.reshape(core_nlat, core_nlon)
+            lat = lat.reshape(core_nlat, core_nlon)
         else:
             raise ValueError(f"Unsupported input_order '{input_order}'. Use 'latlon' or 'lonlat'.")
     else:
