@@ -40,13 +40,13 @@ def parse_field(path: Path, nlon: int, nlat: int, input_order: str) -> tuple[np.
     lon = core[0::2]
     lat = core[1::2]
     if input_order == "lonlat":
-        # lon varies fastest (west->east), then lat (south->north): reshape to (nlat, nlon)
-        lon = lon.reshape(nlat, nlon)
-        lat = lat.reshape(nlat, nlon)
-    else:  # latlon
-        # lat varies fastest: reshape to (nlon, nlat) then transpose
+        # lon varies fastest, then lat: reshape to (nlon, nlat) and transpose -> (nlat, nlon)
         lon = lon.reshape(nlon, nlat).T
         lat = lat.reshape(nlon, nlat).T
+    else:  # latlon
+        # lat varies fastest: reshape directly to (nlat, nlon)
+        lon = lon.reshape(nlat, nlon)
+        lat = lat.reshape(nlat, nlon)
     return lon, lat
 
 
@@ -99,18 +99,26 @@ def plot_pmesh(field: np.ndarray, lon: np.ndarray, lat: np.ndarray, title: str, 
     print(f"Wrote {outfile}")
 
 
-def stitch(grids: list[tuple[Path, np.ndarray, np.ndarray, int]], tiles_x: int, tiles_y: int, nlon: int, nlat: int, col_major: bool):
+def stitch(grids: list[tuple[Path, np.ndarray, np.ndarray, int]], tiles_x: int, tiles_y: int, nlon: int, nlat: int, rank_order: str):
     if len(grids) != tiles_x * tiles_y:
         raise ValueError(f"Expected {tiles_x*tiles_y} tiles, found {len(grids)}")
     full_lon = np.full((tiles_y * nlat, tiles_x * nlon), np.nan)
     full_lat = np.full_like(full_lon, np.nan)
     for path, lon_tile, lat_tile, rank in grids:
-        if col_major:
+        if rank_order == "col":
             col = rank // tiles_y
             row = rank % tiles_y
-        else:
+        elif rank_order == "col_rev":
+            col = tiles_x - 1 - (rank // tiles_y)
+            row = tiles_y - 1 - (rank % tiles_y)
+        elif rank_order == "row":
             row = rank // tiles_x
             col = rank % tiles_x
+        elif rank_order == "row_rev":
+            row = tiles_y - 1 - (rank // tiles_x)
+            col = tiles_x - 1 - (rank % tiles_x)
+        else:
+            raise ValueError(f"Unsupported rank_order {rank_order}")
         y0 = row * nlat
         x0 = col * nlon
         full_lon[y0:y0 + nlat, x0:x0 + nlon] = lon_tile
@@ -152,19 +160,15 @@ def monotonic_checks(lon_full: np.ndarray, lat_full: np.ndarray, tol_deg: float 
         print(f"Warning: latitude decreases northward (min step {min_dlat:.6f} deg < -{tol_deg} deg)")
 
 
-def enforce_orientation(lon_full: np.ndarray, lat_full: np.ndarray) -> tuple[np.ndarray, np.ndarray, dict]:
-    """Flip rows/cols if needed so lon increases west->east and lat increases south->north."""
-    info = {"flip_cols": False, "flip_rows": False}
+def orientation_warnings(lon_full: np.ndarray, lat_full: np.ndarray) -> None:
+    """Emit warnings if lon decreases eastward or lat decreases northward; no flipping done."""
     lon_unw = np.degrees(np.unwrap(np.radians(lon_full), axis=1))
-    if np.nanmean(np.diff(lon_unw, axis=1)) < 0:
-        lon_full = np.fliplr(lon_full)
-        lat_full = np.fliplr(lat_full)
-        info["flip_cols"] = True
-    if np.nanmean(np.diff(lat_full, axis=0)) < 0:
-        lon_full = np.flipud(lon_full)
-        lat_full = np.flipud(lat_full)
-        info["flip_rows"] = True
-    return lon_full, lat_full, info
+    mean_dlon = np.nanmean(np.diff(lon_unw, axis=1))
+    mean_dlat = np.nanmean(np.diff(lat_full, axis=0))
+    if mean_dlon < 0:
+        print(f"Warning: mean dlon < 0 (eastward decrease): {mean_dlon:.6f} deg")
+    if mean_dlat < 0:
+        print(f"Warning: mean dlat < 0 (northward decrease): {mean_dlat:.6f} deg")
 
 
 def main():
@@ -175,7 +179,13 @@ def main():
     parser.add_argument("--tiles-x", type=int, default=22, help="Tiles west->east")
     parser.add_argument("--tiles-y", type=int, default=22, help="Tiles south->north")
     parser.add_argument("--input-order", type=str, default="lonlat", choices=["lonlat", "latlon"], help="Storage order in files")
-    parser.add_argument("--rank-order", type=str, default="col", choices=["col", "row"], help="Map rank to tiles: col=column-major (south->north fast)")
+    parser.add_argument(
+        "--rank-order",
+        type=str,
+        default="col",
+        choices=["col", "row", "col_rev", "row_rev"],
+        help="Rank to tile mapping: 'col' column-major south->north, 'row' row-major west->east, 'col_rev'/'row_rev' are mirrored",
+    )
     parser.add_argument("--output-dir", type=Path, default=Path("dr-figures"), help="Output directory")
     parser.add_argument("--dump-stitched", action="store_true", help="Dump stitched lon/lat arrays and plots")
     parser.add_argument("--swap-axes", action="store_true", help="Transpose stitched lon/lat before computing dx/dy (for layout debugging)")
@@ -193,14 +203,11 @@ def main():
         lon_tile, lat_tile = parse_field(path, args.nlon, args.nlat, args.input_order)
         grids.append((path, lon_tile, lat_tile, rank))
 
-    lon_full, lat_full = stitch(grids, args.tiles_x, args.tiles_y, args.nlon, args.nlat, col_major=(args.rank_order == "col"))
+    lon_full, lat_full = stitch(grids, args.tiles_x, args.tiles_y, args.nlon, args.nlat, rank_order=args.rank_order)
     if args.swap_axes:
         lon_full = lon_full.T
         lat_full = lat_full.T
-    # Enforce orientation so lon increases eastward, lat northward
-    lon_full, lat_full, flip_info = enforce_orientation(lon_full, lat_full)
-    if flip_info["flip_cols"] or flip_info["flip_rows"]:
-        print(f"Applied orientation fix: flip_cols={flip_info['flip_cols']}, flip_rows={flip_info['flip_rows']}")
+    orientation_warnings(lon_full, lat_full)
     dx, dy, ratio = compute_dx_dy(lon_full, lat_full)
 
     seam_stats = seam_diagnostics(lon_full, lat_full, args.nlon, args.nlat, args.tiles_x, args.tiles_y)
