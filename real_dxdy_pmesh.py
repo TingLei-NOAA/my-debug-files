@@ -40,13 +40,12 @@ def parse_field(path: Path, nlon: int, nlat: int, input_order: str) -> tuple[np.
     lon = core[0::2]
     lat = core[1::2]
     if input_order == "lonlat":
-        # lon varies fastest (west->east), then lat (south->north)
-        lon = lon.reshape(nlat, nlon)
-        lat = lat.reshape(nlat, nlon)
-    else:  # latlon
-        # lat varies fastest, then lon
+        # Match mgbf_dxdy_contours.py: reshape to (nlon, nlat) then transpose -> (nlat, nlon)
         lon = lon.reshape(nlon, nlat).T
         lat = lat.reshape(nlon, nlat).T
+    else:  # latlon
+        lon = lon.reshape(nlat, nlon)
+        lat = lat.reshape(nlat, nlon)
     return lon, lat
 
 
