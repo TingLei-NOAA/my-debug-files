@@ -4,44 +4,20 @@ import matplotlib.pyplot as plt
 import math
 from pathlib import Path
 
-# List of NetCDF file paths
+# Inputs
 file_paths = [
-            "Data/mgbf_NA/20240527.010000.p484_L30_proc5_2G_35kmv6-mgbf-D1-p64_dirac_SABER_lam.fv_core.res.nc",
-            "Data/mgbf_NA/20240527.010000.p484-inho_L30_proc5_2G_35kmv6-mgbf-D1-p64_dirac_SABER_lam.fv_core.res.nc"]
+    "Data/mgbf_NA/20240527.010000.p484_L30_proc5_2G_35kmv6-mgbf-D1-p64_dirac_SABER_lam.fv_core.res.nc",
+    "Data/mgbf_NA/20240527.010000.p484-inho_L30_proc5_2G_35kmv6-mgbf-D1-p64_dirac_SABER_lam.fv_core.res.nc",
+]
+labels = ["old mgbf", "new inho mgbf"]
 
-labels = ["old mgbf","new inho mgbf","new-mgbf","new_mgbf_w13_line",
-           "xxmgbf_w11_line_normal","mgbf_w13_line_normal","xxxmgbf_w13_line_normal"]
+Z = 29   # vertical level index
+X = 149  # x index
+Y = 149  # y index
+Lgh = 7.5 * 13.0 / 3.0  # half-width (in grid indices) for horizontal window
 
-# Specify the horizontal location (adjust these to your desired location)
-#X = 143  # Replace with the specific xaxis_1 index you want
-Z = 29  # Replace with the specific xaxis_1 index you want
-X= 149 
-Y = 149  # Replace with the specific yaxis_2 index you want
-#Y_list=[142,143,146]
-#Z_list=[54,52,52]
-Lgv=4.0
-Lgh=7.5*13.0/3.0
-
-
-
-
-# Assuming `file_paths` and `labels` are defined somewhere before this code
-# Example:
-# file_paths = ["file1.nc", "file2.nc"]
-# labels = ["File 1", "File 2"]
-
-# Variables for horizontal plotting
-Z_list = [0, 1]  # Modify these according to your needs
-Y_list = [5, 10]  # Modify these according to your needs
-
-# Set the horizontal and vertical coordinates (replace these with actual values)
-#X = 10
-#Y = 20
-
-# Placeholder variables to store `zaxis_1`
+# Placeholder for vertical axis if needed later
 zaxis_1 = None
-xaxis_1 = None
-yaxis_1 = None
 
 
 def build_xy_from_dxdy(dx: np.ndarray, dy: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
@@ -63,8 +39,8 @@ def build_xy_from_dxdy(dx: np.ndarray, dy: np.ndarray) -> tuple[np.ndarray, np.n
         y[j, :] = y[j - 1, :] + dy[j - 1, :]
     return x, y
 
-# Create a figure with three subplots
-fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(18, 6))
+# Create a figure with two subplots (horizontal contours)
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
 
 # Load dx/dy grid for physical horizontal coordinates and build 2D x/y (meters)
 dxdy_path = Path("fv3_grid_dxdy.nc")
