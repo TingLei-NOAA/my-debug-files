@@ -83,9 +83,31 @@ def plot_two_panels(
     units: Optional[str],
     cmap="turbo",
 ):
+    def centers_to_edges(C: np.ndarray) -> np.ndarray:
+        """
+        Build an edge grid (ny+1, nx+1) from cell-center coordinates (ny, nx)
+        by simple linear extrapolation on the borders and averaging corners.
+        Works for curvilinear grids to satisfy pcolormesh edge input.
+        """
+        ny, nx = C.shape
+        # Pad in x
+        left = C[:, [0]] - (C[:, [1]] - C[:, [0]])
+        right = C[:, [-1]] + (C[:, [-1]] - C[:, [-2]])
+        Cx = np.concatenate([left, C, right], axis=1)
+        # Pad in y
+        top = Cx[[0], :] - (Cx[[1], :] - Cx[[0], :])
+        bottom = Cx[[-1], :] + (Cx[[-1], :] - Cx[[-2], :])
+        Cy = np.concatenate([top, Cx, bottom], axis=0)
+        # Average four surrounding points to get edges
+        edges = 0.25 * (
+            Cy[:-1, :-1] + Cy[:-1, 1:] + Cy[1:, :-1] + Cy[1:, 1:]
+        )
+        return edges
+
     for ax, field, (Xmesh, Ymesh), title in zip(axes, fields, meshes, titles):
-        # Use nearest shading to avoid edge-construction warnings when grids are not strictly monotonic.
-        pcm = ax.pcolormesh(Xmesh / 1000.0, Ymesh / 1000.0, field, shading="nearest", cmap=cmap)
+        xe = centers_to_edges(Xmesh) / 1000.0
+        ye = centers_to_edges(Ymesh) / 1000.0
+        pcm = ax.pcolormesh(xe, ye, field, shading="auto", cmap=cmap)
         ax.plot(center_xy[0] / 1000.0, center_xy[1] / 1000.0, "ro", ms=4, label="(X,Y)")
         ax.set_aspect("equal")
         ax.set_xlabel("X (km)")
