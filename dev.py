@@ -63,9 +63,8 @@ def build_xy_from_dxdy(dx: np.ndarray, dy: np.ndarray) -> tuple[np.ndarray, np.n
         y[j, :] = y[j - 1, :] + dy[j - 1, :]
     return x, y
 
-# Create a figure with two subplots
-#fig, (ax1, ax2,ax3) = plt.subplots(1, 3, figsize=(15, 6))
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
+# Create a figure with three subplots
+fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(18, 6))
 
 # Load dx/dy grid for physical horizontal coordinates and build 2D x/y (meters)
 dxdy_path = Path("fv3_grid_dxdy.nc")
@@ -150,7 +149,18 @@ for index, file_path in enumerate(file_paths):
     ax1.plot(temperature_Z_profile[zslice], zaxis_1[zslice], label=label_with_max_Z)
     ax2.plot(xaxis_1[xslice],temperature_X_profile[xslice],  label=label_with_max_X)
     ax2.plot(yaxis_1[yslice],temperature_Y_profile[yslice],  label=label_with_max_Y)
-#    ax2.plot(xaxis_1,temperature_X_profile,  label=label_with_max_X)
+
+    # Horizontal contour around (X,Y)
+    temp_slice = temperature[0, Z, yslice, xslice]
+    Xmesh, Ymesh = np.meshgrid(xaxis_1[xslice], yaxis_1[yslice])
+    cf = ax3.pcolormesh(Xmesh, Ymesh, temp_slice, shading="auto")
+    ax3.plot(xaxis_1[X], yaxis_1[Y], marker="o", color="red", markersize=6, label="(X,Y)")
+    ax3.set_xlabel("X (m)")
+    ax3.set_ylabel("Y (m)")
+    ax3.set_title(f"Temperature at Z={Z}")
+    cb = plt.colorbar(cf, ax=ax3, orientation="vertical", pad=0.02)
+    cb.set_label("Temperature (units)")
+    ax3.legend()
 
     # Close the dataset
     dataset.close()
@@ -172,10 +182,6 @@ ax1.set_title(f'Response Amplitude in the vertical Direction')
 ax1.invert_yaxis()  # Invert the y-axis to have height increasing upwards
 ax1.legend()  # Add a legend to distinguish between the different files
 
-#ax3.set_xlabel('Y (Grid Units)')
-#ax3.set_ylabel('Response Amplitude')
-#ax3.set_title(f'Response Amplitude in the Y-Direction')
-#ax3.legend()  # Add a legend to distinguish between the different files
 ax2.set_xlabel('Horizontal distance (m)')
 ax2.set_ylabel('Response Amplitude')
 ax2.set_title(f'Response Amplitude in the X-Direction')
