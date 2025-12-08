@@ -84,7 +84,8 @@ def plot_two_panels(
     cmap="turbo",
 ):
     for ax, field, (Xmesh, Ymesh), title in zip(axes, fields, meshes, titles):
-        pcm = ax.pcolormesh(Xmesh / 1000.0, Ymesh / 1000.0, field, shading="auto", cmap=cmap)
+        # Use nearest shading to avoid edge-construction warnings when grids are not strictly monotonic.
+        pcm = ax.pcolormesh(Xmesh / 1000.0, Ymesh / 1000.0, field, shading="nearest", cmap=cmap)
         ax.plot(center_xy[0] / 1000.0, center_xy[1] / 1000.0, "ro", ms=4, label="(X,Y)")
         ax.set_aspect("equal")
         ax.set_xlabel("X (km)")
