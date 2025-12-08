@@ -100,12 +100,12 @@ def main():
     parser = argparse.ArgumentParser(description="Horizontal contours around (X,Y) using physical FV3 x/y.")
     parser.add_argument(
         "--file1",
-        default="run1.nc",
+        default="Data/mgbf_NA/20240527.010000.p484-inho-ref_L30_proc5_2G_35kmv6-mgbf-D1-p64_dirac_SABER_lam.fv_core.res.nc",
         help="First NetCDF file (default: run1.nc).",
     )
     parser.add_argument(
         "--file2",
-        default="run2.nc",
+        default="Data/mgbf_NA/20240527.010000.p484-inho-test_L30_proc5_2G_35kmv6-mgbf-D1-p64_dirac_SABER_lam.fv_core.res.nc",
         help="Second NetCDF file (default: run2.nc).",
     )
     parser.add_argument("--label1", default=None, help="Title label for first plot.")
@@ -123,7 +123,7 @@ def main():
         default=50,
         help="Half-width (grid points) of the square window around (X,Y).",
     )
-    parser.add_argument("--output", default="deb.png", help="Output figure filename.")
+    parser.add_argument("--output", default="dev.png", help="Output figure filename.")
     args = parser.parse_args()
 
     # Sanity-check files exist
