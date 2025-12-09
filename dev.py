@@ -119,8 +119,6 @@ def plot_two_panels(
 
 
 def main():
-    X=149
-    Y=149
     parser = argparse.ArgumentParser(description="Horizontal contours around (X,Y) using physical FV3 x/y.")
     parser.add_argument(
         "--file1",
@@ -158,8 +156,28 @@ def main():
     x_grid, y_grid = load_xy(args.grid_spec)
     ny, nx = x_grid.shape
 
-    Xc = args.x_index if args.x_index is not None else X 
-    Yc = args.y_index if args.y_index is not None else Y 
+    if args.x_index is None or args.y_index is None:
+        # Auto-center on the global max of file1 at the requested level
+        with nc.Dataset(args.file1) as ds:
+            var = ds.variables[args.variable]
+            if var.ndim == 4:
+                base = var[0, args.level, :, :]
+            elif var.ndim == 3:
+                base = var[args.level, :, :]
+            elif var.ndim == 2:
+                base = var[:, :]
+            else:
+                raise ValueError(f"Unsupported rank {var.ndim} for {args.variable} in {args.file1}")
+        max_idx = np.nanargmax(base)
+        Yc, Xc = np.unravel_index(max_idx, base.shape)
+        print(
+            f"Auto-centered on global max of {args.variable} (level {args.level}) "
+            f"at idx (X,Y)=({Xc},{Yc}), value={base[Yc, Xc]:.3g}"
+        )
+    else:
+        Xc = args.x_index
+        Yc = args.y_index
+
     if not (0 <= Xc < nx and 0 <= Yc < ny):
         raise ValueError(f"(X,Y)=({Xc},{Yc}) outside grid ({nx}, {ny}).")
 
@@ -175,6 +193,21 @@ def main():
         args.label1 or os.path.basename(args.file1),
         args.label2 or os.path.basename(args.file2),
     ]
+
+    # Debug info about window and data ranges
+    win_max1 = np.nanmax(field1)
+    win_max2 = np.nanmax(field2)
+    loc1 = np.unravel_index(np.nanargmax(field1), field1.shape)
+    loc2 = np.unravel_index(np.nanargmax(field2), field2.shape)
+    abs_loc1 = (xs.start + loc1[1], ys.start + loc1[0])
+    abs_loc2 = (xs.start + loc2[1], ys.start + loc2[0])
+    print(
+        f"Window x: [{xs.start}:{xs.stop}), y: [{ys.start}:{ys.stop}), shape={field1.shape}\n"
+        f"{args.variable} min/max file1=({np.nanmin(field1):.3g},{np.nanmax(field1):.3g}) "
+        f"file2=({np.nanmin(field2):.3g},{np.nanmax(field2):.3g})\n"
+        f"Window max file1={win_max1:.3g} at idx (X,Y)=({abs_loc1[0]},{abs_loc1[1]}); "
+        f"file2={win_max2:.3g} at idx (X,Y)=({abs_loc2[0]},{abs_loc2[1]})"
+    )
 
     fig, axes = plt.subplots(1, 2, figsize=(12, 5), constrained_layout=True)
     plot_two_panels(
