@@ -156,6 +156,7 @@ def main():
     x_grid, y_grid = load_xy(args.grid_spec)
     ny, nx = x_grid.shape
 
+    plot_level = args.level
     if args.x_index is None or args.y_index is None:
         # Auto-center on the global max of file1 across all levels; report its level
         with nc.Dataset(args.file1) as ds:
@@ -181,7 +182,8 @@ def main():
             f"Auto-centered on global max of {args.variable}: "
             f"idx (X,Y,Z)=({Xc},{Yc},{lev_idx}), value={max_val:.3g}"
         )
-        print(f"(Plot level remains {args.level}); rerun with --level {lev_idx} to view that level if desired.")
+        plot_level = lev_idx
+        print(f"Plot level set to {plot_level} to show that maximum.")
     else:
         Xc = args.x_index
         Yc = args.y_index
@@ -191,8 +193,8 @@ def main():
 
     xs, ys, Xmesh, Ymesh = extract_window(Xc, Yc, args.half_width, x_grid, y_grid)
 
-    field1, units1 = read_field(args.file1, args.variable, args.level, ys, xs)
-    field2, units2 = read_field(args.file2, args.variable, args.level, ys, xs)
+    field1, units1 = read_field(args.file1, args.variable, plot_level, ys, xs)
+    field2, units2 = read_field(args.file2, args.variable, plot_level, ys, xs)
     units = units1 or units2
 
     center_xy = (x_grid[Yc, Xc], y_grid[Yc, Xc])
@@ -227,7 +229,7 @@ def main():
         center_xy=center_xy,
         units=units,
     )
-    fig.suptitle(f"{args.variable} level={args.level}, window +/-{args.half_width} pts around (X={Xc}, Y={Yc})")
+    fig.suptitle(f"{args.variable} level={plot_level}, window +/-{args.half_width} pts around (X={Xc}, Y={Yc})")
     fig.savefig(args.output, dpi=150)
     print(f"Wrote {args.output}")
 
