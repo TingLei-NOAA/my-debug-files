@@ -114,6 +114,19 @@ def plot_subdomain_plain(field: np.ndarray, title: str, outfile: Path, cmap: str
     print(f"Wrote {outfile}")
 
 
+def dump_tiles_text(grids: list[tuple[Path, np.ndarray, np.ndarray, int]], outfile: Path) -> None:
+    """
+    Write one line per tile: rank followed by flattened lon/lat pairs.
+    Format: rank lon0 lat0 lon1 lat1 ...
+    """
+    with outfile.open("w") as f:
+        for path, lon_tile, lat_tile, rank in grids:
+            flat = np.column_stack([lon_tile.ravel(), lat_tile.ravel()]).ravel()
+            vals = " ".join(f"{v:.8f}" for v in flat)
+            f.write(f"{rank} {vals}\n")
+    print(f"Wrote {outfile}")
+
+
 def stitch(grids: list[tuple[Path, np.ndarray, np.ndarray, int]], tiles_x: int, tiles_y: int, nlon: int, nlat: int, rank_order: str):
     if len(grids) != tiles_x * tiles_y:
         raise ValueError(f"Expected {tiles_x*tiles_y} tiles, found {len(grids)}")
@@ -221,8 +234,9 @@ def main():
     )
     parser.add_argument("--output-dir", type=Path, default=Path("dr-figures"), help="Output directory")
     parser.add_argument("--dump-stitched", action="store_true", help="Dump stitched lon/lat arrays and plots")
+    parser.add_argument("--dump-tiles-text", action="store_true", help="Dump per-tile lon/lat flattened text for layout inspection")
     parser.add_argument("--plot-subdomains", action="store_true", help="Plot lon/lat for each subdomain tile")
-    parser.add_argument("--swap-axes", action="store_true", help="Force transpose of stitched lon/lat before computing dx/dy")
+    parser.add_argument("--swap-axes", action="store_true", help="Force transpose of stitched lon/lat before computing dx/dy (debug only)")
     parser.add_argument("--seam-threshold-km", type=float, default=5000.0, help="Warn if seam gaps exceed this (km)")
     args = parser.parse_args()
 
@@ -252,23 +266,23 @@ def main():
     if args.swap_axes:
         lon_full = lon_full_base.T
         lat_full = lat_full_base.T
-        chosen = "forced swap"
+        seam_stats = seam_diagnostics(lon_full, lat_full, args.nlon, args.nlat, args.tiles_y, args.tiles_x)
+        print(f"[orientation] forced transpose (may swap dx/dy axes)")
     else:
-        stats_a = seam_diagnostics(lon_full_base, lat_full_base, args.nlon, args.nlat, args.tiles_x, args.tiles_y)
-        stats_b = seam_diagnostics(lon_full_base.T, lat_full_base.T, args.nlon, args.nlat, args.tiles_y, args.tiles_x)
-        max_a = seam_max_km(stats_a)
-        max_b = seam_max_km(stats_b)
-        if max_b < max_a:
-            lon_full = lon_full_base.T
-            lat_full = lat_full_base.T
-            seam_stats = stats_b
-            chosen = f"auto-swapped (seam max {max_b:.2f} km < {max_a:.2f} km)"
-        else:
-            lon_full = lon_full_base
-            lat_full = lat_full_base
-            seam_stats = stats_a
-            chosen = f"kept native (seam max {max_a:.2f} km <= {max_b:.2f} km)"
-    print(f"[orientation] {chosen}")
+        # Try flipping rows/cols (but not transposing) to minimize seam gaps
+        candidates = []
+        variants = [
+            ("native", lon_full_base, lat_full_base),
+            ("flip_rows", lon_full_base[::-1, :], lat_full_base[::-1, :]),
+            ("flip_cols", lon_full_base[:, ::-1], lat_full_base[:, ::-1]),
+            ("flip_rows_cols", lon_full_base[::-1, ::-1], lat_full_base[::-1, ::-1]),
+        ]
+        for name, lon_cand, lat_cand in variants:
+            stats = seam_diagnostics(lon_cand, lat_cand, args.nlon, args.nlat, args.tiles_x, args.tiles_y)
+            candidates.append((seam_max_km(stats), name, lon_cand, lat_cand, stats))
+        best = min(candidates, key=lambda t: t[0])
+        _, chosen, lon_full, lat_full, seam_stats = best
+        print(f"[orientation] chose {chosen} (seam max {best[0]:.2f} km)")
 
     orientation_warnings(lon_full, lat_full)
     dx, dy, ratio = compute_dx_dy(lon_full, lat_full)
@@ -302,6 +316,10 @@ def main():
         np.savetxt(args.output_dir / "stitched_lat.txt", lat_full, fmt="%.8f")
         plot_pmesh(lon_full, lon_full, lat_full, "Stitched lon", args.output_dir / "stitched_lon.png", cmap="coolwarm", units="deg")
         plot_pmesh(lat_full, lon_full, lat_full, "Stitched lat", args.output_dir / "stitched_lat.png", cmap="coolwarm", units="deg")
+
+    if args.dump_tiles_text:
+        args.output_dir.mkdir(parents=True, exist_ok=True)
+        dump_tiles_text(grids, args.output_dir / "tile_lonlat.txt")
 
 
 if __name__ == "__main__":
