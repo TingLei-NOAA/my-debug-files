@@ -200,6 +200,7 @@ def main():
     )
     parser.add_argument("--output-dir", type=Path, default=Path("dr-figures"), help="Output directory")
     parser.add_argument("--dump-stitched", action="store_true", help="Dump stitched lon/lat arrays and plots")
+    parser.add_argument("--plot-subdomains", action="store_true", help="Plot lon/lat for each subdomain tile")
     parser.add_argument("--swap-axes", action="store_true", help="Transpose stitched lon/lat before computing dx/dy (for layout debugging)")
     parser.add_argument("--seam-threshold-km", type=float, default=5000.0, help="Warn if seam gaps exceed this (km)")
     args = parser.parse_args()
@@ -214,6 +215,29 @@ def main():
         rank = int(m.group(1))
         lon_tile, lat_tile = parse_field(path, args.nlon, args.nlat, args.input_order)
         grids.append((path, lon_tile, lat_tile, rank))
+
+    if args.plot_subdomains:
+        subdir = args.output_dir / "subdomains"
+        subdir.mkdir(parents=True, exist_ok=True)
+        for path, lon_tile, lat_tile, rank in grids:
+            plot_pmesh(
+                lon_tile,
+                lon_tile,
+                lat_tile,
+                f"Tile {rank} lon",
+                subdir / f"tile_{rank:04d}_lon.png",
+                cmap="coolwarm",
+                units="deg",
+            )
+            plot_pmesh(
+                lat_tile,
+                lon_tile,
+                lat_tile,
+                f"Tile {rank} lat",
+                subdir / f"tile_{rank:04d}_lat.png",
+                cmap="coolwarm",
+                units="deg",
+            )
 
     lon_full, lat_full = stitch(grids, args.tiles_x, args.tiles_y, args.nlon, args.nlat, rank_order=args.rank_order)
     if args.swap_axes:
