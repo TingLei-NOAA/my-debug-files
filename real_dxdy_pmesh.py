@@ -99,6 +99,21 @@ def plot_pmesh(field: np.ndarray, lon: np.ndarray, lat: np.ndarray, title: str, 
     print(f"Wrote {outfile}")
 
 
+def plot_subdomain_plain(field: np.ndarray, title: str, outfile: Path, cmap: str, units: str):
+    """Plot a small tile using array indices (no cartopy) to avoid projection/unwrap surprises."""
+    fig, ax = plt.subplots(figsize=(4, 3.5))
+    im = ax.imshow(field, origin="lower", cmap=cmap)
+    ax.set_xlabel("i (nlon)")
+    ax.set_ylabel("j (nlat)")
+    ax.set_title(title)
+    cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
+    cbar.set_label(units)
+    fig.tight_layout()
+    fig.savefig(outfile, dpi=150)
+    plt.close(fig)
+    print(f"Wrote {outfile}")
+
+
 def stitch(grids: list[tuple[Path, np.ndarray, np.ndarray, int]], tiles_x: int, tiles_y: int, nlon: int, nlat: int, rank_order: str):
     if len(grids) != tiles_x * tiles_y:
         raise ValueError(f"Expected {tiles_x*tiles_y} tiles, found {len(grids)}")
@@ -220,24 +235,11 @@ def main():
         subdir = args.output_dir / "subdomains"
         subdir.mkdir(parents=True, exist_ok=True)
         for path, lon_tile, lat_tile, rank in grids:
-            plot_pmesh(
-                lon_tile,
-                lon_tile,
-                lat_tile,
-                f"Tile {rank} lon",
-                subdir / f"tile_{rank:04d}_lon.png",
-                cmap="coolwarm",
-                units="deg",
-            )
-            plot_pmesh(
-                lat_tile,
-                lon_tile,
-                lat_tile,
-                f"Tile {rank} lat",
-                subdir / f"tile_{rank:04d}_lat.png",
-                cmap="coolwarm",
-                units="deg",
-            )
+            dx_tile, dy_tile, _ = compute_dx_dy(lon_tile, lat_tile)
+            plot_subdomain_plain(lon_tile, f"Tile {rank} lon", subdir / f"tile_{rank:04d}_lon.png", cmap="coolwarm", units="deg")
+            plot_subdomain_plain(lat_tile, f"Tile {rank} lat", subdir / f"tile_{rank:04d}_lat.png", cmap="coolwarm", units="deg")
+            plot_subdomain_plain(dx_tile / 1000.0, f"Tile {rank} dx (km)", subdir / f"tile_{rank:04d}_dx.png", cmap="magma", units="km")
+            plot_subdomain_plain(dy_tile / 1000.0, f"Tile {rank} dy (km)", subdir / f"tile_{rank:04d}_dy.png", cmap="magma", units="km")
 
     lon_full, lat_full = stitch(grids, args.tiles_x, args.tiles_y, args.nlon, args.nlat, rank_order=args.rank_order)
     if args.swap_axes:
