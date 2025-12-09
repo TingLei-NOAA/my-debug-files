@@ -174,6 +174,12 @@ def seam_diagnostics(lon_full: np.ndarray, lat_full: np.ndarray, nlon: int, nlat
     return {"vertical": summarize(gaps_vert), "horizontal": summarize(gaps_horz)}
 
 
+def seam_max_km(stats: dict) -> float:
+    v = stats["vertical"]["max"]
+    h = stats["horizontal"]["max"]
+    return float(max(v if np.isfinite(v) else 0.0, h if np.isfinite(h) else 0.0)) / 1000.0
+
+
 def monotonic_checks(lon_full: np.ndarray, lat_full: np.ndarray, tol_deg: float = 1e-3) -> None:
     lon_unw = np.degrees(np.unwrap(np.radians(lon_full), axis=1))
     dlon = np.diff(lon_unw, axis=1)
@@ -216,7 +222,7 @@ def main():
     parser.add_argument("--output-dir", type=Path, default=Path("dr-figures"), help="Output directory")
     parser.add_argument("--dump-stitched", action="store_true", help="Dump stitched lon/lat arrays and plots")
     parser.add_argument("--plot-subdomains", action="store_true", help="Plot lon/lat for each subdomain tile")
-    parser.add_argument("--swap-axes", action="store_true", help="Transpose stitched lon/lat before computing dx/dy (for layout debugging)")
+    parser.add_argument("--swap-axes", action="store_true", help="Force transpose of stitched lon/lat before computing dx/dy")
     parser.add_argument("--seam-threshold-km", type=float, default=5000.0, help="Warn if seam gaps exceed this (km)")
     args = parser.parse_args()
 
@@ -241,14 +247,35 @@ def main():
             plot_subdomain_plain(dx_tile / 1000.0, f"Tile {rank} dx (km)", subdir / f"tile_{rank:04d}_dx.png", cmap="magma", units="km")
             plot_subdomain_plain(dy_tile / 1000.0, f"Tile {rank} dy (km)", subdir / f"tile_{rank:04d}_dy.png", cmap="magma", units="km")
 
-    lon_full, lat_full = stitch(grids, args.tiles_x, args.tiles_y, args.nlon, args.nlat, rank_order=args.rank_order)
+    lon_full_base, lat_full_base = stitch(grids, args.tiles_x, args.tiles_y, args.nlon, args.nlat, rank_order=args.rank_order)
+
     if args.swap_axes:
-        lon_full = lon_full.T
-        lat_full = lat_full.T
+        lon_full = lon_full_base.T
+        lat_full = lat_full_base.T
+        chosen = "forced swap"
+    else:
+        stats_a = seam_diagnostics(lon_full_base, lat_full_base, args.nlon, args.nlat, args.tiles_x, args.tiles_y)
+        stats_b = seam_diagnostics(lon_full_base.T, lat_full_base.T, args.nlon, args.nlat, args.tiles_y, args.tiles_x)
+        max_a = seam_max_km(stats_a)
+        max_b = seam_max_km(stats_b)
+        if max_b < max_a:
+            lon_full = lon_full_base.T
+            lat_full = lat_full_base.T
+            seam_stats = stats_b
+            chosen = f"auto-swapped (seam max {max_b:.2f} km < {max_a:.2f} km)"
+        else:
+            lon_full = lon_full_base
+            lat_full = lat_full_base
+            seam_stats = stats_a
+            chosen = f"kept native (seam max {max_a:.2f} km <= {max_b:.2f} km)"
+    print(f"[orientation] {chosen}")
+
     orientation_warnings(lon_full, lat_full)
     dx, dy, ratio = compute_dx_dy(lon_full, lat_full)
 
-    seam_stats = seam_diagnostics(lon_full, lat_full, args.nlon, args.nlat, args.tiles_x, args.tiles_y)
+    # If seam_stats not set (forced swap), compute once
+    if "seam_stats" not in locals():
+        seam_stats = seam_diagnostics(lon_full, lat_full, args.nlon, args.nlat, args.tiles_x, args.tiles_y)
     for lbl, stats in seam_stats.items():
         if stats["mean"] == stats["mean"]:
             print(f"{lbl.capitalize()} seam gaps (meters): mean={stats['mean']:.2f}, max={stats['max']:.2f}")
