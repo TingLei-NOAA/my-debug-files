@@ -136,9 +136,9 @@ def main():
     parser.add_argument("--label2", default=None, help="Title label for second plot.")
     parser.add_argument("--grid-spec", default="fv3_grid_dxdy.nc", help="NetCDF with dx/dy on T grid.")
     parser.add_argument("--variable", default="air_temperature", help="Variable name to plot.")
-    parser.add_argument("--level", type=int, default=0, help="Vertical level index.")
-    parser.add_argument("--x-index", type=int, default=None, help="Center X index (grid_xt).")
-    parser.add_argument("--y-index", type=int, default=None, help="Center Y index (grid_yt).")
+    parser.add_argument("--level", type=int, default=0, help="Vertical level index (0-based).")
+    parser.add_argument("--x-index", type=int, default=None, help="Center X grid index (0-based, grid_xt).")
+    parser.add_argument("--y-index", type=int, default=None, help="Center Y grid index (0-based, grid_yt).")
     parser.add_argument(
         "--half-width",
         "--lgh",
@@ -170,6 +170,7 @@ def main():
     units = units1 or units2
 
     center_xy = (x_grid[Yc, Xc], y_grid[Yc, Xc])
+    print(f"Center indices (X,Y) = ({Xc},{Yc}); physical (km) = ({center_xy[0]/1000:.3f}, {center_xy[1]/1000:.3f})")
     titles = [
         args.label1 or os.path.basename(args.file1),
         args.label2 or os.path.basename(args.file2),
