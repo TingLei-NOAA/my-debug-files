@@ -119,6 +119,8 @@ def plot_two_panels(
 
 
 def main():
+    X=149
+    Y=149
     parser = argparse.ArgumentParser(description="Horizontal contours around (X,Y) using physical FV3 x/y.")
     parser.add_argument(
         "--file1",
@@ -142,7 +144,7 @@ def main():
         "--lgh",
         dest="half_width",
         type=int,
-        default=50,
+        default=10,
         help="Half-width (grid points) of the square window around (X,Y).",
     )
     parser.add_argument("--output", default="dev.png", help="Output figure filename.")
@@ -156,8 +158,8 @@ def main():
     x_grid, y_grid = load_xy(args.grid_spec)
     ny, nx = x_grid.shape
 
-    Xc = args.x_index if args.x_index is not None else nx // 2
-    Yc = args.y_index if args.y_index is not None else ny // 2
+    Xc = args.x_index if args.x_index is not None else X 
+    Yc = args.y_index if args.y_index is not None else Y 
     if not (0 <= Xc < nx and 0 <= Yc < ny):
         raise ValueError(f"(X,Y)=({Xc},{Yc}) outside grid ({nx}, {ny}).")
 
