@@ -157,23 +157,31 @@ def main():
     ny, nx = x_grid.shape
 
     if args.x_index is None or args.y_index is None:
-        # Auto-center on the global max of file1 at the requested level
+        # Auto-center on the global max of file1 across all levels; report its level
         with nc.Dataset(args.file1) as ds:
             var = ds.variables[args.variable]
             if var.ndim == 4:
-                base = var[0, args.level, :, :]
+                base = np.array(var[0, :, :, :])
             elif var.ndim == 3:
-                base = var[args.level, :, :]
+                base = np.array(var[:, :, :])
             elif var.ndim == 2:
-                base = var[:, :]
+                base = np.array(var[:, :])
             else:
                 raise ValueError(f"Unsupported rank {var.ndim} for {args.variable} in {args.file1}")
-        max_idx = np.nanargmax(base)
-        Yc, Xc = np.unravel_index(max_idx, base.shape)
+        if base.ndim == 3:
+            max_idx = np.nanargmax(base)
+            lev_idx, Yc, Xc = np.unravel_index(max_idx, base.shape)
+            max_val = float(base[lev_idx, Yc, Xc])
+        else:
+            max_idx = np.nanargmax(base)
+            Yc, Xc = np.unravel_index(max_idx, base.shape)
+            lev_idx = 0
+            max_val = float(base[Yc, Xc])
         print(
-            f"Auto-centered on global max of {args.variable} (level {args.level}) "
-            f"at idx (X,Y)=({Xc},{Yc}), value={base[Yc, Xc]:.3g}"
+            f"Auto-centered on global max of {args.variable}: "
+            f"idx (X,Y,Z)=({Xc},{Yc},{lev_idx}), value={max_val:.3g}"
         )
+        print(f"(Plot level remains {args.level}); rerun with --level {lev_idx} to view that level if desired.")
     else:
         Xc = args.x_index
         Yc = args.y_index
