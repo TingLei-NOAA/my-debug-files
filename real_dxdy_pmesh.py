@@ -127,6 +127,19 @@ def dump_tiles_text(grids: list[tuple[Path, np.ndarray, np.ndarray, int]], outfi
     print(f"Wrote {outfile}")
 
 
+def dump_tile_centers(grids: list[tuple[Path, np.ndarray, np.ndarray, int]], outfile: Path) -> None:
+    """
+    Write one line per tile: rank lon_center lat_center
+    Center is taken as lon[nlat//2, nlon//2], lat[nlat//2, nlon//2].
+    """
+    with outfile.open("w") as f:
+        for _, lon_tile, lat_tile, rank in grids:
+            j = lon_tile.shape[0] // 2
+            i = lon_tile.shape[1] // 2
+            f.write(f"{rank} {lon_tile[j, i]:.8f} {lat_tile[j, i]:.8f}\n")
+    print(f"Wrote {outfile}")
+
+
 def stitch(grids: list[tuple[Path, np.ndarray, np.ndarray, int]], tiles_x: int, tiles_y: int, nlon: int, nlat: int, rank_order: str):
     if len(grids) != tiles_x * tiles_y:
         raise ValueError(f"Expected {tiles_x*tiles_y} tiles, found {len(grids)}")
@@ -235,6 +248,7 @@ def main():
     parser.add_argument("--output-dir", type=Path, default=Path("dr-figures"), help="Output directory")
     parser.add_argument("--dump-stitched", action="store_true", help="Dump stitched lon/lat arrays and plots")
     parser.add_argument("--dump-tiles-text", action="store_true", help="Dump per-tile lon/lat flattened text for layout inspection")
+    parser.add_argument("--dump-tile-centers", action="store_true", help="Dump per-tile center lon/lat for layout inspection")
     parser.add_argument("--plot-subdomains", action="store_true", help="Plot lon/lat for each subdomain tile")
     parser.add_argument("--swap-axes", action="store_true", help="Force transpose of stitched lon/lat before computing dx/dy (debug only)")
     parser.add_argument("--seam-threshold-km", type=float, default=5000.0, help="Warn if seam gaps exceed this (km)")
@@ -320,6 +334,9 @@ def main():
     if args.dump_tiles_text:
         args.output_dir.mkdir(parents=True, exist_ok=True)
         dump_tiles_text(grids, args.output_dir / "tile_lonlat.txt")
+    if args.dump_tile_centers:
+        args.output_dir.mkdir(parents=True, exist_ok=True)
+        dump_tile_centers(grids, args.output_dir / "tile_centers.txt")
 
 
 if __name__ == "__main__":
