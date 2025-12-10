@@ -65,16 +65,24 @@ def centers_to_edges(C: np.ndarray) -> np.ndarray:
 
 def main():
     parser = argparse.ArgumentParser(description="Horizontal contours around multiple centers for two files.")
-    parser.add_argument("--file1", default="run1.nc", help="First NetCDF file (default: run1.nc).")
-    parser.add_argument("--file2", default="run2.nc", help="Second NetCDF file (default: run2.nc).")
+    parser.add_argument(
+        "--file1",
+        default="Data/mgbf_NA/20240527.010000.p484-inho-ref_L30_proc5_2G_35kmv6-mgbf-D1-p64_dirac_SABER_lam.fv_core.res.nc",
+        help="First NetCDF file (default: run1.nc).",
+    )
+    parser.add_argument(
+        "--file2",
+        default="Data/mgbf_NA/20240527.010000.p484-inho_L30_proc5_2G_35kmv6-mgbf-D1-p64_dirac_SABER_lam.fv_core.res.nc",
+        help="Second NetCDF file (default: run2.nc).",
+    )
     parser.add_argument("--label1", default=None, help="Title label for first file.")
     parser.add_argument("--label2", default=None, help="Title label for second file.")
     parser.add_argument("--grid-spec", default="fv3_grid_dxdy.nc", help="NetCDF with dx/dy on T grid.")
     parser.add_argument("--variable", default="air_temperature", help="Variable name to plot.")
-    parser.add_argument("--level", type=int, default=0, help="Vertical level index (0-based).")
-    parser.add_argument("--x-indices", nargs="+", type=int, default=None, help="List of X indices (0-based).")
-    parser.add_argument("--y-indices", nargs="+", type=int, default=None, help="List of Y indices (0-based).")
-    parser.add_argument("--half-width", "--lgh", dest="half_width", type=int, default=10, help="Half-width (grid points) of the square window.")
+    parser.add_argument("--level", type=int, default=29, help="Vertical level index (0-based).")
+    parser.add_argument("--x-indices", nargs="+", type=int, default=[149,1899], help="List of X indices (0-based).")
+    parser.add_argument("--y-indices", nargs="+", type=int, default=[149,1799], help="List of Y indices (0-based).")
+    parser.add_argument("--half-width", "--lgh", dest="half_width", type=int, default=50, help="Half-width (grid points) of the square window.")
     parser.add_argument("--titles", type=str, nargs="*", default=None, help="Titles for subplots; length should match centers*files. Default: 'xxxx'.")
     parser.add_argument("--output", default="dev_multi.png", help="Output figure filename.")
     args = parser.parse_args()
