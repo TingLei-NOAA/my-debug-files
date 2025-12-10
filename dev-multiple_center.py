@@ -135,10 +135,10 @@ def main():
                 field_norm = field / max_val
             global_min = min(global_min, np.nanmin(field_norm))
             global_max = max(global_max, np.nanmax(field_norm))
-            # profile along x through the maximum point in this window
+            # profile along x through the maximum point in this window, using relative indices
             flat_idx = np.nanargmax(field_norm)
             jj, ii = np.unravel_index(flat_idx, field_norm.shape)
-            x_profile = Xmesh[jj, :] / 1000.0
+            rel_x_idx = np.arange(xs.start, xs.stop) - Xc
             y_profile = field_norm[jj, :]
             entries.append(
                 {
@@ -153,7 +153,7 @@ def main():
                     "src": fpath,
                     "orig_min": float(np.nanmin(field)),
                     "orig_max": float(np.nanmax(field)),
-                    "prof_x": x_profile,
+                    "prof_x": rel_x_idx,
                     "prof_y": y_profile,
                 }
             )
@@ -197,7 +197,7 @@ def main():
             lbl_idx = entry["r"]
             lbl = curve_labels[lbl_idx] if lbl_idx < len(curve_labels) else f"center{lbl_idx}"
             ax.plot(entry["prof_x"], entry["prof_y"], label=lbl)
-        ax.set_xlabel("X (km)")
+        ax.set_xlabel("Δi from center (grid points)")
         ax.set_ylabel(f"{args.variable} (normalized)")
         ax.set_title(titles[c] if c < len(titles) else labels[c])
         ax.grid(True, linestyle=":")
