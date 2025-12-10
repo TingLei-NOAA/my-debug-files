@@ -120,6 +120,7 @@ def main():
     global_min = np.inf
     global_max = -np.inf
     idx_title = 0
+    curve_labels = ["label1", "label2", "label3", "label4"]
     for r, (Xc, Yc) in enumerate(centers):
         if not (0 <= Xc < nx and 0 <= Yc < ny):
             raise ValueError(f"Center (X,Y)=({Xc},{Yc}) outside grid ({nx},{ny}).")
@@ -134,6 +135,11 @@ def main():
                 field_norm = field / max_val
             global_min = min(global_min, np.nanmin(field_norm))
             global_max = max(global_max, np.nanmax(field_norm))
+            # profile along x through the maximum point in this window
+            flat_idx = np.nanargmax(field_norm)
+            jj, ii = np.unravel_index(flat_idx, field_norm.shape)
+            x_profile = Xmesh[jj, :] / 1000.0
+            y_profile = field_norm[jj, :]
             entries.append(
                 {
                     "r": r,
@@ -147,6 +153,8 @@ def main():
                     "src": fpath,
                     "orig_min": float(np.nanmin(field)),
                     "orig_max": float(np.nanmax(field)),
+                    "prof_x": x_profile,
+                    "prof_y": y_profile,
                 }
             )
             idx_title += 1
@@ -178,6 +186,26 @@ def main():
     fig.suptitle(f"{args.variable} level={args.level}, window +/-{args.half_width} pts; centers={centers}")
     fig.savefig(args.output, dpi=150)
     print(f"Wrote {args.output}")
+
+    # Second figure: profiles (x-direction through window maximum) per file
+    fig2, axes2 = plt.subplots(1, ncols, figsize=(6 * ncols, 4), constrained_layout=True, squeeze=False)
+    for c in range(ncols):
+        ax = axes2[0, c]
+        for entry in entries:
+            if entry["c"] != c:
+                continue
+            lbl_idx = entry["r"]
+            lbl = curve_labels[lbl_idx] if lbl_idx < len(curve_labels) else f"center{lbl_idx}"
+            ax.plot(entry["prof_x"], entry["prof_y"], label=lbl)
+        ax.set_xlabel("X (km)")
+        ax.set_ylabel(f"{args.variable} (normalized)")
+        ax.set_title(titles[c] if c < len(titles) else labels[c])
+        ax.grid(True, linestyle=":")
+        ax.legend()
+    fig2.suptitle(f"{args.variable} level={args.level} profiles (x through max); centers={centers}")
+    profile_out = os.path.splitext(args.output)[0] + "_profiles.png"
+    fig2.savefig(profile_out, dpi=150)
+    print(f"Wrote {profile_out}")
 
 
 if __name__ == "__main__":
