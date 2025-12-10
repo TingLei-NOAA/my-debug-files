@@ -1,0 +1,147 @@
+import argparse
+import os
+from typing import List, Optional, Tuple
+
+import matplotlib.pyplot as plt
+import netCDF4 as nc
+import numpy as np
+
+
+def build_xy_from_dxdy(dx: np.ndarray, dy: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
+    ny, nx = dx.shape
+    x = np.zeros((ny, nx), dtype=float)
+    y = np.zeros((ny, nx), dtype=float)
+    x[:, 1:] = np.cumsum(dx[:, :-1], axis=1)
+    y[1:, :] = np.cumsum(dy[:-1, :], axis=0)
+    return x, y
+
+
+def load_xy(grid_spec: str) -> Tuple[np.ndarray, np.ndarray]:
+    with nc.Dataset(grid_spec) as ds:
+        dx = ds.variables["dx"][:]
+        dy = ds.variables["dy"][:]
+    return build_xy_from_dxdy(dx, dy)
+
+
+def read_field(path: str, varname: str, level: int, y_slice: slice, x_slice: slice) -> Tuple[np.ndarray, Optional[str]]:
+    with nc.Dataset(path) as ds:
+        var = ds.variables[varname]
+        units = getattr(var, "units", None)
+        if var.ndim == 4:
+            data = var[0, level, y_slice, x_slice]
+        elif var.ndim == 3:
+            data = var[level, y_slice, x_slice]
+        elif var.ndim == 2:
+            if level not in (0, None):
+                raise ValueError(f"Variable {varname} is 2D; use level=0.")
+            data = var[y_slice, x_slice]
+        else:
+            raise ValueError(f"Unsupported rank {var.ndim} for {varname} in {path}")
+    return np.array(data), units
+
+
+def extract_window(X: int, Y: int, half: int, x_grid: np.ndarray, y_grid: np.ndarray) -> Tuple[slice, slice, np.ndarray, np.ndarray]:
+    ny, nx = x_grid.shape
+    x0 = max(0, X - half)
+    x1 = min(nx, X + half + 1)
+    y0 = max(0, Y - half)
+    y1 = min(ny, Y + half + 1)
+    xs = slice(x0, x1)
+    ys = slice(y0, y1)
+    return xs, ys, x_grid[ys, xs], y_grid[ys, xs]
+
+
+def centers_to_edges(C: np.ndarray) -> np.ndarray:
+    ny, nx = C.shape
+    left = C[:, [0]] - (C[:, [1]] - C[:, [0]])
+    right = C[:, [-1]] + (C[:, [-1]] - C[:, [-2]])
+    Cx = np.concatenate([left, C, right], axis=1)
+    top = Cx[[0], :] - (Cx[[1], :] - Cx[[0], :])
+    bottom = Cx[[-1], :] + (Cx[[-1], :] - Cx[[-2], :])
+    Cy = np.concatenate([top, Cx, bottom], axis=0)
+    edges = 0.25 * (Cy[:-1, :-1] + Cy[:-1, 1:] + Cy[1:, :-1] + Cy[1:, 1:])
+    return edges
+
+
+def parse_int_list(val: Optional[str], fallback: int) -> List[int]:
+    if val is None:
+        return [fallback]
+    parts = [p for p in val.replace(",", " ").split() if p]
+    return [int(p) for p in parts]
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Horizontal contours around multiple centers for two files.")
+    parser.add_argument("--file1", default="run1.nc", help="First NetCDF file (default: run1.nc).")
+    parser.add_argument("--file2", default="run2.nc", help="Second NetCDF file (default: run2.nc).")
+    parser.add_argument("--label1", default=None, help="Title label for first file.")
+    parser.add_argument("--label2", default=None, help="Title label for second file.")
+    parser.add_argument("--grid-spec", default="fv3_grid_dxdy.nc", help="NetCDF with dx/dy on T grid.")
+    parser.add_argument("--variable", default="air_temperature", help="Variable name to plot.")
+    parser.add_argument("--level", type=int, default=0, help="Vertical level index (0-based).")
+    parser.add_argument("--x-indices", type=str, default=None, help="Space/comma separated list of X indices.")
+    parser.add_argument("--y-indices", type=str, default=None, help="Space/comma separated list of Y indices.")
+    parser.add_argument("--half-width", "--lgh", dest="half_width", type=int, default=10, help="Half-width (grid points) of the square window.")
+    parser.add_argument("--titles", type=str, nargs="*", default=None, help="Titles for subplots; length should match centers*files. Default: 'xxxx'.")
+    parser.add_argument("--output", default="dev_multi.png", help="Output figure filename.")
+    args = parser.parse_args()
+
+    # Check files
+    for path in (args.file1, args.file2):
+        if not os.path.exists(path):
+            raise FileNotFoundError(f"Input file not found: {path}")
+
+    x_grid, y_grid = load_xy(args.grid_spec)
+    ny, nx = x_grid.shape
+
+    x_list = parse_int_list(args.x_indices, nx // 2)
+    y_list = parse_int_list(args.y_indices, ny // 2)
+    if len(x_list) != len(y_list):
+        raise ValueError("x-indices and y-indices must have the same length.")
+    centers = list(zip(x_list, y_list))
+
+    files = [args.file1, args.file2]
+    labels = [args.label1 or os.path.basename(args.file1), args.label2 or os.path.basename(args.file2)]
+
+    nrows = len(centers)
+    ncols = len(files)
+
+    titles = args.titles
+    if not titles or len(titles) != nrows * ncols:
+        titles = ["xxxx"] * (nrows * ncols)
+
+    fig, axes = plt.subplots(nrows, ncols, figsize=(6 * ncols, 4.5 * nrows), constrained_layout=True, squeeze=False)
+
+    idx_title = 0
+    for r, (Xc, Yc) in enumerate(centers):
+        if not (0 <= Xc < nx and 0 <= Yc < ny):
+            raise ValueError(f"Center (X,Y)=({Xc},{Yc}) outside grid ({nx},{ny}).")
+        xs, ys, Xmesh, Ymesh = extract_window(Xc, Yc, args.half_width, x_grid, y_grid)
+        center_xy = (x_grid[Yc, Xc], y_grid[Yc, Xc])
+        for c, (fpath, flabel) in enumerate(zip(files, labels)):
+            field, units = read_field(fpath, args.variable, args.level, ys, xs)
+            xe = centers_to_edges(Xmesh) / 1000.0
+            ye = centers_to_edges(Ymesh) / 1000.0
+            ax = axes[r, c]
+            pcm = ax.pcolormesh(xe, ye, field, shading="auto", cmap="turbo")
+            ax.plot(center_xy[0] / 1000.0, center_xy[1] / 1000.0, "ro", ms=4, label="(X,Y)")
+            ax.set_aspect("equal")
+            ax.set_xlabel("X (km)")
+            ax.set_ylabel("Y (km)")
+            ax.set_title(titles[idx_title])
+            ax.legend(loc="best", fontsize=8)
+            cbar = fig.colorbar(pcm, ax=ax)
+            cbar.set_label(units or "")
+            idx_title += 1
+            print(
+                f"[{fpath}] center (X,Y)=({Xc},{Yc}) -> window x[{xs.start}:{xs.stop}) y[{ys.start}:{ys.stop}); "
+                f"{args.variable} min/max=({np.nanmin(field):.3g},{np.nanmax(field):.3g})"
+            )
+
+    fig.suptitle(f"{args.variable} level={args.level}, window +/-{args.half_width} pts; centers={centers}")
+    fig.savefig(args.output, dpi=150)
+    print(f"Wrote {args.output}")
+
+
+if __name__ == "__main__":
+    main()
