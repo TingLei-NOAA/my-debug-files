@@ -115,8 +115,10 @@ def main():
     if not titles or len(titles) != nrows * ncols:
         titles = ["xxxx"] * (nrows * ncols)
 
-    fig, axes = plt.subplots(nrows, ncols, figsize=(6 * ncols, 4.5 * nrows), constrained_layout=True, squeeze=False)
-
+    # Precompute all windows and normalized fields
+    entries = []
+    global_min = np.inf
+    global_max = -np.inf
     idx_title = 0
     for r, (Xc, Yc) in enumerate(centers):
         if not (0 <= Xc < nx and 0 <= Yc < ny):
@@ -125,23 +127,53 @@ def main():
         center_xy = (x_grid[Yc, Xc], y_grid[Yc, Xc])
         for c, (fpath, flabel) in enumerate(zip(files, labels)):
             field, units = read_field(fpath, args.variable, args.level, ys, xs)
-            xe = centers_to_edges(Xmesh) / 1000.0
-            ye = centers_to_edges(Ymesh) / 1000.0
-            ax = axes[r, c]
-            pcm = ax.pcolormesh(xe, ye, field, shading="auto", cmap="turbo")
-            ax.plot(center_xy[0] / 1000.0, center_xy[1] / 1000.0, "ro", ms=4, label="(X,Y)")
-            ax.set_aspect("equal")
-            ax.set_xlabel("X (km)")
-            ax.set_ylabel("Y (km)")
-            ax.set_title(titles[idx_title])
-            ax.legend(loc="best", fontsize=8)
-            cbar = fig.colorbar(pcm, ax=ax)
-            cbar.set_label(units or "")
-            idx_title += 1
-            print(
-                f"[{fpath}] center (X,Y)=({Xc},{Yc}) -> window x[{xs.start}:{xs.stop}) y[{ys.start}:{ys.stop}); "
-                f"{args.variable} min/max=({np.nanmin(field):.3g},{np.nanmax(field):.3g})"
+            max_val = np.nanmax(field)
+            if not np.isfinite(max_val) or max_val == 0:
+                field_norm = np.zeros_like(field)
+            else:
+                field_norm = field / max_val
+            global_min = min(global_min, np.nanmin(field_norm))
+            global_max = max(global_max, np.nanmax(field_norm))
+            entries.append(
+                {
+                    "r": r,
+                    "c": c,
+                    "field": field_norm,
+                    "units": units,
+                    "xe": centers_to_edges(Xmesh) / 1000.0,
+                    "ye": centers_to_edges(Ymesh) / 1000.0,
+                    "center_xy": center_xy,
+                    "title": titles[idx_title],
+                    "src": fpath,
+                    "orig_min": float(np.nanmin(field)),
+                    "orig_max": float(np.nanmax(field)),
+                }
             )
+            idx_title += 1
+
+    if not np.isfinite(global_min):
+        global_min = 0.0
+    if not np.isfinite(global_max) or global_max == 0:
+        global_max = 1.0
+
+    fig, axes = plt.subplots(nrows, ncols, figsize=(6 * ncols, 4.5 * nrows), constrained_layout=True, squeeze=False)
+
+    for entry in entries:
+        ax = axes[entry["r"], entry["c"]]
+        pcm = ax.pcolormesh(entry["xe"], entry["ye"], entry["field"], shading="auto", cmap="turbo", vmin=global_min, vmax=global_max)
+        ax.plot(entry["center_xy"][0] / 1000.0, entry["center_xy"][1] / 1000.0, "ro", ms=4, label="(X,Y)")
+        ax.set_aspect("equal")
+        ax.set_xlabel("X (km)")
+        ax.set_ylabel("Y (km)")
+        ax.set_title(entry["title"])
+        ax.legend(loc="best", fontsize=8)
+        cbar = fig.colorbar(pcm, ax=ax)
+        cbar.set_label(entry["units"] or "")
+        print(
+            f"[{entry['src']}] center (X,Y)=({centers[entry['r']][0]},{centers[entry['r']][1]}) "
+            f"window orig min/max=({entry['orig_min']:.3g},{entry['orig_max']:.3g}) "
+            f"norm min/max=({np.nanmin(entry['field']):.3g},{np.nanmax(entry['field']):.3g})"
+        )
 
     fig.suptitle(f"{args.variable} level={args.level}, window +/-{args.half_width} pts; centers={centers}")
     fig.savefig(args.output, dpi=150)
