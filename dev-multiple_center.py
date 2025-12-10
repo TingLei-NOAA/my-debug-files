@@ -63,13 +63,6 @@ def centers_to_edges(C: np.ndarray) -> np.ndarray:
     return edges
 
 
-def parse_int_list(val: Optional[str], fallback: int) -> List[int]:
-    if val is None:
-        return [fallback]
-    parts = [p for p in val.replace(",", " ").split() if p]
-    return [int(p) for p in parts]
-
-
 def main():
     parser = argparse.ArgumentParser(description="Horizontal contours around multiple centers for two files.")
     parser.add_argument("--file1", default="run1.nc", help="First NetCDF file (default: run1.nc).")
@@ -79,8 +72,8 @@ def main():
     parser.add_argument("--grid-spec", default="fv3_grid_dxdy.nc", help="NetCDF with dx/dy on T grid.")
     parser.add_argument("--variable", default="air_temperature", help="Variable name to plot.")
     parser.add_argument("--level", type=int, default=0, help="Vertical level index (0-based).")
-    parser.add_argument("--x-indices", type=str, default=None, help="Space/comma separated list of X indices.")
-    parser.add_argument("--y-indices", type=str, default=None, help="Space/comma separated list of Y indices.")
+    parser.add_argument("--x-indices", nargs="+", type=int, default=None, help="List of X indices (0-based).")
+    parser.add_argument("--y-indices", nargs="+", type=int, default=None, help="List of Y indices (0-based).")
     parser.add_argument("--half-width", "--lgh", dest="half_width", type=int, default=10, help="Half-width (grid points) of the square window.")
     parser.add_argument("--titles", type=str, nargs="*", default=None, help="Titles for subplots; length should match centers*files. Default: 'xxxx'.")
     parser.add_argument("--output", default="dev_multi.png", help="Output figure filename.")
@@ -94,8 +87,12 @@ def main():
     x_grid, y_grid = load_xy(args.grid_spec)
     ny, nx = x_grid.shape
 
-    x_list = parse_int_list(args.x_indices, nx // 2)
-    y_list = parse_int_list(args.y_indices, ny // 2)
+    if args.x_indices is None or args.y_indices is None:
+        x_list = [nx // 2]
+        y_list = [ny // 2]
+    else:
+        x_list = args.x_indices
+        y_list = args.y_indices
     if len(x_list) != len(y_list):
         raise ValueError("x-indices and y-indices must have the same length.")
     centers = list(zip(x_list, y_list))
