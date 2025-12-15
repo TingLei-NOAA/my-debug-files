@@ -1,0 +1,52 @@
+  0: OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
+  0: 
+  0: OOPS_STATS ------------------------------------------------------------------------------------------------------------------
+  0: OOPS_STATS ---------------------------------- Parallel Timing Statistics ( 484 MPI tasks) -----------------------------------
+  0: OOPS_STATS ------------------------------------------------------------------------------------------------------------------
+  0: OOPS_STATS Name                                                :     min (ms)    max (ms)    avg (ms)     % total   imbal (%)
+  0: OOPS_STATS oops::Covariance::EnsembleCovariance                :    257732.40   258055.52   257845.31       34.50        0.13
+  0: OOPS_STATS oops::Covariance::ensemble::inverseMultiply         :     57552.03    57587.29    57577.66        7.70        0.06
+  0: OOPS_STATS oops::Covariance::ensemble::multiply                :    219028.66   231118.16   226024.04       30.25        5.35
+  0: OOPS_STATS oops::Geometry::Geometry                            :      9654.55     9714.73     9703.85        1.30        0.62
+  0: OOPS_STATS oops::Geometry::~Geometry                           :       937.39     1056.12      993.66        0.13       11.95
+  0: OOPS_STATS oops::GeometryData::setGlobalTree                   :     12628.32    12987.28    12799.16        1.71        2.80
+  0: OOPS_STATS oops::GetValueTLADs::preProcessModelData            :      3397.12     9134.09     6017.51        0.81       95.34
+  0: OOPS_STATS oops::GetValues::GetValues                          :      4776.75     5137.24     4970.09        0.67        7.25
+  0: OOPS_STATS oops::GetValues::processAD                          :      1513.87     1954.79     1658.98        0.22       26.58
+  0: OOPS_STATS oops::Increment::Increment                          :     15433.83    23984.96    18932.95        2.53       45.17
+  0: OOPS_STATS oops::Increment::axpy                               :     17705.07    25003.09    21014.72        2.81       34.73
+  0: OOPS_STATS oops::Increment::deserialize                        :      1297.89     1972.89     1504.08        0.20       44.88
+  0: OOPS_STATS oops::Increment::dot_product_with                   :     78199.97   100179.12    87429.33       11.70       25.14
+  0: OOPS_STATS oops::Increment::fromFieldSet                       :     15238.82    16029.89    15673.19        2.10        5.05
+  0: OOPS_STATS oops::Increment::operator*=                         :      2356.74     2516.61     2432.07        0.33        6.57
+  0: OOPS_STATS oops::Increment::operator+=                         :      3588.77     4608.61     4151.65        0.56       24.56
+  0: OOPS_STATS oops::Increment::operator=                          :      6528.05    10846.43     8747.56        1.17       49.37
+  0: OOPS_STATS oops::Increment::print                              :     15582.68    33901.08    22587.23        3.02       81.10
+  0: OOPS_STATS oops::Increment::schur_product_with                 :      3391.69     3818.81     3601.29        0.48       11.86
+  0: OOPS_STATS oops::Increment::serialize                          :     22312.56    32813.79    30337.20        4.06       34.62
+  0: OOPS_STATS oops::Increment::toFieldSet                         :      9288.61    12073.85    10304.35        1.38       27.03
+  0: OOPS_STATS oops::Increment::zero                               :       775.63     1313.10      994.17        0.13       54.06
+  0: OOPS_STATS oops::LinearVariableChange::changeVarAD             :     13451.78    15152.78    14399.78        1.93       11.81
+  0: OOPS_STATS oops::Localization::Localization                    :      1451.72     5469.21     3480.25        0.47      115.44
+  0: OOPS_STATS oops::Localization::multiply                        :    194574.22   208769.68   202354.48       27.08        7.02
+  0: OOPS_STATS oops::Localization::~Localization                   :       717.44     1044.67      932.17        0.12       35.10
+  0: OOPS_STATS oops::ObsSpace::ObsSpace                            :       728.79      908.14      831.11        0.11       21.58
+  0: OOPS_STATS oops::ObsSpace::save                                :      1004.12     1258.32     1129.49        0.15       22.51
+  0: OOPS_STATS oops::State::State                                  :    325894.27   330107.07   327688.26       43.85        1.29
+  0: OOPS_STATS oops::UnstructuredInterpolator::apply               :      1262.56    17329.50    13381.45        1.79      120.07
+  0: OOPS_STATS oops::UnstructuredInterpolator::applyAD             :       742.65     7528.06     6033.17        0.81      112.47
+  0: OOPS_STATS oops::VariableChange::changeVar                     :      1697.01     1804.12     1751.80        0.23        6.11
+  0: OOPS_STATS oops::mpi::broadcast                                :     24965.24    36178.66    33270.47        4.45       33.70
+  0: OOPS_STATS saber::Interpolation::multiply                      :     44850.43    66122.98    57742.99        7.73       36.84
+  0: OOPS_STATS saber::Interpolation::multiplyAD                    :     59121.56    63369.21    61619.51        8.25        6.89
+  0: OOPS_STATS saber::Localization::Localization                   :      1451.69     5469.18     3480.22        0.47      115.44
+  0: OOPS_STATS saber::Localization::multiply                       :    155879.95   173191.83   164919.54       22.07       10.50
+  0: OOPS_STATS saber::mgbf::Covariance::multiply                   :      8429.36    12882.81    10429.87        1.40       42.70
+  0: OOPS_STATS saber::mgbf::Covariance::~Covariance                :       703.38     1033.96      921.59        0.12       35.87
+  0: OOPS_STATS util::Timers::Total                                 :    747251.71   747310.60   747300.47      100.00        0.01
+  0: OOPS_STATS util::Timers::measured                              :    745759.50   746030.13   745928.47       99.82        0.04
+  0: OOPS_STATS ---------------------------------- Parallel Timing Statistics ( 484 MPI tasks) -----------------------------------
+  0: 
+  0: OOPS_STATS Run end                                  - Runtime:    749.29 sec,  Memory: total:  7922.62 Gb, per task: min =    15.63 Gb, max =    18.69 Gb
+  0: Run: Finishing oops::Variational<FV3JEDI, UFO and IODA observations> with status = 0
+  0: OOPS Ending   2025-12-14 23:24:20 (UTC+0000)
