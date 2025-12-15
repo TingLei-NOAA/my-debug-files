@@ -124,25 +124,16 @@ cost function:
              local interpolator type: oops unstructured grid interpolator
          inverse interpolator:
              local nterpolator type: oops unstructured grid interpolator
+
+
+
   observations:
      observers:
      - obs space:
          name: aircar_airTemperature_133
-         distribution: &id004
-          name: Atlas
-          grid:
-            type: regular_lonlat
-            nx: 300
-            ny: 300
-            halo: 1
-            global: false
-            include_pole: false
-            xmin: 0.00024150533135980368
-            xmax: 359.99810791015625
-            ymin: 3.74735164642334
-            ymax: 89.98715209960938
-            partitioner: equal_regions 
-            
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -435,7 +426,9 @@ cost function:
          #  filename: ./data/geovals/aircar_geovals_rrfs.nc
      - obs space:
          name: aircar_specificHumidity_133
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -728,7 +721,9 @@ cost function:
          #  filename: ./data/geovals/aircar_geovals_rrfs.nc
      - obs space:
          name: aircar_winds_233
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -1059,7 +1054,9 @@ cost function:
          #  filename: ./data/geovals/aircar_geovals_rrfs.nc
      - obs space:
          name: aircft_airTemperature_130
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -1352,7 +1349,9 @@ cost function:
          #  filename: ./data/geovals/aircft_geovals_rrfs.nc
      - obs space:
          name: aircft_airTemperature_131
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -1645,7 +1644,9 @@ cost function:
          #  filename: ./data/geovals/aircft_geovals_rrfs.nc
      - obs space:
          name: aircft_airTemperature_134
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -1938,7 +1939,9 @@ cost function:
          #  filename: ./data/geovals/aircft_geovals_rrfs.nc
      - obs space:
          name: aircft_airTemperature_135
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -2231,7 +2234,9 @@ cost function:
          #  filename: ./data/geovals/aircft_geovals_rrfs.nc
      - obs space:
          name: aircft_specificHumidity_134
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -2524,7 +2529,9 @@ cost function:
          #  filename: ./data/geovals/aircft_geovals_rrfs.nc
      - obs space:
          name: aircft_winds_230
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -2855,7 +2862,9 @@ cost function:
          #  filename: ./data/geovals/aircft_geovals_rrfs.nc
      - obs space:
          name: aircft_winds_231
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -3186,7 +3195,9 @@ cost function:
          #  filename: ./data/geovals/aircft_geovals_rrfs.nc
      - obs space:
          name: aircft_winds_234
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -3517,7 +3528,9 @@ cost function:
          #  filename: ./data/geovals/aircft_geovals_rrfs.nc
      - obs space:
          name: aircft_winds_235
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -3848,7 +3861,9 @@ cost function:
          #  filename: ./data/geovals/aircft_geovals_rrfs.nc
      - obs space:
          name: msonet_airTemperature_188
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -4141,7 +4156,9 @@ cost function:
          #  filename: ./data/geovals/msonet_geovals_rrfs.nc
      - obs space:
          name: msonet_specificHumidity_188
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -4435,7 +4452,9 @@ cost function:
      - obs space:
          name: gnss_ztd_zenithTotalDelay
 
-         distribution: *id004
+         distribution:   # for LETKF
+           name: "RoundRobin"
+           halo size: 500e3
 
          obsdatain:
            engine:
@@ -4529,7 +4548,9 @@ cost function:
 #            is_in: ["ROBG","LPT_"]
      - obs space:
          name: msonet_winds_288
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -5149,7 +5170,9 @@ cost function:
               1.0, 1.0, 1.0, 2.0, 4.5,
               4.5, 2.0, 2.0, 2.0, 2.0,
               2.0, 2.0]
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -5727,7 +5750,9 @@ cost function:
          _anchor_use_flag_clddet: &abi_g16_use_flag_clddet [-2, -2, -2, -2, -2, -2, -2, -2, -2, -2]
          _anchor_error: &abi_g16_error [ 2.2, 1.756, 1.587, 1.185, 2.2, 2.2, 2.2, 2.2, 2.2, 2.2 ]
          _anchor_obserr_bound_max: &abi_g16_obserr_bound_max [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0]
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -6234,7 +6259,9 @@ cost function:
          _anchor_use_flag_clddet: &abi_g18_use_flag_clddet [-2, -2, -2, -2, -2, -2, -2, -2, -2, -2]
          _anchor_error: &abi_g18_error [ 2.2, 1.756, 1.587, 1.185, 2.2, 2.2, 2.2, 2.2, 2.2, 2.2 ]
          _anchor_obserr_bound_max: &abi_g18_obserr_bound_max [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0]
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -6753,7 +6780,9 @@ cost function:
                0.450,  0.450,  0.550,  0.800,  4.000,
                4.000,  4.000,  3.500,  3.000,  3.000,
                3.000,  3.000]
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -7332,7 +7361,9 @@ cost function:
              0.230, 0.230, 0.250, 0.250, 0.350,
              0.400, 0.550, 0.800, 3.000, 3.500]
          _anchor_obserr_bound_max: &amsua_n19_obserr_bound_max [4.5, 4.5, 4.5, 2.5, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.5, 3.5, 4.5, 4.5, 4.5]
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -7755,7 +7786,9 @@ cost function:
              0.230, 0.230, 0.250, 0.250, 0.350,
              0.400, 0.550, 0.800, 3.000, 3.500]
          _anchor_obserr_bound_max: &amsua_metop-b_obserr_bound_max [4.5, 4.5, 4.5, 2.5, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.5, 3.5, 4.5, 4.5, 4.5]
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -8179,7 +8212,9 @@ cost function:
              0.230, 0.230, 0.250, 0.250, 0.350,
              0.400, 0.550, 0.800, 3.000, 3.500]
          _anchor_obserr_bound_max: &amsua_metop-c_obserr_bound_max [4.5, 4.5, 4.5, 2.5, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.5, 3.5, 4.5, 4.5, 4.5]
-         distribution: *id004
+         distribution:
+           name: "RoundRobin"
+           halo size: 500e3
          obsdatain:
            engine:
              type: H5File
@@ -8595,9 +8630,6 @@ cost function:
          action:
            name: reject
 
-
-
-
 variational:
   minimizer:
     algorithm: DRPCG
@@ -8633,11 +8665,8 @@ variational:
       fieldsets:
       - fieldset: DataFix/fix/dynamics_lam_cmaq.yaml
 
-  frequency: PT1H
-
-
 output:
   filetype: fms restart
   datapath: ./
-  prefix: ens3dvar-fv3_lam-C775-ob_atlas #Ens3dvar-fv3_lam-C775
+  prefix: ens3dvar-fv3_lam-C775 #Ens3dvar-fv3_lam-C775
   frequency: PT1H
