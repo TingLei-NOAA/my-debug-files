@@ -1,52 +1,563 @@
   0: OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
+  0: OOPS_STATS --------------------------------------------------------------------------------------------
+  0: OOPS_STATS Name                                                :   total (ms)   count    time/call (ms)
+  0: OOPS_STATS ObsFilter::AcceptList::ObsFilter                    :         2.18      43            0.0507
+  0: OOPS_STATS ObsFilter::AcceptList::postFilter                   :         0.10      43            0.0023
+  0: OOPS_STATS ObsFilter::AcceptList::preProcess                   :         4.18      43            0.0972
+  0: OOPS_STATS ObsFilter::AcceptList::priorFilter                  :         0.18      43            0.0041
+  0: OOPS_STATS ObsFilter::Background Check::ObsFilter              :         2.89      92            0.0314
+  0: OOPS_STATS ObsFilter::Background Check::postFilter             :        90.11      92            0.9794
+  0: OOPS_STATS ObsFilter::Background Check::preProcess             :         1.98      85            0.0233
+  0: OOPS_STATS ObsFilter::Background Check::priorFilter            :         0.35      85            0.0041
+  0: OOPS_STATS ObsFilter::BlackList::ObsFilter                     :         0.66      15            0.0442
+  0: OOPS_STATS ObsFilter::BlackList::postFilter                    :        34.99      15            2.3324
+  0: OOPS_STATS ObsFilter::Bounds Check::ObsFilter                  :         3.70      88            0.0421
+  0: OOPS_STATS ObsFilter::Bounds Check::postFilter                 :         7.88      86            0.0916
+  0: OOPS_STATS ObsFilter::Bounds Check::preProcess                 :       107.35      48            2.2366
+  0: OOPS_STATS ObsFilter::Bounds Check::priorFilter                :         0.83      46            0.0181
+  0: OOPS_STATS ObsFilter::Create Diagnostic Flags::ObsFilter       :         0.26       5            0.0529
+  0: OOPS_STATS ObsFilter::Create Diagnostic Flags::preProcess      :         0.23       5            0.0450
+  0: OOPS_STATS ObsFilter::Difference Check::ObsFilter              :         0.05       1            0.0520
+  0: OOPS_STATS ObsFilter::Difference Check::postFilter             :         0.00       1            0.0022
+  0: OOPS_STATS ObsFilter::Difference Check::preProcess             :         0.00       1            0.0030
+  0: OOPS_STATS ObsFilter::Difference Check::priorFilter            :         0.02       1            0.0164
+  0: OOPS_STATS ObsFilter::Domain Check::ObsFilter                  :         1.73      36            0.0481
+  0: OOPS_STATS ObsFilter::Domain Check::postFilter                 :         2.04      32            0.0638
+  0: OOPS_STATS ObsFilter::Domain Check::preProcess                 :       130.52      21            6.2153
+  0: OOPS_STATS ObsFilter::Domain Check::priorFilter                :         0.10      17            0.0057
+  0: OOPS_STATS ObsFilter::Final Check::ObsFilter                   :         0.55      69            0.0080
+  0: OOPS_STATS ObsFilter::Final Check::postFilter                  :         0.68      69            0.0098
+  0: OOPS_STATS ObsFilter::Final Check::preProcess                  :         0.13      48            0.0026
+  0: OOPS_STATS ObsFilter::Final Check::priorFilter                 :         0.22      48            0.0046
+  0: OOPS_STATS ObsFilter::Gaussian Thinning::ObsFilter             :         0.49       7            0.0707
+  0: OOPS_STATS ObsFilter::Gaussian Thinning::postFilter            :        53.22       5           10.6433
+  0: OOPS_STATS ObsFilter::Gaussian Thinning::preProcess            :         9.87       2            4.9369
+  0: OOPS_STATS ObsFilter::Perform Action::ObsFilter                :         8.24     175            0.0471
+  0: OOPS_STATS ObsFilter::Perform Action::postFilter               :       336.56     173            1.9454
+  0: OOPS_STATS ObsFilter::Perform Action::preProcess               :      1616.83     151           10.7075
+  0: OOPS_STATS ObsFilter::Perform Action::priorFilter              :       256.68     153            1.6777
+  0: OOPS_STATS ObsFilter::QCmanager::ObsFilter                     :         1.45      69            0.0210
+  0: OOPS_STATS ObsFilter::QCmanager::postFilter                    :         0.13      48            0.0027
+  0: OOPS_STATS ObsFilter::QCmanager::preProcess                    :         0.07      69            0.0009
+  0: OOPS_STATS ObsFilter::QCmanager::priorFilter                   :         0.04      48            0.0009
+  0: OOPS_STATS ObsFilter::RejectList::ObsFilter                    :         1.08      24            0.0450
+  0: OOPS_STATS ObsFilter::RejectList::postFilter                   :         0.30      24            0.0125
+  0: OOPS_STATS ObsFilter::RejectList::preProcess                   :       100.25      16            6.2654
+  0: OOPS_STATS ObsFilter::RejectList::priorFilter                  :         0.07      16            0.0041
+  0: OOPS_STATS ObsFilter::Variable Assignment::ObsFilter           :         1.85      54            0.0343
+  0: OOPS_STATS ObsFilter::Variable Assignment::postFilter          :         8.39      50            0.1677
+  0: OOPS_STATS ObsFilter::Variable Assignment::preProcess          :         1.79      18            0.0997
+  0: OOPS_STATS ObsFilter::Variable Assignment::priorFilter         :         0.73      22            0.0334
+  0: OOPS_STATS Vader::Vader                                        :         0.75       7            0.1075
+  0: OOPS_STATS Vader::changeVar                                    :       597.72       5          119.5435
+  0: OOPS_STATS Vader::changeVarTraj                                :       113.24       2           56.6223
+  0: OOPS_STATS fv3jedi::IOFms::IOFms                               :         0.52       6            0.0869
+  0: OOPS_STATS fv3jedi::IOFms::read state                          :    326010.20       5        65202.0404
+  0: OOPS_STATS fv3jedi::IOFms::write state                         :    125239.90       1       125239.9008
+  0: OOPS_STATS fv3jedi::IOFms::~IOFms                              :         0.05       6            0.0086
+  0: OOPS_STATS fv3jedi::LinVarChaModel2GeoVaLs::LinVarChaModel2Geo :         8.40       2            4.2000
+  0: OOPS_STATS fv3jedi::LinVarChaModel2GeoVaLs::multiply           :      4041.03     100           40.4103
+  0: OOPS_STATS fv3jedi::LinVarChaModel2GeoVaLs::multiplyAD         :      1435.88     102           14.0772
+  0: OOPS_STATS fv3jedi::LinVarChaModel2GeoVaLs::~LinVarChaModel2Ge :         0.07       2            0.0331
+  0: OOPS_STATS fv3jedi::VarChaModel2GeoVaLs::VarChaModel2GeoVaLs   :         0.16       5            0.0318
+  0: OOPS_STATS fv3jedi::VarChaModel2GeoVaLs::changeVar             :      2601.43       5          520.2864
+  0: OOPS_STATS fv3jedi::VarChaModel2GeoVaLs::~VarChaModel2GeoVaLs  :         0.03       5            0.0065
+  0: OOPS_STATS oops::Covariance::EnsembleCovariance                :    257455.44       2       128727.7194
+  0: OOPS_STATS oops::Covariance::ensemble::Constructor             :         0.01       2            0.0069
+  0: OOPS_STATS oops::Covariance::ensemble::inverseMultiply         :     53637.84       3        17879.2805
+  0: OOPS_STATS oops::Covariance::ensemble::multiply                :    224540.18     125         1796.3214
+  0: OOPS_STATS oops::GeoVaLs::GeoVaLs                              :        27.87    4761            0.0059
+  0: OOPS_STATS oops::GeoVaLs::~GeoVaLs                             :        14.54    4761            0.0031
+  0: OOPS_STATS oops::Geometry::Geometry                            :      9395.27       3         3131.7564
+  0: OOPS_STATS oops::Geometry::variableSizes                       :         1.92     393            0.0049
+  0: OOPS_STATS oops::Geometry::~Geometry                           :       972.75       3          324.2503
+  0: OOPS_STATS oops::GeometryData::containingTriangleAndBarycentri :       129.26     305            0.4238
+  0: OOPS_STATS oops::GeometryData::setGlobalTree                   :     12921.45       5         2584.2896
+  0: OOPS_STATS oops::GeometryData::setLocalTree                    :        18.81       5            3.7614
+  0: OOPS_STATS oops::GeometryData::setMeshAndTriangulation         :        42.66       5            8.5325
+  0: OOPS_STATS oops::GetValuePosts::preProcessModelData            :       511.98       3          170.6614
+  0: OOPS_STATS oops::GetValueTLADs::preProcessModelData            :      4455.75     204           21.8419
+  0: OOPS_STATS oops::GetValues::GetValues                          :    134758.04     115         1171.8091
+  0: OOPS_STATS oops::GetValues::fillGeoVaLs                        :         0.67     115            0.0058
+  0: OOPS_STATS oops::GetValues::fillGeoVaLsAD                      :        13.21    2346            0.0056
+  0: OOPS_STATS oops::GetValues::fillGeoVaLsTL                      :         9.68    2300            0.0042
+  0: OOPS_STATS oops::GetValues::finalize                           :         0.97     115            0.0084
+  0: OOPS_STATS oops::GetValues::finalizeAD                         :         3.47    2346            0.0015
+  0: OOPS_STATS oops::GetValues::finalizeTL                         :        12.37    2300            0.0054
+  0: OOPS_STATS oops::GetValues::initialize                         :         0.95     115            0.0083
+  0: OOPS_STATS oops::GetValues::initializeAD                       :         4.10    2346            0.0017
+  0: OOPS_STATS oops::GetValues::initializeTL                       :         8.56    2300            0.0037
+  0: OOPS_STATS oops::GetValues::process                            :       805.44     115            7.0038
+  0: OOPS_STATS oops::GetValues::processAD                          :      7031.62    2346            2.9973
+  0: OOPS_STATS oops::GetValues::processTL                          :      5019.21    2300            2.1823
+  0: OOPS_STATS oops::Increment::Increment                          :     16496.19    1513           10.9030
+  0: OOPS_STATS oops::Increment::axpy                               :     18964.23    2970            6.3853
+  0: OOPS_STATS oops::Increment::deserialize                        :      1352.00     250            5.4080
+  0: OOPS_STATS oops::Increment::diff                               :       461.33       9           51.2584
+  0: OOPS_STATS oops::Increment::dot_product_with                   :    106145.13    3115           34.0755
+  0: OOPS_STATS oops::Increment::fromFieldSet                       :     17901.69     352           50.8571
+  0: OOPS_STATS oops::Increment::operator*=                         :      2553.33     365            6.9954
+  0: OOPS_STATS oops::Increment::operator+=                         :      3742.20     656            5.7046
+  0: OOPS_STATS oops::Increment::operator+=(State, Increment)       :        65.55       2           32.7736
+  0: OOPS_STATS oops::Increment::operator-=                         :        56.17       7            8.0246
+  0: OOPS_STATS oops::Increment::operator=                          :      7015.09    1291            5.4338
+  0: OOPS_STATS oops::Increment::print                              :     29066.43     263          110.5188
+  0: OOPS_STATS oops::Increment::schur_product_with                 :      3645.39     500            7.2908
+  0: OOPS_STATS oops::Increment::serialSize                         :         1.12     694            0.0016
+  0: OOPS_STATS oops::Increment::serialize                          :     26960.78     250          107.8431
+  0: OOPS_STATS oops::Increment::toFieldSet                         :     13133.31     452           29.0560
+  0: OOPS_STATS oops::Increment::zero                               :       977.31     332            2.9437
+  0: OOPS_STATS oops::Increment::~Increment                         :       603.12    1513            0.3986
+  0: OOPS_STATS oops::LinearObsOper::abi_g16::LinearObsOperator     :         0.29       2            0.1439
+  0: OOPS_STATS oops::LinearObsOper::abi_g16::requiredVars          :         0.04     206            0.0002
+  0: OOPS_STATS oops::LinearObsOper::abi_g16::setTrajectory         :        86.31       2           43.1545
+  0: OOPS_STATS oops::LinearObsOper::abi_g16::simulateObsAD         :       232.18     102            2.2763
+  0: OOPS_STATS oops::LinearObsOper::abi_g16::simulateObsTL         :         0.84     100            0.0084
+  0: OOPS_STATS oops::LinearObsOper::abi_g16::~LinearObsOperator    :         0.05       2            0.0263
+  0: OOPS_STATS oops::LinearObsOper::abi_g18::LinearObsOperator     :         0.28       2            0.1420
+  0: OOPS_STATS oops::LinearObsOper::abi_g18::requiredVars          :         0.05     206            0.0002
+  0: OOPS_STATS oops::LinearObsOper::abi_g18::setTrajectory         :        75.40       2           37.6986
+  0: OOPS_STATS oops::LinearObsOper::abi_g18::simulateObsAD         :       207.96     102            2.0388
+  0: OOPS_STATS oops::LinearObsOper::abi_g18::simulateObsTL         :         0.84     100            0.0084
+  0: OOPS_STATS oops::LinearObsOper::abi_g18::~LinearObsOperator    :         0.05       2            0.0226
+  0: OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::Lin :         0.14       2            0.0688
+  0: OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::req :         0.16     206            0.0008
+  0: OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::set :         0.45       2            0.2247
+  0: OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::sim :         0.63     102            0.0062
+  0: OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::sim :         1.77     100            0.0177
+  0: OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::~Li :         0.06       2            0.0286
+  0: OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::L :         0.06       2            0.0286
+  0: OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::r :         0.06     206            0.0003
+  0: OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::s :         0.13       2            0.0666
+  0: OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::s :         0.41     102            0.0041
+  0: OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::s :         0.45     100            0.0045
+  0: OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::~ :         0.01       2            0.0049
+  0: OOPS_STATS oops::LinearObsOper::aircar_winds_233::LinearObsOpe :         0.06       2            0.0282
+  0: OOPS_STATS oops::LinearObsOper::aircar_winds_233::requiredVars :         0.06     206            0.0003
+  0: OOPS_STATS oops::LinearObsOper::aircar_winds_233::setTrajector :         0.12       2            0.0604
+  0: OOPS_STATS oops::LinearObsOper::aircar_winds_233::simulateObsA :         0.43     102            0.0043
+  0: OOPS_STATS oops::LinearObsOper::aircar_winds_233::simulateObsT :         0.47     100            0.0047
+  0: OOPS_STATS oops::LinearObsOper::aircar_winds_233::~LinearObsOp :         0.01       2            0.0050
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_130::Lin :         0.06       2            0.0304
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_130::req :         0.05     206            0.0002
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_130::set :         0.12       2            0.0615
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_130::sim :         0.39     102            0.0038
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_130::sim :         0.42     100            0.0042
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_130::~Li :         0.01       2            0.0055
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_131::Lin :         0.06       2            0.0278
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_131::req :         0.06     206            0.0003
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_131::set :         0.12       2            0.0596
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_131::sim :         0.39     102            0.0038
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_131::sim :         0.42     100            0.0042
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_131::~Li :         0.01       2            0.0046
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_134::Lin :         0.05       2            0.0272
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_134::req :         0.04     206            0.0002
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_134::set :         0.13       2            0.0650
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_134::sim :         0.39     102            0.0038
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_134::sim :         0.42     100            0.0042
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_134::~Li :         0.01       2            0.0043
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_135::Lin :         0.05       2            0.0256
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_135::req :         0.05     206            0.0002
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_135::set :         0.12       2            0.0602
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_135::sim :         0.39     102            0.0038
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_135::sim :         0.42     100            0.0042
+  0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_135::~Li :         0.01       2            0.0049
+  0: OOPS_STATS oops::LinearObsOper::aircft_specificHumidity_134::L :         0.06       2            0.0297
+  0: OOPS_STATS oops::LinearObsOper::aircft_specificHumidity_134::r :         0.03     206            0.0001
+  0: OOPS_STATS oops::LinearObsOper::aircft_specificHumidity_134::s :         0.11       2            0.0571
+  0: OOPS_STATS oops::LinearObsOper::aircft_specificHumidity_134::s :         0.39     102            0.0039
+  0: OOPS_STATS oops::LinearObsOper::aircft_specificHumidity_134::s :         0.43     100            0.0043
+  0: OOPS_STATS oops::LinearObsOper::aircft_specificHumidity_134::~ :         0.01       2            0.0038
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_230::LinearObsOpe :         0.05       2            0.0274
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_230::requiredVars :         0.03     206            0.0001
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_230::setTrajector :         0.11       2            0.0574
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_230::simulateObsA :         0.41     102            0.0040
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_230::simulateObsT :         0.45     100            0.0045
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_230::~LinearObsOp :         0.01       2            0.0054
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_231::LinearObsOpe :         0.06       2            0.0275
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_231::requiredVars :         0.03     206            0.0002
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_231::setTrajector :         0.13       2            0.0637
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_231::simulateObsA :         0.41     102            0.0041
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_231::simulateObsT :         0.45     100            0.0045
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_231::~LinearObsOp :         0.01       2            0.0057
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_234::LinearObsOpe :         0.05       2            0.0250
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_234::requiredVars :         0.04     206            0.0002
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_234::setTrajector :         0.12       2            0.0585
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_234::simulateObsA :         0.42     102            0.0041
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_234::simulateObsT :         0.44     100            0.0044
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_234::~LinearObsOp :         0.01       2            0.0042
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_235::LinearObsOpe :         0.05       2            0.0270
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_235::requiredVars :         0.03     206            0.0002
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_235::setTrajector :         0.12       2            0.0584
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_235::simulateObsA :         0.41     102            0.0040
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_235::simulateObsT :         0.44     100            0.0044
+  0: OOPS_STATS oops::LinearObsOper::aircft_winds_235::~LinearObsOp :         0.01       2            0.0039
+  0: OOPS_STATS oops::LinearObsOper::amsua_metop-b::LinearObsOperat :         0.32       2            0.1595
+  0: OOPS_STATS oops::LinearObsOper::amsua_metop-b::requiredVars    :         0.04     206            0.0002
+  0: OOPS_STATS oops::LinearObsOper::amsua_metop-b::setTrajectory   :        44.17       2           22.0847
+  0: OOPS_STATS oops::LinearObsOper::amsua_metop-b::simulateObsAD   :       302.03     102            2.9611
+  0: OOPS_STATS oops::LinearObsOper::amsua_metop-b::simulateObsTL   :         0.85     100            0.0085
+  0: OOPS_STATS oops::LinearObsOper::amsua_metop-b::~LinearObsOpera :         0.04       2            0.0175
+  0: OOPS_STATS oops::LinearObsOper::amsua_metop-c::LinearObsOperat :         0.32       2            0.1596
+  0: OOPS_STATS oops::LinearObsOper::amsua_metop-c::requiredVars    :         0.04     206            0.0002
+  0: OOPS_STATS oops::LinearObsOper::amsua_metop-c::setTrajectory   :        15.11       2            7.5529
+  0: OOPS_STATS oops::LinearObsOper::amsua_metop-c::simulateObsAD   :       296.71     102            2.9090
+  0: OOPS_STATS oops::LinearObsOper::amsua_metop-c::simulateObsTL   :         0.82     100            0.0082
+  0: OOPS_STATS oops::LinearObsOper::amsua_metop-c::~LinearObsOpera :         0.02       2            0.0114
+  0: OOPS_STATS oops::LinearObsOper::amsua_n19::LinearObsOperator   :         0.32       2            0.1597
+  0: OOPS_STATS oops::LinearObsOper::amsua_n19::requiredVars        :         0.04     206            0.0002
+  0: OOPS_STATS oops::LinearObsOper::amsua_n19::setTrajectory       :        44.09       2           22.0444
+  0: OOPS_STATS oops::LinearObsOper::amsua_n19::simulateObsAD       :       299.88     102            2.9400
+  0: OOPS_STATS oops::LinearObsOper::amsua_n19::simulateObsTL       :         0.84     100            0.0084
+  0: OOPS_STATS oops::LinearObsOper::amsua_n19::~LinearObsOperator  :         0.04       2            0.0181
+  0: OOPS_STATS oops::LinearObsOper::atms_n21::LinearObsOperator    :         0.33       2            0.1637
+  0: OOPS_STATS oops::LinearObsOper::atms_n21::requiredVars         :         0.02     206            0.0001
+  0: OOPS_STATS oops::LinearObsOper::atms_n21::setTrajectory        :        47.14       2           23.5686
+  0: OOPS_STATS oops::LinearObsOper::atms_n21::simulateObsAD        :       406.65     102            3.9867
+  0: OOPS_STATS oops::LinearObsOper::atms_n21::simulateObsTL        :         0.85     100            0.0085
+  0: OOPS_STATS oops::LinearObsOper::atms_n21::~LinearObsOperator   :         0.05       2            0.0235
+  0: OOPS_STATS oops::LinearObsOper::atms_npp::LinearObsOperator    :         0.46       2            0.2279
+  0: OOPS_STATS oops::LinearObsOper::atms_npp::requiredVars         :         0.07     206            0.0003
+  0: OOPS_STATS oops::LinearObsOper::atms_npp::setTrajectory        :       546.14       2          273.0708
+  0: OOPS_STATS oops::LinearObsOper::atms_npp::simulateObsAD        :      1352.58     102           13.2606
+  0: OOPS_STATS oops::LinearObsOper::atms_npp::simulateObsTL        :         1.94     100            0.0194
+  0: OOPS_STATS oops::LinearObsOper::atms_npp::~LinearObsOperator   :         0.13       2            0.0647
+  0: OOPS_STATS oops::LinearObsOper::gnss_ztd_zenithTotalDelay::Lin :         0.08       2            0.0421
+  0: OOPS_STATS oops::LinearObsOper::gnss_ztd_zenithTotalDelay::req :         0.11     206            0.0005
+  0: OOPS_STATS oops::LinearObsOper::gnss_ztd_zenithTotalDelay::set :         0.11       2            0.0558
+  0: OOPS_STATS oops::LinearObsOper::gnss_ztd_zenithTotalDelay::sim :         0.78     102            0.0076
+  0: OOPS_STATS oops::LinearObsOper::gnss_ztd_zenithTotalDelay::sim :         1.53     100            0.0153
+  0: OOPS_STATS oops::LinearObsOper::gnss_ztd_zenithTotalDelay::~Li :         0.02       2            0.0121
+  0: OOPS_STATS oops::LinearObsOper::msonet_airTemperature_188::Lin :         0.05       2            0.0268
+  0: OOPS_STATS oops::LinearObsOper::msonet_airTemperature_188::req :         0.03     206            0.0002
+  0: OOPS_STATS oops::LinearObsOper::msonet_airTemperature_188::set :         0.12       2            0.0579
+  0: OOPS_STATS oops::LinearObsOper::msonet_airTemperature_188::sim :         0.38     102            0.0037
+  0: OOPS_STATS oops::LinearObsOper::msonet_airTemperature_188::sim :         0.41     100            0.0041
+  0: OOPS_STATS oops::LinearObsOper::msonet_airTemperature_188::~Li :         0.01       2            0.0038
+  0: OOPS_STATS oops::LinearObsOper::msonet_specificHumidity_188::L :         0.05       2            0.0270
+  0: OOPS_STATS oops::LinearObsOper::msonet_specificHumidity_188::r :         0.03     206            0.0002
+  0: OOPS_STATS oops::LinearObsOper::msonet_specificHumidity_188::s :         0.12       2            0.0588
+  0: OOPS_STATS oops::LinearObsOper::msonet_specificHumidity_188::s :         0.40     102            0.0039
+  0: OOPS_STATS oops::LinearObsOper::msonet_specificHumidity_188::s :         0.43     100            0.0043
+  0: OOPS_STATS oops::LinearObsOper::msonet_specificHumidity_188::~ :         0.01       2            0.0047
+  0: OOPS_STATS oops::LinearObsOper::msonet_winds_288::LinearObsOpe :         0.06       2            0.0281
+  0: OOPS_STATS oops::LinearObsOper::msonet_winds_288::requiredVars :         0.03     206            0.0001
+  0: OOPS_STATS oops::LinearObsOper::msonet_winds_288::setTrajector :         0.12       2            0.0612
+  0: OOPS_STATS oops::LinearObsOper::msonet_winds_288::simulateObsA :         0.42     102            0.0041
+  0: OOPS_STATS oops::LinearObsOper::msonet_winds_288::simulateObsT :         0.46     100            0.0046
+  0: OOPS_STATS oops::LinearObsOper::msonet_winds_288::~LinearObsOp :         0.01       2            0.0041
+  0: OOPS_STATS oops::LinearVariableChange::LinearVariableChange    :         0.70       2            0.3492
+  0: OOPS_STATS oops::LinearVariableChange::changeVarAD             :     12302.06     102          120.6085
+  0: OOPS_STATS oops::LinearVariableChange::changeVarTL             :     16054.84     100          160.5484
+  0: OOPS_STATS oops::LinearVariableChange::changeVarTraj           :       233.40       2          116.7018
+  0: OOPS_STATS oops::LinearVariableChange::~LinearVariableChange   :         0.55       2            0.2754
+  0: OOPS_STATS oops::Localization::Localization                    :      1441.25       2          720.6266
+  0: OOPS_STATS oops::Localization::multiply                        :    202523.96     250          810.0958
+  0: OOPS_STATS oops::Localization::~Localization                   :       366.53       2          183.2628
+  0: OOPS_STATS oops::ModelAuxControl::ModelAuxControl              :         0.02       5            0.0032
+  0: OOPS_STATS oops::ModelAuxControl::print                        :         0.01       6            0.0014
+  0: OOPS_STATS oops::ModelAuxControl::~ModelAuxControl             :         0.01       5            0.0025
+  0: OOPS_STATS oops::ModelAuxCovariance::ModelAuxCovariance        :         0.00       1            0.0041
+  0: OOPS_STATS oops::ModelAuxCovariance::inverseMultiply           :         0.00       3            0.0011
+  0: OOPS_STATS oops::ModelAuxCovariance::linearize                 :         0.00       2            0.0015
+  0: OOPS_STATS oops::ModelAuxCovariance::multiply                  :         0.11     102            0.0011
+  0: OOPS_STATS oops::ModelAuxCovariance::~ModelAuxCovariance       :         0.00       1            0.0018
+  0: OOPS_STATS oops::ModelAuxIncrement::ModelAuxIncrement          :         0.61     444            0.0014
+  0: OOPS_STATS oops::ModelAuxIncrement::axpy                       :         2.92    2750            0.0011
+  0: OOPS_STATS oops::ModelAuxIncrement::diff                       :         0.01       5            0.0014
+  0: OOPS_STATS oops::ModelAuxIncrement::dot_product_with           :         3.58    2962            0.0012
+  0: OOPS_STATS oops::ModelAuxIncrement::operator*=                 :         0.20     198            0.0010
+  0: OOPS_STATS oops::ModelAuxIncrement::operator+=                 :         0.31     300            0.0010
+  0: OOPS_STATS oops::ModelAuxIncrement::operator+=ModelAuxControl  :         0.00       2            0.0010
+  0: OOPS_STATS oops::ModelAuxIncrement::operator=                  :         0.11     108            0.0011
+  0: OOPS_STATS oops::ModelAuxIncrement::print                      :         0.02      13            0.0017
+  0: OOPS_STATS oops::ModelAuxIncrement::serialSize                 :         0.01     444            0.0000
+  0: OOPS_STATS oops::ModelAuxIncrement::zero                       :         0.12     102            0.0012
+  0: OOPS_STATS oops::ModelAuxIncrement::~ModelAuxIncrement         :         0.53     444            0.0012
+  0: OOPS_STATS oops::ModelData::ModelData                          :         0.01       2            0.0049
+  0: OOPS_STATS oops::ModelData::modelData                          :         0.11       2            0.0529
+  0: OOPS_STATS oops::ModelData::~ModelData                         :         0.01       2            0.0026
+  0: OOPS_STATS oops::ObsAuxControl::ObsAuxControl                  :        85.26     115            0.7414
+  0: OOPS_STATS oops::ObsAuxControl::print                          :         0.79     138            0.0057
+  0: OOPS_STATS oops::ObsAuxControl::requiredHdiagnostics           :         0.06      69            0.0009
+  0: OOPS_STATS oops::ObsAuxControl::requiredVars                   :         0.31     230            0.0013
+  0: OOPS_STATS oops::ObsAuxControl::write                          :        35.88      23            1.5599
+  0: OOPS_STATS oops::ObsAuxControl::~ObsAuxControl                 :         2.02     115            0.0176
+  0: OOPS_STATS oops::ObsAuxCovariance::ObsAuxCovariance            :        20.39      23            0.8867
+  0: OOPS_STATS oops::ObsAuxCovariance::inverseMultiply             :         6.82    2415            0.0028
+  0: OOPS_STATS oops::ObsAuxCovariance::linearize                   :         7.56      46            0.1643
+  0: OOPS_STATS oops::ObsAuxCovariance::multiply                    :         6.93    2346            0.0030
+  0: OOPS_STATS oops::ObsAuxCovariance::preconditioner              :         0.13      46            0.0029
+  0: OOPS_STATS oops::ObsAuxCovariance::write                       :        41.78      23            1.8163
+  0: OOPS_STATS oops::ObsAuxCovariance::~ObsAuxCovariance           :         0.09      23            0.0041
+  0: OOPS_STATS oops::ObsAuxIncrement::ObsAuxIncrement              :       499.33   10212            0.0489
+  0: OOPS_STATS oops::ObsAuxIncrement::axpy                         :        78.24   63250            0.0012
+  0: OOPS_STATS oops::ObsAuxIncrement::diff                         :         0.20     115            0.0017
+  0: OOPS_STATS oops::ObsAuxIncrement::dot_product_with             :        82.10   68126            0.0012
+  0: OOPS_STATS oops::ObsAuxIncrement::operator*=                   :         4.76    4554            0.0010
+  0: OOPS_STATS oops::ObsAuxIncrement::operator+=                   :         7.58    6900            0.0011
+  0: OOPS_STATS oops::ObsAuxIncrement::operator=                    :         4.22    2484            0.0017
+  0: OOPS_STATS oops::ObsAuxIncrement::print                        :         1.99     299            0.0067
+  0: OOPS_STATS oops::ObsAuxIncrement::serialSize                   :         0.65   20424            0.0000
+  0: OOPS_STATS oops::ObsAuxIncrement::zero                         :         3.00    2346            0.0013
+  0: OOPS_STATS oops::ObsAuxIncrement::~ObsAuxIncrement             :        15.45   10212            0.0015
+  0: OOPS_STATS oops::ObsAuxPreconditioner::multiply                :         2.22    2346            0.0009
+  0: OOPS_STATS oops::ObsAuxPreconditioner::~ObsAuxPreconditioner   :         0.62     154            0.0040
+  0: OOPS_STATS oops::ObsDataVector::ObsDataVector                  :         0.69     169            0.0041
+  0: OOPS_STATS oops::ObsDataVector::mask                           :         0.08      69            0.0011
+  0: OOPS_STATS oops::ObsDataVector::operator=                      :         0.49     115            0.0043
+  0: OOPS_STATS oops::ObsDataVector::print                          :        49.74      69            0.7209
+  0: OOPS_STATS oops::ObsDataVector::save                           :         6.09     138            0.0441
+  0: OOPS_STATS oops::ObsDataVector::~ObsDataVector                 :         0.24     169            0.0014
+  0: OOPS_STATS oops::ObsDiagnostics::ObsDiagnostics                :         1.45      69            0.0210
+  0: OOPS_STATS oops::ObsDiagnostics::~ObsDiagnostics               :         0.61      69            0.0088
+  0: OOPS_STATS oops::ObsError::ObsErrors                           :       287.26      23           12.4898
+  0: OOPS_STATS oops::ObsError::getRMSE                             :         8.88      78            0.1138
+  0: OOPS_STATS oops::ObsError::inverseMultiply                     :         6.88    2369            0.0029
+  0: OOPS_STATS oops::ObsError::obserrors                           :         0.43      69            0.0063
+  0: OOPS_STATS oops::ObsError::print                               :         7.03      69            0.1018
+  0: OOPS_STATS oops::ObsError::update                              :       455.25      69            6.5979
+  0: OOPS_STATS oops::ObsError::~ObsError                           :         0.12      23            0.0051
+  0: OOPS_STATS oops::ObsOperator::abi_g16::ObsOperator             :         4.46       3            1.4880
+  0: OOPS_STATS oops::ObsOperator::abi_g16::computeReducedVars      :         0.30       5            0.0608
+  0: OOPS_STATS oops::ObsOperator::abi_g16::locations               :         0.30       5            0.0608
+  0: OOPS_STATS oops::ObsOperator::abi_g16::requiredVars            :         0.01       5            0.0016
+  0: OOPS_STATS oops::ObsOperator::abi_g16::simulateObs             :       236.95       3           78.9831
+  0: OOPS_STATS oops::ObsOperator::abi_g16::~ObsOperator            :         0.04       3            0.0117
+  0: OOPS_STATS oops::ObsOperator::abi_g18::ObsOperator             :         3.21       3            1.0684
+  0: OOPS_STATS oops::ObsOperator::abi_g18::computeReducedVars      :         0.31       5            0.0622
+  0: OOPS_STATS oops::ObsOperator::abi_g18::locations               :         0.20       5            0.0397
+  0: OOPS_STATS oops::ObsOperator::abi_g18::requiredVars            :         0.01       5            0.0014
+  0: OOPS_STATS oops::ObsOperator::abi_g18::simulateObs             :       227.74       3           75.9122
+  0: OOPS_STATS oops::ObsOperator::abi_g18::~ObsOperator            :         0.03       3            0.0089
+  0: OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::ObsOp :         0.90       3            0.2991
+  0: OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::compu :         0.12       5            0.0232
+  0: OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::locat :         0.74       5            0.1475
+  0: OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::requi :         0.01       5            0.0022
+  0: OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::simul :         0.23       3            0.0764
+  0: OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::~ObsO :         0.06       3            0.0191
+  0: OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::Obs :         0.16       3            0.0547
+  0: OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::com :         0.04       5            0.0081
+  0: OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::loc :         0.61       5            0.1210
+  0: OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::req :         0.00       5            0.0009
+  0: OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::sim :         0.07       3            0.0233
+  0: OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::~Ob :         0.01       3            0.0048
+  0: OOPS_STATS oops::ObsOperator::aircar_winds_233::ObsOperator    :         0.21       3            0.0702
+  0: OOPS_STATS oops::ObsOperator::aircar_winds_233::computeReduced :         0.04       5            0.0076
+  0: OOPS_STATS oops::ObsOperator::aircar_winds_233::locations      :         0.39       5            0.0789
+  0: OOPS_STATS oops::ObsOperator::aircar_winds_233::requiredVars   :         0.01       5            0.0013
+  0: OOPS_STATS oops::ObsOperator::aircar_winds_233::simulateObs    :         0.08       3            0.0257
+  0: OOPS_STATS oops::ObsOperator::aircar_winds_233::~ObsOperator   :         0.02       3            0.0055
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_130::ObsOp :         0.14       3            0.0470
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_130::compu :         0.04       5            0.0076
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_130::locat :         0.61       5            0.1229
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_130::requi :         0.01       5            0.0011
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_130::simul :         0.07       3            0.0242
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_130::~ObsO :         0.01       3            0.0039
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_131::ObsOp :         0.14       3            0.0458
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_131::compu :         0.03       5            0.0060
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_131::locat :         0.71       5            0.1415
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_131::requi :         0.01       5            0.0016
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_131::simul :         0.05       3            0.0173
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_131::~ObsO :         0.01       3            0.0041
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_134::ObsOp :         0.15       3            0.0491
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_134::compu :         0.03       5            0.0055
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_134::locat :         0.67       5            0.1343
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_134::requi :         0.01       5            0.0013
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_134::simul :         0.05       3            0.0164
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_134::~ObsO :         0.01       3            0.0034
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_135::ObsOp :         0.13       3            0.0447
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_135::compu :         0.03       5            0.0058
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_135::locat :         0.66       5            0.1312
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_135::requi :         0.01       5            0.0025
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_135::simul :         0.05       3            0.0159
+  0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_135::~ObsO :         0.01       3            0.0036
+  0: OOPS_STATS oops::ObsOperator::aircft_specificHumidity_134::Obs :         0.14       3            0.0457
+  0: OOPS_STATS oops::ObsOperator::aircft_specificHumidity_134::com :         0.03       5            0.0059
+  0: OOPS_STATS oops::ObsOperator::aircft_specificHumidity_134::loc :         0.48       5            0.0956
+  0: OOPS_STATS oops::ObsOperator::aircft_specificHumidity_134::req :         0.00       5            0.0005
+  0: OOPS_STATS oops::ObsOperator::aircft_specificHumidity_134::sim :         0.05       3            0.0161
+  0: OOPS_STATS oops::ObsOperator::aircft_specificHumidity_134::~Ob :         0.01       3            0.0041
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_230::ObsOperator    :         0.19       3            0.0626
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_230::computeReduced :         0.03       5            0.0061
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_230::locations      :         0.62       5            0.1234
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_230::requiredVars   :         0.01       5            0.0012
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_230::simulateObs    :         0.05       3            0.0179
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_230::~ObsOperator   :         0.02       3            0.0075
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_231::ObsOperator    :         0.17       3            0.0565
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_231::computeReduced :         0.03       5            0.0059
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_231::locations      :         0.68       5            0.1361
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_231::requiredVars   :         0.01       5            0.0013
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_231::simulateObs    :         0.05       3            0.0181
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_231::~ObsOperator   :         0.01       3            0.0043
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_234::ObsOperator    :         0.17       3            0.0579
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_234::computeReduced :         0.03       5            0.0058
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_234::locations      :         0.65       5            0.1292
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_234::requiredVars   :         0.01       5            0.0011
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_234::simulateObs    :         0.05       3            0.0176
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_234::~ObsOperator   :         0.01       3            0.0049
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_235::ObsOperator    :         0.17       3            0.0570
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_235::computeReduced :         0.03       5            0.0059
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_235::locations      :         0.66       5            0.1322
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_235::requiredVars   :         0.01       5            0.0015
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_235::simulateObs    :         0.05       3            0.0181
+  0: OOPS_STATS oops::ObsOperator::aircft_winds_235::~ObsOperator   :         0.01       3            0.0048
+  0: OOPS_STATS oops::ObsOperator::amsua_metop-b::ObsOperator       :         4.33       3            1.4441
+  0: OOPS_STATS oops::ObsOperator::amsua_metop-b::computeReducedVar :         0.34       5            0.0680
+  0: OOPS_STATS oops::ObsOperator::amsua_metop-b::locations         :         0.21       5            0.0411
+  0: OOPS_STATS oops::ObsOperator::amsua_metop-b::requiredVars      :         0.00       5            0.0003
+  0: OOPS_STATS oops::ObsOperator::amsua_metop-b::simulateObs       :       150.38       3           50.1283
+  0: OOPS_STATS oops::ObsOperator::amsua_metop-b::~ObsOperator      :         0.02       3            0.0080
+  0: OOPS_STATS oops::ObsOperator::amsua_metop-c::ObsOperator       :         2.44       3            0.8119
+  0: OOPS_STATS oops::ObsOperator::amsua_metop-c::computeReducedVar :         0.35       5            0.0703
+  0: OOPS_STATS oops::ObsOperator::amsua_metop-c::locations         :         0.20       5            0.0408
+  0: OOPS_STATS oops::ObsOperator::amsua_metop-c::requiredVars      :         0.00       5            0.0005
+  0: OOPS_STATS oops::ObsOperator::amsua_metop-c::simulateObs       :       193.54       3           64.5126
+  0: OOPS_STATS oops::ObsOperator::amsua_metop-c::~ObsOperator      :         0.03       3            0.0085
+  0: OOPS_STATS oops::ObsOperator::amsua_n19::ObsOperator           :         8.28       3            2.7612
+  0: OOPS_STATS oops::ObsOperator::amsua_n19::computeReducedVars    :         0.35       5            0.0709
+  0: OOPS_STATS oops::ObsOperator::amsua_n19::locations             :         0.20       5            0.0404
+  0: OOPS_STATS oops::ObsOperator::amsua_n19::requiredVars          :         0.01       5            0.0011
+  0: OOPS_STATS oops::ObsOperator::amsua_n19::simulateObs           :       140.66       3           46.8872
+  0: OOPS_STATS oops::ObsOperator::amsua_n19::~ObsOperator          :         0.03       3            0.0095
+  0: OOPS_STATS oops::ObsOperator::atms_n21::ObsOperator            :         3.44       3            1.1472
+  0: OOPS_STATS oops::ObsOperator::atms_n21::computeReducedVars     :         0.35       5            0.0693
+  0: OOPS_STATS oops::ObsOperator::atms_n21::locations              :         0.21       5            0.0415
+  0: OOPS_STATS oops::ObsOperator::atms_n21::requiredVars           :         0.00       5            0.0009
+  0: OOPS_STATS oops::ObsOperator::atms_n21::simulateObs            :       172.05       3           57.3489
+  0: OOPS_STATS oops::ObsOperator::atms_n21::~ObsOperator           :         0.02       3            0.0075
+  0: OOPS_STATS oops::ObsOperator::atms_npp::ObsOperator            :        10.61       3            3.5370
+  0: OOPS_STATS oops::ObsOperator::atms_npp::computeReducedVars     :         0.41       5            0.0812
+  0: OOPS_STATS oops::ObsOperator::atms_npp::locations              :         0.52       5            0.1040
+  0: OOPS_STATS oops::ObsOperator::atms_npp::requiredVars           :         0.01       5            0.0022
+  0: OOPS_STATS oops::ObsOperator::atms_npp::simulateObs            :       183.47       3           61.1570
+  0: OOPS_STATS oops::ObsOperator::atms_npp::~ObsOperator           :         0.12       3            0.0407
+  0: OOPS_STATS oops::ObsOperator::gnss_ztd_zenithTotalDelay::ObsOp :         0.14       3            0.0469
+  0: OOPS_STATS oops::ObsOperator::gnss_ztd_zenithTotalDelay::compu :         0.05       5            0.0107
+  0: OOPS_STATS oops::ObsOperator::gnss_ztd_zenithTotalDelay::locat :         0.45       5            0.0898
+  0: OOPS_STATS oops::ObsOperator::gnss_ztd_zenithTotalDelay::requi :         0.01       5            0.0020
+  0: OOPS_STATS oops::ObsOperator::gnss_ztd_zenithTotalDelay::simul :         0.19       3            0.0642
+  0: OOPS_STATS oops::ObsOperator::gnss_ztd_zenithTotalDelay::~ObsO :         0.03       3            0.0092
+  0: OOPS_STATS oops::ObsOperator::msonet_airTemperature_188::ObsOp :         0.13       3            0.0441
+  0: OOPS_STATS oops::ObsOperator::msonet_airTemperature_188::compu :         0.03       5            0.0051
+  0: OOPS_STATS oops::ObsOperator::msonet_airTemperature_188::locat :         0.51       5            0.1014
+  0: OOPS_STATS oops::ObsOperator::msonet_airTemperature_188::requi :         0.00       5            0.0008
+  0: OOPS_STATS oops::ObsOperator::msonet_airTemperature_188::simul :         0.06       3            0.0214
+  0: OOPS_STATS oops::ObsOperator::msonet_airTemperature_188::~ObsO :         0.01       3            0.0034
+  0: OOPS_STATS oops::ObsOperator::msonet_specificHumidity_188::Obs :         0.14       3            0.0473
+  0: OOPS_STATS oops::ObsOperator::msonet_specificHumidity_188::com :         0.03       5            0.0067
+  0: OOPS_STATS oops::ObsOperator::msonet_specificHumidity_188::loc :         0.62       5            0.1243
+  0: OOPS_STATS oops::ObsOperator::msonet_specificHumidity_188::req :         0.01       5            0.0011
+  0: OOPS_STATS oops::ObsOperator::msonet_specificHumidity_188::sim :         0.08       3            0.0267
+  0: OOPS_STATS oops::ObsOperator::msonet_specificHumidity_188::~Ob :         0.01       3            0.0040
+  0: OOPS_STATS oops::ObsOperator::msonet_winds_288::ObsOperator    :         0.18       3            0.0594
+  0: OOPS_STATS oops::ObsOperator::msonet_winds_288::computeReduced :         0.03       5            0.0062
+  0: OOPS_STATS oops::ObsOperator::msonet_winds_288::locations      :         0.57       5            0.1137
+  0: OOPS_STATS oops::ObsOperator::msonet_winds_288::requiredVars   :         0.00       5            0.0009
+  0: OOPS_STATS oops::ObsOperator::msonet_winds_288::simulateObs    :         0.06       3            0.0214
+  0: OOPS_STATS oops::ObsOperator::msonet_winds_288::~ObsOperator   :         0.01       3            0.0037
+  0: OOPS_STATS oops::ObsSpace::ObsSpace                            :      3772.90      23          164.0393
+  0: OOPS_STATS oops::ObsSpace::obsvariables                        :         0.00     115            0.0000
+  0: OOPS_STATS oops::ObsSpace::save                                :      4599.74      23          199.9886
+  0: OOPS_STATS oops::ObsSpace::~ObsSpace                           :        18.82      23            0.8182
+  0: OOPS_STATS oops::ObsVector::ObsVector                          :        16.26    5129            0.0032
+  0: OOPS_STATS oops::ObsVector::dot_product                        :         3.77      78            0.0484
+  0: OOPS_STATS oops::ObsVector::info                               :        13.20     207            0.0638
+  0: OOPS_STATS oops::ObsVector::invert                             :         0.10      92            0.0011
+  0: OOPS_STATS oops::ObsVector::operator*=                         :         2.50    2530            0.0010
+  0: OOPS_STATS oops::ObsVector::operator-=                         :         0.07      69            0.0010
+  0: OOPS_STATS oops::ObsVector::operator=                          :         0.49     299            0.0016
+  0: OOPS_STATS oops::ObsVector::rms                                :         4.68      78            0.0600
+  0: OOPS_STATS oops::ObsVector::save                               :         7.01     207            0.0339
+  0: OOPS_STATS oops::ObsVector::zero                               :         1.95    2369            0.0008
+  0: OOPS_STATS oops::ObsVector::~ObsVector                         :         6.64    5129            0.0013
+  0: OOPS_STATS oops::Parameters::deserialize                       :       933.05    2092            0.4460
+  0: OOPS_STATS oops::Parameters::serialize                         :        12.14    1846            0.0066
+  0: OOPS_STATS oops::SampledLocations::SampledLocations            :         0.17     161            0.0011
+  0: OOPS_STATS oops::SampledLocations::latitudes                   :         0.01     115            0.0001
+  0: OOPS_STATS oops::SampledLocations::longitudes                  :         0.01     115            0.0001
+  0: OOPS_STATS oops::SampledLocations::times                       :         0.00     115            0.0000
+  0: OOPS_STATS oops::SampledLocations::~SampledLocations           :         1.70     322            0.0053
+  0: OOPS_STATS oops::State::State                                  :    326604.31      28        11664.4396
+  0: OOPS_STATS oops::State::print                                  :       357.24       6           59.5407
+  0: OOPS_STATS oops::State::toFieldSet                             :       619.39       9           68.8211
+  0: OOPS_STATS oops::State::variables                              :         0.00       4            0.0000
+  0: OOPS_STATS oops::State::write                                  :    125240.29       1       125240.2934
+  0: OOPS_STATS oops::State::zero                                   :        10.78       4            2.6955
+  0: OOPS_STATS oops::State::~State                                 :         1.36      28            0.0487
+  0: OOPS_STATS oops::UnstructuredInterpolator::UnstructuredInterpo :       189.04   56628            0.0033
+  0: OOPS_STATS oops::UnstructuredInterpolator::apply               :      5552.09 1289860            0.0043
+  0: OOPS_STATS oops::UnstructuredInterpolator::applyAD             :      3382.59 1256464            0.0027
+  0: OOPS_STATS oops::VariableChange::VariableChange                :         2.76       5            0.5515
+  0: OOPS_STATS oops::VariableChange::changeVar                     :      4069.70       5          813.9396
+  0: OOPS_STATS oops::VariableChange::~VariableChange               :         0.45       5            0.0900
+  0: OOPS_STATS oops::mpi::broadcast                                :     29798.21     250          119.1928
+  0: OOPS_STATS saber::Interpolation::multiply                      :     53980.20     250          215.9208
+  0: OOPS_STATS saber::Interpolation::multiplyAD                    :     61210.24     250          244.8410
+  0: OOPS_STATS saber::Localization::Localization                   :      1441.22       2          720.6095
+  0: OOPS_STATS saber::Localization::multiply                       :    169128.88     250          676.5155
+  0: OOPS_STATS saber::Localization::~Localization                  :         0.00       2            0.0010
+  0: OOPS_STATS saber::mgbf::Covariance::Covariance                 :       922.74       2          461.3724
+  0: OOPS_STATS saber::mgbf::Covariance::multiply                   :     11528.64     250           46.1146
+  0: OOPS_STATS saber::mgbf::Covariance::~Covariance                :       352.86       2          176.4319
+  0: OOPS_STATS ufo::ObsFilter::ObsFilter                           :        25.66     678            0.0379
+  0: OOPS_STATS ufo::ObsFilter::checkFilterData                     :         3.13    1624            0.0019
+  0: OOPS_STATS ufo::ObsFilter::postFilter                          :       534.77     638            0.8382
+  0: OOPS_STATS ufo::ObsFilter::preProcess                          :      1973.66     507            3.8928
+  0: OOPS_STATS ufo::ObsFilter::priorFilter                         :       259.54     479            0.5418
+  0: OOPS_STATS ufo::ObsFilter::~ObsFilter                          :      2442.78    1498            1.6307
+  0: OOPS_STATS util::Timers::Total                                 :   1058369.85       1      1058369.8491
+  0: OOPS_STATS util::Timers::measured                              :   1056604.34       1      1056604.3375
+  0: OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
   0: 
   0: OOPS_STATS ------------------------------------------------------------------------------------------------------------------
   0: OOPS_STATS ---------------------------------- Parallel Timing Statistics ( 484 MPI tasks) -----------------------------------
   0: OOPS_STATS ------------------------------------------------------------------------------------------------------------------
   0: OOPS_STATS Name                                                :     min (ms)    max (ms)    avg (ms)     % total   imbal (%)
-  0: OOPS_STATS oops::Covariance::EnsembleCovariance                :    257732.40   258055.52   257845.31       34.50        0.13
-  0: OOPS_STATS oops::Covariance::ensemble::inverseMultiply         :     57552.03    57587.29    57577.66        7.70        0.06
-  0: OOPS_STATS oops::Covariance::ensemble::multiply                :    219028.66   231118.16   226024.04       30.25        5.35
-  0: OOPS_STATS oops::Geometry::Geometry                            :      9654.55     9714.73     9703.85        1.30        0.62
-  0: OOPS_STATS oops::Geometry::~Geometry                           :       937.39     1056.12      993.66        0.13       11.95
-  0: OOPS_STATS oops::GeometryData::setGlobalTree                   :     12628.32    12987.28    12799.16        1.71        2.80
-  0: OOPS_STATS oops::GetValueTLADs::preProcessModelData            :      3397.12     9134.09     6017.51        0.81       95.34
-  0: OOPS_STATS oops::GetValues::GetValues                          :      4776.75     5137.24     4970.09        0.67        7.25
-  0: OOPS_STATS oops::GetValues::processAD                          :      1513.87     1954.79     1658.98        0.22       26.58
-  0: OOPS_STATS oops::Increment::Increment                          :     15433.83    23984.96    18932.95        2.53       45.17
-  0: OOPS_STATS oops::Increment::axpy                               :     17705.07    25003.09    21014.72        2.81       34.73
-  0: OOPS_STATS oops::Increment::deserialize                        :      1297.89     1972.89     1504.08        0.20       44.88
-  0: OOPS_STATS oops::Increment::dot_product_with                   :     78199.97   100179.12    87429.33       11.70       25.14
-  0: OOPS_STATS oops::Increment::fromFieldSet                       :     15238.82    16029.89    15673.19        2.10        5.05
-  0: OOPS_STATS oops::Increment::operator*=                         :      2356.74     2516.61     2432.07        0.33        6.57
-  0: OOPS_STATS oops::Increment::operator+=                         :      3588.77     4608.61     4151.65        0.56       24.56
-  0: OOPS_STATS oops::Increment::operator=                          :      6528.05    10846.43     8747.56        1.17       49.37
-  0: OOPS_STATS oops::Increment::print                              :     15582.68    33901.08    22587.23        3.02       81.10
-  0: OOPS_STATS oops::Increment::schur_product_with                 :      3391.69     3818.81     3601.29        0.48       11.86
-  0: OOPS_STATS oops::Increment::serialize                          :     22312.56    32813.79    30337.20        4.06       34.62
-  0: OOPS_STATS oops::Increment::toFieldSet                         :      9288.61    12073.85    10304.35        1.38       27.03
-  0: OOPS_STATS oops::Increment::zero                               :       775.63     1313.10      994.17        0.13       54.06
-  0: OOPS_STATS oops::LinearVariableChange::changeVarAD             :     13451.78    15152.78    14399.78        1.93       11.81
-  0: OOPS_STATS oops::Localization::Localization                    :      1451.72     5469.21     3480.25        0.47      115.44
-  0: OOPS_STATS oops::Localization::multiply                        :    194574.22   208769.68   202354.48       27.08        7.02
-  0: OOPS_STATS oops::Localization::~Localization                   :       717.44     1044.67      932.17        0.12       35.10
-  0: OOPS_STATS oops::ObsSpace::ObsSpace                            :       728.79      908.14      831.11        0.11       21.58
-  0: OOPS_STATS oops::ObsSpace::save                                :      1004.12     1258.32     1129.49        0.15       22.51
-  0: OOPS_STATS oops::State::State                                  :    325894.27   330107.07   327688.26       43.85        1.29
-  0: OOPS_STATS oops::UnstructuredInterpolator::apply               :      1262.56    17329.50    13381.45        1.79      120.07
-  0: OOPS_STATS oops::UnstructuredInterpolator::applyAD             :       742.65     7528.06     6033.17        0.81      112.47
-  0: OOPS_STATS oops::VariableChange::changeVar                     :      1697.01     1804.12     1751.80        0.23        6.11
-  0: OOPS_STATS oops::mpi::broadcast                                :     24965.24    36178.66    33270.47        4.45       33.70
-  0: OOPS_STATS saber::Interpolation::multiply                      :     44850.43    66122.98    57742.99        7.73       36.84
-  0: OOPS_STATS saber::Interpolation::multiplyAD                    :     59121.56    63369.21    61619.51        8.25        6.89
-  0: OOPS_STATS saber::Localization::Localization                   :      1451.69     5469.18     3480.22        0.47      115.44
-  0: OOPS_STATS saber::Localization::multiply                       :    155879.95   173191.83   164919.54       22.07       10.50
-  0: OOPS_STATS saber::mgbf::Covariance::multiply                   :      8429.36    12882.81    10429.87        1.40       42.70
-  0: OOPS_STATS saber::mgbf::Covariance::~Covariance                :       703.38     1033.96      921.59        0.12       35.87
-  0: OOPS_STATS util::Timers::Total                                 :    747251.71   747310.60   747300.47      100.00        0.01
-  0: OOPS_STATS util::Timers::measured                              :    745759.50   746030.13   745928.47       99.82        0.04
+  0: OOPS_STATS oops::Covariance::EnsembleCovariance                :    257081.03   257455.66   257211.88       24.30        0.15
+  0: OOPS_STATS oops::Covariance::ensemble::inverseMultiply         :     53567.12    53725.55    53640.11        5.07        0.30
+  0: OOPS_STATS oops::Covariance::ensemble::multiply                :    218979.10   232752.95   227202.92       21.47        6.06
+  0: OOPS_STATS oops::Geometry::Geometry                            :      9395.27     9473.81     9455.17        0.89        0.83
+  0: OOPS_STATS oops::GeometryData::setGlobalTree                   :     12636.45    13118.99    12818.58        1.21        3.76
+  0: OOPS_STATS oops::GetValueTLADs::preProcessModelData            :      4448.61     6980.65     5356.85        0.51       47.27
+  0: OOPS_STATS oops::GetValues::GetValues                          :    134442.43   137397.82   134712.13       12.73        2.19
+  0: OOPS_STATS oops::GetValues::processAD                          :      4190.35     7031.62     4766.31        0.45       59.61
+  0: OOPS_STATS oops::GetValues::processTL                          :      2697.50     5019.21     2758.81        0.26       84.16
+  0: OOPS_STATS oops::Increment::Increment                          :     15422.04    22260.00    18885.83        1.78       36.21
+  0: OOPS_STATS oops::Increment::axpy                               :     18105.86    25022.47    21204.54        2.00       32.62
+  0: OOPS_STATS oops::Increment::deserialize                        :      1294.26     1955.69     1489.82        0.14       44.40
+  0: OOPS_STATS oops::Increment::dot_product_with                   :     91600.40   110917.62   100999.21        9.54       19.13
+  0: OOPS_STATS oops::Increment::fromFieldSet                       :     17264.89    18199.77    17660.58        1.67        5.29
+  0: OOPS_STATS oops::Increment::operator*=                         :      2371.64     2553.33     2454.19        0.23        7.40
+  0: OOPS_STATS oops::Increment::operator+=                         :      3636.06     4597.73     4150.59        0.39       23.17
+  0: OOPS_STATS oops::Increment::operator=                          :      6566.36    10296.79     8706.02        0.82       42.85
+  0: OOPS_STATS oops::Increment::print                              :     17084.46    34502.66    24648.98        2.33       70.67
+  0: OOPS_STATS oops::Increment::schur_product_with                 :      3443.27     3882.30     3649.28        0.34       12.03
+  0: OOPS_STATS oops::Increment::serialize                          :     21026.93    32873.31    29925.09        2.83       39.59
+  0: OOPS_STATS oops::Increment::toFieldSet                         :     11298.20    14245.79    13036.66        1.23       22.61
+  0: OOPS_STATS oops::Increment::zero                               :       901.38     1443.30     1131.77        0.11       47.88
+  0: OOPS_STATS oops::LinearObsOper::atms_npp::simulateObsAD        :       875.03     4519.75     3834.09        0.36       95.06
+  0: OOPS_STATS oops::LinearVariableChange::changeVarAD             :     11694.17    13744.17    12825.58        1.21       15.98
+  0: OOPS_STATS oops::LinearVariableChange::changeVarTL             :     13118.17    16590.14    14654.56        1.38       23.69
+  0: OOPS_STATS oops::Localization::Localization                    :      1441.25     6231.69     3959.77        0.37      120.98
+  0: OOPS_STATS oops::Localization::multiply                        :    193520.87   209953.28   203474.93       19.22        8.08
+  0: OOPS_STATS oops::ObsSpace::ObsSpace                            :      3594.65     3887.86     3805.52        0.36        7.70
+  0: OOPS_STATS oops::ObsSpace::save                                :      4503.73     4741.24     4609.90        0.44        5.15
+  0: OOPS_STATS oops::State::State                                  :    321651.61   326604.31   323688.12       30.58        1.53
+  0: OOPS_STATS oops::State::write                                  :    124651.27   125240.29   124931.97       11.80        0.47
+  0: OOPS_STATS oops::UnstructuredInterpolator::apply               :      4011.57    20190.60    15825.28        1.50      102.24
+  0: OOPS_STATS oops::UnstructuredInterpolator::applyAD             :      2036.71     9044.72     7360.66        0.70       95.21
+  0: OOPS_STATS oops::VariableChange::changeVar                     :      4069.70     4769.53     4450.05        0.42       15.73
+  0: OOPS_STATS oops::mpi::broadcast                                :     23726.98    36022.10    32842.77        3.10       37.44
+  0: OOPS_STATS saber::Interpolation::multiply                      :     43975.02    66574.32    57441.99        5.43       39.34
+  0: OOPS_STATS saber::Interpolation::multiplyAD                    :     59724.73    66334.21    63592.38        6.01       10.39
+  0: OOPS_STATS saber::Localization::Localization                   :      1441.22     6231.67     3959.75        0.37      120.98
+  0: OOPS_STATS saber::Localization::multiply                       :    158423.85   175335.69   167020.17       15.78       10.13
+  0: OOPS_STATS saber::mgbf::Covariance::multiply                   :      6536.34    13065.80     9192.41        0.87       71.03
+  0: OOPS_STATS util::Timers::Total                                 :   1058369.85  1058446.37  1058430.47      100.00        0.01
+  0: OOPS_STATS util::Timers::measured                              :   1056604.34  1057044.27  1056937.03       99.86        0.04
   0: OOPS_STATS ---------------------------------- Parallel Timing Statistics ( 484 MPI tasks) -----------------------------------
   0: 
-  0: OOPS_STATS Run end                                  - Runtime:    749.29 sec,  Memory: total:  7922.62 Gb, per task: min =    15.63 Gb, max =    18.69 Gb
+  0: OOPS_STATS Run end                                  - Runtime:   1061.86 sec,  Memory: total:  8129.40 Gb, per task: min =    15.76 Gb, max =    25.97 Gb
   0: Run: Finishing oops::Variational<FV3JEDI, UFO and IODA observations> with status = 0
-  0: OOPS Ending   2025-12-14 23:24:20 (UTC+0000)
+  0: OOPS Ending   2025-12-15 18:05:22 (UTC+0000)
