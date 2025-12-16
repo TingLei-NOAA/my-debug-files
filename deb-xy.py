@@ -1,32 +1,9 @@
+import math
+from typing import Tuple
+
+import matplotlib.pyplot as plt
 import netCDF4 as nc
 import numpy as np
-import matplotlib.pyplot as plt
-import math
-
-
-def build_xy_from_dxdy(dx: np.ndarray, dy: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
-    """
-    Build physical x/y (meters) from dx/dy (meters) on a T-cell grid.
-    Assumes dx, dy have shape (ny, nx) matching FV3 grid_yt/grid_xt.
-    """
-    ny, nx = dx.shape
-    x = np.zeros((ny, nx), dtype=float)
-    y = np.zeros((ny, nx), dtype=float)
-
-    # Cumulative distance eastward and northward
-    x[:, 1:] = np.cumsum(dx[:, :-1], axis=1)
-    y[1:, :] = np.cumsum(dy[:-1, :], axis=0)
-    return x, y
-
-
-def load_xy(grid_spec: str) -> Tuple[np.ndarray, np.ndarray]:
-    with nc.Dataset(grid_spec) as ds:
-        dx = ds.variables["dx"][:]
-        dy = ds.variables["dy"][:]
-    return build_xy_from_dxdy(dx, dy)
-
-    x_grid, y_grid = load_xy(args.grid_spec)
-    ny, nx = x_grid.shape
 # List of NetCDF file paths
 file_paths = [
             "Data/mgbf_NA/20240527.010000.p484_L30_proc5_2G_35kmv6-mgbf-D1-p64_dirac_SABER_lam.fv_core.res.nc",
@@ -76,30 +53,26 @@ for index, file_path in enumerate(file_paths):
   if True :
     dataset = nc.Dataset(file_path, mode='r')
     z_1 = dataset.variables['zaxis_1'][:]
-    z_1[:] = np.arange(z_1.size).reshape(z_1.shape)
     print(f"File {index} z1:", z_1)
 
     # Extract the variables
     if zaxis_1 is None:
         zaxis_1 = dataset.variables['zaxis_1'][:]
-        zaxis_1[:] = np.arange(zaxis_1.size).reshape(zaxis_1.shape)
         zstart=max(math.floor(Z-6*Lgv),0)
         zend=min(math.ceil(Z+6*Lgv),len(zaxis_1)-1)
         zslice=slice(zstart,zend)
     if xaxis_1 is None:
         xaxis_1 = dataset.variables['xaxis_1'][:]
-        xaxis_1[:] = np.arange(xaxis_1.size).reshape(xaxis_1.shape)
-        xstart=max(math.floor(X-8*Lgh),0)
-        xend=min(math.ceil(X+8*Lgh), len(xaxis_1)-1)
-        xslice=slice(xstart,xend)
+        x0 = xaxis_1[X]
+        xmask = np.where(np.abs(xaxis_1 - x0) <= 8 * Lgh)[0]
+        xslice = slice(xmask[0], xmask[-1] + 1) if xmask.size else slice(0, len(xaxis_1))
         print("zslice is ",zslice)
         print("xslice is ",xslice)
     if yaxis_1 is None:
         yaxis_1 = dataset.variables['yaxis_1'][:]
-        yaxis_1[:] = np.arange(yaxis_1.size).reshape(yaxis_1.shape)
-        ystart=max(math.floor(Y-8*Lgh),0)
-        yend=min(math.ceil(Y+8*Lgh), len(yaxis_1)-1)
-        yslice=slice(ystart,yend)
+        y0 = yaxis_1[Y]
+        ymask = np.where(np.abs(yaxis_1 - y0) <= 8 * Lgh)[0]
+        yslice = slice(ymask[0], ymask[-1] + 1) if ymask.size else slice(0, len(yaxis_1))
     temperature = dataset.variables['air_temperature'][:]  # Assuming 'T' corresponds to temperature
     print(f"thinkdeb max temp is {np.max(temperature)}")
 
@@ -153,7 +126,7 @@ for index, file_path in enumerate(file_paths):
 vfgaussian=np.exp(-((zaxis_1 - zaxis_1[Z]) ** 2) / (Lgv ** 2))
 ax1.plot(vfgaussian[zslice], zaxis_1[zslice], label=f"Gaussian Curve with R={Lgv} grid units")
 hfgaussian=np.exp(-((xaxis_1 - xaxis_1[X]) ** 2) / (Lgh ** 2))
-hyfgaussian=np.exp(-((yaxis_1 - yaxis_1[X]) ** 2) / (Lgh ** 2))
+hyfgaussian=np.exp(-((yaxis_1 - yaxis_1[Y]) ** 2) / (Lgh ** 2))
 ax2.plot(xaxis_1[xslice],hfgaussian[xslice],  label=f"Gaussian Curve approximating RF 110km ")
 ax3.plot(yaxis_1[yslice],hyfgaussian[yslice],  label=f"Gaussian Curve approximating RF 110km")
 
