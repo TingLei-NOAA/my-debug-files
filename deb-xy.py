@@ -1,9 +1,50 @@
 import math
+import os
 from typing import Tuple
 
 import matplotlib.pyplot as plt
 import netCDF4 as nc
 import numpy as np
+
+
+def build_xy_from_dxdy(dx: np.ndarray, dy: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
+    """
+    Build physical x/y (meters) from dx/dy (meters) on a T-cell grid.
+    Assumes dx, dy have shape (ny, nx) matching FV3 grid_yt/grid_xt.
+    """
+    ny, nx = dx.shape
+    x = np.zeros((ny, nx), dtype=float)
+    y = np.zeros((ny, nx), dtype=float)
+
+    # Cumulative distance eastward and northward
+    x[:, 1:] = np.cumsum(dx[:, :-1], axis=1)
+    y[1:, :] = np.cumsum(dy[:-1, :], axis=0)
+    return x, y
+
+
+def load_xy(grid_spec: str) -> Tuple[np.ndarray, np.ndarray]:
+    """Load dx/dy from a grid spec file and return cumulative x/y in meters."""
+    with nc.Dataset(grid_spec) as ds:
+        dx = ds.variables["dx"][:]
+        dy = ds.variables["dy"][:]
+    return build_xy_from_dxdy(dx, dy)
+
+# Optional grid spec path for physical x/y (dx/dy) coordinates
+grid_spec_path = "fv3_grid_spec.nc"  # update to your grid spec file if different
+x_grid = y_grid = None
+if os.path.exists(grid_spec_path):
+    try:
+        x_grid, y_grid = load_xy(grid_spec_path)
+        print(f"Loaded grid spec {grid_spec_path} with shape {x_grid.shape}")
+        # Inspect magnitudes to hint at units
+        print(f"x_grid sample (0,0): {x_grid[0,0]}, (0,-1): {x_grid[0,-1]}")
+        print(f"y_grid sample (0,0): {y_grid[0,0]}, (-1,0): {y_grid[-1,0]}")
+    except Exception as exc:
+        print(f"Warning: failed to load grid spec {grid_spec_path}: {exc}")
+        x_grid = y_grid = None
+else:
+    print(f"Warning: grid spec {grid_spec_path} not found; using axis arrays only.")
+
 # List of NetCDF file paths
 file_paths = [
             "Data/mgbf_NA/20240527.010000.p484_L30_proc5_2G_35kmv6-mgbf-D1-p64_dirac_SABER_lam.fv_core.res.nc",
@@ -63,8 +104,11 @@ for index, file_path in enumerate(file_paths):
         zslice=slice(zstart,zend)
     if xaxis_1 is None:
         xaxis_1 = dataset.variables['xaxis_1'][:]
-        # derive km coordinates from the provided axis values (assumed meters)
-        x_km = xaxis_1 / 1000.0
+        # derive km coordinates from either grid spec (preferred) or axis values (assumed meters)
+        if x_grid is not None:
+            x_km = x_grid[Y, :] / 1000.0
+        else:
+            x_km = xaxis_1 / 1000.0
         x0 = xaxis_1[X]
         xmask = np.where(np.abs(xaxis_1 - x0) <= 8 * Lgh)[0]
         xslice = slice(xmask[0], xmask[-1] + 1) if xmask.size else slice(0, len(xaxis_1))
@@ -72,7 +116,10 @@ for index, file_path in enumerate(file_paths):
         print("xslice is ",xslice)
     if yaxis_1 is None:
         yaxis_1 = dataset.variables['yaxis_1'][:]
-        y_km = yaxis_1 / 1000.0
+        if y_grid is not None:
+            y_km = y_grid[:, X] / 1000.0
+        else:
+            y_km = yaxis_1 / 1000.0
         y0 = yaxis_1[Y]
         ymask = np.where(np.abs(yaxis_1 - y0) <= 8 * Lgh)[0]
         yslice = slice(ymask[0], ymask[-1] + 1) if ymask.size else slice(0, len(yaxis_1))
@@ -130,8 +177,8 @@ vfgaussian=np.exp(-((zaxis_1 - zaxis_1[Z]) ** 2) / (Lgv ** 2))
 ax1.plot(vfgaussian[zslice], zaxis_1[zslice], label=f"Gaussian Curve with R={Lgv} grid units")
 hfgaussian=np.exp(-((x_km - x_km[X]) ** 2) / (Lgh ** 2))
 hyfgaussian=np.exp(-((y_km - y_km[Y]) ** 2) / (Lgh ** 2))
-ax2.plot(xaxis_1[xslice],hfgaussian[xslice],  label=f\"Gaussian (center={x_km[X]:.2f} km, L={Lgh} km)\")
-ax3.plot(yaxis_1[yslice],hyfgaussian[yslice],  label=f\"Gaussian (center={y_km[Y]:.2f} km, L={Lgh} km)\")
+ax2.plot(xaxis_1[xslice],hfgaussian[xslice],  label=f"Gaussian (center={x_km[X]:.2f} km, L={Lgh} km)")
+ax3.plot(yaxis_1[yslice],hyfgaussian[yslice],  label=f"Gaussian (center={y_km[Y]:.2f} km, L={Lgh} km)")
 
 
 # Configure the first subplot (Vertical profile plot)
