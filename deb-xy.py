@@ -63,6 +63,8 @@ for index, file_path in enumerate(file_paths):
         zslice=slice(zstart,zend)
     if xaxis_1 is None:
         xaxis_1 = dataset.variables['xaxis_1'][:]
+        # derive km coordinates from the provided axis values (assumed meters)
+        x_km = xaxis_1 / 1000.0
         x0 = xaxis_1[X]
         xmask = np.where(np.abs(xaxis_1 - x0) <= 8 * Lgh)[0]
         xslice = slice(xmask[0], xmask[-1] + 1) if xmask.size else slice(0, len(xaxis_1))
@@ -70,6 +72,7 @@ for index, file_path in enumerate(file_paths):
         print("xslice is ",xslice)
     if yaxis_1 is None:
         yaxis_1 = dataset.variables['yaxis_1'][:]
+        y_km = yaxis_1 / 1000.0
         y0 = yaxis_1[Y]
         ymask = np.where(np.abs(yaxis_1 - y0) <= 8 * Lgh)[0]
         yslice = slice(ymask[0], ymask[-1] + 1) if ymask.size else slice(0, len(yaxis_1))
@@ -125,10 +128,10 @@ for index, file_path in enumerate(file_paths):
 
 vfgaussian=np.exp(-((zaxis_1 - zaxis_1[Z]) ** 2) / (Lgv ** 2))
 ax1.plot(vfgaussian[zslice], zaxis_1[zslice], label=f"Gaussian Curve with R={Lgv} grid units")
-hfgaussian=np.exp(-((xaxis_1 - xaxis_1[X]) ** 2) / (Lgh ** 2))
-hyfgaussian=np.exp(-((yaxis_1 - yaxis_1[Y]) ** 2) / (Lgh ** 2))
-ax2.plot(xaxis_1[xslice],hfgaussian[xslice],  label=f"Gaussian Curve approximating RF 110km ")
-ax3.plot(yaxis_1[yslice],hyfgaussian[yslice],  label=f"Gaussian Curve approximating RF 110km")
+hfgaussian=np.exp(-((x_km - x_km[X]) ** 2) / (Lgh ** 2))
+hyfgaussian=np.exp(-((y_km - y_km[Y]) ** 2) / (Lgh ** 2))
+ax2.plot(xaxis_1[xslice],hfgaussian[xslice],  label=f\"Gaussian (center={x_km[X]:.2f} km, L={Lgh} km)\")
+ax3.plot(yaxis_1[yslice],hyfgaussian[yslice],  label=f\"Gaussian (center={y_km[Y]:.2f} km, L={Lgh} km)\")
 
 
 # Configure the first subplot (Vertical profile plot)
