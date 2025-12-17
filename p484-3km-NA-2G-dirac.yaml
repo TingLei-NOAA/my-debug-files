@@ -1,0 +1,112 @@
+_poolsize: &poolsize 40
+_write_mult: &write_mult true
+#_layout: &fv3_layout [32, 40] # 1280 tasks, original SKD test
+#_layout: &fv3_layout [20, 24] # 8 ppn
+#_layout: &fv3_layout [30, 32] # 16 ppn
+_layout: &fv3_layout [22, 22] # 32 ppn, 1920 total ranks
+#_layout: &fv3_layout [60, 64] # 64 ppn
+_xlayout: &xlayout 22 
+_ylayout: &ylayout 22 
+
+geometry:
+  fms initialization:
+    namelist filename: DataFix/fmsmpp.nml
+    field table filename: DataFix/field_table
+  namelist filename: INPUT/sam_p484_input.nml
+  akbk: DataFix/fix/akbk66.nc
+  # input.nml
+  npz: 65
+  layout: *fv3_layout
+  io_layout: [1,1]
+  ntiles: 1
+
+background:
+  datetime: &analysisDate 2024-05-27T01:00:00Z
+  filetype: fms restart
+  datapath: data/bkg
+  filename_core: 20240527.010000.fv_core.res.tile1.nc
+  filename_trcr: 20240527.010000.fv_tracer.res.tile1.nc
+  filename_sfcd: 20240527.010000.sfc_data.nc
+  filename_sfcw: 20240527.010000.fv_srf_wnd.res.tile1.nc
+  filename_cplr: 20240527.010000.coupler.res
+  state variables:
+    - eastward_wind
+    - northward_wind
+    - air_temperature
+    - water_vapor_mixing_ratio_wrt_moist_air
+    - cloud_liquid_ice
+    - cloud_liquid_water
+    - ozone_mass_mixing_ratio
+    - air_pressure_at_surface
+  field io names: &io_names
+    eastward_wind: ua
+    northward_wind: va
+    air_temperature: T
+    #air_pressure_thickness: DELP
+    air_pressure_thickness: delp
+    water_vapor_mixing_ratio_wrt_moist_air: sphum
+    cloud_liquid_ice: ice_wat
+    cloud_liquid_water: liq_wat
+    ozone_mass_mixing_ratio: o3mr
+    geopotential_height_times_gravity_at_surface: phis
+    skin_temperature_at_surface: tsfc
+    soilt: tslb
+    soilm: smois
+    eastward_wind_at_surface: u_srf
+    northward_wind_at_surface: v_srf
+
+
+
+background error:
+  covariance model: SABER
+  saber central block:
+    saber block name: MGBF_covariance
+    mgbf namelist file: dr-mgbf-fix/test-mgbf-p484.nml
+  saber outer blocks:
+  -  saber block name: interpolation
+     inner geometry:
+       function space: StructuredColumns
+       grid:
+         type: structured
+         xspace:
+           type: linear
+           N: 308
+           start: -60.0310278618037
+           end:   60.0310278618037
+           endpoint: true
+         yspace:
+           type: linear
+           N: 308
+           start: -36.6574659140194
+           end:   36.6574659140194
+           endpoint: true
+         projection:
+           type: rotated_lonlat
+           north_pole: [67.4999923706, 34.9999966097]
+         y_numbering: 1
+       halo: 1
+
+       partitioner: checkerboard
+
+     forward interpolator:
+         local interpolator type: oops unstructured grid interpolator
+     inverse interpolator:
+         local interpolator type: oops unstructured grid interpolator
+
+output dirac:
+  filetype: fms restart
+  datapath: Data/mgbf_NA/
+  filename_core: p484_L30_proc5_2G_35kmv6-mgbf-D1-p64_dirac_%id%_lam.fv_core.res.nc
+  filename_trcr: p484_L30_proc5_2G_35kmv6-mgbf-D1-p64_dirac_%id%_lam.fv_tracer.res.nc
+  filename_sfcd: p484_L30_proc5_2G_35kmv6-mgbf-D1-p64_dirac_%id%_lam.sfc_data.nc
+  filename_sfcw: p484_L30_proc5_2G_35kmv6-mgbf-D1-p64_dirac_%id%_lam.fv_srf_wnd.res.nc
+  filename_cplr: p484_L30_proc5_2G_35kmv6-mgbf-D1-p64_dirac_%id%_lam.coupler.res
+dirac:
+  ndir: 2 
+  ixdir: [150,1900]
+  iydir: [150,1800]
+  ildir: [30,30]
+  itdir: [1,1]
+  ifdir: [air_temperature,air_temperature] 
+
+
