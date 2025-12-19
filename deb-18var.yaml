@@ -46,8 +46,8 @@ background:
     - xvar_1
     - xvar_2 
     - xvar_3 
-    - xvar_4 
     - xvar_5 
+    - xvar_4 
   field io names: &io_names
     eastward_wind: ua
     northward_wind: va
@@ -69,11 +69,11 @@ background:
     soilm: smois
     eastward_wind_at_surface: u_srf
     northward_wind_at_surface: v_srf
-    xvar_1: liq_aero
+    xvar_5:  water_nc 
+    xvar_1: sgs_tke
     xvar_2: ice_aero
     xvar_3: smoke 
     xvar_4:  dust 
-    xvar_5:  coarsepm 
 
 
 
@@ -146,8 +146,8 @@ dirac:
     - xvar_1
     - xvar_2 
     - xvar_3 
-    - xvar_4 
     - xvar_5 
+    - xvar_4 
 
 
 
