@@ -206,6 +206,7 @@ def main():
     center_col = []
     center_rank = []
     center_label = []
+    center_label_with_index = []
     center_y = (args.nlat - 1) // 2
     center_x = (args.nlon - 1) // 2
 
@@ -220,7 +221,9 @@ def main():
         center_row.append(row)
         center_col.append(col)
         center_rank.append(rank)
-        center_label.append(f"subdomain_r{row:02d}_c{col:02d}")
+        label = f"subdomain_r{row:02d}_c{col:02d}"
+        center_label.append(label)
+        center_label_with_index.append(f"{label}_{rank}")
 
     center_lon = np.asarray(center_lon)
     center_lat = np.asarray(center_lat)
@@ -230,6 +233,18 @@ def main():
     center_col = np.asarray(center_col)
     center_rank = np.asarray(center_rank)
     center_label = np.asarray(center_label)
+    center_label_with_index = np.asarray(center_label_with_index)
+
+    order = np.argsort(center_rank)
+    center_lon = center_lon[order]
+    center_lat = center_lat[order]
+    center_filt_i = center_filt_i[order]
+    center_filt_j = center_filt_j[order]
+    center_row = center_row[order]
+    center_col = center_col[order]
+    center_rank = center_rank[order]
+    center_label = center_label[order]
+    center_label_with_index = center_label_with_index[order]
 
     xyz_centers = lonlat_to_xyz(center_lon, center_lat)
     dist_cart, idx = tree.query(xyz_centers, k=1)
@@ -241,11 +256,11 @@ def main():
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("w") as f:
         f.write(
-            "# label rank row col center_filt_i center_filt_j center_filt_lon center_filt_lat "
+            "# label_with_index rank row col center_filt_i center_filt_j center_filt_lon center_filt_lat "
             "model_i model_j model_lon model_lat dist_km\n"
         )
         for label, rank, row, col, fi, fj, flon, flat, mi, mj, mlon, mlat, dkm in zip(
-            center_label, center_rank, center_row, center_col, center_filt_i, center_filt_j,
+            center_label_with_index, center_rank, center_row, center_col, center_filt_i, center_filt_j,
             center_lon, center_lat, model_i, model_j, lon_model_flat[idx], lat_model_flat[idx], d_gc
         ):
             f.write(
@@ -253,8 +268,8 @@ def main():
                 f"{mi} {mj} {mlon:.6f} {mlat:.6f} {dkm:.3f}\n"
             )
     print(f"Wrote {args.output}")
-    for label, fi, fj, mi, mj in zip(center_label, center_filt_i, center_filt_j, model_i, model_j):
-        print(f"{label} center_filt=({fi},{fj}) model=({mi},{mj})")
+    for label, rank, fi, fj, mi, mj in zip(center_label_with_index, center_rank, center_filt_i, center_filt_j, model_i, model_j):
+        print(f"{label} rank={rank} center_filt=({fi},{fj}) model=({mi},{mj})")
 
 
 if __name__ == "__main__":
