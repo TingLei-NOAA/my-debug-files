@@ -139,6 +139,25 @@ def haversine(lon1: np.ndarray, lat1: np.ndarray, lon2: np.ndarray, lat2: np.nda
     return 6_371_000.0 * c
 
 
+def pairwise_distance_stats_km(lon: np.ndarray, lat: np.ndarray) -> tuple[float, float, float]:
+    n = lon.size
+    if n < 2:
+        return float("nan"), float("nan"), float("nan")
+    min_d = float("inf")
+    max_d = 0.0
+    sum_d = 0.0
+    count = 0
+    for i in range(n - 1):
+        d = haversine(lon[i], lat[i], lon[i + 1:], lat[i + 1:]) / 1000.0
+        if d.size:
+            min_d = min(min_d, float(np.min(d)))
+            max_d = max(max_d, float(np.max(d)))
+            sum_d += float(np.sum(d))
+            count += d.size
+    mean_d = sum_d / count if count else float("nan")
+    return min_d, mean_d, max_d
+
+
 def main():
     parser = argparse.ArgumentParser(description="Map filtering grid points to nearest FV3 model grid points.")
     parser.add_argument("--pattern", default="mgbf_filtering_grid_latlon_*.txt", help="Glob for filtering tiles")
@@ -304,6 +323,11 @@ def main():
     print(f"Wrote {args.output_simple}")
     for label, rank, fi, fj, mi, mj in zip(center_label_with_index, center_rank, center_filt_i, center_filt_j, model_i, model_j):
         print(f"{label} rank={rank} center_filt=({fi + 1},{fj + 1}) model=({mi + 1},{mj + 1})")
+
+    min_d, mean_d, max_d = pairwise_distance_stats_km(lon_model_flat[idx], lat_model_flat[idx])
+    print(f"Selected model grid pairwise distances (km): min={min_d:.3f} mean={mean_d:.3f} max={max_d:.3f}")
+    min_d, mean_d, max_d = pairwise_distance_stats_km(center_lon, center_lat)
+    print(f"Filtering center pairwise distances (km): min={min_d:.3f} mean={mean_d:.3f} max={max_d:.3f}")
 
     if args.plot_selected is not None:
         try:
