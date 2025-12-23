@@ -11,6 +11,7 @@ Outputs:
       model_i model_j model_lon model_lat dist_km
     where center_filt_i/center_filt_j are the stitched filtering-grid indices (0-based, x then y),
     and model_i/model_j are the FV3 T-grid indices (grid_xt, grid_yt).
+  - Optional plot of selected model grid points vs filtering centers.
 """
 
 from __future__ import annotations
@@ -161,7 +162,13 @@ def main():
         default=Path("filter_to_model_map_indices.txt"),
         help="Simplified output: index + filtering/model i/j",
     )
-    parser.add_argument("--plot", type=Path, default=Path("filtering_grid_latlon.png"), help="Output plot for stitched filtering grid")
+    parser.add_argument("--plot", type=Path, default=None, help="Output plot for stitched filtering grid")
+    parser.add_argument(
+        "--plot-selected",
+        type=Path,
+        default=Path("selected_model_grids_4panel.png"),
+        help="4-panel plot of filtering centers and their selected model grid points",
+    )
     args = parser.parse_args()
 
     files = sorted(Path(".").glob(args.pattern))
@@ -180,21 +187,22 @@ def main():
     ny_filt, nx_filt = lon_filt.shape
     print(f"Filtering grid stitched: shape (ny, nx)=({ny_filt},{nx_filt})")
 
-    try:
-        import matplotlib.pyplot as plt
-    except ImportError as e:  # pragma: no cover
-        raise SystemExit("matplotlib is required for plotting the filtering grid") from e
+    if args.plot is not None:
+        try:
+            import matplotlib.pyplot as plt
+        except ImportError as e:  # pragma: no cover
+            raise SystemExit("matplotlib is required for plotting the filtering grid") from e
 
-    fig, ax = plt.subplots(figsize=(8, 6), dpi=150)
-    ax.scatter(lon_filt.ravel(), lat_filt.ravel(), s=1, c="tab:blue", alpha=0.6, rasterized=True)
-    ax.set_xlabel("Longitude")
-    ax.set_ylabel("Latitude")
-    ax.set_title("Stitched filtering grid (lat/lon)")
-    ax.grid(True, linewidth=0.3, alpha=0.4)
-    fig.tight_layout()
-    fig.savefig(args.plot)
-    plt.close(fig)
-    print(f"Wrote {args.plot}")
+        fig, ax = plt.subplots(figsize=(8, 6), dpi=150)
+        ax.scatter(lon_filt.ravel(), lat_filt.ravel(), s=1, c="tab:blue", alpha=0.6, rasterized=True)
+        ax.set_xlabel("Longitude")
+        ax.set_ylabel("Latitude")
+        ax.set_title("Stitched filtering grid (lat/lon)")
+        ax.grid(True, linewidth=0.3, alpha=0.4)
+        fig.tight_layout()
+        fig.savefig(args.plot)
+        plt.close(fig)
+        print(f"Wrote {args.plot}")
 
     lon_model, lat_model = read_model_grid(args.fv3_spec)
     lon_model = normalize_lon_180(lon_model)
@@ -296,6 +304,40 @@ def main():
     print(f"Wrote {args.output_simple}")
     for label, rank, fi, fj, mi, mj in zip(center_label_with_index, center_rank, center_filt_i, center_filt_j, model_i, model_j):
         print(f"{label} rank={rank} center_filt=({fi + 1},{fj + 1}) model=({mi + 1},{mj + 1})")
+
+    if args.plot_selected is not None:
+        try:
+            import matplotlib.pyplot as plt
+        except ImportError as e:  # pragma: no cover
+            raise SystemExit("matplotlib is required for plotting selected model grids") from e
+
+        fig, axes = plt.subplots(2, 2, figsize=(10, 8), dpi=150, sharex=True, sharey=True)
+        axes = axes.ravel()
+        lon_split = np.nanmedian(center_lon)
+        lat_split = np.nanmedian(center_lat)
+        subsets = [
+            ("NW", (center_lon < lon_split) & (center_lat >= lat_split)),
+            ("NE", (center_lon >= lon_split) & (center_lat >= lat_split)),
+            ("SW", (center_lon < lon_split) & (center_lat < lat_split)),
+            ("SE", (center_lon >= lon_split) & (center_lat < lat_split)),
+        ]
+        for k, (label, mask) in enumerate(subsets):
+            ax = axes[k]
+            ax.scatter(center_lon[mask], center_lat[mask], s=14, c="tab:blue", label="Filtering centers")
+            ax.scatter(lon_model_flat[idx][mask], lat_model_flat[idx][mask], s=10, c="tab:orange", label="Selected model grids")
+            ax.set_title(f"{label} quadrant (lon split {lon_split:.2f}, lat split {lat_split:.2f})")
+            ax.grid(True, linewidth=0.3, alpha=0.4)
+
+        for ax in axes[2:]:
+            ax.set_xlabel("Longitude")
+        for ax in axes[0::2]:
+            ax.set_ylabel("Latitude")
+        axes[0].legend(loc="best", frameon=False)
+        fig.suptitle("Filtering centers vs selected model grids (4-panel)")
+        fig.tight_layout()
+        fig.savefig(args.plot_selected)
+        plt.close(fig)
+        print(f"Wrote {args.plot_selected}")
 
 
 if __name__ == "__main__":
