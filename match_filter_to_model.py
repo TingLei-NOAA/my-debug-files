@@ -313,25 +313,26 @@ def main():
 
         fig, axes = plt.subplots(2, 2, figsize=(10, 8), dpi=150, sharex=True, sharey=True)
         axes = axes.ravel()
-        lon_split = np.nanmedian(center_lon)
-        lat_split = np.nanmedian(center_lat)
+        model_i_arr = model_i.astype(float)
+        model_j_arr = model_j.astype(float)
+        i_split = np.nanmedian(model_i_arr)
+        j_split = np.nanmedian(model_j_arr)
         subsets = [
-            ("NW", (center_lon < lon_split) & (center_lat >= lat_split)),
-            ("NE", (center_lon >= lon_split) & (center_lat >= lat_split)),
-            ("SW", (center_lon < lon_split) & (center_lat < lat_split)),
-            ("SE", (center_lon >= lon_split) & (center_lat < lat_split)),
+            ("NW", (model_i_arr < i_split) & (model_j_arr >= j_split)),
+            ("NE", (model_i_arr >= i_split) & (model_j_arr >= j_split)),
+            ("SW", (model_i_arr < i_split) & (model_j_arr < j_split)),
+            ("SE", (model_i_arr >= i_split) & (model_j_arr < j_split)),
         ]
         for k, (label, mask) in enumerate(subsets):
             ax = axes[k]
-            ax.scatter(center_lon[mask], center_lat[mask], s=14, c="tab:blue", label="Filtering centers")
-            ax.scatter(lon_model_flat[idx][mask], lat_model_flat[idx][mask], s=10, c="tab:orange", label="Selected model grids")
-            ax.set_title(f"{label} quadrant (lon split {lon_split:.2f}, lat split {lat_split:.2f})")
+            ax.scatter(model_i_arr[mask] + 1, model_j_arr[mask] + 1, s=10, c="tab:orange", label="Selected model grids")
+            ax.set_title(f"{label} quadrant (i split {i_split + 1:.1f}, j split {j_split + 1:.1f})")
             ax.grid(True, linewidth=0.3, alpha=0.4)
 
         for ax in axes[2:]:
-            ax.set_xlabel("Longitude")
+            ax.set_xlabel("Model i")
         for ax in axes[0::2]:
-            ax.set_ylabel("Latitude")
+            ax.set_ylabel("Model j")
         axes[0].legend(loc="best", frameon=False)
         fig.suptitle("Filtering centers vs selected model grids (4-panel)")
         fig.tight_layout()
