@@ -255,6 +255,7 @@ def main():
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("w") as f:
+        f.write("# NOTE: row/col/center_filt_i/center_filt_j/model_i/model_j are 1-based (added +1).\n")
         f.write(
             "# label_with_index rank row col center_filt_i center_filt_j center_filt_lon center_filt_lat "
             "model_i model_j model_lon model_lat dist_km\n"
@@ -264,12 +265,12 @@ def main():
             center_lon, center_lat, model_i, model_j, lon_model_flat[idx], lat_model_flat[idx], d_gc
         ):
             f.write(
-                f"{label} {rank} {row} {col} {fi} {fj} {flon:.6f} {flat:.6f} "
-                f"{mi} {mj} {mlon:.6f} {mlat:.6f} {dkm:.3f}\n"
+                f"{label} {rank} {row + 1} {col + 1} {fi + 1} {fj + 1} {flon:.6f} {flat:.6f} "
+                f"{mi + 1} {mj + 1} {mlon:.6f} {mlat:.6f} {dkm:.3f}\n"
             )
     print(f"Wrote {args.output}")
     for label, rank, fi, fj, mi, mj in zip(center_label_with_index, center_rank, center_filt_i, center_filt_j, model_i, model_j):
-        print(f"{label} rank={rank} center_filt=({fi},{fj}) model=({mi},{mj})")
+        print(f"{label} rank={rank} center_filt=({fi + 1},{fj + 1}) model=({mi + 1},{mj + 1})")
 
 
 if __name__ == "__main__":
