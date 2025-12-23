@@ -3,7 +3,7 @@ Match each filtering subdomain (tile) center to the closest FV3 model grid point
 
 Inputs:
   - Filtering grid dumps: mgbf_filtering_grid_latlon_<rank>.txt (first 14x14 points are the core)
-  - FV3 model grid: fv3_grid_spec (uses grid_latt/grid_lont on the T-cell grid)
+  - FV3 model grid: fv3_grid_spec (prefers grid_xt/grid_yt when present; falls back to grid_latt/grid_lont)
 
 Outputs:
   - Text file with one line per filtering subdomain (tile):
@@ -67,8 +67,13 @@ def stitch(grids: list[tuple[Path, np.ndarray, np.ndarray, int]], tiles_x: int, 
 
 def read_model_grid(fv3_spec: Path) -> tuple[np.ndarray, np.ndarray]:
     with nc.Dataset(fv3_spec) as ds:
-        lon = np.array(ds.variables["grid_lont"][:])
-        lat = np.array(ds.variables["grid_latt"][:])
+        if "grid_xt" in ds.variables and "grid_yt" in ds.variables:
+            lon_1d = np.array(ds.variables["grid_xt"][:])
+            lat_1d = np.array(ds.variables["grid_yt"][:])
+            lon, lat = np.meshgrid(lon_1d, lat_1d)
+        else:
+            lon = np.array(ds.variables["grid_lont"][:])
+            lat = np.array(ds.variables["grid_latt"][:])
     # Mask missing values
     mask = ~np.isfinite(lon) | ~np.isfinite(lat)
     lon[mask] = np.nan
@@ -116,6 +121,10 @@ def lonlat_to_xyz(lon_deg: np.ndarray, lat_deg: np.ndarray) -> np.ndarray:
     return np.stack([x, y, z], axis=-1)
 
 
+def normalize_lon_180(lon_deg: np.ndarray) -> np.ndarray:
+    return (lon_deg + 180.0) % 360.0 - 180.0
+
+
 def haversine(lon1: np.ndarray, lat1: np.ndarray, lon2: np.ndarray, lat2: np.ndarray) -> np.ndarray:
     lon1_rad = np.radians(lon1)
     lon2_rad = np.radians(lon2)
@@ -146,6 +155,12 @@ def main():
     )
     parser.add_argument("--fv3-spec", type=Path, default=Path("fv3_grid_spec"), help="FV3 grid spec NetCDF")
     parser.add_argument("--output", type=Path, default=Path("filter_to_model_map.txt"), help="Output text file")
+    parser.add_argument(
+        "--output-simple",
+        type=Path,
+        default=Path("filter_to_model_map_indices.txt"),
+        help="Simplified output: index + filtering/model i/j",
+    )
     parser.add_argument("--plot", type=Path, default=Path("filtering_grid_latlon.png"), help="Output plot for stitched filtering grid")
     args = parser.parse_args()
 
@@ -161,6 +176,7 @@ def main():
         grids.append((path, lon_tile, lat_tile, rank))
 
     lon_filt, lat_filt = stitch(grids, args.tiles_x, args.tiles_y, args.nlon, args.nlat, rank_order=args.rank_order)
+    lon_filt = normalize_lon_180(lon_filt)
     ny_filt, nx_filt = lon_filt.shape
     print(f"Filtering grid stitched: shape (ny, nx)=({ny_filt},{nx_filt})")
 
@@ -181,6 +197,7 @@ def main():
     print(f"Wrote {args.plot}")
 
     lon_model, lat_model = read_model_grid(args.fv3_spec)
+    lon_model = normalize_lon_180(lon_model)
     ny_m, nx_m = lon_model.shape
     print(f"Model grid (T) shape (ny, nx)=({ny_m},{nx_m})")
 
@@ -269,6 +286,14 @@ def main():
                 f"{mi + 1} {mj + 1} {mlon:.6f} {mlat:.6f} {dkm:.3f}\n"
             )
     print(f"Wrote {args.output}")
+
+    args.output_simple.parent.mkdir(parents=True, exist_ok=True)
+    with args.output_simple.open("w") as f:
+        f.write("# NOTE: index/center_filt_i/center_filt_j/model_i/model_j are 1-based (added +1).\n")
+        f.write("# index center_filt_i center_filt_j model_i model_j\n")
+        for rank, fi, fj, mi, mj in zip(center_rank, center_filt_i, center_filt_j, model_i, model_j):
+            f.write(f"{rank} {fi + 1} {fj + 1} {mi + 1} {mj + 1}\n")
+    print(f"Wrote {args.output_simple}")
     for label, rank, fi, fj, mi, mj in zip(center_label_with_index, center_rank, center_filt_i, center_filt_j, model_i, model_j):
         print(f"{label} rank={rank} center_filt=({fi + 1},{fj + 1}) model=({mi + 1},{mj + 1})")
 
