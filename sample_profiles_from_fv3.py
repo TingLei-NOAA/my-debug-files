@@ -221,17 +221,19 @@ def plot_profiles_for_group(
 def main() -> None:
     parser = argparse.ArgumentParser(description="Sample vertical profiles from FV3 NetCDF at selected points.")
     parser.add_argument("--map", type=Path, default=Path("filter_to_model_map_indices.txt"), help="Map file with model i/j")
-    parser.add_argument("--fv3-dyn", type=Path, required=True, help="FV3 dynamics NetCDF file")
-    parser.add_argument("--fv3-tracer", type=Path, required=True, help="FV3 tracer NetCDF file")
+    parser.add_argument("--fv3-dyn", type=Path, default="Data/mgbf_NA/20240527.010000.p484-L30_proc5_2G_35kmv6-mgbf-D1-test-18var_dirac_SABER_lam.fv_core.res.nc",
+                          help="FV3 dynamics NetCDF file")
+    parser.add_argument("--fv3-tracer", type=Path, default="Data/mgbf_NA/20240527.010000.p484-L30_proc5_2G_35kmv6-mgbf-D1-test-18var_dirac_SABER_lam.fv_tracer.res.nc", 
+                          help="FV3 tracer NetCDF file")
     parser.add_argument("--vars", help="Variable list (file or comma-separated)")
     parser.add_argument("--k-list", help="k index list (file or comma-separated)")
-    parser.add_argument("--dirac-yaml", type=Path, help="YAML file with dirac.ifdir and dirac.ildir")
+    parser.add_argument("--dirac-yaml", type=Path,default="test-18var.yaml", help="YAML file with dirac.ifdir and dirac.ildir")
     parser.add_argument("--k-base", type=int, default=1, choices=[0, 1], help="k index base in input list")
     parser.add_argument("--ij-base", type=int, default=1, choices=[0, 1], help="i/j base in map file")
     parser.add_argument("--time-index", type=int, default=0, help="Time index for variables with time dimension")
     parser.add_argument("--out-dir", type=Path, default=Path("profiles_out"), help="Output directory")
     parser.add_argument("--plot-group", help="Group of i/j points (file or comma/space list)")
-    parser.add_argument("--plot-sub-domain-index", help="Subdomain indices to plot (file or comma/space list)")
+    parser.add_argument("--plot_sub_domain_index",default="12,30,40", help="Subdomain indices to plot (file or comma/space list)")
     parser.add_argument("--plot-group-ij-base", type=int, default=1, choices=[0, 1], help="i/j base in group list")
     parser.add_argument("--plot-out-dir", type=Path, default=Path("profiles_plots"), help="Output directory for plots")
     args = parser.parse_args()
