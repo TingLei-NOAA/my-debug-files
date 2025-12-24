@@ -18,6 +18,31 @@ from pathlib import Path
 
 import numpy as np
 import netCDF4 as nc
+import yaml
+
+TRACER_VAR_LIST = [
+    "water_vapor_mixing_ratio_wrt_moist_air",
+    "cloud_liquid_ice",
+    "cloud_liquid_water",
+    "rain_water",
+    "snow_water",
+    "graupel",
+    "ozone_mass_mixing_ratio",
+    "rain_number_concentration",
+    "cloud_ice_number_concentration",
+    "xvar_1",
+    "xvar_2",
+    "xvar_3",
+    "xvar_4",
+    "xvar_5",
+]
+
+DYN_VAR_LIST = [
+    "eastward_wind",
+    "northward_wind",
+    "air_temperature",
+    "air_pressure_thickness",
+]
 
 
 def read_list(path_or_csv: str, cast=int) -> list:
@@ -47,6 +72,22 @@ def read_vars(path_or_csv: str) -> list[str]:
                 vars_out.append(token)
         return vars_out
     return [x for x in path_or_csv.replace(",", " ").split() if x]
+
+
+def read_dirac_yaml(path: Path) -> tuple[list[str], list[int]]:
+    data = yaml.safe_load(path.read_text())
+    if not isinstance(data, dict) or "dirac" not in data:
+        raise SystemExit(f"Missing 'dirac' section in {path}")
+    dirac = data["dirac"]
+    if "ifdir" not in dirac or "ildir" not in dirac:
+        raise SystemExit(f"Missing ifdir/ildir in {path}")
+    vars_list = list(dirac["ifdir"])
+    k_list = [int(x) for x in dirac["ildir"]]
+    if not vars_list or not k_list:
+        raise SystemExit(f"Empty ifdir/ildir in {path}")
+    if len(vars_list) != len(k_list):
+        raise SystemExit(f"ifdir/ildir length mismatch in {path}")
+    return vars_list, k_list
 
 
 def parse_map_file(path: Path) -> list[tuple[int, int, int]]:
@@ -128,7 +169,8 @@ def infer_index_order(var, i_idx: int, j_idx: int, k_idx: int, time_idx: int | N
 
 
 def plot_profiles_for_group(
-    ds: nc.Dataset,
+    ds_dyn: nc.Dataset,
+    ds_tracer: nc.Dataset,
     points: list[tuple[int, int]],
     vars_list: list[str],
     k_list_in: list[int],
@@ -146,8 +188,14 @@ def plot_profiles_for_group(
         fig, ax = plt.subplots(figsize=(6, 6), dpi=150)
         values = []
         for var_name, k_s in zip(vars_list, k_list0):
+            if var_name in TRACER_VAR_LIST:
+                ds = ds_tracer
+            elif var_name in DYN_VAR_LIST:
+                ds = ds_dyn
+            else:
+                raise SystemExit(f"Variable not in tracer/dyn lists: {var_name}")
             if var_name not in ds.variables:
-                raise SystemExit(f"Variable not found: {var_name}")
+                raise SystemExit(f"Variable not found in file: {var_name}")
             var = ds.variables[var_name]
             slicer = infer_index_order(var, i_s, j_s, k_s, time_index)
             val = var[slicer]
@@ -173,9 +221,11 @@ def plot_profiles_for_group(
 def main() -> None:
     parser = argparse.ArgumentParser(description="Sample vertical profiles from FV3 NetCDF at selected points.")
     parser.add_argument("--map", type=Path, default=Path("filter_to_model_map_indices.txt"), help="Map file with model i/j")
-    parser.add_argument("--fv3", type=Path, required=True, help="FV3 NetCDF file to sample")
-    parser.add_argument("--vars", required=True, help="Variable list (file or comma-separated)")
-    parser.add_argument("--k-list", required=True, help="k index list (file or comma-separated)")
+    parser.add_argument("--fv3-dyn", type=Path, required=True, help="FV3 dynamics NetCDF file")
+    parser.add_argument("--fv3-tracer", type=Path, required=True, help="FV3 tracer NetCDF file")
+    parser.add_argument("--vars", help="Variable list (file or comma-separated)")
+    parser.add_argument("--k-list", help="k index list (file or comma-separated)")
+    parser.add_argument("--dirac-yaml", type=Path, help="YAML file with dirac.ifdir and dirac.ildir")
     parser.add_argument("--k-base", type=int, default=1, choices=[0, 1], help="k index base in input list")
     parser.add_argument("--ij-base", type=int, default=1, choices=[0, 1], help="i/j base in map file")
     parser.add_argument("--time-index", type=int, default=0, help="Time index for variables with time dimension")
@@ -185,8 +235,13 @@ def main() -> None:
     parser.add_argument("--plot-out-dir", type=Path, default=Path("profiles_plots"), help="Output directory for plots")
     args = parser.parse_args()
 
-    k_list = read_list(args.k_list, cast=int)
-    vars_list = read_vars(args.vars)
+    if args.dirac_yaml:
+        vars_list, k_list = read_dirac_yaml(args.dirac_yaml)
+    else:
+        if not args.vars or not args.k_list:
+            raise SystemExit("Provide --vars and --k-list, or use --dirac-yaml.")
+        k_list = read_list(args.k_list, cast=int)
+        vars_list = read_vars(args.vars)
     if not k_list:
         raise SystemExit("Empty k list")
     if not vars_list:
@@ -202,12 +257,13 @@ def main() -> None:
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
 
-    with nc.Dataset(args.fv3) as ds:
+    with nc.Dataset(args.fv3_dyn) as ds_dyn, nc.Dataset(args.fv3_tracer) as ds_tracer:
         if args.plot_group:
             group_pts = parse_ij_pairs(args.plot_group)
             group_pts0 = [(i - args.plot_group_ij_base, j - args.plot_group_ij_base) for i, j in group_pts]
             plot_profiles_for_group(
-                ds=ds,
+                ds_dyn=ds_dyn,
+                ds_tracer=ds_tracer,
                 points=group_pts0,
                 vars_list=vars_list,
                 k_list_in=k_list,
@@ -222,8 +278,14 @@ def main() -> None:
                 f.write(f"{idx} {i_s + 1} {j_s + 1}\n")
                 f.write("# k value\n")
                 for var_name, k_in, k_s in zip(vars_list, k_list, k0):
+                    if var_name in TRACER_VAR_LIST:
+                        ds = ds_tracer
+                    elif var_name in DYN_VAR_LIST:
+                        ds = ds_dyn
+                    else:
+                        raise SystemExit(f"Variable not in tracer/dyn lists: {var_name}")
                     if var_name not in ds.variables:
-                        raise SystemExit(f"Variable not found: {var_name}")
+                        raise SystemExit(f"Variable not found in file: {var_name}")
                     var = ds.variables[var_name]
                     slicer = infer_index_order(var, i_s, j_s, k_s, args.time_index)
                     val = var[slicer]
