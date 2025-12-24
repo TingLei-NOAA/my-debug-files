@@ -231,6 +231,7 @@ def main() -> None:
     parser.add_argument("--time-index", type=int, default=0, help="Time index for variables with time dimension")
     parser.add_argument("--out-dir", type=Path, default=Path("profiles_out"), help="Output directory")
     parser.add_argument("--plot-group", help="Group of i/j points (file or comma/space list)")
+    parser.add_argument("--plot-sub-domain-index", help="Subdomain indices to plot (file or comma/space list)")
     parser.add_argument("--plot-group-ij-base", type=int, default=1, choices=[0, 1], help="i/j base in group list")
     parser.add_argument("--plot-out-dir", type=Path, default=Path("profiles_plots"), help="Output directory for plots")
     args = parser.parse_args()
@@ -258,7 +259,25 @@ def main() -> None:
     args.out_dir.mkdir(parents=True, exist_ok=True)
 
     with nc.Dataset(args.fv3_dyn) as ds_dyn, nc.Dataset(args.fv3_tracer) as ds_tracer:
-        if args.plot_group:
+        if args.plot_sub_domain_index:
+            idx_list = read_list(args.plot_sub_domain_index, cast=int)
+            idx_map = {idx: (i, j) for idx, i, j in points0}
+            group_pts0 = []
+            for idx in idx_list:
+                if idx not in idx_map:
+                    raise SystemExit(f"Subdomain index not found in map: {idx}")
+                group_pts0.append(idx_map[idx])
+            plot_profiles_for_group(
+                ds_dyn=ds_dyn,
+                ds_tracer=ds_tracer,
+                points=group_pts0,
+                vars_list=vars_list,
+                k_list_in=k_list,
+                k_list0=k0,
+                time_index=args.time_index,
+                out_dir=args.plot_out_dir,
+            )
+        elif args.plot_group:
             group_pts = parse_ij_pairs(args.plot_group)
             group_pts0 = [(i - args.plot_group_ij_base, j - args.plot_group_ij_base) for i, j in group_pts]
             plot_profiles_for_group(
