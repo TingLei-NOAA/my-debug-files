@@ -12,6 +12,7 @@ Outputs:
     where center_filt_i/center_filt_j are the stitched filtering-grid indices (0-based, x then y),
     and model_i/model_j are the FV3 T-grid indices (grid_xt, grid_yt).
   - Optional plot of selected model grid points vs filtering centers.
+  - Optional dx/dy contour plots for the stitched filtering grid.
 """
 
 from __future__ import annotations
@@ -139,6 +140,39 @@ def haversine(lon1: np.ndarray, lat1: np.ndarray, lon2: np.ndarray, lat2: np.nda
     return 6_371_000.0 * c
 
 
+def compute_dx_dy(lon_grid: np.ndarray, lat_grid: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    dx = np.full_like(lon_grid, np.nan, dtype=float)
+    dy = np.full_like(lon_grid, np.nan, dtype=float)
+    dx[:, :-1] = haversine(lon_grid[:, :-1], lat_grid[:, :-1], lon_grid[:, 1:], lat_grid[:, 1:])
+    dy[:-1, :] = haversine(lon_grid[:-1, :], lat_grid[:-1, :], lon_grid[1:, :], lat_grid[1:, :])
+    dx[:, -1] = haversine(lon_grid[:, -1], lat_grid[:, -1], lon_grid[:, -2], lat_grid[:, -2])
+    dy[-1, :] = haversine(lon_grid[-1, :], lat_grid[-1, :], lon_grid[-2, :], lat_grid[-2, :])
+    return dx, dy
+
+
+def plot_dxdy_contours(lon: np.ndarray, lat: np.ndarray, dx: np.ndarray, dy: np.ndarray, base_path: Path) -> None:
+    try:
+        import matplotlib.pyplot as plt
+        import cartopy.crs as ccrs
+    except ImportError as e:  # pragma: no cover
+        raise SystemExit("matplotlib and cartopy are required for plotting dx/dy") from e
+
+    base_path.parent.mkdir(parents=True, exist_ok=True)
+    for name, field, cmap in [("dx_km", dx / 1000.0, "magma"), ("dy_km", dy / 1000.0, "magma")]:
+        fig = plt.figure(figsize=(10, 8), dpi=150)
+        ax = plt.axes(projection=ccrs.PlateCarree())
+        cf = ax.contourf(lon, lat, field, 60, transform=ccrs.PlateCarree(), cmap=cmap)
+        ax.coastlines()
+        ax.gridlines(draw_labels=True, linestyle=":")
+        ax.set_title(f"Filtering grid {name}")
+        fig.colorbar(cf, ax=ax, orientation="vertical", pad=0.02)
+        fig.tight_layout()
+        out_path = base_path.with_name(f"{base_path.name}_{name}.png")
+        fig.savefig(out_path)
+        plt.close(fig)
+        print(f"Wrote {out_path}")
+
+
 def pairwise_distance_stats_km(lon: np.ndarray, lat: np.ndarray) -> tuple[float, float, float]:
     n = lon.size
     if n < 2:
@@ -188,6 +222,12 @@ def main():
         default=Path("selected_model_grids_4panel.png"),
         help="4-panel plot of filtering centers and their selected model grid points",
     )
+    parser.add_argument(
+        "--plot-dxdy",
+        type=Path,
+        default=Path("filtering_dxdy"),
+        help="Base path for stitched filtering grid dx/dy plots (no suffix)",
+    )
     args = parser.parse_args()
 
     files = sorted(Path(".").glob(args.pattern))
@@ -222,6 +262,10 @@ def main():
         fig.savefig(args.plot)
         plt.close(fig)
         print(f"Wrote {args.plot}")
+
+    if args.plot_dxdy is not None:
+        dx, dy = compute_dx_dy(lon_filt, lat_filt)
+        plot_dxdy_contours(lon_filt, lat_filt, dx, dy, args.plot_dxdy)
 
     lon_model, lat_model = read_model_grid(args.fv3_spec)
     lon_model = normalize_lon_180(lon_model)
