@@ -3,7 +3,7 @@ Match each filtering subdomain (tile) center to the closest FV3 model grid point
 
 Inputs:
   - Filtering grid dumps: mgbf_filtering_grid_latlon_<rank>.txt (first 14x14 points are the core)
-  - FV3 model grid: fv3_grid_spec (prefers grid_xt/grid_yt when present; falls back to grid_latt/grid_lont)
+  - FV3 model grid: fv3_grid_spec (uses grid_latt/grid_lont on the T-cell grid)
 
 Outputs:
   - Text file with one line per filtering subdomain (tile):
@@ -69,13 +69,10 @@ def stitch(grids: list[tuple[Path, np.ndarray, np.ndarray, int]], tiles_x: int, 
 
 def read_model_grid(fv3_spec: Path) -> tuple[np.ndarray, np.ndarray]:
     with nc.Dataset(fv3_spec) as ds:
-        if "grid_xt" in ds.variables and "grid_yt" in ds.variables:
-            lon_1d = np.array(ds.variables["grid_xt"][:])
-            lat_1d = np.array(ds.variables["grid_yt"][:])
-            lon, lat = np.meshgrid(lon_1d, lat_1d)
-        else:
-            lon = np.array(ds.variables["grid_lont"][:])
-            lat = np.array(ds.variables["grid_latt"][:])
+        if "grid_lont" not in ds.variables or "grid_latt" not in ds.variables:
+            raise SystemExit("grid_lont/grid_latt not found in fv3 grid spec")
+        lon = np.array(ds.variables["grid_lont"][:])
+        lat = np.array(ds.variables["grid_latt"][:])
     # Mask missing values
     mask = ~np.isfinite(lon) | ~np.isfinite(lat)
     lon[mask] = np.nan
