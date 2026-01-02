@@ -295,9 +295,10 @@ def main() -> None:
         for idx, i_s, j_s in points0:
             out_path = args.out_dir / f"profile_subdomain_{idx:04d}.txt"
             with out_path.open("w") as f:
-                f.write("# index i j\n")
-                f.write(f"{idx} {i_s + 1} {j_s + 1}\n")
+                f.write("# index  number of sampling vertical levels i j\n")
+                f.write(f"{idx} {len(k_list)} {i_s + 1} {j_s + 1}\n")
                 f.write("# k value\n")
+                sampled = []
                 for var_name, k_in, k_s in zip(vars_list, k_list, k0):
                     if var_name in TRACER_VAR_LIST:
                         ds = ds_tracer
@@ -314,7 +315,30 @@ def main() -> None:
                         val = float(val)
                     except TypeError:
                         val = float(np.asarray(val).squeeze())
+                    sampled.append((k_in, val))
                     f.write(f"{k_in} {val:.6g}\n")
+                f.write("# now the complete profile with fillled values\n")
+                k_min = k_list[0]
+                k_max = k_list[-1]
+                k_vals = [k for k, _ in sampled]
+                v_vals = [v for _, v in sampled]
+                lo = 0
+                for k_full in range(k_min, k_max + 1):
+                    if k_full == k_vals[lo]:
+                        v_full = v_vals[lo]
+                    else:
+                        while lo < len(k_vals) - 1 and k_vals[lo + 1] < k_full:
+                            lo += 1
+                        hi = min(lo + 1, len(k_vals) - 1)
+                        if k_vals[hi] == k_vals[lo]:
+                            v_full = v_vals[lo]
+                        else:
+                            v0 = v_vals[lo]
+                            v1 = v_vals[hi]
+                            k0 = k_vals[lo]
+                            k1 = k_vals[hi]
+                            v_full = v0 + (v1 - v0) * (k_full - k0) / (k1 - k0)
+                    f.write(f"{k_full} {v_full:.6g}\n")
             print(f"Wrote {out_path}")
 
 
