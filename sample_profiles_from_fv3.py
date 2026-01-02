@@ -82,12 +82,22 @@ def read_dirac_yaml(path: Path) -> tuple[list[str], list[int]]:
     if "ifdir" not in dirac or "ildir" not in dirac:
         raise SystemExit(f"Missing ifdir/ildir in {path}")
     vars_list = list(dirac["ifdir"])
-    k_list = [int(x) for x in dirac["ildir"]]
+    k_list = list(dirac["ildir"])
     if not vars_list or not k_list:
         raise SystemExit(f"Empty ifdir/ildir in {path}")
     if len(vars_list) != len(k_list):
         raise SystemExit(f"ifdir/ildir length mismatch in {path}")
-    return vars_list, k_list
+    return vars_list, [int(x) for x in k_list]
+
+
+def ensure_list(name: str, value):
+    if isinstance(value, np.ndarray):
+        return value.tolist()
+    if isinstance(value, list):
+        return value
+    if isinstance(value, tuple):
+        return list(value)
+    raise SystemExit(f"{name} must be a list; got {type(value).__name__}")
 
 
 def parse_map_file(path: Path) -> list[tuple[int, int, int]]:
@@ -245,10 +255,14 @@ def main() -> None:
             raise SystemExit("Provide --vars and --k-list, or use --dirac-yaml.")
         k_list = read_list(args.k_list, cast=int)
         vars_list = read_vars(args.vars)
+    vars_list = ensure_list("vars_list", vars_list)
+    k_list = ensure_list("k_list", k_list)
     if not k_list:
         raise SystemExit("Empty k list")
     if not vars_list:
         raise SystemExit("Empty variable list")
+    k_list = [int(x) for x in k_list]
+    vars_list = [str(x) for x in vars_list]
 
     points = parse_map_file(args.map)
     if not points:
