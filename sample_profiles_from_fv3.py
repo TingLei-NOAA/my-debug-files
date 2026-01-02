@@ -91,6 +91,8 @@ def read_dirac_yaml(path: Path) -> tuple[list[str], list[int]]:
 
 
 def ensure_list(name: str, value):
+    if isinstance(value, (int, float, str)):
+        return [value]
     if isinstance(value, np.ndarray):
         return value.tolist()
     if isinstance(value, list):
