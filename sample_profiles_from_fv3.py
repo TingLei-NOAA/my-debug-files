@@ -265,6 +265,8 @@ def main() -> None:
         raise SystemExit("Empty variable list")
     k_list = [int(x) for x in k_list]
     vars_list = [str(x) for x in vars_list]
+    print(f"[debug] vars_list type={type(vars_list).__name__} len={len(vars_list)} sample={vars_list[:5]}")
+    print(f"[debug] k_list type={type(k_list).__name__} len={len(k_list)} sample={k_list[:5]}")
 
     points = parse_map_file(args.map)
     if not points:
@@ -272,6 +274,7 @@ def main() -> None:
 
     # Convert to 0-based
     k0 = [k - args.k_base for k in k_list]
+    print(f"[debug] k0 type={type(k0).__name__} len={len(k0)} sample={k0[:5]}")
     points0 = [(idx, i - args.ij_base, j - args.ij_base) for idx, i, j in points]
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
