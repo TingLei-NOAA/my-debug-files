@@ -1,0 +1,333 @@
+cost function:
+  cost type: 3D-Var
+  jb evaluation: false
+  time window:
+    begin: '2024-05-05T22:00:00Z'
+    length: PT6H
+    bound to include: begin
+  geometry:
+    fms initialization:
+      namelist filename: fmsmpp.nml
+      field table filename: field_table
+    namelist filename: input_lam_C775_NP16X10.nml
+    akbk: fv3_akbk
+    npz: 65
+    layout:
+    - 16
+    - 10
+    io_layout:
+    - 1
+    - 1
+    ntiles: 1
+  analysis variables:
+  - eastward_wind
+  - northward_wind
+  - air_temperature
+  - water_vapor_mixing_ratio_wrt_moist_air
+  - air_pressure_at_surface
+  - ozone_mass_mixing_ratio
+  - cloud_liquid_water
+  - cloud_liquid_ice
+  - rain_water
+  - snow_water
+  - graupel
+  - upward_air_velocity
+  - equivalent_reflectivity_factor
+  background:
+    datetime: '2024-05-06T01:00:00Z'
+    filetype: fms restart
+    datapath: ./
+    filename_core: fv3_dynvars
+    filename_trcr: fv3_tracer
+    filename_phys: fv3_phyvars_prepdbz
+    filename_sfcd: fv3_sfcdata
+    filename_sfcw: fv_srf_wnd.res.tile1.nc
+    filename_cplr: coupler.res
+    state variables:
+    - eastward_wind
+    - northward_wind
+    - air_temperature
+    - air_pressure_thickness
+    - water_vapor_mixing_ratio_wrt_moist_air
+    - cloud_liquid_ice
+    - cloud_liquid_water
+    - ozone_mass_mixing_ratio
+    - geopotential_height_times_gravity_at_surface
+    - f10m
+    - slmsk
+    - sheleg
+    - skin_temperature_at_surface
+    - vtype
+    - stype
+    - vfrac
+    - soilt
+    - soilm
+    - eastward_wind_at_surface
+    - northward_wind_at_surface
+    - air_pressure_at_surface
+    - rain_water
+    - snow_water
+    - graupel
+    - cloud_droplet_number_concentration
+    - cloud_ice_number_concentration
+    - rain_number_concentration
+    - upward_air_velocity
+    - equivalent_reflectivity_factor
+    field io names:
+      eastward_wind: ua
+      northward_wind: va
+      air_temperature: T
+      air_pressure_thickness: delp
+      air_pressure_at_surface: ps
+      water_vapor_mixing_ratio_wrt_moist_air: sphum
+      cloud_liquid_ice: ice_wat
+      cloud_liquid_water: liq_wat
+      ozone_mass_mixing_ratio: o3mr
+      geopotential_height_times_gravity_at_surface: phis
+      skin_temperature_at_surface: tsfc
+      soilt: tslb
+      soilm: smois
+      eastward_wind_at_surface: u_srf
+      northward_wind_at_surface: v_srf
+      rain_water: rainwat
+      snow_water: snowwat
+      graupel: graupel
+      cloud_droplet_number_concentration: water_nc
+      cloud_ice_number_concentration: ice_nc
+      rain_number_concentration: rain_nc
+      upward_air_velocity: W
+      equivalent_reflectivity_factor: ref_f3d
+  background error:
+     covariance model: ensemble
+     members from template:
+       template:
+         datetime: '2024-05-06T01:00:00Z'
+         filetype: fms restart
+         state variables:
+         - eastward_wind
+         - northward_wind
+         - air_temperature
+         - water_vapor_mixing_ratio_wrt_moist_air
+         - air_pressure_at_surface
+         - ozone_mass_mixing_ratio
+         - cloud_liquid_water
+         - cloud_liquid_ice
+         - rain_water
+         - snow_water
+         - graupel
+         - upward_air_velocity
+         - equivalent_reflectivity_factor
+         field io names:
+           eastward_wind: ua
+           northward_wind: va
+           air_temperature: T
+           air_pressure_thickness: delp
+           water_vapor_mixing_ratio_wrt_moist_air: sphum
+           cloud_liquid_ice: ice_wat
+           cloud_liquid_water: liq_wat
+           ozone_mass_mixing_ratio: o3mr
+           geopotential_height_times_gravity_at_surface: phis
+           skin_temperature_at_surface: tsfc
+           soilt: tslb
+           soilm: smois
+           eastward_wind_at_surface: u_srf
+           northward_wind_at_surface: v_srf
+           rain_water: rainwat
+           snow_water: snowwat
+           graupel: graupel
+           upward_air_velocity: W
+           equivalent_reflectivity_factor: ref_f3d
+         datapath: data/inputs/mem%mem%
+         filename_core: fv3_dynvars
+         filename_trcr: fv3_tracer
+         filename_phys: fv3_phyvars_prepdbz
+         filename_sfcd: fv3_sfcdata
+         filename_sfcw: fv_srf_wnd.res.tile1.nc
+         filename_cplr: coupler.res
+       pattern: '%mem%'
+       nmembers: 30
+       zero padding: 3
+     localization:
+       localization method: SABER
+       saber central block:
+         saber block name: BUMP_NICAS
+         active variables:
+         - eastward_wind
+         - northward_wind
+         - air_temperature
+         - water_vapor_mixing_ratio_wrt_moist_air
+         - air_pressure_at_surface
+         - ozone_mass_mixing_ratio
+         - cloud_liquid_water
+         - cloud_liquid_ice
+         - rain_water
+         - snow_water
+         - graupel
+         - upward_air_velocity
+         - equivalent_reflectivity_factor
+         read:
+           io:
+             files prefix: DataFix/bump_401km_0p04sigma_mpi160/bumploc_401km0p04sigma
+           drivers:
+             multivariate strategy: duplicated
+             read local nicas: true
+           model:
+             level for 2d variables: last
+  observations:
+    obs perturbations: false
+    observers:
+    - obs space:
+        name: refl10cm
+        distribution:
+          name: RoundRobin
+          halo size: 500e3
+        obsdatain:
+          engine:
+            type: H5File
+            obsfile: data/obs/ioda_mrms_refl.nc
+            missing file action: warn
+        obsdataout:
+          empty obs space action: create output
+          engine:
+            type: H5File
+            obsfile: jdiag_mrms_refl.nc
+            allow overwrite: true
+        io pool:
+          max pool size: 1
+        simulated variables:
+        - equivalentReflectivityFactor
+        observed variables:
+        - equivalentReflectivityFactor
+      obs operator:
+        name: VertInterp
+        vertical coordinate: height_above_mean_sea_level
+        observation vertical coordinate: height
+        interpolation method: linear
+      obs error:
+        covariance model: diagonal
+      obs filters:
+      - filter: Perform Action
+        udescriptor: iuse_check
+        action:
+          name: accept
+      - filter: Perform Action
+        udescriptor: intial_error_assignment
+        filter variables:
+        - name: equivalentReflectivityFactor
+        action:
+          name: assign error
+          error parameter: 5.0
+      - filter: Background Check
+        udescriptor: gross_error_check
+        apply at iterations: 0,1
+        filter variables:
+        - name: equivalentReflectivityFactor
+        threshold: 12.0
+        action:
+          name: reject
+        defer to post: true
+variational:
+  minimizer:
+    algorithm: DRPCG
+  iterations:
+  - ninner: 50
+    gradient norm reduction: 1e-3
+    geometry:
+      fms initialization:
+        namelist filename: fmsmpp.nml
+        field table filename: field_table
+      namelist filename: input_lam_C775_NP16X10.nml
+      field metadata override: gfs-restart.yaml
+      akbk: fv3_akbk
+      npz: 65
+      layout:
+      - 16
+      - 10
+      io_layout:
+      - 1
+      - 1
+      ntiles: 1
+      fieldsets:
+      - fieldset: dynamics_lam_cmaq.yaml
+  - ninner: 50
+    gradient norm reduction: 1e-3
+    geometry:
+      fms initialization:
+        namelist filename: fmsmpp.nml
+        field table filename: field_table
+      namelist filename: input_lam_C775_NP16X10.nml
+      field metadata override: gfs-restart.yaml
+      akbk: fv3_akbk
+      npz: 65
+      layout:
+      - 16
+      - 10
+      io_layout:
+      - 1
+      - 1
+      ntiles: 1
+      fieldsets:
+      - fieldset: dynamics_lam_cmaq.yaml
+final:
+  diagnostics:
+    departures: oman
+output:
+  filetype: fms restart
+  datapath: ./
+  prefix: analysis_jedi
+  frequency: PT1H
+  state variables:
+  - eastward_wind
+  - northward_wind
+  - air_temperature
+  - air_pressure_thickness
+  - water_vapor_mixing_ratio_wrt_moist_air
+  - cloud_liquid_ice
+  - cloud_liquid_water
+  - ozone_mass_mixing_ratio
+  - geopotential_height_times_gravity_at_surface
+  - f10m
+  - slmsk
+  - sheleg
+  - skin_temperature_at_surface
+  - vtype
+  - stype
+  - vfrac
+  - soilt
+  - soilm
+  - eastward_wind_at_surface
+  - northward_wind_at_surface
+  - air_pressure_at_surface
+  - rain_water
+  - snow_water
+  - graupel
+  - cloud_droplet_number_concentration
+  - cloud_ice_number_concentration
+  - rain_number_concentration
+  - upward_air_velocity
+  - equivalent_reflectivity_factor
+  field io names:
+    eastward_wind: ua
+    northward_wind: va
+    air_temperature: T
+    air_pressure_thickness: delp
+    air_pressure_at_surface: ps
+    water_vapor_mixing_ratio_wrt_moist_air: sphum
+    cloud_liquid_ice: ice_wat
+    cloud_liquid_water: liq_wat
+    ozone_mass_mixing_ratio: o3mr
+    geopotential_height_times_gravity_at_surface: phis
+    skin_temperature_at_surface: tsfc
+    soilt: tslb
+    soilm: smois
+    eastward_wind_at_surface: u_srf
+    northward_wind_at_surface: v_srf
+    rain_water: rainwat
+    snow_water: snowwat
+    graupel: graupel
+    cloud_droplet_number_concentration: water_nc
+    cloud_ice_number_concentration: ice_nc
+    rain_number_concentration: rain_nc
+    upward_air_velocity: W
+    equivalent_reflectivity_factor: ref_f3d
+final j evaluation: false
