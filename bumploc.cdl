@@ -1,0 +1,797 @@
+netcdf bumploc_401km0p04sigma_nicas_local_000160-000001 {
+
+// global attributes:
+		:_FillValue = -3.33476705790481e+38 ;
+
+group: common {
+  dimensions:
+  	nl0 = 65 ;
+
+  // group attributes:
+  		:ncmp = 1 ;
+
+  group: cmp_1 {
+    dimensions:
+    	nc0a = 702 ;
+    	nsa = 9558 ;
+    variables:
+    	int vlev(nl0) ;
+    		vlev:_FillValue = -999 ;
+    	double norm(nl0, nc0a) ;
+    		norm:_FillValue = -3.33476705790481e+38 ;
+    	double a(nl0, nc0a) ;
+    		a:_FillValue = -3.33476705790481e+38 ;
+    	int order_sa(nsa) ;
+    		order_sa:_FillValue = -999 ;
+    	int sa_to_sc(nsa) ;
+    		sa_to_sc:_FillValue = -999 ;
+    	double inorm(nsa) ;
+    		inorm:_FillValue = -3.33476705790481e+38 ;
+
+    // group attributes:
+    		:nl1 = 59 ;
+    		:nsb = 12921 ;
+    		:nsc = 16815 ;
+    		:ns = 502621 ;
+
+    group: sublevel_001 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_001
+
+    group: sublevel_002 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_002
+
+    group: sublevel_003 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_003
+
+    group: sublevel_004 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_004
+
+    group: sublevel_005 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_005
+
+    group: sublevel_006 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_006
+
+    group: sublevel_007 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_007
+
+    group: sublevel_008 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_008
+
+    group: sublevel_009 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_009
+
+    group: sublevel_010 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_010
+
+    group: sublevel_011 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_011
+
+    group: sublevel_012 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_012
+
+    group: sublevel_013 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_013
+
+    group: sublevel_014 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_014
+
+    group: sublevel_015 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_015
+
+    group: sublevel_016 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_016
+
+    group: sublevel_017 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_017
+
+    group: sublevel_018 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_018
+
+    group: sublevel_019 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_019
+
+    group: sublevel_020 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_020
+
+    group: sublevel_021 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_021
+
+    group: sublevel_022 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_022
+
+    group: sublevel_023 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_023
+
+    group: sublevel_024 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_024
+
+    group: sublevel_025 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_025
+
+    group: sublevel_026 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_026
+
+    group: sublevel_027 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_027
+
+    group: sublevel_028 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_028
+
+    group: sublevel_029 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_029
+
+    group: sublevel_030 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_030
+
+    group: sublevel_031 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_031
+
+    group: sublevel_032 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_032
+
+    group: sublevel_033 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_033
+
+    group: sublevel_034 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_034
+
+    group: sublevel_035 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_035
+
+    group: sublevel_036 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_036
+
+    group: sublevel_037 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_037
+
+    group: sublevel_038 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_038
+
+    group: sublevel_039 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_039
+
+    group: sublevel_040 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_040
+
+    group: sublevel_041 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_041
+
+    group: sublevel_042 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_042
+
+    group: sublevel_043 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_043
+
+    group: sublevel_044 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_044
+
+    group: sublevel_045 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_045
+
+    group: sublevel_046 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_046
+
+    group: sublevel_047 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_047
+
+    group: sublevel_048 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_048
+
+    group: sublevel_049 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_049
+
+    group: sublevel_050 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_050
+
+    group: sublevel_051 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_051
+
+    group: sublevel_052 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_052
+
+    group: sublevel_053 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_053
+
+    group: sublevel_054 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_054
+
+    group: sublevel_055 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_055
+
+    group: sublevel_056 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_056
+
+    group: sublevel_057 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_057
+
+    group: sublevel_058 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_058
+
+    group: sublevel_059 {
+      dimensions:
+      	nc1b = 219 ;
+      variables:
+      	int c1b_to_sb(nc1b) ;
+      		c1b_to_sb:_FillValue = -999 ;
+
+      // group attributes:
+      		:il1s = 1 ;
+      } // group sublevel_059
+
+    group: com_s_AB {
+      dimensions:
+      	nproc = 160 ;
+      	nown = 9558 ;
+      	nhalo = 3363 ;
+      	nexcl = 3776 ;
+      variables:
+      	int own_to_ext(nown) ;
+      		own_to_ext:_FillValue = -999 ;
+      	int own_to_red(nown) ;
+      		own_to_red:_FillValue = -999 ;
+      	int jhalocounts(nproc) ;
+      		jhalocounts:_FillValue = -999 ;
+      	int jexclcounts(nproc) ;
+      		jexclcounts:_FillValue = -999 ;
+      	int jhalodispls(nproc) ;
+      		jhalodispls:_FillValue = -999 ;
+      	int jexcldispls(nproc) ;
+      		jexcldispls:_FillValue = -999 ;
+      	int halo(nhalo) ;
+      		halo:_FillValue = -999 ;
+      	int excl(nexcl) ;
+      		excl:_FillValue = -999 ;
+
+      // group attributes:
+      		:nred = 9558 ;
+      		:next = 12921 ;
+      } // group com_s_AB
+
+    group: com_s_AC {
+      dimensions:
+      	nproc = 160 ;
+      	nown = 9558 ;
+      	nhalo = 7257 ;
+      	nexcl = 8791 ;
+      variables:
+      	int own_to_ext(nown) ;
+      		own_to_ext:_FillValue = -999 ;
+      	int own_to_red(nown) ;
+      		own_to_red:_FillValue = -999 ;
+      	int jhalocounts(nproc) ;
+      		jhalocounts:_FillValue = -999 ;
+      	int jexclcounts(nproc) ;
+      		jexclcounts:_FillValue = -999 ;
+      	int jhalodispls(nproc) ;
+      		jhalodispls:_FillValue = -999 ;
+      	int jexcldispls(nproc) ;
+      		jexcldispls:_FillValue = -999 ;
+      	int halo(nhalo) ;
+      		halo:_FillValue = -999 ;
+      	int excl(nexcl) ;
+      		excl:_FillValue = -999 ;
+
+      // group attributes:
+      		:nred = 9558 ;
+      		:next = 16815 ;
+      } // group com_s_AC
+
+    group: c {
+      dimensions:
+      	n_s = 2859252 ;
+      variables:
+      	int row(n_s) ;
+      		row:_FillValue = -999 ;
+      	int col(n_s) ;
+      		col:_FillValue = -999 ;
+      	double S(n_s) ;
+      		S:_FillValue = -3.33476705790481e+38 ;
+
+      // group attributes:
+      		:n_src = 16815 ;
+      		:n_dst = 9558 ;
+      		:nvec = 0 ;
+      } // group c
+
+    group: interp_c1b_to_c0a_001 {
+      dimensions:
+      	n_s = 22447 ;
+      variables:
+      	int row(n_s) ;
+      		row:_FillValue = -999 ;
+      	int col(n_s) ;
+      		col:_FillValue = -999 ;
+      	double S(n_s) ;
+      		S:_FillValue = -3.33476705790481e+38 ;
+
+      // group attributes:
+      		:n_src = 219 ;
+      		:n_dst = 702 ;
+      		:nvec = 0 ;
+      } // group interp_c1b_to_c0a_001
+
+    group: v {
+      dimensions:
+      	n_s = 71 ;
+      	nvec = 702 ;
+      variables:
+      	int row(n_s) ;
+      		row:_FillValue = -999 ;
+      	int col(n_s) ;
+      		col:_FillValue = -999 ;
+      	double Svec(nvec, n_s) ;
+      		Svec:_FillValue = -3.33476705790481e+38 ;
+
+      // group attributes:
+      		:n_src = 59 ;
+      		:n_dst = 65 ;
+      		:nvec = 702 ;
+      } // group v
+    } // group cmp_1
+  } // group common
+}
