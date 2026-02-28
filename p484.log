@@ -1,0 +1,387 @@
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS --------------------------------------------------------------------------------------------
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS Name                                                :   total (ms)   count    time/call (ms)
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Background Check::ObsFilter              :         2.47      16            0.1543
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Background Check::postFilter             :       113.29      16            7.0808
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Background Check::preProcess             :         0.24      16            0.0151
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Background Check::priorFilter            :         0.01      16            0.0005
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Bounds Check::ObsFilter                  :         1.31       9            0.1460
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Bounds Check::postFilter                 :         0.00       9            0.0002
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Bounds Check::preProcess                 :       112.61       9           12.5119
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Bounds Check::priorFilter                :         0.30       9            0.0335
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Domain Check::ObsFilter                  :        12.46       3            4.1519
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Domain Check::postFilter                 :         0.00       3            0.0002
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Domain Check::preProcess                 :         3.15       3            1.0488
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Domain Check::priorFilter                :         0.00       3            0.0005
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Final Check::ObsFilter                   :         0.66       9            0.0734
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Final Check::postFilter                  :         0.02       9            0.0026
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Final Check::preProcess                  :         0.00       9            0.0004
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Final Check::priorFilter                 :         0.01       9            0.0012
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Perform Action::ObsFilter                :        72.02      31            2.3231
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Perform Action::postFilter               :       125.62      31            4.0523
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Perform Action::preProcess               :       195.31      31            6.3004
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Perform Action::priorFilter              :       318.25      31           10.2661
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::QCmanager::ObsFilter                     :         1.74       9            0.1928
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::QCmanager::postFilter                    :         0.04       9            0.0039
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::QCmanager::preProcess                    :         0.00       9            0.0002
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::QCmanager::priorFilter                   :         0.00       9            0.0002
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::RejectList::ObsFilter                    :         1.06       3            0.3519
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::RejectList::postFilter                   :         0.00       3            0.0002
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::RejectList::preProcess                   :         3.41       3            1.1363
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::RejectList::priorFilter                  :         0.00       3            0.0005
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Variable Assignment::ObsFilter           :         0.51       4            0.1267
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Variable Assignment::postFilter          :         2.92       4            0.7294
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Variable Assignment::preProcess          :         0.34       4            0.0847
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Variable Assignment::priorFilter         :         0.01       4            0.0020
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS Vader::Vader                                        :       150.53       7           21.5041
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS Vader::changeVar                                    :       573.40       5          114.6791
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS Vader::changeVarTraj                                :        20.42       2           10.2102
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::IOFms::IOFms                               :        58.05      32            1.8140
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::IOFms::read state                          :     59925.56      31         1933.0826
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::IOFms::write state                         :     11140.38       1        11140.3796
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::IOFms::~IOFms                              :         0.14      32            0.0043
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::LinVarChaModel2GeoVaLs::LinVarChaModel2Geo :         7.10       2            3.5481
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::LinVarChaModel2GeoVaLs::multiplyAD         :       217.52      82            2.6526
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::LinVarChaModel2GeoVaLs::~LinVarChaModel2Ge :         0.27       2            0.1362
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::VarChaModel2GeoVaLs::VarChaModel2GeoVaLs   :         1.07       5            0.2135
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::VarChaModel2GeoVaLs::changeVar             :       468.21       5           93.6419
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::VarChaModel2GeoVaLs::~VarChaModel2GeoVaLs  :         0.02       5            0.0039
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ioda::ObsSpace::get_db(DateTime)                    :         0.48      21            0.0231
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ioda::ObsSpace::get_db(double)                      :         0.28      23            0.0123
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ioda::ObsSpace::get_db(float)                       :         1.44     148            0.0098
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ioda::ObsSpace::get_db(int)                         :         0.31      50            0.0063
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ioda::ObsSpace::load                                :      1026.60       3          342.1993
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ioda::ObsSpace::put_db(double)                      :         0.49      36            0.0135
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ioda::ObsSpace::put_db(float)                       :         0.23      16            0.0142
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ioda::ObsSpace::put_db(int)                         :         0.30      12            0.0254
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::EnsembleCovariance                :     58714.39       1        58714.3893
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::ensemble::Constructor             :         0.01       1            0.0092
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::ensemble::inverseMultiply         :    220352.39       3        73450.7982
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::ensemble::multiply                :    987565.99     105         9405.3904
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GeoVaLs::GeoVaLs                              :         7.61     501            0.0152
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GeoVaLs::fill                                 :         2.45    1918            0.0013
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GeoVaLs::fillAD                               :         1.68    1722            0.0010
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GeoVaLs::~GeoVaLs                             :         0.94     501            0.0019
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Geometry::Geometry                            :      6962.35       3         2320.7836
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Geometry::variableSizes                       :         0.12      52            0.0023
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Geometry::~Geometry                           :       489.07       3          163.0223
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GeometryData::containingTriangleAndBarycentri :       482.74  135852            0.0036
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GeometryData::setGlobalTree                   :     80375.32      22         3653.4237
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GeometryData::setLocalTree                    :       151.28      22            6.8762
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GeometryData::setMeshAndTriangulation         :       323.81      22           14.7188
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::GetValues                          :      5270.79      15          351.3862
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::fillGeoVaLs                        :        38.16      15            2.5442
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::fillGeoVaLsAD                      :         8.38     246            0.0341
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::fillGeoVaLsTL                      :        10.43     240            0.0435
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::finalize                           :       650.51      15           43.3672
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::finalizeAD                         :        28.70     246            0.1167
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::finalizeTL                         :         3.53     240            0.0147
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::initialize                         :       648.20      15           43.2131
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::initializeAD                       :         0.48     246            0.0019
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::initializeTL                       :         1.59     240            0.0066
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::process                            :        58.97      15            3.9315
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::processAD                          :       723.34     246            2.9404
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::processTL                          :       465.73     240            1.9406
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::Increment                          :     34195.04    7174            4.7665
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::axpy                               :      5866.39    2021            2.9027
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::diff                               :     50847.65      35         1452.7900
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::dot_product_with                   :      8243.77    2126            3.8776
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::fromFieldSet                       :     50316.56    3232           15.5682
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::operator*=                         :       674.48     304            2.2187
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::operator+=                         :      9708.65    3502            2.7723
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::operator+=(State, Increment)       :      3144.60       2         1572.3020
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::operator-=                         :       109.47      33            3.3173
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::operator=                          :     12688.33    4027            3.1508
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::print                              :       814.53      13           62.6562
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::schur_product_with                 :     18088.92    6300            2.8713
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::serialSize                         :         0.65     360            0.0018
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::toFieldSet                         :     28947.07    3312            8.7401
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::zero                               :       383.37     272            1.4094
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::~Increment                         :       183.77    7174            0.0256
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::Lin :        43.11       2           21.5564
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::req :         0.16     166            0.0010
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::set :       659.78       2          329.8917
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::sim :         0.59      82            0.0072
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::sim :         1.60      80            0.0200
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::~Li :         0.05       2            0.0232
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::L :         0.13       2            0.0636
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::r :         0.03     166            0.0002
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::s :         0.14       2            0.0722
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::s :         0.11      82            0.0013
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::s :         0.12      80            0.0015
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::~ :         0.00       2            0.0024
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_winds_233::LinearObsOpe :         0.11       2            0.0533
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_winds_233::requiredVars :         0.03     166            0.0002
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_winds_233::setTrajector :         0.28       2            0.1396
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_winds_233::simulateObsA :         0.50      82            0.0061
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_winds_233::simulateObsT :         0.60      80            0.0076
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_winds_233::~LinearObsOp :         0.00       2            0.0023
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearVariableChange::LinearVariableChange    :         0.78       2            0.3911
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearVariableChange::changeVarAD             :      3260.05      82           39.7567
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearVariableChange::changeVarTL             :         6.91      80            0.0863
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearVariableChange::changeVarTraj           :        49.22       2           24.6101
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearVariableChange::~LinearVariableChange   :         0.64       2            0.3213
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LocalInterpolator::LocalInterpolator          :        48.77    7260            0.0067
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LocalInterpolator::apply                      :        54.53    7260            0.0075
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LocalInterpolator::applyAD                    :       656.00  119064            0.0055
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LocalInterpolator::applyTL                    :       400.41  116160            0.0034
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LocalInterpolator::preprocess                 :       719.27      85            8.4619
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LocalInterpolator::preprocessAD               :      1104.28      82           13.4668
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LocalInterpolator::~LocalInterpolator         :         1.51    7260            0.0002
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Localization::Localization                    :      2330.25       1         2330.2495
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Localization::multiply                        :    904871.22    3150          287.2607
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Localization::~Localization                   :       694.51       1          694.5079
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxControl::ModelAuxControl              :         0.01       5            0.0025
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxControl::print                        :         0.00       6            0.0008
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxControl::~ModelAuxControl             :         0.01       5            0.0011
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxCovariance::ModelAuxCovariance        :         0.00       1            0.0040
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxCovariance::inverseMultiply           :         0.00       3            0.0004
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxCovariance::linearize                 :         0.00       2            0.0002
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxCovariance::multiply                  :         0.01      82            0.0002
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxCovariance::~ModelAuxCovariance       :         0.00       1            0.0010
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::ModelAuxIncrement          :         0.36     360            0.0010
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::axpy                       :         1.35    1801            0.0008
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::diff                       :         0.00       5            0.0008
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::dot_product_with           :         1.47    1973            0.0007
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::operator*=                 :         0.09     158            0.0006
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::operator+=                 :         0.17     240            0.0007
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::operator+=ModelAuxControl  :         0.00       2            0.0002
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::operator=                  :         0.07      88            0.0008
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::print                      :         0.01      13            0.0008
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::serialSize                 :         0.02     360            0.0001
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::zero                       :         0.06      82            0.0007
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::~ModelAuxIncrement         :         0.11     360            0.0003
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelData::ModelData                          :         0.00       1            0.0040
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelData::modelData                          :         0.07       1            0.0699
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelData::~ModelData                         :         0.00       1            0.0023
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxControl::ObsAuxControl                  :         0.19      15            0.0128
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxControl::print                          :         0.01      18            0.0005
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxControl::requiredHdiagnostics           :         0.00       9            0.0001
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxControl::requiredVars                   :         0.01      30            0.0002
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxControl::write                          :         0.06       3            0.0207
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxControl::~ObsAuxControl                 :         0.02      15            0.0013
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxCovariance::ObsAuxCovariance            :        44.55       3           14.8485
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxCovariance::inverseMultiply             :         0.22     255            0.0009
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxCovariance::linearize                   :         0.02       6            0.0028
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxCovariance::multiply                    :         0.54     246            0.0022
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxCovariance::preconditioner              :         0.05       6            0.0087
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxCovariance::write                       :         0.04       3            0.0122
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxCovariance::~ObsAuxCovariance           :         0.00       3            0.0014
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::ObsAuxIncrement              :         9.88    1080            0.0091
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::axpy                         :         3.55    5403            0.0007
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::diff                         :         0.05      15            0.0031
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::dot_product_with             :         3.09    5919            0.0005
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::operator*=                   :         0.34     474            0.0007
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::operator+=                   :         0.56     720            0.0008
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::operator=                    :         0.17     264            0.0007
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::print                        :         0.05      39            0.0013
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::serialSize                   :         0.08    2160            0.0000
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::zero                         :         0.23     246            0.0009
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::~ObsAuxIncrement             :         0.93    1080            0.0009
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxPreconditioner::multiply                :         0.13     246            0.0005
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxPreconditioner::~ObsAuxPreconditioner   :         0.01      18            0.0007
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsDataVector::ObsDataVector                  :         0.09      21            0.0044
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsDataVector::mask                           :         0.00       9            0.0003
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsDataVector::operator=                      :         0.02      15            0.0014
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsDataVector::print                          :        23.80       9            2.6446
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsDataVector::save                           :         0.47      18            0.0261
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsDataVector::~ObsDataVector                 :         0.02      21            0.0008
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsDiagnostics::ObsDiagnostics                :         0.10       9            0.0111
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsDiagnostics::~ObsDiagnostics               :         0.04       9            0.0048
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsError::getRMSE                             :         2.22      18            0.1233
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsError::inverseMultiply                     :         0.41     249            0.0016
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsError::obserrors                           :         0.10      27            0.0037
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsError::update                              :        20.02       9            2.2249
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsError::~ObsError                           :         0.02       3            0.0053
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::ObsOp :       102.55       3           34.1844
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::compu :         0.14       5            0.0275
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::locat :         0.88       5            0.1760
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::requi :         0.00       5            0.0009
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::simul :         0.46       3            0.1546
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::~ObsO :         0.04       3            0.0124
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::Obs :         0.32       3            0.1077
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::com :         0.05       5            0.0107
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::loc :         0.32       5            0.0649
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::req :         0.00       5            0.0002
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::sim :         0.05       3            0.0152
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::~Ob :         0.01       3            0.0026
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_winds_233::ObsOperator    :         0.36       3            0.1186
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_winds_233::computeReduced :         0.05       5            0.0093
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_winds_233::locations      :         0.38       5            0.0762
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_winds_233::requiredVars   :         0.00       5            0.0002
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_winds_233::simulateObs    :         0.22       3            0.0741
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_winds_233::~ObsOperator   :         0.01       3            0.0020
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsSpace::ObsSpace                            :      1093.72       3          364.5729
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsSpace::obsvariables                        :         0.00      15            0.0001
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsSpace::save                                :       480.15       3          160.0498
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsSpace::~ObsSpace                           :         0.43       3            0.1436
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::ObsVector                          :         1.89     561            0.0034
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::dot_product                        :         0.59      18            0.0328
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::info                               :        17.75      27            0.6575
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::operator*=                         :         0.01       9            0.0006
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::operator-=                         :         0.01       9            0.0009
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::operator=                          :         0.06      18            0.0033
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::rms                                :         1.08      18            0.0599
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::save                               :         0.52      27            0.0193
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::zero                               :         0.12     249            0.0005
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::~ObsVector                         :         0.67     561            0.0012
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Parameters::deserialize                       :       420.65     305            1.3792
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Parameters::serialize                         :        10.50     406            0.0259
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Run::execute                                  :   1203223.75       1      1203223.7503
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::SampledLocations::SampledLocations            :         0.01      21            0.0002
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::SampledLocations::latitudes                   :         0.00      15            0.0001
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::SampledLocations::longitudes                  :         0.00      15            0.0001
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::SampledLocations::times                       :         0.00      15            0.0001
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::SampledLocations::~SampledLocations           :         0.22      42            0.0051
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::State::State                                  :     90438.29      78         1159.4653
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::State::print                                  :       186.21       6           31.0344
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::State::toFieldSet                             :       140.74       7           20.1054
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::State::variables                              :         0.00      58            0.0000
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::State::write                                  :     11140.82       1        11140.8203
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::State::zero                                   :        57.73      30            1.9245
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::State::~State                                 :         1.43      78            0.0183
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::UnstructuredInterpolator::UnstructuredInterpo :       538.96   16456            0.0328
+
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::UnstructuredInterpolator::apply               :     27098.35 1656732            0.0164
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::UnstructuredInterpolator::applyAD             :     15330.71 1643664            0.0093
+
+
+
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::VariableChange::VariableChange                :       821.54       5          164.3088
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::VariableChange::changeVar                     :      1684.84       5          336.9673
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::VariableChange::~VariableChange               :         1.19       5            0.2384
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::Interpolation::multiply                      :    134358.86    3150           42.6536
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::Interpolation::multiplyAD                    :    196010.98    3150           62.2257
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::Localization::Localization                   :      2330.24       1         2330.2393
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::Localization::multiply                       :    890102.75    3150          282.5723
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::Localization::~Localization                  :         0.00       1            0.0003
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::mgbf::Covariance::Covariance                 :       722.85       1          722.8480
+
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::mgbf::Covariance::multiply                   :    508873.37    3150          161.5471
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::mgbf::Covariance::~Covariance                :       619.35       1          619.3455
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ufo::ObsFilter::ObsFilter                           :        92.27      84            1.0984
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ufo::ObsFilter::checkFilterData                     :         0.61     252            0.0024
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ufo::ObsFilter::postFilter                          :       241.94      84            2.8802
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ufo::ObsFilter::preProcess                          :       315.11      84            3.7513
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ufo::ObsFilter::priorFilter                         :       318.65      84            3.7934
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ufo::ObsFilter::~ObsFilter                          :       178.26     201            0.8869
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS util::Timers::measured                              :   1202524.00       1      1202523.9999
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: 
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ------------------------------------------------------------------------------------------------------------------
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ---------------------------------- Parallel Timing Statistics ( 484 MPI tasks) -----------------------------------
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ------------------------------------------------------------------------------------------------------------------
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS Name                                                :     min (ms)    max (ms)    avg (ms)     % total   imbal (%)
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::EnsembleCovariance                :     58663.44    58723.78    58702.07        4.88        0.10
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::ensemble::inverseMultiply         :    220340.53   220375.08   220353.80       18.31        0.02
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::ensemble::multiply                :    987426.03   989353.24   988413.79       82.15        0.19
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Geometry::Geometry                            :      6962.35     7118.30     7038.45        0.58        2.22
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GeometryData::setGlobalTree                   :     79598.17    80770.97    80237.93        6.67        1.46
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::GetValues                          :      5097.13     5461.50     5229.00        0.43        6.97
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::Increment                          :     30122.65    37846.99    35468.95        2.95       21.78
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::axpy                               :      5610.67     5995.34     5784.31        0.48        6.65
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::diff                               :     50730.72    51550.91    50962.25        4.24        1.61
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::dot_product_with                   :      6522.19     8860.00     7611.96        0.63       30.71
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::fromFieldSet                       :     47948.64    53989.30    49601.71        4.12       12.18
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::operator+=                         :      9220.85    12333.82    11401.82        0.95       27.30
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::operator+=(State, Increment)       :      3121.56     3167.22     3147.22        0.26        1.45
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::operator=                          :     10639.77    13809.70    12675.27        1.05       25.01
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::schur_product_with                 :     17114.00    20652.59    19368.79        1.61       18.27
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::toFieldSet                         :     25051.48    29683.84    26530.37        2.20       17.46
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearVariableChange::changeVarAD             :      3079.49     3272.55     3183.97        0.26        6.06
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Localization::Localization                    :      2252.05     2416.33     2353.63        0.20        6.98
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Localization::multiply                        :    902535.94   911240.28   905546.45       75.26        0.96
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::State::State                                  :     90332.29    90580.31    90444.28        7.52        0.27
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::State::write                                  :     11023.91    11140.82    11055.04        0.92        1.06
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::UnstructuredInterpolator::apply               :     26654.93    61099.19    54248.91        4.51       63.49
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::UnstructuredInterpolator::applyAD             :     15017.27    43876.02    37895.47        3.15       76.15
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::VariableChange::changeVar                     :      1671.52     1829.41     1723.95        0.14        9.16
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::Interpolation::multiply                      :    133136.87   184154.25   156018.08       12.97       32.70
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::Interpolation::multiplyAD                    :    139746.61   200597.86   170372.02       14.16       35.72
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::Localization::Localization                   :      2252.04     2416.32     2353.62        0.20        6.98
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::Localization::multiply                       :    884809.66   895917.22   888942.36       73.88        1.25
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::mgbf::Covariance::multiply                   :    508873.37   516499.80   512388.03       42.59        1.49
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS util::Timers::measured                              :   1202429.11  1202684.34  1202574.63       99.95        0.02
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Run::execute                                  :   1203070.25  1203276.17  1203198.10      100.00        0.02
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS ---------------------------------- Parallel Timing Statistics ( 484 MPI tasks) -----------------------------------
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: 
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS_STATS Run end                                  - Runtime:   1229.45 sec,  Memory: total:  2912.88 GB, per task: min =     5.80 GB, max =     6.48 GB
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: Run: Finishing oops::Variational<FV3JEDI, UFO and IODA observations> with status = 0
+nid001046.dogwood.wcoss2.ncep.noaa.gov 0: OOPS Ending   2026-02-26 23:58:13 (UTC+0000)
+PBS: Running epilogue on parent mom node: nid001046...
+##### Job 98040755.dbqs01 - PBS Job Script:
+(Note: Duplicate #PBS entries are a function how PBS interprets and caches the original job script.)
+
+#!/bin/bash
+#PBS -A SUPPORT-HPC
+#PBS -q dev
+#PBS -l walltime=00:45:00
+##PBS -l select=121:mpiprocs=128:ncpus=128
+#PBS -l select=31:ncpus=128:mpiprocs=16
+##PBS -l select=61:ncpus=128:mpiprocs=8
+#PBS -l place=vscatter:exclhost
+#PBS -N deb-ens3dvar-dual-vdl_v1-p484_31x16x1_ReChunkEns
+##PBS -N debug
+##PBS -l debug=true
+#PBS -j oe
+
+cd $PBS_O_WORKDIR
+
+moduledir="/lfs/h2/hpc/support/daniel.kokron/Projects/JEDI/fv3_2024052700_nadomain/modulefiles"
+module use $moduledir
+module load RDAS/wcoss2.intel
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/opt/cray/pe/mpich/8.1.19/ofi/intel/19.0/lib"
+
+ulimit -s unlimited
+ulimit -c 0
+ulimit -a
+
+echo "start time:"
+date
+export OMP_NUM_THREADS=1
+export OMP_PLACES=cores
+export OMP_PROC_BIND=close
+export OMP_STACKSIZE=1G
+
+#last_run=$(ls nodiagwrt_nosat_stdout.* 2>/dev/null | sort -n -t. -k 2 | tail -1)
+
+#EXEC=/lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle/jedi-bundle/build/bin/fv3jedi_var.x
+#export JEDI_LIBS="/lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle/jedi-bundle/build/lib64:/lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle/jedi-bundle/build/lib"
+
+EXEC=/lfs/h2/hpc/support/daniel.kokron/Projects/JEDI/jedi-bundle/build/bin/fv3jedi_var.x
+export JEDI_LIBS="/lfs/h2/hpc/support/daniel.kokron/Projects/JEDI/jedi-bundle/build/lib64:/lfs/h2/hpc/support/daniel.kokron/Projects/JEDI/jedi-bundle/build/lib"
+# add subproject libs if present:
+# JEDI_LIBS="$JEDI_LIBS:/lfs/.../oops/build/lib64:/lfs/.../saber/build/lib64:/lfs/.../ufo/build/lib64"
+
+# include MKL/compiler runtimes if you linked them:
+module load intel-oneapi-mkl intel-oneapi-compiler  # or whatever sets MKLROOT
+export LD_LIBRARY_PATH="$JEDI_LIBS:$MKLROOT/lib/intel64:$LD_LIBRARY_PATH"
+
+export MPICH_OFI_STARTUP_CONNECT=1
+export FI_MR_CACHE_MONITOR=memhooks
+export FI_MR_CACHE_MAX_COUNT=0
+export MPICH_OFI_VERBOSE=1
+export MPICH_MPIIO_HINTS='*.rec.nc:romio_cb_read=disable,*.fv_*.res.nc:romio_cb_write=enable,*.sfc_data.nc:romio_cb_write=enable'
+export MPICH_ALLTOALLV_THROTTLE=484
+
+outfiles="dual-vdl0-ens3dvar.sfc_data.nc dual-vdl0-ens3dvar.fv_tracer.res.nc dual-vdl0-ens3dvar.fv_srf_wnd.res.nc dual-vdl0-ens3dvar.fv_core.res.nc"
+/bin/rm ${outfiles}
+#for f in ${outfiles}; do fn=$(echo $f | cut -d/ -f2-); lfs setstripe --stripe-count 16 --stripe-size 1048576 --pool disk $fn; done
+
+ntasks=$( wc -l $PBS_NODEFILE | awk '{print $1}')
+ppn=$(grep -c $(head -1 $PBS_NODEFILE) $PBS_NODEFILE)
+depth=$(( 128 / $ppn ))
+nodes=$(( $ntasks / $ppn ))
+
+# make sure mpiexec propagates env (Hydra/PALS understands -env or -genv):
+#mpiexec -n 484 -ppn 4 --cpu-bind core --depth 16 --label --line-buffer $EXEC deb-ens3dvar-dual-vdl_v1-p484.yaml  OUTPUT/deb-ens3dvar-dual-vdl_v1-p484.out
+mpiexec -n 484 -ppn 16 --cpu-bind core --depth 8 --label --line-buffer $EXEC deb-ens3dvar-dual-vdl_v1-p484.yaml  OUTPUT/deb-ens3dvar-dual-vdl_v1-p484.out
+#mpiexec -n 484 -ppn 8 --cpu-bind core --depth 16 --label --line-buffer $EXEC deb-ens3dvar-dual-vdl_v1-p484.yaml  OUTPUT/deb-ens3dvar-dual-vdl_v1-p484.out
+
+/bin/rm mgbf_tmpfile_*.txt mgbf_filtering_grid_latlon_*.txt model_native_grid_latlon_*.txt
+/bin/rm jdiag_aircar*.nc*
+exit
+
+##### End of job script
+------------------------------------------------------------------
+
