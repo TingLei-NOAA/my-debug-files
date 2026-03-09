@@ -586,23 +586,53 @@ def main(argv: Iterable[str] | None = None) -> None:
         action="store_true",
         help="Also plot dx/dy/dx_over_dy for each subdomain separately.",
     )
-    args = parser.parse_args(list(argv) if argv is not None else None)
-    run(
-        args.pattern,
-        args.output_dir,
-        args.expected_nlon,
-        args.expected_nlat,
-        tiles_x=args.tiles_x,
-        tiles_y=args.tiles_y,
-        input_order=args.input_order,
-        seam_threshold_km=args.seam_threshold_km,
-        monotonic_tol_deg=args.monotonic_tol_deg,
-        auto_layout=args.auto_layout,
-        auto_layout_decimals=args.auto_layout_decimals,
-        rank_order=args.rank_order,
-        dump_stitched=args.dump_stitched,
-        plot_subdomains=args.plot_subdomains,
+    parser.add_argument(
+        "--try-all-combinations",
+        action="store_true",
+        help="Run all input-order/rank-order combinations and write outputs to separate subdirectories.",
     )
+    args = parser.parse_args(list(argv) if argv is not None else None)
+    if args.try_all_combinations:
+        combos = [("lonlat", "row"), ("lonlat", "col"), ("latlon", "row"), ("latlon", "col")]
+        for input_order, rank_order in combos:
+            combo_out = args.output_dir / f"input_{input_order}__rank_{rank_order}"
+            print(f"\n=== Running combination: input_order={input_order}, rank_order={rank_order} ===")
+            try:
+                run(
+                    args.pattern,
+                    combo_out,
+                    args.expected_nlon,
+                    args.expected_nlat,
+                    tiles_x=args.tiles_x,
+                    tiles_y=args.tiles_y,
+                    input_order=input_order,
+                    seam_threshold_km=args.seam_threshold_km,
+                    monotonic_tol_deg=args.monotonic_tol_deg,
+                    auto_layout=args.auto_layout,
+                    auto_layout_decimals=args.auto_layout_decimals,
+                    rank_order=rank_order,
+                    dump_stitched=args.dump_stitched,
+                    plot_subdomains=args.plot_subdomains,
+                )
+            except Exception as e:
+                print(f"[combination-failed] input_order={input_order}, rank_order={rank_order}: {e}")
+    else:
+        run(
+            args.pattern,
+            args.output_dir,
+            args.expected_nlon,
+            args.expected_nlat,
+            tiles_x=args.tiles_x,
+            tiles_y=args.tiles_y,
+            input_order=args.input_order,
+            seam_threshold_km=args.seam_threshold_km,
+            monotonic_tol_deg=args.monotonic_tol_deg,
+            auto_layout=args.auto_layout,
+            auto_layout_decimals=args.auto_layout_decimals,
+            rank_order=args.rank_order,
+            dump_stitched=args.dump_stitched,
+            plot_subdomains=args.plot_subdomains,
+        )
 
 
 if __name__ == "__main__":
