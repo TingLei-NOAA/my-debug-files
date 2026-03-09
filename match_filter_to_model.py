@@ -18,6 +18,7 @@ Outputs:
 from __future__ import annotations
 
 import argparse
+import math
 import re
 from pathlib import Path
 
@@ -60,11 +61,59 @@ def stitch(grids: list[tuple[Path, np.ndarray, np.ndarray, int]], tiles_x: int, 
     full_lat = np.full_like(full_lon, np.nan)
     for path, lon_tile, lat_tile, rank in grids:
         row, col = rank_to_row_col(rank, tiles_x, tiles_y, rank_order)
+        if row < 0 or row >= tiles_y or col < 0 or col >= tiles_x:
+            raise ValueError(
+                f"Rank {rank} mapped outside tile layout ({tiles_x}x{tiles_y}): row={row}, col={col}. "
+                "Set --tiles-x/--tiles-y explicitly for your rank ordering."
+            )
         y0 = row * nlat
         x0 = col * nlon
         full_lon[y0:y0 + nlat, x0:x0 + nlon] = lon_tile
         full_lat[y0:y0 + nlat, x0:x0 + nlon] = lat_tile
     return full_lon, full_lat
+
+
+def resolve_tile_layout(
+    grids: list[tuple[Path, np.ndarray, np.ndarray, int]],
+    tiles_x: int | None,
+    tiles_y: int | None,
+) -> tuple[int, int]:
+    n_tiles = len(grids)
+    if n_tiles == 0:
+        raise ValueError("No filtering tiles found.")
+
+    ranks = [g[3] for g in grids]
+    if len(set(ranks)) != len(ranks):
+        raise ValueError("Duplicate rank IDs found in filtering files.")
+
+    if tiles_x is not None and tiles_y is not None:
+        if tiles_x * tiles_y != n_tiles:
+            raise ValueError(f"Expected {tiles_x*tiles_y} tiles from --tiles-x/--tiles-y, found {n_tiles}")
+        return tiles_x, tiles_y
+
+    if tiles_x is not None:
+        if n_tiles % tiles_x != 0:
+            raise ValueError(f"Cannot infer --tiles-y: {n_tiles} tiles not divisible by tiles_x={tiles_x}")
+        return tiles_x, n_tiles // tiles_x
+
+    if tiles_y is not None:
+        if n_tiles % tiles_y != 0:
+            raise ValueError(f"Cannot infer --tiles-x: {n_tiles} tiles not divisible by tiles_y={tiles_y}")
+        return n_tiles // tiles_y, tiles_y
+
+    root = int(math.isqrt(n_tiles))
+    if root * root == n_tiles:
+        return root, root
+
+    best_x, best_y = n_tiles, 1
+    best_gap = best_x - best_y
+    for y in range(1, root + 1):
+        if n_tiles % y == 0:
+            x = n_tiles // y
+            gap = abs(x - y)
+            if gap < best_gap:
+                best_x, best_y, best_gap = x, y, gap
+    return best_x, best_y
 
 
 def read_model_grid(fv3_spec: Path) -> tuple[np.ndarray, np.ndarray]:
@@ -194,8 +243,8 @@ def main():
     parser.add_argument("--pattern", default="mgbf_filtering_grid_latlon_*.txt", help="Glob for filtering tiles")
     parser.add_argument("--nlon", type=int, default=14, help="Core nlon per tile")
     parser.add_argument("--nlat", type=int, default=14, help="Core nlat per tile")
-    parser.add_argument("--tiles-x", type=int, default=22, help="Tiles west->east")
-    parser.add_argument("--tiles-y", type=int, default=22, help="Tiles south->north")
+    parser.add_argument("--tiles-x", type=int, default=None, help="Tiles west->east (optional; auto-infer if omitted)")
+    parser.add_argument("--tiles-y", type=int, default=None, help="Tiles south->north (optional; auto-infer if omitted)")
     parser.add_argument("--input-order", type=str, default="lonlat", choices=["lonlat", "latlon"], help="Storage order in filtering files")
     parser.add_argument(
         "--rank-order",
@@ -238,7 +287,10 @@ def main():
         lon_tile, lat_tile = parse_field(path, args.nlon, args.nlat, args.input_order)
         grids.append((path, lon_tile, lat_tile, rank))
 
-    lon_filt, lat_filt = stitch(grids, args.tiles_x, args.tiles_y, args.nlon, args.nlat, rank_order=args.rank_order)
+    tiles_x, tiles_y = resolve_tile_layout(grids, args.tiles_x, args.tiles_y)
+    print(f"Using tile layout: tiles_x={tiles_x}, tiles_y={tiles_y}, n_tiles={len(grids)}")
+
+    lon_filt, lat_filt = stitch(grids, tiles_x, tiles_y, args.nlon, args.nlat, rank_order=args.rank_order)
     lon_filt = normalize_lon_180(lon_filt)
     ny_filt, nx_filt = lon_filt.shape
     print(f"Filtering grid stitched: shape (ny, nx)=({ny_filt},{nx_filt})")
@@ -296,7 +348,7 @@ def main():
     center_x = (args.nlon - 1) // 2
 
     for path, lon_tile, lat_tile, rank in grids:
-        row, col = rank_to_row_col(rank, args.tiles_x, args.tiles_y, args.rank_order)
+        row, col = rank_to_row_col(rank, tiles_x, tiles_y, args.rank_order)
         y = row * args.nlat + center_y
         x = col * args.nlon + center_x
         center_lon.append(lon_filt[y, x])
