@@ -389,6 +389,7 @@ def run(
     dump_stitched: bool,
     plot_subdomains: bool,
 ) -> None:
+    output_dir.mkdir(parents=True, exist_ok=True)
     grids, files = collect_grids(
         pattern,
         core_nlon=expected_nlon,
@@ -468,7 +469,6 @@ def run(
     monotonic_checks(lon_full, lat_full, tol_deg=monotonic_tol_deg)
 
     if dump_stitched:
-        output_dir.mkdir(parents=True, exist_ok=True)
         np.savetxt(output_dir / "stitched_lon.txt", lon_full, fmt="%.8f")
         np.savetxt(output_dir / "stitched_lat.txt", lat_full, fmt="%.8f")
         print(f"Wrote stitched lon/lat to {output_dir / 'stitched_lon.txt'} and {output_dir / 'stitched_lat.txt'}")
@@ -496,7 +496,6 @@ def run(
 
     dx_full, dy_full, ratio_full = compute_dx_dy(lon_full, lat_full)
 
-    output_dir.mkdir(parents=True, exist_ok=True)
     plot_field_grid(dx_full / 1000.0, lon_full, lat_full, "dx (km) across domain", output_dir / "mgbf_dx_km.png", cmap="magma", units="km")
     plot_field_grid(dy_full / 1000.0, lon_full, lat_full, "dy (km) across domain", output_dir / "mgbf_dy_km.png", cmap="magma", units="km")
     plot_field_grid(ratio_full, lon_full, lat_full, "dx/dy across domain", output_dir / "mgbf_dx_over_dy.png", cmap="coolwarm")
@@ -596,6 +595,7 @@ def main(argv: Iterable[str] | None = None) -> None:
         combos = [("lonlat", "row"), ("lonlat", "col"), ("latlon", "row"), ("latlon", "col")]
         for input_order, rank_order in combos:
             combo_out = args.output_dir / f"input_{input_order}__rank_{rank_order}"
+            combo_out.mkdir(parents=True, exist_ok=True)
             print(f"\n=== Running combination: input_order={input_order}, rank_order={rank_order} ===")
             try:
                 run(
