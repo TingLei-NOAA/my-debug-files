@@ -389,6 +389,7 @@ def run(
     dump_stitched: bool,
     plot_subdomains: bool,
     enforce_layout_checks: bool,
+    skip_monotonic_check: bool,
 ) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     grids, files = collect_grids(
@@ -478,12 +479,15 @@ def run(
             raise ValueError(msg)
         print(f"[warning] {msg}")
 
-    try:
-        monotonic_checks(lon_full, lat_full, tol_deg=monotonic_tol_deg)
-    except Exception as e:
-        if enforce_layout_checks:
-            raise
-        print(f"[warning] {e}")
+    if skip_monotonic_check:
+        print("Monotonic check skipped by option.")
+    else:
+        try:
+            monotonic_checks(lon_full, lat_full, tol_deg=monotonic_tol_deg)
+        except Exception as e:
+            if enforce_layout_checks:
+                raise
+            print(f"[warning] {e}")
 
     if dump_stitched:
         np.savetxt(output_dir / "stitched_lon.txt", lon_full, fmt="%.8f")
@@ -601,6 +605,19 @@ def main(argv: Iterable[str] | None = None) -> None:
         action="store_true",
         help="Run all input-order/rank-order combinations and write outputs to separate subdirectories.",
     )
+    parser.add_argument(
+        "--skip-monotonic-check",
+        dest="skip_monotonic_check",
+        action="store_true",
+        default=True,
+        help="Skip monotonic lon/lat checks (default: enabled).",
+    )
+    parser.add_argument(
+        "--no-skip-monotonic-check",
+        dest="skip_monotonic_check",
+        action="store_false",
+        help="Enable monotonic lon/lat checks.",
+    )
     args = parser.parse_args(list(argv) if argv is not None else None)
     if args.try_all_combinations:
         combos = [("lonlat", "row"), ("lonlat", "col"), ("latlon", "row"), ("latlon", "col")]
@@ -625,6 +642,7 @@ def main(argv: Iterable[str] | None = None) -> None:
                     dump_stitched=args.dump_stitched,
                     plot_subdomains=args.plot_subdomains,
                     enforce_layout_checks=False,
+                    skip_monotonic_check=args.skip_monotonic_check,
                 )
             except Exception as e:
                 print(f"[combination-failed] input_order={input_order}, rank_order={rank_order}: {e}")
@@ -645,6 +663,7 @@ def main(argv: Iterable[str] | None = None) -> None:
             dump_stitched=args.dump_stitched,
             plot_subdomains=args.plot_subdomains,
             enforce_layout_checks=True,
+            skip_monotonic_check=args.skip_monotonic_check,
         )
 
 
