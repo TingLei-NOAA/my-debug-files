@@ -388,6 +388,7 @@ def run(
     rank_order: str,
     dump_stitched: bool,
     plot_subdomains: bool,
+    enforce_layout_checks: bool,
 ) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     grids, files = collect_grids(
@@ -457,16 +458,32 @@ def run(
     for lbl, stats in seam_stats.items():
         if stats["mean"] == stats["mean"]:  # not NaN
             print(f"{lbl.capitalize()} seam gaps (meters): mean={stats['mean']:.2f}, max={stats['max']:.2f}")
-    if (
+
+    # Always produce stitched-domain plots so combination scans can be compared
+    # even when layout checks fail.
+    dx_full, dy_full, ratio_full = compute_dx_dy(lon_full, lat_full)
+    plot_field_grid(dx_full / 1000.0, lon_full, lat_full, "dx (km) across domain", output_dir / "mgbf_dx_km.png", cmap="magma", units="km")
+    plot_field_grid(dy_full / 1000.0, lon_full, lat_full, "dy (km) across domain", output_dir / "mgbf_dy_km.png", cmap="magma", units="km")
+    plot_field_grid(ratio_full, lon_full, lat_full, "dx/dy across domain", output_dir / "mgbf_dx_over_dy.png", cmap="coolwarm")
+    seam_bad = (
         seam_stats["vertical"]["max"] / 1000.0 > seam_threshold_km
         or seam_stats["horizontal"]["max"] / 1000.0 > seam_threshold_km
-    ):
-        raise ValueError(
+    )
+    if seam_bad:
+        msg = (
             f"Seam gaps exceed {seam_threshold_km} km (vertical max={seam_stats['vertical']['max']/1000.0:.2f} km, "
             f"horizontal max={seam_stats['horizontal']['max']/1000.0:.2f} km). Check tile ordering/indices."
         )
+        if enforce_layout_checks:
+            raise ValueError(msg)
+        print(f"[warning] {msg}")
 
-    monotonic_checks(lon_full, lat_full, tol_deg=monotonic_tol_deg)
+    try:
+        monotonic_checks(lon_full, lat_full, tol_deg=monotonic_tol_deg)
+    except Exception as e:
+        if enforce_layout_checks:
+            raise
+        print(f"[warning] {e}")
 
     if dump_stitched:
         np.savetxt(output_dir / "stitched_lon.txt", lon_full, fmt="%.8f")
@@ -493,12 +510,6 @@ def run(
             units="deg",
             cbar_label="Latitude (deg)",
         )
-
-    dx_full, dy_full, ratio_full = compute_dx_dy(lon_full, lat_full)
-
-    plot_field_grid(dx_full / 1000.0, lon_full, lat_full, "dx (km) across domain", output_dir / "mgbf_dx_km.png", cmap="magma", units="km")
-    plot_field_grid(dy_full / 1000.0, lon_full, lat_full, "dy (km) across domain", output_dir / "mgbf_dy_km.png", cmap="magma", units="km")
-    plot_field_grid(ratio_full, lon_full, lat_full, "dx/dy across domain", output_dir / "mgbf_dx_over_dy.png", cmap="coolwarm")
 
 
 def main(argv: Iterable[str] | None = None) -> None:
@@ -613,6 +624,7 @@ def main(argv: Iterable[str] | None = None) -> None:
                     rank_order=rank_order,
                     dump_stitched=args.dump_stitched,
                     plot_subdomains=args.plot_subdomains,
+                    enforce_layout_checks=False,
                 )
             except Exception as e:
                 print(f"[combination-failed] input_order={input_order}, rank_order={rank_order}: {e}")
@@ -632,6 +644,7 @@ def main(argv: Iterable[str] | None = None) -> None:
             rank_order=args.rank_order,
             dump_stitched=args.dump_stitched,
             plot_subdomains=args.plot_subdomains,
+            enforce_layout_checks=True,
         )
 
 
