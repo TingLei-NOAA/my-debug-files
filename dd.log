@@ -1,0 +1,343 @@
+real-time non-blocking time  (microseconds, -R) unlimited
+core file size              (blocks, -c) unlimited
+data seg size               (kbytes, -d) unlimited
+scheduling priority                 (-e) 0
+file size                   (blocks, -f) unlimited
+pending signals                     (-i) 1540561
+max locked memory           (kbytes, -l) unlimited
+max memory size             (kbytes, -m) 385744896
+open files                          (-n) 131072
+pipe size                (512 bytes, -p) 8
+POSIX message queues         (bytes, -q) 819200
+real-time priority                  (-r) 0
+stack size                  (kbytes, -s) unlimited
+cpu time                   (seconds, -t) unlimited
+max user processes                  (-u) 1540561
+virtual memory              (kbytes, -v) unlimited
+file locks                          (-x) unlimited
+/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-jedi-bundle-current/jedi-tools/buildscripts/setup/hera_setup_oneapi.sh is /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-jedi-bundle-current/jedi-tools/buildscripts/setup/hera_setup_oneapi.sh
+Loading EWOK-SKYLAB Environment Using Spack-Stack 1.9.3
+Lmod has detected the following error: The following module(s) are unknown:
+"singularity"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "singularity"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+real-time non-blocking time  (microseconds, -R) unlimited
+core file size              (blocks, -c) unlimited
+data seg size               (kbytes, -d) unlimited
+scheduling priority                 (-e) 0
+file size                   (blocks, -f) unlimited
+pending signals                     (-i) 1540561
+max locked memory           (kbytes, -l) unlimited
+max memory size             (kbytes, -m) 385744896
+open files                          (-n) 131072
+pipe size                (512 bytes, -p) 8
+POSIX message queues         (bytes, -q) 819200
+real-time priority                  (-r) 0
+stack size                  (kbytes, -s) unlimited
+cpu time                   (seconds, -t) unlimited
+max user processes                  (-u) 1540561
+virtual memory              (kbytes, -v) unlimited
+file locks                          (-x) unlimited
+jexec=/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/fv3jedi_var.x
+-rwxr-xr-x 1 Ting.Lei fv3-cam 86972472 Mar 18 21:03 /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/fv3jedi_var.x
+	libgsibec.so => /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/gsibec-1.2.1-mnufhir/lib64/libgsibec.so (0x000014709a46e000)
+	libeckit_mpi.so => /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/lib64/libeckit_mpi.so (0x00001478aa374000)
+	libmpicxx.so.12 => /apps/spack-2024-12/linux-rocky9-x86_64/oneapi-2024.2.1/intel-oneapi-mpi-2021.13.1-ss72gbndvat3oz22sa6lhmlbjkeabrn4/mpi/2021.13/lib/libmpicxx.so.12 (0x0000147896d7c000)
+	libmpifort.so.12 => /apps/spack-2024-12/linux-rocky9-x86_64/oneapi-2024.2.1/intel-oneapi-mpi-2021.13.1-ss72gbndvat3oz22sa6lhmlbjkeabrn4/mpi/2021.13/lib/libmpifort.so.12 (0x000014788e84d000)
+	libmpi.so.12 => /apps/spack-2024-12/linux-rocky9-x86_64/oneapi-2024.2.1/intel-oneapi-mpi-2021.13.1-ss72gbndvat3oz22sa6lhmlbjkeabrn4/mpi/2021.13/lib/libmpi.so.12 (0x0000147884a12000)
+	libiomp5.so => /apps/spack-2024-12/linux-rocky9-x86_64/gcc-11.4.1/intel-oneapi-compilers-2024.2.1-oqhstbmawnrsdw472p4pjsopj547o6xs/compiler/2024.2/lib/libiomp5.so (0x000014787d501000)
+	libifport.so.5 => /apps/spack-2024-12/linux-rocky9-x86_64/gcc-11.4.1/intel-oneapi-compilers-2024.2.1-oqhstbmawnrsdw472p4pjsopj547o6xs/compiler/2024.2/lib/libifport.so.5 (0x000014787d4d7000)
+	libifcoremt.so.5 => /apps/spack-2024-12/linux-rocky9-x86_64/gcc-11.4.1/intel-oneapi-compilers-2024.2.1-oqhstbmawnrsdw472p4pjsopj547o6xs/compiler/2024.2/lib/libifcoremt.so.5 (0x000014787d36b000)
+	libimf.so => /apps/spack-2024-12/linux-rocky9-x86_64/gcc-11.4.1/intel-oneapi-compilers-2024.2.1-oqhstbmawnrsdw472p4pjsopj547o6xs/compiler/2024.2/lib/libimf.so (0x000014787cd3c000)
+	libsvml.so => /apps/spack-2024-12/linux-rocky9-x86_64/gcc-11.4.1/intel-oneapi-compilers-2024.2.1-oqhstbmawnrsdw472p4pjsopj547o6xs/compiler/2024.2/lib/libsvml.so (0x000014787b6f8000)
+	libirng.so => /apps/spack-2024-12/linux-rocky9-x86_64/gcc-11.4.1/intel-oneapi-compilers-2024.2.1-oqhstbmawnrsdw472p4pjsopj547o6xs/compiler/2024.2/lib/libirng.so (0x000014787b5fd000)
+	libintlc.so.5 => /apps/spack-2024-12/linux-rocky9-x86_64/gcc-11.4.1/intel-oneapi-compilers-2024.2.1-oqhstbmawnrsdw472p4pjsopj547o6xs/compiler/2024.2/lib/libintlc.so.5 (0x000014787b59c000)
+ 0x000000000000001d (RUNPATH)            Library runpath: [/apps/spack-2024-12/linux-rocky9-x86_64/gcc-11.4.1/intel-oneapi-compilers-2024.2.1-oqhstbmawnrsdw472p4pjsopj547o6xs/compiler/2024.2/lib:/apps/spack-2024-12/linux-rocky9-x86_64/oneapi-2024.2.1/intel-oneapi-mpi-2021.13.1-ss72gbndvat3oz22sa6lhmlbjkeabrn4/mpi/2021.13/lib:$ORIGIN/../lib64:/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/fv3:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/ecmwf-atlas-0.40.0-wmwzvfw/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/fckit-0.13.2-vacyoat/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/udunits-2.2.28-frxucsa/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/hdf5-1.14.3-rrocfpj/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/odc-1.5.2-vlelytg/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/bufr-query-0.0.4-atqxfpu/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/bufr-12.1.0-5nzgrop/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/python-3.11.7-omys2ph/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cuu24rq/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/nlohmann-json-schema-validator-2.3.0-ulg5dy5/lib64]
+LD_LIBRARY_PATH=/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/nco-5.2.4-pou37uu/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/gsl-2.8-f6uwzvt/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/antlr-2.7.7-dhyg4yz/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-numpy-1.26.4-ndkb37i/lib/python3.11/site-packages/numpy/core:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-numpy-1.26.4-ndkb37i/lib/python3.11/site-packages/numpy/fft:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-numpy-1.26.4-ndkb37i/lib/python3.11/site-packages/numpy/linalg:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-numpy-1.26.4-ndkb37i/lib/python3.11/site-packages/numpy/random:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-numpy-1.26.4-ndkb37i/lib/python3.11/site-packages/numpy/core/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-numpy-1.26.4-ndkb37i/lib/python3.11/site-packages/numpy/random/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/python-3.11.7-omys2ph/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-ruamel-yaml-clib-0.2.7-327nts6/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-jinja2-3.1.4-r2wa4te/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-markupsafe-2.1.3-gak42xs/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-globus-cli-3.16.0-5x35ndc/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-globus-sdk-3.25.0-w5axlpl/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-requests-2.32.3-xrrpdef/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-idna-3.4-aityrtz/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-charset-normalizer-3.3.0-gsr6eqx/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-pyjwt-2.4.0-qsd2o7c/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-click-8.1.7-w2fqbgr/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-gitpython-3.1.40-zctwmbb/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-gitdb-4.0.9-kjt6gqe/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-smmap-5.0.0-ua45euc/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-cartopy-0.24.1-3ime6a3/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/geos-3.13.0-tboz6uu/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-shapely-2.0.6-7nx5xh7/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-pyshp-2.3.1-wlzcn2c/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-pyproj-3.7.0-f6k7dsd/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/proj-9.4.1-wsoftrt/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-matplotlib-3.7.4-ehuxxwl/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-pyparsing-3.1.2-mtiupzr/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-pillow-11.0.0-iistrmb/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-kiwisolver-1.4.5-3b4rvbj/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-fonttools-4.39.4-5cflond/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-cycler-0.11.0-r62tyoi/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-contourpy-1.3.0-2vrgh4c/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-boto3-1.34.44-5vtq2ja/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-s3transfer-0.10.0-tp6yerw/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-botocore-1.34.44-ffyyhn7/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/awscli-v2-2.15.53-o3qn3k5/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-urllib3-1.26.12-rc2oebh/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-ruamel-yaml-0.17.16-rzn4hjv/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-prompt-toolkit-3.0.38-z3rrjnn/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-wcwidth-0.2.7-wy2lbya/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-jmespath-1.0.1-drg7kzt/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-flit-core-3.8.0-qre2zvq/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-docutils-0.19-3x5zy7r/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-distro-1.8.0-w4zqrke/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-cryptography-38.0.1-v3zdh72/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-colorama-0.4.6-jgmcebm/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-awscrt-0.19.19-rl7ftrz/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/metis-5.1.0-hhcmsgm/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/jasper-2.0.32-6xwcnqt/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-xarray-2024.7.0-zmsnhqy/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-scipy-1.14.1-hpx4xml/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-pyyaml-6.0.2-xqb3dlh/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/libyaml-0.2.5-xd6g6qc/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-pyhdf-0.11.4-y5nn536/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-pycodestyle-2.11.0-6dclykv/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-pybind11-2.13.5-5og2ah7/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-pandas-2.2.3-2egrbdv/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-tzdata-2023.3-ughcmjd/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-pytz-2023.3-th2g4qt/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-python-dateutil-2.8.2-gmfbgce/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-six-1.16.0-mp6kf3l/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-netcdf4-1.7.1.post2-wdpoeex/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-cftime-1.0.3.4-zduuryv/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-certifi-2023.7.22-hfnbbrq/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-h5py-3.12.1-f5vkuhz/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-f90nml-1.4.3-egil5ic/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-eccodes-1.5.0-zlxrhab/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-findlibs-0.0.2-2nrar54/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-cffi-1.17.1-hmwtmzr/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-pycparser-2.21-dji4lry/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-attrs-23.1.0-zoeylxl/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/odc-1.5.2-vlelytg/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/nlohmann-json-schema-validator-2.3.0-ulg5dy5/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/udunits-2.2.28-frxucsa/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/libxaw-1.0.16-dokxy6x/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/libxpm-3.5.17-jf7md2r/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/libxmu-1.2.1-a7agbib/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/libxt-1.3.0-e7bfy7u/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/jedi-cmake-1.4.0-r2mdywh/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/hdf-4.2.15-ya5y3jr/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/libtirpc-1.3.3-pxwarn7/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/libjpeg-turbo-2.1.0-qxbwasr/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/gsibec-1.2.1-mnufhir/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/sp-2.5.0-jtep3du/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/ecmwf-atlas-0.40.0-wmwzvfw/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/qhull-2020.2-jufscw5/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/ectrans-1.5.0-4tfpjrb/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/fiat-1.4.1-rrts3rz/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/fckit-0.13.2-vacyoat/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eccodes-2.33.0-rgluj7g/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/openjpeg-2.3.1-s7kqgv6/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/libpng-1.6.37-ghg5tyw/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/libpng-1.6.37-ghg5tyw/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/ecbuild-3.7.2-qa3xshv/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/bufr-query-0.0.4-atqxfpu/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cuu24rq/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/gsl-lite-0.37.0-t7ag72o/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/bufr-12.1.0-5nzgrop/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-numpy-1.26.4-ndkb37i/lib:/apps/spack-2024-12/linux-rocky9-x86_64/oneapi-2024.2.1/intel-oneapi-mkl-2024.2.1-xnoyobr3t3tov375bqiwzuue5fbtjixa/mkl/2024.2/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/boost-1.84.0-nevx737/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-wheel-0.41.2-fzvybge/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-setuptools-scm-8.0.4-l3hf7lc/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-typing-extensions-4.12.2-pehc2od/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-tomli-2.0.1-c7xgnrw/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-packaging-24.1-3rjp4j4/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-setuptools-69.2.0-bh22lwt/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/py-pip-23.1.2-c2b7rgy/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/python-venv-1.0-eb2nar3/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/python-venv-1.0-eb2nar3/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/parallelio-2.6.2-4tj7u7h/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/parallel-netcdf-1.12.3-oeqtpxg/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/fms-2024.02-33jbrlt/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/curl-8.10.1-wpsrlx4/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/nghttp2-1.63.0-6avgryp/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/c-blosc-1.21.5-wxundkh/lib64:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/snappy-1.2.1-bvjgath/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/util-linux-uuid-2.40.2-tkobrpm/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/sqlite-3.46.0-lppombt/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/gettext-0.22.5-fo7lwel/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/zstd-1.5.6-q5ac2it/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/zlib-1.2.13-mkqknv7/lib:/apps/spack-2024-12/linux-rocky9-x86_64/gcc-11.4.1/intel-oneapi-compilers-2024.2.1-oqhstbmawnrsdw472p4pjsopj547o6xs/compiler/2024.2/lib:/apps/spack-2024-12/linux-rocky9-x86_64/oneapi-2024.2.1/intel-oneapi-mpi-2021.13.1-ss72gbndvat3oz22sa6lhmlbjkeabrn4/mpi/2021.13/opt/mpi/libfabric/lib:/apps/spack-2024-12/linux-rocky9-x86_64/oneapi-2024.2.1/intel-oneapi-mpi-2021.13.1-ss72gbndvat3oz22sa6lhmlbjkeabrn4/mpi/2021.13/lib:/usr/lib:/usr/lib64:/apps/spack-2024-12/linux-rocky9-x86_64/gcc-11.4.1/intel-oneapi-compilers-2024.2.1-oqhstbmawnrsdw472p4pjsopj547o6xs/compiler/2024.2/opt/compiler/lib:/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/hdf5-1.14.3-rrocfpj/lib
+gsilib=/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/gsibec-1.2.1-mnufhir/lib64/libgsibec.so
+-rwxr-xr-x 1 role.epic epic 5299392 Oct  9 00:17 /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/gsibec-1.2.1-mnufhir/lib64/libgsibec.so
+  2: Configured to load plugins []
+  2: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 14: Configured to load plugins []
+ 17: Configured to load plugins []
+ 17: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 17: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+  0: Configured to load plugins []
+  0: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+  1: Configured to load plugins []
+  1: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+  2: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+  2: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+  3: Configured to load plugins []
+  4: Configured to load plugins []
+  4: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+  5: Configured to load plugins []
+  5: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+  6: Configured to load plugins []
+  6: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+  7: Configured to load plugins []
+  7: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+  8: Configured to load plugins []
+  8: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+  8: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+  8: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+  9: Configured to load plugins []
+  9: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+  9: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+  9: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 10: Configured to load plugins []
+ 10: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 10: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 10: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 11: Configured to load plugins []
+ 11: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 12: Configured to load plugins []
+ 12: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 13: Configured to load plugins []
+ 13: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 13: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 14: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 14: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 14: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 15: Configured to load plugins []
+ 15: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 15: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 16: Configured to load plugins []
+ 16: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 16: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 16: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 17: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 18: Configured to load plugins []
+ 18: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 18: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 18: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 19: Configured to load plugins []
+ 19: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 19: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 19: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 20: Configured to load plugins []
+ 20: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 20: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 20: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 21: Configured to load plugins []
+ 21: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 21: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 21: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 22: Configured to load plugins []
+ 22: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 22: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 22: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+  0: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+  0: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+  1: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+  1: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+  3: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+  3: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+  3: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+  4: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+  4: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+  5: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+  5: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+  6: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+  6: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+  7: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+  7: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 11: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 11: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 12: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 12: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 13: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 15: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+  6: Going to load following plugins []
+  6: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+  7: Going to load following plugins []
+  7: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+  0: Going to load following plugins []
+  0: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+  1: Going to load following plugins []
+  1: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+  2: Going to load following plugins []
+  2: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+  3: Going to load following plugins []
+  3: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+  4: Going to load following plugins []
+  4: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+  8: Going to load following plugins []
+  8: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+  9: Going to load following plugins []
+  9: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+ 10: Going to load following plugins []
+ 10: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+ 11: Going to load following plugins []
+ 11: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+ 12: Going to load following plugins []
+ 12: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+ 13: Going to load following plugins []
+ 13: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+ 14: Going to load following plugins []
+ 14: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+ 16: Going to load following plugins []
+ 16: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+ 17: Going to load following plugins []
+ 17: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+ 19: Going to load following plugins []
+ 19: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+ 20: Going to load following plugins []
+ 20: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+ 22: Going to load following plugins []
+ 22: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+ 15: Going to load following plugins []
+  5: Going to load following plugins []
+  5: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+ 15: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+ 18: Going to load following plugins []
+ 18: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+ 21: Going to load following plugins []
+ 21: Application fv3jedi_var loaded libraries: [atlas,eckit,fckit,oops]
+  9: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+  9: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+ 10: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+ 10: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+ 11: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+ 21: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+ 22: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+  3: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+  3: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+ 11: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+ 22: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+ 21: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+  0: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+  2: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+  7: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+  0: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+  2: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+  7: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+  1: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+  6: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+ 15: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+  1: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+  5: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+ 13: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+ 15: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+ 17: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+ 17: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+ 19: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+ 19: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+  4: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+  4: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+  5: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+  6: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+  8: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+  8: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+ 12: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+ 12: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+ 13: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+ 14: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+ 14: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+ 16: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+ 16: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+ 18: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+ 18: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+ 20: Parsing Lib eckit config file /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/eckit-1.28.3-dbuuyib/etc/eckit/config.yaml
+ 20: Lib eckit configuration: YAMLConfiguration[path=<string>, root=(nil)]
+ 77: Configured to load plugins []
+ 77: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 77: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 69: Configured to load plugins []
+ 69: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 69: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 69: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 70: Configured to load plugins []
+ 70: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 70: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 70: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 71: Configured to load plugins []
+ 71: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 71: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 71: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 72: Configured to load plugins []
+ 72: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 73: Configured to load plugins []
+ 73: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 74: Configured to load plugins []
+ 74: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 75: Configured to load plugins []
+ 75: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 75: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 75: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 76: Configured to load plugins []
+ 76: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 77: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 78: Configured to load plugins []
+ 78: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 78: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 78: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 79: Configured to load plugins []
+ 79: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 79: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 79: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 80: Configured to load plugins []
+ 80: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 80: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 80: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 81: Configured to load plugins []
+ 81: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 81: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 82: Configured to load plugins []
+ 82: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 82: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 82: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 83: Configured to load plugins []
+ 83: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 83: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 83: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 84: Configured to load plugins []
+ 84: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 84: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 84: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 85: Configured to load plugins []
+ 85: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 85: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 85: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 86: Configured to load plugins []
+ 86: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 86: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 86: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 87: Configured to load plugins []
+ 87: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 87: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 87: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 88: Configured to load plugins []
+ 88: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 88: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 88: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 89: Configured to load plugins []
+ 89: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 89: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 89: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 90: Configured to load plugins []
+ 90: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 90: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 90: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 91: Configured to load plugins []
+ 91: Plugins manifest candidate paths [~eckit/share/plugins,~/share/plugins]
+ 91: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 91: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 72: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 72: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 73: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 73: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 74: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 74: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 76: Loading library paths from /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths
+ 76: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 81: Failed to read /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build//etc/paths --  (No such file or directory)
+ 80: Going to load following plugins []
