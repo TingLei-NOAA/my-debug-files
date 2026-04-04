@@ -137,46 +137,32 @@ def parse_ij_pairs(path_or_csv: str) -> list[tuple[int, int]]:
     return pairs
 
 
-def guess_dim_role(dim_name: str) -> str:
-    name = dim_name.lower()
-    if any(k in name for k in ["lev", "pfull", "phalf", "nz", "z"]):
-        return "k"
-    if any(k in name for k in ["lat", "yt", "y", "nj"]):
-        return "j"
-    if any(k in name for k in ["lon", "xt", "x", "ni"]):
-        return "i"
-    return ""
-
-
 def infer_index_order(var, i_idx: int, j_idx: int, k_idx: int, time_idx: int | None):
-    dims = var.dimensions
-    roles = [guess_dim_role(d) for d in dims]
-    order = []
-    for d, r in zip(dims, roles):
-        if r == "k":
-            order.append(("k", d))
-        elif r == "j":
-            order.append(("j", d))
-        elif r == "i":
-            order.append(("i", d))
-        elif d.lower() in ["time", "t", "nt"]:
-            order.append(("t", d))
-        else:
-            order.append(("", d))
-
-    # Build slicer with defaults, assume typical (time, k, j, i) or (k, j, i)
+    dims = tuple(var.dimensions)
+    shape = tuple(var.shape)
     slicer = []
-    for role, d in order:
-        if role == "t":
-            slicer.append(time_idx if time_idx is not None else 0)
-        elif role == "k":
-            slicer.append(k_idx)
-        elif role == "j":
-            slicer.append(j_idx)
-        elif role == "i":
-            slicer.append(i_idx)
+
+    for dim_name, dim_size in zip(dims, shape):
+        dim = dim_name.lower()
+        if dim in {"time", "t", "nt"}:
+            idx = time_idx if time_idx is not None else 0
+        elif dim.startswith("zaxis") or dim in {"lev", "pfull", "phalf", "nz"}:
+            idx = k_idx
+        elif dim.startswith("yaxis") or dim in {"grid_yt", "grid_y"}:
+            idx = j_idx
+        elif dim.startswith("xaxis") or dim in {"grid_xt", "grid_x"}:
+            idx = i_idx
+        elif dim in {"lon", "longitude", "lat", "latitude"}:
+            raise SystemExit(f"Unsupported 1D lat/lon dimension on variable {var.name()} with dims {dims}")
         else:
-            slicer.append(0)
+            raise SystemExit(f"Cannot infer dimension role for variable {var.name()} dim '{dim_name}' with dims {dims}")
+
+        if idx < 0 or idx >= dim_size:
+            raise SystemExit(
+                f"Index out of bounds for variable {var.name()}: dim {dim_name} size={dim_size}, requested index={idx}"
+            )
+        slicer.append(idx)
+
     return tuple(slicer)
 
 
