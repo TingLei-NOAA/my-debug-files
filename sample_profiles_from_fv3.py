@@ -218,6 +218,73 @@ def plot_profiles_for_group(
         print(f"Wrote {out_path}")
 
 
+def select_dataset(var_name: str, ds_dyn: nc.Dataset, ds_tracer: nc.Dataset) -> nc.Dataset:
+    if var_name in TRACER_VAR_LIST:
+        return ds_tracer
+    if var_name in DYN_VAR_LIST:
+        return ds_dyn
+    raise SystemExit(f"Variable not in tracer/dyn lists: {var_name}")
+
+
+def sample_scalar(var, i_s: int, j_s: int, k_s: int, time_index: int) -> float:
+    slicer = infer_index_order(var, i_s, j_s, k_s, time_index)
+    val = var[slicer]
+    try:
+        return float(val)
+    except TypeError:
+        return float(np.asarray(val).squeeze())
+
+
+def plot_horizontal_diagnostic(
+    ds_dyn: nc.Dataset,
+    ds_tracer: nc.Dataset,
+    points0: list[tuple[int, int, int]],
+    var_name: str,
+    k_in: int,
+    k0: int,
+    time_index: int,
+    out_path: Path,
+) -> None:
+    try:
+        import matplotlib.pyplot as plt
+    except ImportError as e:  # pragma: no cover
+        raise SystemExit("matplotlib is required for diagnostic plotting") from e
+
+    ds = select_dataset(var_name, ds_dyn, ds_tracer)
+    if var_name not in ds.variables:
+        raise SystemExit(f"Variable not found in file: {var_name}")
+    var = ds.variables[var_name]
+
+    xs = []
+    ys = []
+    vals = []
+    for _, i_s, j_s in points0:
+        xs.append(i_s + 1)
+        ys.append(j_s + 1)
+        vals.append(sample_scalar(var, i_s, j_s, k0, time_index))
+
+    xs = np.asarray(xs, dtype=float)
+    ys = np.asarray(ys, dtype=float)
+    vals = np.asarray(vals, dtype=float)
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    fig, ax = plt.subplots(figsize=(8, 6), dpi=150)
+    if xs.size >= 3:
+        cf = ax.tricontourf(xs, ys, vals, levels=20, cmap="magma")
+        fig.colorbar(cf, ax=ax, pad=0.02, label=f"{var_name} at k={k_in}")
+    sc = ax.scatter(xs, ys, c=vals, s=10, cmap="magma", edgecolors="k", linewidths=0.1)
+    if xs.size < 3:
+        fig.colorbar(sc, ax=ax, pad=0.02, label=f"{var_name} at k={k_in}")
+    ax.set_xlabel("Model i")
+    ax.set_ylabel("Model j")
+    ax.set_title(f"Sampled horizontal values: {var_name} at k={k_in}")
+    ax.grid(True, linewidth=0.3, alpha=0.4)
+    fig.tight_layout()
+    fig.savefig(out_path)
+    plt.close(fig)
+    print(f"Wrote {out_path}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Sample vertical profiles from FV3 NetCDF at selected points.")
     parser.add_argument("--map", type=Path, default=Path("filter_to_model_map_indices.txt"), help="Map file with model i/j")
@@ -236,6 +303,11 @@ def main() -> None:
     parser.add_argument("--plot_sub_domain_index",default="12,30,40", help="Subdomain indices to plot (file or comma/space list)")
     parser.add_argument("--plot-group-ij-base", type=int, default=1, choices=[0, 1], help="i/j base in group list")
     parser.add_argument("--plot-out-dir", type=Path, default=Path("profiles_plots"), help="Output directory for plots")
+    parser.add_argument(
+        "--plot-first-level-map",
+        type=Path,
+        help="Write a contour/scatter diagnostic plot for the first (var, k) pair over all sampled points",
+    )
     args = parser.parse_args()
 
     if args.dirac_yaml:
@@ -265,6 +337,17 @@ def main() -> None:
     args.out_dir.mkdir(parents=True, exist_ok=True)
 
     with nc.Dataset(args.fv3_dyn) as ds_dyn, nc.Dataset(args.fv3_tracer) as ds_tracer:
+        if args.plot_first_level_map:
+            plot_horizontal_diagnostic(
+                ds_dyn=ds_dyn,
+                ds_tracer=ds_tracer,
+                points0=points0,
+                var_name=vars_list[0],
+                k_in=k_list[0],
+                k0=k0[0],
+                time_index=args.time_index,
+                out_path=args.plot_first_level_map,
+            )
         if args.plot_sub_domain_index:
             idx_list = read_list(args.plot_sub_domain_index, cast=int)
             idx_map = {idx: (i, j) for idx, i, j in points0}
@@ -304,21 +387,11 @@ def main() -> None:
                 f.write("# k value\n")
                 sampled = []
                 for var_name, k_in, k_s in zip(vars_list, k_list, k0):
-                    if var_name in TRACER_VAR_LIST:
-                        ds = ds_tracer
-                    elif var_name in DYN_VAR_LIST:
-                        ds = ds_dyn
-                    else:
-                        raise SystemExit(f"Variable not in tracer/dyn lists: {var_name}")
+                    ds = select_dataset(var_name, ds_dyn, ds_tracer)
                     if var_name not in ds.variables:
                         raise SystemExit(f"Variable not found in file: {var_name}")
                     var = ds.variables[var_name]
-                    slicer = infer_index_order(var, i_s, j_s, k_s, args.time_index)
-                    val = var[slicer]
-                    try:
-                        val = float(val)
-                    except TypeError:
-                        val = float(np.asarray(val).squeeze())
+                    val = sample_scalar(var, i_s, j_s, k_s, args.time_index)
                     sampled.append((k_in, val))
                     f.write(f"{k_in} {val:.6g}\n")
                 f.write("# now the complete profile with fillled values\n")
