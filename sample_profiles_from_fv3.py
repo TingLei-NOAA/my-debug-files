@@ -350,7 +350,9 @@ def plot_full_field_with_samples(
     xs = []
     ys = []
     vals = []
+    labels = []
     for _, i_s, j_s in points0:
+        labels.append(_)
         xs.append(i_s)
         ys.append(j_s)
         vals.append(sample_scalar(var, i_s, j_s, k0, time_index))
@@ -373,8 +375,10 @@ def plot_full_field_with_samples(
     fig, ax = plt.subplots(figsize=(10, 6), dpi=150)
     im = ax.imshow(field, origin="lower", cmap="magma", aspect="auto")
     fig.colorbar(im, ax=ax, pad=0.02, label=f"{var_name} at k={k_in}")
-    sc = ax.scatter(xs, ys, c=vals, cmap="magma", s=10, edgecolors="cyan", linewidths=0.2)
+    sc = ax.scatter(xs, ys, c=vals, cmap="magma", s=16, edgecolors="cyan", linewidths=0.3)
     ax.scatter([full_max_idx[1]], [full_max_idx[0]], marker="x", c="lime", s=60, linewidths=1.0)
+    for label, x, y in zip(labels, xs, ys):
+        ax.text(x + 6, y + 6, str(label), color="white", fontsize=5, alpha=0.8)
     ax.set_xlabel("Model i (0-based)")
     ax.set_ylabel("Model j (0-based)")
     ax.set_title(f"Full field with sampled points: {var_name} at k={k_in}")
