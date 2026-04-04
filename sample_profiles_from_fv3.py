@@ -168,6 +168,22 @@ def infer_index_order(var, i_idx: int, j_idx: int, k_idx: int, time_idx: int | N
     return tuple(slicer)
 
 
+def infer_dim_roles(var) -> dict[str, int]:
+    roles: dict[str, int] = {}
+    dims = tuple(var.dimensions)
+    for pos, dim_name in enumerate(dims):
+        dim = dim_name.lower()
+        if dim in {"time", "t", "nt"}:
+            roles["t"] = pos
+        elif dim.startswith("zaxis") or dim in {"lev", "pfull", "phalf", "nz"}:
+            roles["k"] = pos
+        elif dim.startswith("yaxis") or dim in {"grid_yt", "grid_y"}:
+            roles["j"] = pos
+        elif dim.startswith("xaxis") or dim in {"grid_xt", "grid_x"}:
+            roles["i"] = pos
+    return roles
+
+
 def plot_profiles_for_group(
     ds_dyn: nc.Dataset,
     ds_tracer: nc.Dataset,
@@ -235,6 +251,31 @@ def sample_scalar(var, i_s: int, j_s: int, k_s: int, time_index: int) -> float:
         return float(np.asarray(val).squeeze())
 
 
+def extract_level_field(var, k_s: int, time_index: int) -> np.ndarray:
+    roles = infer_dim_roles(var)
+    dims = tuple(var.dimensions)
+    shape = tuple(var.shape)
+    slicer = []
+    for pos, (dim_name, dim_size) in enumerate(zip(dims, shape)):
+        if roles.get("t") == pos:
+            idx = time_index
+            if idx < 0 or idx >= dim_size:
+                raise SystemExit(f"time index out of bounds for {var.name}: {idx} not in [0,{dim_size})")
+            slicer.append(idx)
+        elif roles.get("k") == pos:
+            if k_s < 0 or k_s >= dim_size:
+                raise SystemExit(f"k index out of bounds for {var.name}: {k_s} not in [0,{dim_size})")
+            slicer.append(k_s)
+        elif roles.get("j") == pos or roles.get("i") == pos:
+            slicer.append(slice(None))
+        else:
+            raise SystemExit(f"Cannot build horizontal field slice for {var.name} with dims {dims}")
+    field = np.asarray(var[tuple(slicer)])
+    if field.ndim != 2:
+        raise SystemExit(f"Expected 2D horizontal field for {var.name}, got shape {field.shape}")
+    return field
+
+
 def plot_horizontal_diagnostic(
     ds_dyn: nc.Dataset,
     ds_tracer: nc.Dataset,
@@ -285,6 +326,65 @@ def plot_horizontal_diagnostic(
     print(f"Wrote {out_path}")
 
 
+def plot_full_field_with_samples(
+    ds_dyn: nc.Dataset,
+    ds_tracer: nc.Dataset,
+    points0: list[tuple[int, int, int]],
+    var_name: str,
+    k_in: int,
+    k0: int,
+    time_index: int,
+    out_path: Path,
+) -> None:
+    try:
+        import matplotlib.pyplot as plt
+    except ImportError as e:  # pragma: no cover
+        raise SystemExit("matplotlib is required for diagnostic plotting") from e
+
+    ds = select_dataset(var_name, ds_dyn, ds_tracer)
+    if var_name not in ds.variables:
+        raise SystemExit(f"Variable not found in file: {var_name}")
+    var = ds.variables[var_name]
+    field = extract_level_field(var, k0, time_index)
+
+    xs = []
+    ys = []
+    vals = []
+    for _, i_s, j_s in points0:
+        xs.append(i_s)
+        ys.append(j_s)
+        vals.append(sample_scalar(var, i_s, j_s, k0, time_index))
+    xs = np.asarray(xs, dtype=int)
+    ys = np.asarray(ys, dtype=int)
+    vals = np.asarray(vals, dtype=float)
+
+    full_max_idx = np.unravel_index(int(np.nanargmax(field)), field.shape)
+    full_max_val = float(np.nanmax(field))
+    sampled_max_val = float(np.nanmax(vals))
+    sampled_argmax = int(np.nanargmax(vals))
+    sampled_max_i = int(xs[sampled_argmax]) + 1
+    sampled_max_j = int(ys[sampled_argmax]) + 1
+    print(
+        f"[diag] {var_name} k={k_in}: full max={full_max_val:.6g} at (i={full_max_idx[1] + 1}, j={full_max_idx[0] + 1}); "
+        f"sampled max={sampled_max_val:.6g} at (i={sampled_max_i}, j={sampled_max_j})"
+    )
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    fig, ax = plt.subplots(figsize=(10, 6), dpi=150)
+    im = ax.imshow(field, origin="lower", cmap="magma", aspect="auto")
+    fig.colorbar(im, ax=ax, pad=0.02, label=f"{var_name} at k={k_in}")
+    sc = ax.scatter(xs, ys, c=vals, cmap="magma", s=10, edgecolors="cyan", linewidths=0.2)
+    ax.scatter([full_max_idx[1]], [full_max_idx[0]], marker="x", c="lime", s=60, linewidths=1.0)
+    ax.set_xlabel("Model i (0-based)")
+    ax.set_ylabel("Model j (0-based)")
+    ax.set_title(f"Full field with sampled points: {var_name} at k={k_in}")
+    ax.grid(True, linewidth=0.2, alpha=0.3)
+    fig.tight_layout()
+    fig.savefig(out_path)
+    plt.close(fig)
+    print(f"Wrote {out_path}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Sample vertical profiles from FV3 NetCDF at selected points.")
     parser.add_argument("--map", type=Path, default=Path("filter_to_model_map_indices.txt"), help="Map file with model i/j")
@@ -307,6 +407,11 @@ def main() -> None:
         "--plot-first-level-map",
         type=Path,
         help="Write a contour/scatter diagnostic plot for the first (var, k) pair over all sampled points",
+    )
+    parser.add_argument(
+        "--plot-first-level-full-field",
+        type=Path,
+        help="Write a full horizontal field plot for the first (var, k) pair with sampled points overlaid",
     )
     args = parser.parse_args()
 
@@ -347,6 +452,17 @@ def main() -> None:
                 k0=k0[0],
                 time_index=args.time_index,
                 out_path=args.plot_first_level_map,
+            )
+        if args.plot_first_level_full_field:
+            plot_full_field_with_samples(
+                ds_dyn=ds_dyn,
+                ds_tracer=ds_tracer,
+                points0=points0,
+                var_name=vars_list[0],
+                k_in=k_list[0],
+                k0=k0[0],
+                time_index=args.time_index,
+                out_path=args.plot_first_level_full_field,
             )
         if args.plot_sub_domain_index:
             idx_list = read_list(args.plot_sub_domain_index, cast=int)
