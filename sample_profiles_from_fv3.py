@@ -30,6 +30,7 @@ TRACER_VAR_LIST = [
     "ozone_mass_mixing_ratio",
     "rain_number_concentration",
     "cloud_ice_number_concentration",
+    "cloud_droplet_number_concentration",
     "xvar_1",
     "xvar_2",
     "xvar_3",
@@ -38,6 +39,7 @@ TRACER_VAR_LIST = [
 ]
 
 DYN_VAR_LIST = [
+    "upward_air_velocity",
     "eastward_wind",
     "northward_wind",
     "air_temperature",
