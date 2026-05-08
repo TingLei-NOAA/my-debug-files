@@ -1,0 +1,80 @@
+Detected format: matrix
+Parsed timers: 32
+Summed total time: 24784480.034300
+
+Top 25 timers by total time:
+ 1. ifc_mult
+    total_time=6284916.576700  calls=360  avg_time=4.508807  frac=25.36%
+    mean_time=1623.170603  max_time=2114.998600  min_time=1178.649200  num_ranks=3872
+ 2. multiply
+    total_time=6284226.256700  calls=360  avg_time=4.508312  frac=25.36%
+    mean_time=1622.992318  max_time=2114.505900  min_time=1178.635600  num_ranks=3872
+ 3. filtering
+    total_time=5110403.823800  calls=360  avg_time=3.666210  frac=20.62%
+    mean_time=1319.835698  max_time=1863.858500  min_time=935.957200  num_ranks=3872
+ 4. dnsend
+    total_time=2251029.928500  calls=360  avg_time=1.614892  frac=9.08%
+    mean_time=581.361035  max_time=1428.900800  min_time=5.205100  num_ranks=3872
+ 5. upsend
+    total_time=1263382.484600  calls=360  avg_time=0.906352  frac=5.10%
+    mean_time=326.286799  max_time=1366.112600  min_time=22.578900  num_ranks=3872
+ 6. bocoT
+    total_time=776853.977300  calls=360  avg_time=0.557316  frac=3.13%
+    mean_time=200.633775  max_time=971.798500  min_time=9.775600  num_ranks=3872
+ 7. anal_to_fi
+    total_time=755486.689100  calls=360  avg_time=0.541987  frac=3.05%
+    mean_time=195.115364  max_time=597.052000  min_time=27.269800  num_ranks=3872
+ 8. an2filt
+    total_time=753921.483900  calls=360  avg_time=0.540864  frac=3.04%
+    mean_time=194.711127  max_time=596.683900  min_time=26.857000  num_ranks=3872
+ 9. vfilt
+    total_time=460618.545700  calls=360  avg_time=0.330448  frac=1.86%
+    mean_time=118.961401  max_time=971.644100  min_time=0.752800  num_ranks=3872
+10. filt_to_an
+    total_time=339193.534100  calls=360  avg_time=0.243338  frac=1.37%
+    mean_time=87.601636  max_time=312.456900  min_time=9.798100  num_ranks=3872
+11. boco
+    total_time=319305.487200  calls=360  avg_time=0.229070  frac=1.29%
+    mean_time=82.465260  max_time=705.784900  min_time=0.741800  num_ranks=3872
+12. postproces
+    total_time=57322.928800  calls=360  avg_time=0.041124  frac=0.23%
+    mean_time=14.804475  max_time=18.697900  min_time=9.724200  num_ranks=3872
+13. loc_mix
+    total_time=33686.898500  calls=360  avg_time=0.024167  frac=0.14%
+    mean_time=8.700129  max_time=10.705400  min_time=5.908800  num_ranks=3872
+14. hfiltT
+    total_time=17460.128300  calls=360  avg_time=0.012526  frac=0.07%
+    mean_time=4.509331  max_time=8.971600  min_time=3.923300  num_ranks=3872
+15. hfilt
+    total_time=16712.398600  calls=360  avg_time=0.011989  frac=0.07%
+    mean_time=4.316219  max_time=7.997400  min_time=3.889100  num_ranks=3872
+16. norm_copy
+    total_time=12624.054700  calls=360  avg_time=0.009057  frac=0.05%
+    mean_time=3.260345  max_time=4.544100  min_time=1.800300  num_ranks=3872
+17. preprocess
+    total_time=10861.186500  calls=360  avg_time=0.007792  frac=0.04%
+    mean_time=2.805058  max_time=4.809400  min_time=1.236600  num_ranks=3872
+18. grp_copy
+    total_time=8663.869500  calls=360  avg_time=0.006215  frac=0.03%
+    mean_time=2.237570  max_time=3.351500  min_time=0.936600  num_ranks=3872
+19. unpack
+    total_time=6756.657600  calls=360  avg_time=0.004847  frac=0.03%
+    mean_time=1.745005  max_time=4.966500  min_time=0.529900  num_ranks=3872
+20. to_fld
+    total_time=6226.896900  calls=360  avg_time=0.004467  frac=0.03%
+    mean_time=1.608186  max_time=2.150900  min_time=0.980600  num_ranks=3872
+21. pack_fld
+    total_time=5270.511800  calls=360  avg_time=0.003781  frac=0.02%
+    mean_time=1.361186  max_time=2.850100  min_time=0.513800  num_ranks=3872
+22. to_mgbf
+    total_time=5216.375000  calls=360  avg_time=0.003742  frac=0.02%
+    mean_time=1.347204  max_time=1.907900  min_time=0.701800  num_ranks=3872
+23. vfiltT
+    total_time=3816.713200  calls=360  avg_time=0.002738  frac=0.02%
+    mean_time=0.985721  max_time=3.840800  min_time=0.722300  num_ranks=3872
+24. weight
+    total_time=266.992600  calls=360  avg_time=0.000192  frac=0.00%
+    mean_time=0.068955  max_time=0.200100  min_time=0.030400  num_ranks=3872
+25. ifc_reg
+    total_time=149.818100  calls=360  avg_time=0.000107  frac=0.00%
+    mean_time=0.038693  max_time=0.467600  min_time=0.001100  num_ranks=3872
