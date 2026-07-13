@@ -43,7 +43,6 @@ cost function:
     - water_vapor_mixing_ratio_wrt_moist_air
     - cloud_liquid_ice
     - cloud_liquid_water
-    - ozone_mass_mixing_ratio
     - geopotential_height_times_gravity_at_surface
     - f10m
     - slmsk
@@ -75,7 +74,6 @@ cost function:
       water_vapor_mixing_ratio_wrt_moist_air: sphum
       cloud_liquid_ice: ice_wat
       cloud_liquid_water: liq_wat
-      ozone_mass_mixing_ratio: o3mr
       geopotential_height_times_gravity_at_surface: phis
       skin_temperature_at_surface: tsfc
       tslb: tslb
@@ -137,7 +135,6 @@ cost function:
       - northward_wind
       - air_temperature
       - water_vapor_mixing_ratio_wrt_moist_air
-      - ozone_mass_mixing_ratio
       - geopotential_height_times_gravity_at_surface
       - air_pressure_thickness
       - air_pressure_at_surface
