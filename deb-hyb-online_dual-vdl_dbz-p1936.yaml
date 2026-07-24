@@ -225,7 +225,16 @@ cost function:
         value: 0.2
     - covariance:
         covariance model: ensemble
-        covariance model: ensemble
+        ensemble geometry:
+          fms initialization:
+            namelist filename: DataFix/fmsmpp.nml
+            field table filename: DataFix/field_table
+          namelist filename: INPUT/sam_p1936_input.nml
+          akbk: DataFix/fix/akbk66.nc
+          npz: 65
+          layout: *fv3_layout
+          io_layout: [1,1]
+          ntiles: 1
         members from template:
           template:
             datetime: 2024-05-27T01:00:00Z
