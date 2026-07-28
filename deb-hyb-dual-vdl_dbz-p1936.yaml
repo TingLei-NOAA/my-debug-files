@@ -46,7 +46,7 @@ variational:
 output:
   filetype: fms restart
   datapath: ./
-  prefix: p1936-hyb-online_dual-vdl
+  prefix: p1936-hyb-dual-vdl
   frequency: PT1H
 
 cost function:
@@ -226,27 +226,19 @@ cost function:
         value: 0.2
     - covariance:
         covariance model: ensemble
-        ensemble geometry:
-          fms initialization:
-            namelist filename: DataFix/fmsmpp.nml
-            field table filename: DataFix/field_table
-          namelist filename: INPUT/sam_p1936_input.nml
-          akbk: DataFix/fix/akbk66.nc
-          npz: 65
-          layout: *fv3_layout
-          io_layout: [1,1]
-          ntiles: 1
         members from template:
           template:
             datetime: 2024-05-27T01:00:00Z
             filetype: fms restart
-            regional restart: true
             state variables: *3dvars
             field io names: *io_names
-            datapath: /lfs/h3/emc/lam/noscrub/samuel.degelia/data_rrfs_NAdomain/expr_data_30mems/inputs/mem%mem%/
-            filename_core: 20240527.010000.fv_core.res.tile1.nc
-            filename_trcr: 20240527.010000.fv_tracer.res.tile1.nc
-            filename_cplr: 20240527.010000.coupler.res
+            datapath: ../dr-convert2state/dr-6km/Data/mem%mem%/
+            filename_core: 20240527.010000.NA_6km.fv_core.res.nc
+            filename_trcr: 20240527.010000.NA_6km.fv_tracer.res.nc
+            filename_cplr: 20240527.010000.NA_6km.coupler.res
+
+
+
           pattern: "%mem%"
           nmembers: 30 
           zero padding: 3
@@ -283,8 +275,11 @@ cost function:
 
              forward interpolator:
                  local interpolator type: oops unstructured grid interpolator
+                 regional check enabled: false
              inverse interpolator:
-                 local nterpolator type: oops unstructured grid interpolator
+                 local interpolator type: oops unstructured grid interpolator
+                 regional check enabled: false
+                 regional nn fill distance in km: 800
       weight:
         value: 0.8
 
