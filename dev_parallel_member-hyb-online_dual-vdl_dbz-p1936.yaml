@@ -3,10 +3,10 @@ _write_mult: &write_mult true
 #_layout: &fv3_layout [32, 40] # 1280 tasks, original SKD test
 #_layout: &fv3_layout [20, 24] # 8 ppn
 #_layout: &fv3_layout [30, 32] # 16 ppn
-_layout: &fv3_layout [44, 44] # 32 ppn, 1920 total ranks
+_layout: &fv3_layout [40, 49] # 1960 total ranks
 #_layout: &fv3_layout [60, 64] # 64 ppn
-_xlayout: &xlayout 44
-_ylayout: &ylayout 44
+_xlayout: &xlayout 40
+_ylayout: &ylayout 49
 
 variational:
   minimizer:
@@ -18,7 +18,7 @@ variational:
       fms initialization:
         namelist filename: DataFix/fmsmpp.nml
         field table filename: DataFix/field_table
-      namelist filename: ../dr-convert2state/dr-6km/INPUT/sam_p1936_input.nml
+      namelist filename: ../dr-convert2state/dr-6km/INPUT/sam_p1960_input.nml
       akbk: DataFix/fix/akbk66.nc
       # input.nml
       npz: 65
@@ -33,7 +33,7 @@ variational:
       fms initialization:
         namelist filename: DataFix/fmsmpp.nml
         field table filename: DataFix/field_table
-      namelist filename: ../dr-convert2state/dr-6km/INPUT/sam_p1936_input.nml
+      namelist filename: ../dr-convert2state/dr-6km/INPUT/sam_p1960_input.nml
       akbk: DataFix/fix/akbk66.nc
       # input.nml
       npz: 65
@@ -47,7 +47,7 @@ output:
   filetype: fms restart
   regional restart: true
   datapath: ./
-  prefix: dev-p1936-hyb-online_dual-vdl
+  prefix: dev-p1960-hyb-online_dual-vdl
   frequency: PT1H
 
 cost function:
@@ -73,7 +73,7 @@ cost function:
     fms initialization:
       namelist filename: DataFix/fmsmpp.nml
       field table filename: DataFix/field_table
-    namelist filename: INPUT/sam_p1936_input.nml
+    namelist filename: INPUT/sam_p1960_input.nml
     akbk: DataFix/fix/akbk66.nc
     # input.nml
     npz: 65
@@ -138,6 +138,8 @@ cost function:
       northward_wind_at_surface: v_srf
       ratio_of_wind_at_surface_adjacent_layer_to_wind_at_10m: f10m
   background error:
+    # Keep the static covariance on the full 1960-rank communicator. The nested
+    # SABER ensemble branch below applies Parallel B only to ensemble localization.
     covariance model: hybrid
     components:
     - covariance:
@@ -160,8 +162,8 @@ cost function:
             gsi akbk: fv3_akbk
             gsi error covariance file: berror_stats
             gsi berror namelist file: gsiparm_regional.anl
-            processor layout x direction: 44 
-            processor layout y direction: 44 
+            processor layout x direction: 40
+            processor layout y direction: 49
             debugging deep bypass gsi B error: false
             debugging mode: false
             regional mode: true
@@ -180,7 +182,7 @@ cost function:
               north_pole_lat: 34.9999966097
               north_pole_lon: 67.4999923706
             custom partitioner matching gsi:
-              bands: 44 
+              bands: 49
             halo: 1
           forward interpolator:
             local interpolator type: oops unstructured grid interpolator
@@ -227,66 +229,266 @@ cost function:
       weight:
         value: 0.2
     - covariance:
-        covariance model: ensemble
-        ensemble geometry:
+        covariance model: SABER
+        covariance type: hybrid
+        run components recursively: false
+        run in parallel: true
+        comm redistribution method: straight
+        # 1960 ranks / 10 ensemble groups = 196 ranks (14 x 14) per group.
+        parallel covariance relative cpu weight:
+        - 0.1
+        - 0.1
+        - 0.1
+        - 0.1
+        - 0.1
+        - 0.1
+        - 0.1
+        - 0.1
+        - 0.1
+        - 0.1
+        geometry:
           fms initialization:
             namelist filename: DataFix/fmsmpp.nml
             field table filename: DataFix/field_table
-          namelist filename: INPUT/sam_p1936_input.nml
+          namelist filename: INPUT/sam_p196_input.nml
           akbk: DataFix/fix/akbk66.nc
           npz: 65
-          layout: *fv3_layout
-          io_layout: [1,1]
+          layout: [14, 14]
+          io_layout: [1, 1]
           ntiles: 1
-        members from template:
-          template:
-            datetime: 2024-05-27T01:00:00Z
-            filetype: fms restart
-            regional restart: true
-            state variables: *3dvars
-            field io names: *io_names
-            datapath: /lfs/h3/emc/lam/noscrub/samuel.degelia/data_rrfs_NAdomain/expr_data_30mems/inputs/mem%mem%/
-            filename_core: 20240527.010000.fv_core.res.tile1.nc
-            filename_trcr: 20240527.010000.fv_tracer.res.tile1.nc
-            filename_cplr: 20240527.010000.coupler.res
-          pattern: "%mem%"
-          nmembers: 30 
-          zero padding: 3
-        localization:
-          localization method: SABER
-          saber central block:
-            saber block name: MGBF_covariance
-            mgbf sdl and vdl init namelist file: dr-mgbf-fix/norm-dbz_vdl_v1_init-p1936.nml
-          saber outer blocks:
-          -  saber block name: interpolation
-             inner geometry:
-               function space: StructuredColumns
-               grid:
-                 type: structured
-                 xspace:
-                   type: linear
-                   N: 1232 
-                   start: -60.0310278618037
-                   end:   60.0310278618037
-                   endpoint: true
-                 yspace:
-                   type: linear
-                   N: 1232 
-                   start: -36.6574659140194
-                   end:   36.6574659140194
-                   endpoint: true
-                 projection:
-                   type: rotated_lonlat
-                   north_pole: [67.4999923706, 34.9999966097]
-                 y_numbering: 1
-
-               partitioner: checkerboard
-               halo:  1
-
-             forward interpolator:
-                 local interpolator type: oops unstructured grid interpolator
-             inverse interpolator:
-                 local nterpolator type: oops unstructured grid interpolator
+        adjoint test: false
+        square-root test: false
+        components:
+        # Ensemble group 1: members 001-003
+        - covariance:
+            covariance model: SABER
+            covariance type: ensemble
+            adjoint test: false
+            square-root test: false
+            scales:
+            - ensemble pert:
+                members from template:
+                  template: &ensemble_member_template
+                    datetime: 2024-05-27T01:00:00Z
+                    filetype: fms restart
+                    regional restart: true
+                    state variables: *3dvars
+                    field io names: *io_names
+                    datapath: /lfs/h3/emc/lam/noscrub/samuel.degelia/data_rrfs_NAdomain/expr_data_30mems/inputs/mem%mem%/
+                    filename_core: 20240527.010000.fv_core.res.tile1.nc
+                    filename_trcr: 20240527.010000.fv_tracer.res.tile1.nc
+                    filename_cplr: 20240527.010000.coupler.res
+                  pattern: "%mem%"
+                  nmembers: 3
+                  start: 1
+                  zero padding: 3
+            localization: &mgbf_localization
+              saber central block:
+                saber block name: MGBF_covariance
+                mgbf sdl and vdl init namelist file: dr-mgbf-fix/norm-dbz_vdl_v1_init-p196.nml
+              saber outer blocks:
+              - saber block name: interpolation
+                inner geometry:
+                  function space: StructuredColumns
+                  grid:
+                    type: structured
+                    xspace:
+                      type: linear
+                      N: 1232
+                      start: -60.0310278618037
+                      end: 60.0310278618037
+                      endpoint: true
+                    yspace:
+                      type: linear
+                      N: 1232
+                      start: -36.6574659140194
+                      end: 36.6574659140194
+                      endpoint: true
+                    projection:
+                      type: rotated_lonlat
+                      north_pole: [67.4999923706, 34.9999966097]
+                    y_numbering: 1
+                  partitioner: checkerboard
+                  halo: 1
+                forward interpolator:
+                  local interpolator type: oops unstructured grid interpolator
+                inverse interpolator:
+                  local interpolator type: oops unstructured grid interpolator
+            multiscale strategy: separated
+          weight:
+            # Scale ensembles are unnormalized; each member retains the 1/(30-1) factor.
+            value: 0.034482758620689655
+        # Ensemble group 2: members 004-006
+        - covariance:
+            covariance model: SABER
+            covariance type: ensemble
+            adjoint test: false
+            square-root test: false
+            scales:
+            - ensemble pert:
+                members from template:
+                  template: *ensemble_member_template
+                  pattern: "%mem%"
+                  nmembers: 3
+                  start: 4
+                  zero padding: 3
+            localization: *mgbf_localization
+            multiscale strategy: separated
+          weight:
+            # Scale ensembles are unnormalized; each member retains the 1/(30-1) factor.
+            value: 0.034482758620689655
+        # Ensemble group 3: members 007-009
+        - covariance:
+            covariance model: SABER
+            covariance type: ensemble
+            adjoint test: false
+            square-root test: false
+            scales:
+            - ensemble pert:
+                members from template:
+                  template: *ensemble_member_template
+                  pattern: "%mem%"
+                  nmembers: 3
+                  start: 7
+                  zero padding: 3
+            localization: *mgbf_localization
+            multiscale strategy: separated
+          weight:
+            # Scale ensembles are unnormalized; each member retains the 1/(30-1) factor.
+            value: 0.034482758620689655
+        # Ensemble group 4: members 010-012
+        - covariance:
+            covariance model: SABER
+            covariance type: ensemble
+            adjoint test: false
+            square-root test: false
+            scales:
+            - ensemble pert:
+                members from template:
+                  template: *ensemble_member_template
+                  pattern: "%mem%"
+                  nmembers: 3
+                  start: 10
+                  zero padding: 3
+            localization: *mgbf_localization
+            multiscale strategy: separated
+          weight:
+            # Scale ensembles are unnormalized; each member retains the 1/(30-1) factor.
+            value: 0.034482758620689655
+        # Ensemble group 5: members 013-015
+        - covariance:
+            covariance model: SABER
+            covariance type: ensemble
+            adjoint test: false
+            square-root test: false
+            scales:
+            - ensemble pert:
+                members from template:
+                  template: *ensemble_member_template
+                  pattern: "%mem%"
+                  nmembers: 3
+                  start: 13
+                  zero padding: 3
+            localization: *mgbf_localization
+            multiscale strategy: separated
+          weight:
+            # Scale ensembles are unnormalized; each member retains the 1/(30-1) factor.
+            value: 0.034482758620689655
+        # Ensemble group 6: members 016-018
+        - covariance:
+            covariance model: SABER
+            covariance type: ensemble
+            adjoint test: false
+            square-root test: false
+            scales:
+            - ensemble pert:
+                members from template:
+                  template: *ensemble_member_template
+                  pattern: "%mem%"
+                  nmembers: 3
+                  start: 16
+                  zero padding: 3
+            localization: *mgbf_localization
+            multiscale strategy: separated
+          weight:
+            # Scale ensembles are unnormalized; each member retains the 1/(30-1) factor.
+            value: 0.034482758620689655
+        # Ensemble group 7: members 019-021
+        - covariance:
+            covariance model: SABER
+            covariance type: ensemble
+            adjoint test: false
+            square-root test: false
+            scales:
+            - ensemble pert:
+                members from template:
+                  template: *ensemble_member_template
+                  pattern: "%mem%"
+                  nmembers: 3
+                  start: 19
+                  zero padding: 3
+            localization: *mgbf_localization
+            multiscale strategy: separated
+          weight:
+            # Scale ensembles are unnormalized; each member retains the 1/(30-1) factor.
+            value: 0.034482758620689655
+        # Ensemble group 8: members 022-024
+        - covariance:
+            covariance model: SABER
+            covariance type: ensemble
+            adjoint test: false
+            square-root test: false
+            scales:
+            - ensemble pert:
+                members from template:
+                  template: *ensemble_member_template
+                  pattern: "%mem%"
+                  nmembers: 3
+                  start: 22
+                  zero padding: 3
+            localization: *mgbf_localization
+            multiscale strategy: separated
+          weight:
+            # Scale ensembles are unnormalized; each member retains the 1/(30-1) factor.
+            value: 0.034482758620689655
+        # Ensemble group 9: members 025-027
+        - covariance:
+            covariance model: SABER
+            covariance type: ensemble
+            adjoint test: false
+            square-root test: false
+            scales:
+            - ensemble pert:
+                members from template:
+                  template: *ensemble_member_template
+                  pattern: "%mem%"
+                  nmembers: 3
+                  start: 25
+                  zero padding: 3
+            localization: *mgbf_localization
+            multiscale strategy: separated
+          weight:
+            # Scale ensembles are unnormalized; each member retains the 1/(30-1) factor.
+            value: 0.034482758620689655
+        # Ensemble group 10: members 028-030
+        - covariance:
+            covariance model: SABER
+            covariance type: ensemble
+            adjoint test: false
+            square-root test: false
+            scales:
+            - ensemble pert:
+                members from template:
+                  template: *ensemble_member_template
+                  pattern: "%mem%"
+                  nmembers: 3
+                  start: 28
+                  zero padding: 3
+            localization: *mgbf_localization
+            multiscale strategy: separated
+          weight:
+            # Scale ensembles are unnormalized; each member retains the 1/(30-1) factor.
+            value: 0.034482758620689655
       weight:
         value: 0.8
 
