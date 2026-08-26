@@ -265,6 +265,22 @@ cost function:
         # handed only the members assigned to it, so the files are read once
         # rather than once per group.
         shared ensemble:
+          # Dual resolution: the member files are on the native model grid, so
+          # they are read on that geometry and every member is converted to the
+          # 6km increment geometry before the common mean is removed. Delete this
+          # block if the files are already on the 6km grid - the model IO reads a
+          # file into whatever geometry it is given and never interpolates, so a
+          # mismatch here crops or crashes rather than converting.
+          ensemble geometry:
+            fms initialization:
+              namelist filename: DataFix/fmsmpp.nml
+              field table filename: DataFix/field_table
+            namelist filename: INPUT/sam_p1960_input.nml
+            akbk: DataFix/fix/akbk66.nc
+            npz: 65
+            layout: *fv3_layout
+            io_layout: [1, 1]
+            ntiles: 1
           ensemble:
             members from template:
               template:
