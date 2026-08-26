@@ -250,7 +250,7 @@ cost function:
           fms initialization:
             namelist filename: DataFix/fmsmpp.nml
             field table filename: DataFix/field_table
-          namelist filename: INPUT/sam_p196_input.nml
+          namelist filename: ../dr-convert2state/dr-6km/INPUT/sam_p196_input.nml
           akbk: DataFix/fix/akbk66.nc
           npz: 65
           layout: [14, 14]
