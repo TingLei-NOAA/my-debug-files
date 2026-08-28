@@ -3,7 +3,7 @@ _write_mult: &write_mult true
 #_layout: &fv3_layout [32, 40] # 1280 tasks, original SKD test
 #_layout: &fv3_layout [20, 24] # 8 ppn
 #_layout: &fv3_layout [30, 32] # 16 ppn
-_layout: &fv3_layout [40, 49] # 1960 total ranks
+_layout: &fv3_layout [56, 35] # 1960 total ranks
 #_layout: &fv3_layout [60, 64] # 64 ppn
 _xlayout: &xlayout 56 
 _ylayout: &ylayout 35 
