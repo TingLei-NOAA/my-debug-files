@@ -1,1167 +1,1325 @@
-CMake Deprecation Warning at /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/ecbuild-3.7.2-qa3xshv/share/ecbuild/cmake/ecbuild_project.cmake:44 (cmake_minimum_required):
-  Compatibility with CMake < 3.5 will be removed from a future version of
-  CMake.
-
-  Update the VERSION argument <min> value or use a ...<max> suffix to tell
-  CMake that the project does not need compatibility with older versions.
-Call Stack (most recent call first):
-  CMakeLists.txt:8 (project)
-
-
--- ecbuild   3.7.2	/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/ecbuild-3.7.2-qa3xshv/share/ecbuild/cmake
--- cmake     3.27.9	/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/cmake-3.27.9-ggd7nbu/bin/cmake
--- ---------------------------------------------------------
--- ---------------------------------------------------------
--- ---------------------------------------------------------
--- [32m[jedi-bundle] (8.0.0) [807fdf6][m
--- Feature TESTS enabled
--- Feature TESTS enabled
--- ---------------------------------------------------------
--- Adding bundle project gsibec
-failed to create symbolic link '/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/gsibec' because existing path cannot be removed: Is a directory
--- ---------------------------------------------------------
--- [32m[gsibec] (1.3.2) [859dd68][m
--- Feature TESTS enabled
--- Found MPI: TRUE (found version "3.1") found components: Fortran 
--- Found MPI: TRUE (found version "3.1")  
--- Found NetCDF: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cuu24rq/include (found version "4.9.2") found components: Fortran 
--- FindNetCDF defines targets:
---   - NetCDF_VERSION [4.9.2]
---   - NetCDF_PARALLEL [TRUE]
---   - NetCDF_C_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/bin/nc-config]
---   - NetCDF::NetCDF_C [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/lib/libnetcdf.so 
---   - NetCDF_Fortran_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/bin/nf-config]
---   - NetCDF::NetCDF_Fortran [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/lib/libnetcdff.so 
--- Found sp: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/sp-2.5.0-jtep3du/lib64/libsp_4.a (found version "2.5.0")
--- ---------------------------------------------------------
--- Adding bundle project gsw
--- ---------------------------------------------------------
--- [32m[gsw] (3.0.8) [697cbeb][m
--- Feature TESTS enabled
--- ---------------------------------------------------------
--- Adding bundle project oops
-failed to create symbolic link '/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/oops' because existing path cannot be removed: Is a directory
--- ---------------------------------------------------------
--- [32m[oops] (1.10.0) [26643dd][m
--- Feature TESTS enabled
--- Feature WARNINGS enabled
--- Added CXX flag [-Wall]
--- Added CXX flag [-Wno-sign-compare]
--- Added Fortran flag [-warn]
--- Added CXX flag [-fp-model=precise] to build type DEBUG
--- Added Fortran flag [-ftrapuv -fp-model=precise -fpe-all=0] to build type DEBUG
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP: TRUE (found version "5.1") found components: CXX Fortran 
--- Found MPI: TRUE (found version "3.1") found components: C CXX Fortran 
--- Found MPI: TRUE (found version "3.1")  
--- Found NetCDF: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cuu24rq/include (found version "4.9.2") found components: C Fortran 
--- FindNetCDF defines targets:
---   - NetCDF_VERSION [4.9.2]
---   - NetCDF_PARALLEL [TRUE]
---   - NetCDF_C_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/bin/nc-config]
---   - NetCDF::NetCDF_C [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/lib/libnetcdf.so 
---   - NetCDF_Fortran_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/bin/nf-config]
---   - NetCDF::NetCDF_Fortran [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/lib/libnetcdff.so 
-CMake Warning (dev) at oops/CMakeLists.txt:63 (find_package):
-  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
-  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
-  cmake_policy command to set the policy and suppress this warning.
-
-  Environment variable BOOST_ROOT is set to:
-
-    /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/boost-1.84.0-nevx737
-
-  For compatibility, find_package is ignoring the variable, but code in a
-  .cmake module might still use it.
-This warning is for project developers.  Use -Wno-dev to suppress it.
-
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP: TRUE (found version "5.1") found components: CXX 
--- Found addr2line at /usr/bin/addr2line.
--- Using this provider for stacktraces: default.
--- [OOPS] JSON Schema Validator activated.
--- ---------------------------------------------------------
--- Adding bundle project jedi-model-data
--- ---------------------------------------------------------
--- [32m[jedi-model-data] (1.0.0) [8288047][m
--- Feature TESTS enabled
--- ---------------------------------------------------------
--- Adding bundle project vader
--- ---------------------------------------------------------
--- [32m[vader] (1.7.0) [013de71][m
--- Feature TESTS enabled
--- VADER variables
---   - ENABLE_VADER_DOC: OFF
---   - OPENMP: ON
-CMake Warning (dev) at vader/CMakeLists.txt:32 (find_package):
-  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
-  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
-  cmake_policy command to set the policy and suppress this warning.
-
-  Environment variable BOOST_ROOT is set to:
-
-    /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/boost-1.84.0-nevx737
-
-  For compatibility, find_package is ignoring the variable, but code in a
-  .cmake module might still use it.
-This warning is for project developers.  Use -Wno-dev to suppress it.
-
--- Found MPI: TRUE (found version "3.1") found components: C Fortran 
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP: TRUE (found version "5.1") found components: CXX Fortran 
--- Found MPI: TRUE (found version "3.1") found components: CXX Fortran 
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP: TRUE (found version "5.1") found components: CXX 
--- Found MPI: TRUE (found version "3.1")  
--- Found NetCDF: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cuu24rq/include (found version "4.9.2") found components: C Fortran 
--- FindNetCDF defines targets:
---   - NetCDF_VERSION [4.9.2]
---   - NetCDF_PARALLEL [TRUE]
---   - NetCDF_C_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/bin/nc-config]
---   - NetCDF::NetCDF_C [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/lib/libnetcdf.so 
---   - NetCDF_Fortran_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/bin/nf-config]
---   - NetCDF::NetCDF_Fortran [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/lib/libnetcdff.so 
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- GSW FOUND; Including Marine Recipes gsw (3.0.8)
--- jedi-model-data found; building vader tests
--- ---------------------------------------------------------
--- Adding bundle project saber
-failed to create symbolic link '/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber' because existing path cannot be removed: Is a directory
--- ---------------------------------------------------------
--- [32m[saber] (1.10.0) [4dab876][m
--- Feature TESTS enabled
--- Feature WARNINGS enabled
--- Added CXX flag [-Wall]
--- Added CXX flag [-Wno-sign-compare]
--- Added Fortran flag [-warn]
--- Added CXX flag [-fp-model=precise] to build type DEBUG
--- Added Fortran flag [-ftrapuv -fp-model=precise -fpe-all=0] to build type DEBUG
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP: TRUE (found version "5.1") found components: CXX Fortran 
--- Found MPI: TRUE (found version "3.1") found components: Fortran 
--- Found MPI: TRUE (found version "3.1")  
--- Found NetCDF: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cuu24rq/include (found version "4.9.2") found components: C Fortran 
--- FindNetCDF defines targets:
---   - NetCDF_VERSION [4.9.2]
---   - NetCDF_PARALLEL [TRUE]
---   - NetCDF_C_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/bin/nc-config]
---   - NetCDF::NetCDF_C [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/lib/libnetcdf.so 
---   - NetCDF_Fortran_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/bin/nf-config]
---   - NetCDF::NetCDF_Fortran [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/lib/libnetcdff.so 
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP: TRUE (found version "5.1") found components: CXX 
-CMake Warning (dev) at /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/cmake-3.27.9-ggd7nbu/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
-  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
-  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
-  cmake_policy command to set the policy and suppress this warning.
-
-  Environment variable BOOST_ROOT is set to:
-
-    /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/boost-1.84.0-nevx737
-
-  For compatibility, find_package is ignoring the variable, but code in a
-  .cmake module might still use it.
-Call Stack (most recent call first):
-  build/oops/oops-import.cmake:39 (find_dependency)
-  build/oops/oops-config.cmake:83 (include)
-  saber/CMakeLists.txt:97 (find_package)
-This warning is for project developers.  Use -Wno-dev to suppress it.
-
--- Found Boost: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/boost-1.84.0-nevx737/lib/cmake/Boost-1.84.0/BoostConfig.cmake (found version "1.84.0")  
--- SABER block Bifourier is enabled
--- SABER block FastLAM spectral layer is enabled
--- SABER block GSI is enabled
--- SABER block SPECTRALB is enabled
--- Offline code coverage is not enabled
--- Available FFT backends in BifourierTransform:
--- - fftw
--- thinkdeb-2  /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/jp_pbfil.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/jp_pbfil2.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/jp_pbfil3.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/jp_pietc.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/jp_pietc_s.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/jp_pkind.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/jp_pkind2.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/jp_pmat.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/jp_pmat4.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/mg_bocos.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/mg_domain.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/mg_domain_loc.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/mg_entrymod.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/mg_filtering.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/mg_generations.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/mg_interpolate.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/mg_intstate.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/mg_mppstuff.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/mg_parameter.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/mg_timers.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/mg_tools.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/mg_transfer.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/mgbf_kind.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/mgbf_util.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/phint.f90/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/saber/src/saber/mgbf/mgbf_lib/phint1.f90
--- thinkdeb-1  jp_pbfil.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90
--- thinkdeb-1  jp_pbfil2.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90
--- thinkdeb-1  jp_pbfil3.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90
--- thinkdeb-1  jp_pietc.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90
--- thinkdeb-1  jp_pietc_s.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90
--- thinkdeb-1  jp_pkind.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90
--- thinkdeb-1  jp_pkind2.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90
--- thinkdeb-1  jp_pmat.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90
--- thinkdeb-1  jp_pmat4.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90mgbf_lib/jp_pmat4.f90
--- thinkdeb-1  mg_bocos.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90mgbf_lib/jp_pmat4.f90mgbf_lib/mg_bocos.f90
--- thinkdeb-1  mg_domain.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90mgbf_lib/jp_pmat4.f90mgbf_lib/mg_bocos.f90mgbf_lib/mg_domain.f90
--- thinkdeb-1  mg_domain_loc.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90mgbf_lib/jp_pmat4.f90mgbf_lib/mg_bocos.f90mgbf_lib/mg_domain.f90mgbf_lib/mg_domain_loc.f90
--- thinkdeb-1  mg_entrymod.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90mgbf_lib/jp_pmat4.f90mgbf_lib/mg_bocos.f90mgbf_lib/mg_domain.f90mgbf_lib/mg_domain_loc.f90mgbf_lib/mg_entrymod.f90
--- thinkdeb-1  mg_filtering.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90mgbf_lib/jp_pmat4.f90mgbf_lib/mg_bocos.f90mgbf_lib/mg_domain.f90mgbf_lib/mg_domain_loc.f90mgbf_lib/mg_entrymod.f90mgbf_lib/mg_filtering.f90
--- thinkdeb-1  mg_generations.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90mgbf_lib/jp_pmat4.f90mgbf_lib/mg_bocos.f90mgbf_lib/mg_domain.f90mgbf_lib/mg_domain_loc.f90mgbf_lib/mg_entrymod.f90mgbf_lib/mg_filtering.f90mgbf_lib/mg_generations.f90
--- thinkdeb-1  mg_interpolate.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90mgbf_lib/jp_pmat4.f90mgbf_lib/mg_bocos.f90mgbf_lib/mg_domain.f90mgbf_lib/mg_domain_loc.f90mgbf_lib/mg_entrymod.f90mgbf_lib/mg_filtering.f90mgbf_lib/mg_generations.f90mgbf_lib/mg_interpolate.f90
--- thinkdeb-1  mg_intstate.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90mgbf_lib/jp_pmat4.f90mgbf_lib/mg_bocos.f90mgbf_lib/mg_domain.f90mgbf_lib/mg_domain_loc.f90mgbf_lib/mg_entrymod.f90mgbf_lib/mg_filtering.f90mgbf_lib/mg_generations.f90mgbf_lib/mg_interpolate.f90mgbf_lib/mg_intstate.f90
--- thinkdeb-1  mg_mppstuff.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90mgbf_lib/jp_pmat4.f90mgbf_lib/mg_bocos.f90mgbf_lib/mg_domain.f90mgbf_lib/mg_domain_loc.f90mgbf_lib/mg_entrymod.f90mgbf_lib/mg_filtering.f90mgbf_lib/mg_generations.f90mgbf_lib/mg_interpolate.f90mgbf_lib/mg_intstate.f90mgbf_lib/mg_mppstuff.f90
--- thinkdeb-1  mg_parameter.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90mgbf_lib/jp_pmat4.f90mgbf_lib/mg_bocos.f90mgbf_lib/mg_domain.f90mgbf_lib/mg_domain_loc.f90mgbf_lib/mg_entrymod.f90mgbf_lib/mg_filtering.f90mgbf_lib/mg_generations.f90mgbf_lib/mg_interpolate.f90mgbf_lib/mg_intstate.f90mgbf_lib/mg_mppstuff.f90mgbf_lib/mg_parameter.f90
--- thinkdeb-1  mg_timers.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90mgbf_lib/jp_pmat4.f90mgbf_lib/mg_bocos.f90mgbf_lib/mg_domain.f90mgbf_lib/mg_domain_loc.f90mgbf_lib/mg_entrymod.f90mgbf_lib/mg_filtering.f90mgbf_lib/mg_generations.f90mgbf_lib/mg_interpolate.f90mgbf_lib/mg_intstate.f90mgbf_lib/mg_mppstuff.f90mgbf_lib/mg_parameter.f90mgbf_lib/mg_timers.f90
--- thinkdeb-1  mg_tools.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90mgbf_lib/jp_pmat4.f90mgbf_lib/mg_bocos.f90mgbf_lib/mg_domain.f90mgbf_lib/mg_domain_loc.f90mgbf_lib/mg_entrymod.f90mgbf_lib/mg_filtering.f90mgbf_lib/mg_generations.f90mgbf_lib/mg_interpolate.f90mgbf_lib/mg_intstate.f90mgbf_lib/mg_mppstuff.f90mgbf_lib/mg_parameter.f90mgbf_lib/mg_timers.f90mgbf_lib/mg_tools.f90
--- thinkdeb-1  mg_transfer.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90mgbf_lib/jp_pmat4.f90mgbf_lib/mg_bocos.f90mgbf_lib/mg_domain.f90mgbf_lib/mg_domain_loc.f90mgbf_lib/mg_entrymod.f90mgbf_lib/mg_filtering.f90mgbf_lib/mg_generations.f90mgbf_lib/mg_interpolate.f90mgbf_lib/mg_intstate.f90mgbf_lib/mg_mppstuff.f90mgbf_lib/mg_parameter.f90mgbf_lib/mg_timers.f90mgbf_lib/mg_tools.f90mgbf_lib/mg_transfer.f90
--- thinkdeb-1  mgbf_kind.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90mgbf_lib/jp_pmat4.f90mgbf_lib/mg_bocos.f90mgbf_lib/mg_domain.f90mgbf_lib/mg_domain_loc.f90mgbf_lib/mg_entrymod.f90mgbf_lib/mg_filtering.f90mgbf_lib/mg_generations.f90mgbf_lib/mg_interpolate.f90mgbf_lib/mg_intstate.f90mgbf_lib/mg_mppstuff.f90mgbf_lib/mg_parameter.f90mgbf_lib/mg_timers.f90mgbf_lib/mg_tools.f90mgbf_lib/mg_transfer.f90mgbf_lib/mgbf_kind.f90
--- thinkdeb-1  mgbf_util.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90mgbf_lib/jp_pmat4.f90mgbf_lib/mg_bocos.f90mgbf_lib/mg_domain.f90mgbf_lib/mg_domain_loc.f90mgbf_lib/mg_entrymod.f90mgbf_lib/mg_filtering.f90mgbf_lib/mg_generations.f90mgbf_lib/mg_interpolate.f90mgbf_lib/mg_intstate.f90mgbf_lib/mg_mppstuff.f90mgbf_lib/mg_parameter.f90mgbf_lib/mg_timers.f90mgbf_lib/mg_tools.f90mgbf_lib/mg_transfer.f90mgbf_lib/mgbf_kind.f90mgbf_lib/mgbf_util.f90
--- thinkdeb-1  phint.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90mgbf_lib/jp_pmat4.f90mgbf_lib/mg_bocos.f90mgbf_lib/mg_domain.f90mgbf_lib/mg_domain_loc.f90mgbf_lib/mg_entrymod.f90mgbf_lib/mg_filtering.f90mgbf_lib/mg_generations.f90mgbf_lib/mg_interpolate.f90mgbf_lib/mg_intstate.f90mgbf_lib/mg_mppstuff.f90mgbf_lib/mg_parameter.f90mgbf_lib/mg_timers.f90mgbf_lib/mg_tools.f90mgbf_lib/mg_transfer.f90mgbf_lib/mgbf_kind.f90mgbf_lib/mgbf_util.f90mgbf_lib/phint.f90
--- thinkdeb-1  phint1.f90
--- thinkdeb0  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90mgbf_lib/jp_pmat4.f90mgbf_lib/mg_bocos.f90mgbf_lib/mg_domain.f90mgbf_lib/mg_domain_loc.f90mgbf_lib/mg_entrymod.f90mgbf_lib/mg_filtering.f90mgbf_lib/mg_generations.f90mgbf_lib/mg_interpolate.f90mgbf_lib/mg_intstate.f90mgbf_lib/mg_mppstuff.f90mgbf_lib/mg_parameter.f90mgbf_lib/mg_timers.f90mgbf_lib/mg_tools.f90mgbf_lib/mg_transfer.f90mgbf_lib/mgbf_kind.f90mgbf_lib/mgbf_util.f90mgbf_lib/phint.f90mgbf_lib/phint1.f90
--- thinkdeb  mgbf_lib/jp_pbfil.f90mgbf_lib/jp_pbfil2.f90mgbf_lib/jp_pbfil3.f90mgbf_lib/jp_pietc.f90mgbf_lib/jp_pietc_s.f90mgbf_lib/jp_pkind.f90mgbf_lib/jp_pkind2.f90mgbf_lib/jp_pmat.f90mgbf_lib/jp_pmat4.f90mgbf_lib/mg_bocos.f90mgbf_lib/mg_domain.f90mgbf_lib/mg_domain_loc.f90mgbf_lib/mg_entrymod.f90mgbf_lib/mg_filtering.f90mgbf_lib/mg_generations.f90mgbf_lib/mg_interpolate.f90mgbf_lib/mg_intstate.f90mgbf_lib/mg_mppstuff.f90mgbf_lib/mg_parameter.f90mgbf_lib/mg_timers.f90mgbf_lib/mg_tools.f90mgbf_lib/mg_transfer.f90mgbf_lib/mgbf_kind.f90mgbf_lib/mgbf_util.f90mgbf_lib/phint.f90mgbf_lib/phint1.f90
--- thinkdeb1 covariance/MGBF_Covariance.hcovariance/MGBF_Covariance.cccovariance/MGBF_Covariance.interface.F90covariance/MGBF_Covariance.interface.hcovariance/mgbf_covariance_mod.f90
--- thinkdeb2.4
--- BUMP instrumentation is not enabled
--- SABER documentation is not enabled
--- jedi-model-data found; building saber tests
--- SABER-QUENCH tests activated:
--- - BASE
--- - COUPLED
--- - FASTLAM
--- - FASTLAM REGIONAL INTERPOLATION
--- - FASTLAM FFTW
--- - BIFOURIER
--- - BUMP
--- - GSI GEOS
--- - SPECTRALB
--- - VADER
--- - VADER WITH TRANS
--- - SPECTRALB VADER
--- Found quench I/O formats:
--- - Default (NetCDF)
--- - GMSH
--- Setup QUENCH data links
--- ---------------------------------------------------------
--- Adding bundle project crtm
-CRTM_INSTALL_PREFIX set to /usr/local
--- [32m[crtm] (3.1.3) [807fdf6][0m
-CMAKE_INSTALL_PREFIX set to /usr/local
-CMAKE_INSTALL_LIBDIR set to lib64
-CMAKE_LIBRARY_OUTPUT_DIRECTORY set to /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/lib
--- Compiler ID: Intel
--- Compiler: /apps/spack-2024-12/linux-rocky9-x86_64/gcc-11.4.1/intel-oneapi-compilers-2024.2.1-oqhstbmawnrsdw472p4pjsopj547o6xs/compiler/2024.2/bin/ifort
--- Found OpenMP: TRUE (found version "5.0") found components: Fortran 
--- Found NetCDF: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/include (found version "4.9.2") found components: Fortran 
--- FindNetCDF defines targets:
---   - NetCDF::NetCDF_Fortran [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/lib/libnetcdff.so]
--- Building tests for CRTM v3.1.3.
--- Downloading CRTM coeffs files from: https://bin.ssec.wisc.edu/pub/s4/CRTM//fix_REL-3.1.2.0.tgz to /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/test-data-release/fix_REL-3.1.2.0.tgz
--- Checking if /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/test-data-release/fix_REL-3.1.2.0 already exists...
--- Files have already been untarred. Skipping.
--- Downloaded CRTM files are placed at /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/test-data-release/fix_REL-3.1.2.0/fix 
--- Configuration summary
--- Project name : crtm
--- Project version : 3.1.3
--- Fortran compiler : /apps/spack-2024-12/linux-rocky9-x86_64/gcc-11.4.1/intel-oneapi-compilers-2024.2.1-oqhstbmawnrsdw472p4pjsopj547o6xs/compiler/2024.2/bin/ifort
--- Fortran compiler flags :  -assume byterecl
--- Build type : Debug
--- Fortran compiler flags for debug : -O0 -g -check bounds -traceback -warn -heap-arrays -fpe-all=0 -fpe:0 -ftz -check all -no-inline
--- ---------------------------------------------------------
--- Adding bundle project ioda-data
--- ---------------------------------------------------------
--- Adding bundle project ioda
--- ---------------------------------------------------------
--- [32m[ioda] (2.9.0) [bd13eea][m
--- Feature TESTS enabled
--- Feature WARNINGS enabled
--- Added CXX flag [-Wall]
--- Added CXX flag [-Wno-sign-compare]
--- Added Fortran flag [-warn]
--- Added CXX flag [-fp-model=precise] to build type DEBUG
--- Added Fortran flag [-ftrapuv -fp-model=precise -fpe-all=0] to build type DEBUG
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP: TRUE (found version "5.1") found components: C CXX Fortran 
--- Found NetCDF: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cuu24rq/include (found version "4.9.2") found components: C Fortran CXX 
--- FindNetCDF defines targets:
---   - NetCDF_VERSION [4.9.2]
---   - NetCDF_PARALLEL [TRUE]
---   - NetCDF_C_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/bin/nc-config]
---   - NetCDF::NetCDF_C [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/lib/libnetcdf.so 
---   - NetCDF_Fortran_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/bin/nf-config]
---   - NetCDF::NetCDF_Fortran [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/lib/libnetcdff.so 
---   - NetCDF_CXX_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cuu24rq/bin/ncxx4-config]
---   - NetCDF::NetCDF_CXX [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cuu24rq] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cuu24rq/lib/libnetcdf_c++4.so 
-CMake Warning (dev) at /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/cmake-3.27.9-ggd7nbu/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
-  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
-  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
-  cmake_policy command to set the policy and suppress this warning.
-
-  Environment variable BOOST_ROOT is set to:
-
-    /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/boost-1.84.0-nevx737
-
-  For compatibility, find_package is ignoring the variable, but code in a
-  .cmake module might still use it.
-Call Stack (most recent call first):
-  build/oops/oops-import.cmake:39 (find_dependency)
-  build/oops/oops-config.cmake:83 (include)
-  ioda/CMakeLists.txt:51 (find_package)
-This warning is for project developers.  Use -Wno-dev to suppress it.
-
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP: TRUE (found version "5.1") found components: CXX 
--- Found Boost: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/boost-1.84.0-nevx737/lib/cmake/Boost-1.84.0/BoostConfig.cmake (found suitable version "1.84.0", minimum required is "1.64.0")  
--- Found bufr: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/bufr-12.1.0-5nzgrop/lib64/libbufr_4.so (found version "12.1.0")
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_abiclr.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_ahiclr.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_aircraft.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_aircraft_write.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_airs.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_altimeter.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_amsr.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_amsub.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_ascatsm.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_aod.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_aod_write.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_aod_write_testdatasets.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_atms.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_atms_write.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_atovs.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_atovs_write.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_cris.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_crisfsr.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_fciasr.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_fciclr.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_geocloud.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_gmihigh.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_gmihigh_write.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_gmilow.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_gnssro.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_gnssro_profile_100.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_gnssro_profile_333.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_groundgps.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_hirasfsr.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_hloswind.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_iasi.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_iasi_write.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_iasi_read_channels_from_yaml.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_icethickness.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_imssnow.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_mtgirs.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_mwri.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_mwsfy3.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_oceancolour.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_oceansound.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_oceansound_truncate_profiles.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_radar_doppler_wind.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_radar_reflectivity.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_radarfreeboard.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_satsst.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_sattcwv.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_satwind.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_scatwind.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_scatwindchosen_write.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_seaice.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_seviriasr.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_seviriclr.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_sonde.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_sonde_history.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_sonde_mixed.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_sonde_time_displacement.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_sonde_truncate_profiles.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_sonde_write.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_sonde_write_mixed.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_ssmis.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_stationsnow.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_surface.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_surfacecloud.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_surfacesst.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//odb_default_name_map.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//odb_aircraft_name_map.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//odb_amsr_name_map.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//odb_gnssro_name_map.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//odb_gnssro_profile_name_map.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//odb_oceansound_name_map.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//odb_radiance_name_map.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//odb_sonde_name_map.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//odb_surface_name_map.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//odb_surfacesst_name_map.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ioda/share/test/testinput//validation//ObsSpace.yaml
--- Skipping download of test data from https://bin.ssec.wisc.edu/pub/s4/CRTM/file/ioda_testinput_tier_1_2.9.0.tar.gz since it already exists
--- ---------------------------------------------------------
--- Adding bundle project ufo-data
--- ---------------------------------------------------------
--- [32m[ufo_data] (1.10.0) [da0a3f9][m
--- Feature TESTS enabled
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP: TRUE (found version "5.1") found components: CXX Fortran 
-CMake Warning (dev) at /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/cmake-3.27.9-ggd7nbu/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
-  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
-  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
-  cmake_policy command to set the policy and suppress this warning.
-
-  Environment variable BOOST_ROOT is set to:
-
-    /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/boost-1.84.0-nevx737
-
-  For compatibility, find_package is ignoring the variable, but code in a
-  .cmake module might still use it.
-Call Stack (most recent call first):
-  build/oops/oops-import.cmake:39 (find_dependency)
-  build/oops/oops-config.cmake:83 (include)
-  /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/cmake-3.27.9-ggd7nbu/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
-  build/ioda/ioda-import.cmake:40 (find_dependency)
-  build/ioda/ioda-config.cmake:64 (include)
-  ufo-data/CMakeLists.txt:22 (find_package)
-This warning is for project developers.  Use -Wno-dev to suppress it.
-
--- Found Boost: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/boost-1.84.0-nevx737/lib/cmake/Boost-1.84.0/BoostConfig.cmake (found version "1.84.0")  
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP: TRUE (found version "5.1") found components: CXX 
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
--- Found OpenMP: TRUE (found version "5.1") found components: C CXX Fortran 
--- Found bufr: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/bufr-12.1.0-5nzgrop/lib64/libbufr_4.so (found version "12.1.0")
--- ---------------------------------------------------------
--- Adding bundle project ufo
--- ---------------------------------------------------------
--- [32m[ufo] (1.10.0) [a08ec49][m
--- Feature TESTS enabled
--- Feature WARNINGS enabled
--- Added CXX flag [-Wall]
--- Added CXX flag [-Wno-sign-compare]
--- Added Fortran flag [-warn]
--- Added CXX flag [-fp-model=precise] to build type DEBUG
--- Added Fortran flag [-ftrapuv -fp-model=precise -fpe-all=0] to build type DEBUG
--- Added CXX flag [-fp-model=strict]
--- Added Fortran flag [-fp-model=strict]
--- Found MPI: TRUE (found version "3.1") found components: C CXX Fortran 
-CMake Warning (dev) at ufo/CMakeLists.txt:51 (find_package):
-  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
-  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
-  cmake_policy command to set the policy and suppress this warning.
-
-  Environment variable BOOST_ROOT is set to:
-
-    /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/boost-1.84.0-nevx737
-
-  For compatibility, find_package is ignoring the variable, but code in a
-  .cmake module might still use it.
-This warning is for project developers.  Use -Wno-dev to suppress it.
-
--- Found MPI: TRUE (found version "3.1")  
--- Found NetCDF: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cuu24rq/include (found version "4.9.2") found components: C CXX Fortran 
--- FindNetCDF defines targets:
---   - NetCDF_VERSION [4.9.2]
---   - NetCDF_PARALLEL [TRUE]
---   - NetCDF_C_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/bin/nc-config]
---   - NetCDF::NetCDF_C [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/lib/libnetcdf.so 
---   - NetCDF_CXX_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cuu24rq/bin/ncxx4-config]
---   - NetCDF::NetCDF_CXX [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cuu24rq] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cuu24rq/lib/libnetcdf_c++4.so 
---   - NetCDF_Fortran_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/bin/nf-config]
---   - NetCDF::NetCDF_Fortran [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/lib/libnetcdff.so 
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
--- Found OpenMP: TRUE (found version "5.1") found components: CXX Fortran 
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP: TRUE (found version "5.1") found components: CXX 
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
--- Found OpenMP: TRUE (found version "5.1") found components: C CXX Fortran 
--- Found bufr: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/bufr-12.1.0-5nzgrop/lib64/libbufr_4.so (found version "12.1.0")
--- Found bufr: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/bufr-12.1.0-5nzgrop/lib64/libbufr_4.so (found version "12.1.0")
--- CRTM FOUND; Including CRTM Observation Operator (3.1.3)
--- RTTOV NOT FOUND; Excluding RTTOV Radiance Observation Operator
--- GSW FOUND; Including Marine Observation Operators (3.0.8)
--- ROPP NOT FOUND: Excluding GNSSRO Bending angle ROPP Operators
--- GEOS-AERO NOT FOUND: Excluding AOD operator from GEOS
--- OASIM NOT FOUND: Excluding Ocean Atmosphere Spectral Irradiance Model
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ufo/resources/namemap
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ufo/resources/namemap/bayesian_name_map.yaml
--- Up-to-date: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/ufo/resources/namemap/test_name_map.yaml
--- Skipping download of test data from https://bin.ssec.wisc.edu/pub/s4/CRTM/fix_REL-3.1.2.0.tgz since it already exists
--- Skipping download of test data from https://bin.ssec.wisc.edu/pub/s4/CRTM/file/ufo_testinput_tier_1_1.10.0.tar.gz since it already exists
--- ---------------------------------------------------------
--- Adding bundle project fv3-jedi-lm
-CMake Deprecation Warning at fv3-jedi-lm/CMakeLists.txt:10 (cmake_minimum_required):
-  Compatibility with CMake < 3.5 will be removed from a future version of
-  CMake.
-
-  Update the VERSION argument <min> value or use a ...<max> suffix to tell
-  CMake that the project does not need compatibility with older versions.
-
-
-CMake Warning (dev) at fv3-jedi-lm/CMakeLists.txt:18 (find_package):
-  Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
-  Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
-  command to set the policy and suppress this warning.
-
-  Environment variable ecbuild_ROOT is set to:
-
-    /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/ecbuild-3.7.2-qa3xshv
-
-  For compatibility, CMake is ignoring the variable.
-This warning is for project developers.  Use -Wno-dev to suppress it.
-
--- Found ecbuild: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/ecbuild-3.7.2-qa3xshv/share/ecbuild/cmake (found suitable version "3.7.2", minimum required is "3.6") 
--- ---------------------------------------------------------
--- [32m[fv3jedilm] (1.5.0) [5994c38][m
--- Feature TESTS enabled
--- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
--- Found OpenMP: TRUE (found version "5.1") found components: C Fortran 
--- Found MPI: TRUE (found version "3.1") found components: Fortran 
--- fv3jedilm FOUND MPI
--- Found package MPI required for feature MPI
--- Feature MPI enabled
--- Found MPI: TRUE (found version "3.1")  
--- Found NetCDF: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cuu24rq/include (found version "4.9.2") found components: Fortran 
--- FindNetCDF defines targets:
---   - NetCDF_VERSION [4.9.2]
---   - NetCDF_PARALLEL [TRUE]
---   - NetCDF_C_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/bin/nc-config]
---   - NetCDF::NetCDF_C [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/lib/libnetcdf.so 
---   - NetCDF_Fortran_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/bin/nf-config]
---   - NetCDF::NetCDF_Fortran [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/lib/libnetcdff.so 
--- Found MPI: TRUE (found version "3.1") found components: Fortran 
--- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
--- Found OpenMP: TRUE (found version "5.0") found components: Fortran 
--- Found MPI: TRUE (found version "3.1")  
--- Found FMS: "/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/fms-2024.02-33jbrlt" (Version: "2024.2.0")
--- FMS targets:
---   - FMS::fms_r4 [Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/fms-2024.02-33jbrlt/lib/libfms_r4.a]
---   - FMS::fms_r8 [Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/fms-2024.02-33jbrlt/lib/libfms_r8.a]
--- ---------------------------------------------------------
--- Adding bundle project fv3-jedi-data
-CMake Deprecation Warning at fv3-jedi-data/CMakeLists.txt:10 (cmake_minimum_required):
-  Compatibility with CMake < 3.5 will be removed from a future version of
-  CMake.
-
-  Update the VERSION argument <min> value or use a ...<max> suffix to tell
-  CMake that the project does not need compatibility with older versions.
-
-
--- ---------------------------------------------------------
--- Adding bundle project fv3-jedi
-failed to create symbolic link '/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/fv3-jedi' because existing path cannot be removed: Is a directory
-CMake Deprecation Warning at fv3-jedi/CMakeLists.txt:10 (cmake_minimum_required):
-  Compatibility with CMake < 3.5 will be removed from a future version of
-  CMake.
-
-  Update the VERSION argument <min> value or use a ...<max> suffix to tell
-  CMake that the project does not need compatibility with older versions.
-
-
-CMake Warning (dev) at fv3-jedi/CMakeLists.txt:20 (find_package):
-  Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
-  Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
-  command to set the policy and suppress this warning.
-
-  Environment variable ecbuild_ROOT is set to:
-
-    /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/ecbuild-3.7.2-qa3xshv
-
-  For compatibility, CMake is ignoring the variable.
-This warning is for project developers.  Use -Wno-dev to suppress it.
-
--- ---------------------------------------------------------
--- [32m[fv3jedi] (1.9.0) [4754f81][m
--- Feature TESTS enabled
--- Feature WARNINGS enabled
--- Added CXX flag [-Wall]
--- Added CXX flag [-Wno-sign-compare]
--- Added Fortran flag [-warn]
--- Added CXX flag [-fp-model=precise] to build type DEBUG
--- Added Fortran flag [-ftrapuv -fp-model=precise -fpe-all=0] to build type DEBUG
--- Found NetCDF: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cuu24rq/include (found version "4.9.2") found components: C Fortran 
--- FindNetCDF defines targets:
---   - NetCDF_VERSION [4.9.2]
---   - NetCDF_PARALLEL [TRUE]
---   - NetCDF_C_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/bin/nc-config]
---   - NetCDF::NetCDF_C [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/lib/libnetcdf.so 
---   - NetCDF_Fortran_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/bin/nf-config]
---   - NetCDF::NetCDF_Fortran [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/lib/libnetcdff.so 
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP: TRUE (found version "5.1") found components: CXX 
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
--- Found OpenMP: TRUE (found version "5.1") found components: CXX Fortran 
-CMake Warning (dev) at /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/cmake-3.27.9-ggd7nbu/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
-  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
-  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
-  cmake_policy command to set the policy and suppress this warning.
-
-  Environment variable BOOST_ROOT is set to:
-
-    /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/boost-1.84.0-nevx737
-
-  For compatibility, find_package is ignoring the variable, but code in a
-  .cmake module might still use it.
-Call Stack (most recent call first):
-  build/oops/oops-import.cmake:39 (find_dependency)
-  build/oops/oops-config.cmake:83 (include)
-  fv3-jedi/CMakeLists.txt:63 (find_package)
-This warning is for project developers.  Use -Wno-dev to suppress it.
-
--- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
--- Found OpenMP: TRUE (found version "5.0") found components: Fortran 
--- FFTW targets:
---     FFTW::fftw3 (double precision)  [/apps/spack-2024-12/linux-rocky9-x86_64/oneapi-2024.2.1/intel-oneapi-mkl-2024.2.1-xnoyobr3t3tov375bqiwzuue5fbtjixa/mkl/2024.2/lib/libmkl_intel_lp64.so;/apps/spack-2024-12/linux-rocky9-x86_64/oneapi-2024.2.1/intel-oneapi-mkl-2024.2.1-xnoyobr3t3tov375bqiwzuue5fbtjixa/mkl/2024.2/lib/libmkl_sequential.so;/apps/spack-2024-12/linux-rocky9-x86_64/oneapi-2024.2.1/intel-oneapi-mkl-2024.2.1-xnoyobr3t3tov375bqiwzuue5fbtjixa/mkl/2024.2/lib/libmkl_core.so]
--- CRTM found: enabling CRTM-dependent code paths and tests
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
--- Found OpenMP: TRUE (found version "5.1") found components: C CXX Fortran 
--- Found bufr: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/bufr-12.1.0-5nzgrop/lib64/libbufr_4.so (found version "12.1.0")
--- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
--- Found OpenMP: TRUE (found version "5.0") found components: Fortran 
--- Found MPI: TRUE (found version "3.1") found components: CXX Fortran 
--- Found MPI: TRUE (found version "3.1") found components: Fortran 
--- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
--- Found MPI: TRUE (found version "3.1")  
--- Found FMS: "/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/fms-2024.02-33jbrlt" (Version: "2024.2.0")
--- FMS targets:
---   - FMS::fms_r4 [Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/fms-2024.02-33jbrlt/lib/libfms_r4.a]
---   - FMS::fms_r8 [Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/fms-2024.02-33jbrlt/lib/libfms_r8.a]
--- Use crtm test data provided by ufo in /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/test-data-release/fix_REL-3.1.2.0/fix
--- Skipping download of test data from https://bin.ssec.wisc.edu/pub/s4/CRTM/file/fv3-jedi_testinput_tier_1_1.9.0.tar.gz since it already exists
--- Creating static B yaml files for cycle: 2020-12-14:21
--- Creating static B yaml files for cycle: 2020-12-15:00
--- Creating static B yaml files for cycle: 2020-12-15:03
--- Creating static B yaml files for cycle: 2020-12-14:21
--- Creating static B yaml files for cycle: 2020-12-15:00
--- Creating static B yaml files for cycle: 2020-12-15:03
--- Creating static B yaml files for cycle: 2018-04-14:21
--- Creating static B yaml files for cycle: 2018-04-15:00
--- Creating static B yaml files for cycle: 2018-04-15:03
--- Creating ensemble B yaml files for cycle: 2020-12-14:21
--- Creating ensemble B yaml files for cycle: 2020-12-15:00
--- Creating ensemble B yaml files for cycle: 2020-12-15:03
--- ---------------------------------------------------------
--- Adding bundle project soca
--- Found ecbuild: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/ecbuild-3.7.2-qa3xshv/share/ecbuild/cmake (found suitable version "3.7.2", minimum required is "3.3.2") 
--- ---------------------------------------------------------
--- [32m[soca] (1.8.0) [3bf226d][m
--- Feature TESTS enabled
--- Feature WARNINGS enabled
--- Added CXX flag [-Wall]
--- Added CXX flag [-Wno-sign-compare]
--- Added Fortran flag [-warn]
--- Added CXX flag [-fp-model=precise] to build type DEBUG
--- Added Fortran flag [-ftrapuv -fp-model=precise -fpe-all=0] to build type DEBUG
--- Added Fortran flag [-fp-model=strict]
--- Found NetCDF: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/include (found version "4.9.2") found components: Fortran C 
--- FindNetCDF defines targets:
---   - NetCDF::NetCDF_Fortran [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/lib/libnetcdff.so]
---   - NetCDF::NetCDF_C [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/lib/libnetcdf.so]
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP: TRUE (found version "5.1") found components: CXX 
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
--- Found OpenMP: TRUE (found version "5.1") found components: CXX Fortran 
--- Found MPI: TRUE (found version "3.1") found components: CXX Fortran 
-CMake Warning (dev) at /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/cmake-3.27.9-ggd7nbu/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
-  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
-  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
-  cmake_policy command to set the policy and suppress this warning.
-
-  Environment variable BOOST_ROOT is set to:
-
-    /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/boost-1.84.0-nevx737
-
-  For compatibility, find_package is ignoring the variable, but code in a
-  .cmake module might still use it.
-Call Stack (most recent call first):
-  build/oops/oops-import.cmake:39 (find_dependency)
-  build/oops/oops-config.cmake:83 (include)
-  soca/CMakeLists.txt:29 (find_package)
-This warning is for project developers.  Use -Wno-dev to suppress it.
-
--- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
--- Found OpenMP: TRUE (found version "5.0") found components: Fortran 
--- FFTW targets:
---     FFTW::fftw3 (double precision)  [/apps/spack-2024-12/linux-rocky9-x86_64/oneapi-2024.2.1/intel-oneapi-mkl-2024.2.1-xnoyobr3t3tov375bqiwzuue5fbtjixa/mkl/2024.2/lib/libmkl_intel_lp64.so;/apps/spack-2024-12/linux-rocky9-x86_64/oneapi-2024.2.1/intel-oneapi-mkl-2024.2.1-xnoyobr3t3tov375bqiwzuue5fbtjixa/mkl/2024.2/lib/libmkl_sequential.so;/apps/spack-2024-12/linux-rocky9-x86_64/oneapi-2024.2.1/intel-oneapi-mkl-2024.2.1-xnoyobr3t3tov375bqiwzuue5fbtjixa/mkl/2024.2/lib/libmkl_core.so]
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
--- Found OpenMP: TRUE (found version "5.1") found components: C CXX Fortran 
--- Found bufr: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/bufr-12.1.0-5nzgrop/lib64/libbufr_4.so (found version "12.1.0")
--- Found MPI: TRUE (found version "3.1")  
--- Found NetCDF: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cuu24rq/include (found version "4.9.2") found components: Fortran 
--- FindNetCDF defines targets:
---   - NetCDF_VERSION [4.9.2]
---   - NetCDF_PARALLEL [TRUE]
---   - NetCDF_C_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/bin/nc-config]
---   - NetCDF::NetCDF_C [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/lib/libnetcdf.so 
---   - NetCDF_Fortran_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/bin/nf-config]
---   - NetCDF::NetCDF_Fortran [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/lib/libnetcdff.so 
--- Found MPI: TRUE (found version "3.1") found components: Fortran 
--- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
--- Found OpenMP: TRUE (found version "5.0") found components: Fortran 
--- Found MPI: TRUE (found version "3.1")  
--- Found FMS: "/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/fms-2024.02-33jbrlt" (Version: "2024.2.0")
--- FMS targets:
---   - FMS::fms_r4 [Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/fms-2024.02-33jbrlt/lib/libfms_r4.a]
--- Found OpenMP_C: -fiopenmp (found version "5.1") 
--- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
--- Found OpenMP: TRUE (found version "5.1") found components: C Fortran 
-Building MOM6 standalone executable
--- ---------------------------------------------------------
--- Adding bundle project mpas
--- [OPTION] MPAS_CORES: init_atmosphere;atmosphere
--- [OPTION] MPAS_DOUBLE_PRECISION: ON
--- [OPTION] MPAS_PROFILE: OFF
--- [OPTION] MPAS_OPENMP: ON
--- [OPTION] BUILD_SHARED_LIBS: ON
--- [OPTION] MPAS_USE_PIO: OFF
--- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
--- Found OpenMP: TRUE (found version "5.0") found components: Fortran 
--- Found MPI: TRUE (found version "3.1") found components: Fortran 
--- FindPnetCDF:
---   - PnetCDF_VERSION [1.12.3]
---   - PnetCDF_PREFIX [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/parallel-netcdf-1.12.3-oeqtpxg]
---   - PnetCDF Components Found: Fortran;C;CXX
--- Unknown compiler: IntelLLVM
--- Found MPI: TRUE (found version "3.1") found components: C Fortran 
--- Found PnetCDF: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/parallel-netcdf-1.12.3-oeqtpxg/bin/pnetcdf-config (found version "1.12.3") found components: Fortran C 
--- Configure MPAS for internal ESMF
-CPP_EXTRA_FLAGS: -DCORE_INIT_ATMOSPHERE;-DMPAS_NAMELIST_SUFFIX=init_atmosphere;-DMPAS_EXE_NAME=mpas_init_atmosphere;-DMPAS_GIT_VERSION=v8.4.0;-DMPAS_BUILD_TARGET=Intel
-Processing externals description file : /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/core_atmosphere/Externals.cfg (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/core_atmosphere/physics)
-Checking local status of required & optional components: mmm-physics, gsl_ugwp, 
-Checking out externals: mmm-physics, gsl_ugwp, 
-
--- Finished checking out external repos via manage_externals
-CPP_EXTRA_FLAGS: -DCORE_ATMOSPHERE;-DMPAS_NAMELIST_SUFFIX=atmosphere;-DMPAS_EXE_NAME=mpas_atmosphere;-DMPAS_GIT_VERSION=v8.4.0;-DMPAS_BUILD_TARGET=Intel
--- MPAS-Data source dir: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/_deps/mpas_data-src
--- ---------------------------------------------------------
--- Adding bundle project mpas-jedi-data
--- ---------------------------------------------------------
--- Adding bundle project mpas-jedi
-failed to create symbolic link '/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas-jedi' because existing path cannot be removed: Is a directory
--- ---------------------------------------------------------
--- [32m[mpasjedi] (3.1.0) [6dbc8c9][m
--- Feature TESTS enabled
--- Feature WARNINGS enabled
--- Added CXX flag [-Wall]
--- Added CXX flag [-Wno-sign-compare]
--- Added Fortran flag [-warn]
--- Added CXX flag [-fp-model=precise] to build type DEBUG
--- Added Fortran flag [-ftrapuv -fp-model=precise -fpe-all=0] to build type DEBUG
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP: TRUE (found version "5.1") found components: CXX Fortran 
--- Found MPI: TRUE (found version "3.1") found components: CXX Fortran 
-CMake Warning (dev) at mpas-jedi/CMakeLists.txt:38 (find_package):
-  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
-  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
-  cmake_policy command to set the policy and suppress this warning.
-
-  Environment variable BOOST_ROOT is set to:
-
-    /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/boost-1.84.0-nevx737
-
-  For compatibility, find_package is ignoring the variable, but code in a
-  .cmake module might still use it.
-This warning is for project developers.  Use -Wno-dev to suppress it.
-
--- Found PnetCDF: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/parallel-netcdf-1.12.3-oeqtpxg/bin/pnetcdf-config (found version "1.12.3") found components: Fortran 
--- FindPnetCDF:
---   - PnetCDF_VERSION [1.12.3]
---   - PnetCDF_PREFIX [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/parallel-netcdf-1.12.3-oeqtpxg]
---   - PnetCDF Components Found: Fortran;C;CXX
--- FindPIO:
---   - PIO_PREFIX [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/parallelio-2.6.2-4tj7u7h]
---   - PIO Components Found: Fortran;C;SHARED
--- Found MPAS: (version: "8.4.0") (components: SHARED;OpenMP;DOUBLE_PRECISION;core_atmosphere;core_init_atmosphere)
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP: TRUE (found version "5.1") found components: CXX 
--- Configure mpas-jedi for internal ESMF
--- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
--- Found OpenMP: TRUE (found version "5.0") found components: Fortran 
--- FFTW targets:
---     FFTW::fftw3 (double precision)  [/apps/spack-2024-12/linux-rocky9-x86_64/oneapi-2024.2.1/intel-oneapi-mkl-2024.2.1-xnoyobr3t3tov375bqiwzuue5fbtjixa/mkl/2024.2/lib/libmkl_intel_lp64.so;/apps/spack-2024-12/linux-rocky9-x86_64/oneapi-2024.2.1/intel-oneapi-mkl-2024.2.1-xnoyobr3t3tov375bqiwzuue5fbtjixa/mkl/2024.2/lib/libmkl_sequential.so;/apps/spack-2024-12/linux-rocky9-x86_64/oneapi-2024.2.1/intel-oneapi-mkl-2024.2.1-xnoyobr3t3tov375bqiwzuue5fbtjixa/mkl/2024.2/lib/libmkl_core.so]
--- Found OpenMP_C: -fiopenmp (found version "5.1") 
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
--- Found OpenMP: TRUE (found version "5.1") found components: C CXX Fortran 
--- Found bufr: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/bufr-12.1.0-5nzgrop/lib64/libbufr_4.so (found version "12.1.0")
--- Found MPI: TRUE (found version "3.1")  
--- Found NetCDF: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/include;/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cuu24rq/include (found version "4.9.2") found components: Fortran 
--- FindNetCDF defines targets:
---   - NetCDF_VERSION [4.9.2]
---   - NetCDF_PARALLEL [TRUE]
---   - NetCDF_C_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/bin/nc-config]
---   - NetCDF::NetCDF_C [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-c-4.9.2-j7soiat/lib/libnetcdf.so 
---   - NetCDF_Fortran_CONFIG_EXECUTABLE [/contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/bin/nf-config]
---   - NetCDF::NetCDF_Fortran [SHARED] [Root: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2] Lib: /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/netcdf-fortran-4.6.1-mcqlwg2/lib/libnetcdff.so 
--- Use crtm test data provided by ufo in /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/test-data-release/fix_REL-3.1.2.0/fix
--- Skipping download of test data from https://bin.ssec.wisc.edu/pub/s4/CRTM/file/mpas-jedi_testinput_tier_1_3.1.0.jcsda.tar.gz since it already exists
--- ---------------------------------------------------------
--- Adding bundle project coupling
--- ---------------------------------------------------------
--- [32m[coupling] (1.2.0) [0d301e0][m
--- Feature TESTS enabled
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
--- Found OpenMP: TRUE (found version "5.1") found components: CXX Fortran 
--- Found MPI: TRUE (found version "3.1") found components: CXX Fortran 
-CMake Warning (dev) at /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/cmake-3.27.9-ggd7nbu/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
-  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
-  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
-  cmake_policy command to set the policy and suppress this warning.
-
-  Environment variable BOOST_ROOT is set to:
-
-    /contrib/spack-stack/spack-stack-1.9.3/envs/ue-oneapi-2024.2.1/install/oneapi/2024.2.1/boost-1.84.0-nevx737
-
-  For compatibility, find_package is ignoring the variable, but code in a
-  .cmake module might still use it.
-Call Stack (most recent call first):
-  build/oops/oops-import.cmake:39 (find_dependency)
-  build/oops/oops-config.cmake:83 (include)
-  coupling/CMakeLists.txt:31 (find_package)
-This warning is for project developers.  Use -Wno-dev to suppress it.
-
--- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
--- Found OpenMP: TRUE (found version "5.1") found components: CXX 
--- Use test data from fv3-jedi-data repository
--- ---------------------------------------------------------
--- Bundle jedi-bundle
--- ---------------------------------------------------------
--- ---------------------------------------------------------
--- Build summary
--- ---------------------------------------------------------
--- system : [ufe04] [Linux-5.14.0-570.60.1+4.1.el9_6_ciq.x86_64] [linux.64]
--- processor        : [x86_64]
--- endiness         : Little Endian -- IEEE []
--- build type       : [Debug]
--- timestamp        : [20260318010746]
--- install prefix   : [/usr/local]
---   bin dir        : [/usr/local/bin]
---   lib dir        : [/usr/local/lib64]
---   include dir    : [/usr/local/include]
---   data dir       : [/usr/local/share/jedi-bundle]
---   cmake dir      : [/usr/local/lib64/cmake/jedi-bundle]
--- ---------------------------------------------------------
--- C -- IntelLLVM 2024.2.1
---     compiler   : /apps/spack-2024-12/linux-rocky9-x86_64/gcc-11.4.1/intel-oneapi-compilers-2024.2.1-oqhstbmawnrsdw472p4pjsopj547o6xs/compiler/2024.2/bin/icx
---     flags      :  -O0 -g -traceback  
---     link flags : 
--- CXX -- IntelLLVM 2024.2.1
---     compiler   : /apps/spack-2024-12/linux-rocky9-x86_64/gcc-11.4.1/intel-oneapi-compilers-2024.2.1-oqhstbmawnrsdw472p4pjsopj547o6xs/compiler/2024.2/bin/icpx
---     flags      :  -O0 -g -traceback  
---     link flags : 
--- Fortran -- Intel 2021.1.0.20240703
---     compiler   : /apps/spack-2024-12/linux-rocky9-x86_64/gcc-11.4.1/intel-oneapi-compilers-2024.2.1-oqhstbmawnrsdw472p4pjsopj547o6xs/compiler/2024.2/bin/ifort
---     flags      :  -O0 -g -traceback -heap-arrays 32 -check all  
---     link flags : 
--- linker : /usr/bin/ld
--- ar     : /usr/bin/ar
--- ranlib : /usr/bin/ranlib
--- link flags
---     executable [-fsanitize=address    -Wl,--disable-new-dtags ]
---     shared lib [ -Wl,--disable-new-dtags ]
---     static lib [ -Wl,--disable-new-dtags ]
--- install rpath  : $ORIGIN/../lib64
--- common definitions: 
--- ---------------------------------------------------------
--- Feature summary
--- ---------------------------------------------------------
--- The following features have been enabled:
-
- * TESTS, jedi-bundle: Enable the unit tests, jedi-bundle: Enable the unit tests, gsibec: Enable the unit tests, gsw: Enable the unit tests, oops: Enable the unit tests, jedi-model-data: Enable the unit tests, vader: Enable the unit tests, saber: Enable the unit tests, ioda: Enable the unit tests, ufo_data: Enable the unit tests, ufo: Enable the unit tests, fv3jedilm: Enable the unit tests, fv3jedi: Enable the unit tests, soca: Enable the unit tests, mpasjedi: Enable the unit tests, coupling: Enable the unit tests
- * WARNINGS, oops: Add warnings to compiler, saber: Add warnings to compiler, ioda: Add warnings to compiler, ufo: Add warnings to compiler, fv3jedi: Add warnings to compiler, soca: Add warnings to compiler, mpasjedi: Add warnings to compiler
- * Python, Build Python bindings using pybind11
- * MPI, fv3jedilm: Support for MPI distributed parallelism
-
--- The following OPTIONAL packages have been found:
-
- * sp
- * jedi-model-data (required version >= 1.0.0)
- * Python3
- * pybind11
- * Git
- * PkgConfig
- * Perl
-
--- The following REQUIRED packages have been found:
-
- * FMS (required version >= 2023.04)
- * fv3jedilm (required version >= 1.5.0)
- * fms (required version >= 2023.3.0)
- * PnetCDF
- * PIO
- * MPAS (required version >= 8.0)
- * BLAS
- * gsw
- * FFTW
- * gsibec
- * saber (required version >= 1.10.0)
- * Threads
- * HDF5
- * gsl-lite
- * udunits (required version >= 2.2.0)
- * bufr (required version >= 12.0.1)
- * bufr_query (required version >= 0.0.4)
- * ioda (required version >= 2.9.0)
- * NetCDF
- * ufo (required version >= 1.10.0)
- * ecbuild (required version >= 3.3.2)
- * jedicmake
- * MKL
- * MPI, fv3jedilm: Support for MPI distributed parallelism
- * boost_headers (required version == 1.84.0)
- * Boost
- * eckit
- * hic
- * Eigen3
- * OpenMP
- * nlohmann_json
- * oops (required version >= 1.10.0)
-
--- The following OPTIONAL packages have not been found:
-
- * ECTRANS (required version >= 1.6.0)
- * ioda-data
- * geos-aero
- * ufo-data
- * ip
- * fv3-jedi-data
- * rttov (required version >= 12.1.0)
- * ropp-ufo
- * mpas-jedi-data
- * oasim
-
--- Configuring done (279.2s)
--- Generating done (103.2s)
--- Build files have been written to: /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build
-[  2%] Built target bump_f90
-[  2%] Built target oops_test_headers
-[  2%] Built target qg_headers
-[  2%] Built target quench_headers
-[  2%] Built target vader_headers
-[  2%] Built target ioda_headers
-[  2%] Built target ioda_test_headers
-[  2%] Built target smiol
-[  2%] Built target ezxml
-[  2%] Built target init_atmosphere_include_link
-[  2%] Built target atmosphere_include_link
-[  3%] Built target icepack_limited
-[  3%] Built target smiolf
-[  3%] Linking C executable ../../../../bin/mpas_namelist_gen
-[  3%] Built target esmf
-[  3%] Linking C executable ../../../../bin/mpas_streams_gen
-[  3%] Built target mpas_namelist_gen
-[  4%] Built target parselib
-[  5%] Built target mpas_streams_gen
-[  5%] Linking C executable ../../../../bin/mpas_parse_init_atmosphere
-[  5%] Built target mpas_parse_init_atmosphere
-[  5%] Linking C executable ../../../../bin/mpas_parse_atmosphere
-[  5%] Built target mpas_parse_atmosphere
-[  5%] CORE init_atmosphere: Parse Registry
----- GENERATING IMMUTABLE STREAMS ----
----- GENERATING PACKAGE LOGIC ----
-[  5%] CORE init_atmosphere: Generate Namelist
-[ 10%] Built target gsw
-[ 10%] CORE init_atmosphere: Generate Streams
-[ 11%] Built target framework
-
-=================================================================
-==4062852==ERROR: LeakSanitizer: detected memory leaks
-
-Direct leak of 1024 byte(s) in 1 object(s) allocated from:
-    #0 0x4d1753 in malloc (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_namelist_gen+0x4d1753)
-    #1 0x51139e in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/namelist_gen.c:49:15
-    #2 0x7f1714a6f5cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-Direct leak of 1024 byte(s) in 1 object(s) allocated from:
-    #0 0x4d1753 in malloc (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_namelist_gen+0x4d1753)
-    #1 0x511385 in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/namelist_gen.c:48:13
-    #2 0x7f1714a6f5cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-Direct leak of 54 byte(s) in 9 object(s) allocated from:
-    #0 0x4b8efe in strdup (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_namelist_gen+0x4b8efe)
-    #1 0x511824 in is_structure_writable /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/test_functions.c:29:13
-    #2 0x5115be in generate_namelist /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/namelist_gen.c:106:16
-    #3 0x51146f in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/namelist_gen.c:65:8
-    #4 0x7f1714a6f5cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-Direct leak of 46 byte(s) in 9 object(s) allocated from:
-    #0 0x4b8efe in strdup (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_namelist_gen+0x4b8efe)
-    #1 0x511824 in is_structure_writable /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/test_functions.c:29:13
-    #2 0x511528 in generate_namelist /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/namelist_gen.c:92:18
-    #3 0x51146f in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/namelist_gen.c:65:8
-    #4 0x7f1714a6f5cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-SUMMARY: AddressSanitizer: 2148 byte(s) leaked in 20 allocation(s).
-make[2]: *** [mpas/src/core_init_atmosphere/CMakeFiles/gen_init_atmosphere.dir/build.make:109: mpas/src/core_init_atmosphere/namelist.init_atmosphere] Error 1
-make[2]: *** Waiting for unfinished jobs....
-
-=================================================================
-==4062857==ERROR: LeakSanitizer: detected memory leaks
-
-Indirect leak of 87040 byte(s) in 1 object(s) allocated from:
-    #0 0x4d1c88 in realloc (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_streams_gen+0x4d1c88)
-    #1 0x7f766e7bed36 in ezxml_parse_fp /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:621:37
-    #2 0x511532 in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/streams_gen.c:86:21
-    #3 0x7f766e4d05cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-Indirect leak of 43520 byte(s) in 544 object(s) allocated from:
-    #0 0x4d1753 in malloc (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_streams_gen+0x4d1753)
-    #1 0x7f766e7bc445 in ezxml_add_child /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:904:29
-    #2 0x7f766e7bc3da in ezxml_open_tag /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:232:26
-    #3 0x7f766e7be459 in ezxml_parse_str /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:547:17
-    #4 0x7f766e7bed8d in ezxml_parse_fp /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:625:26
-    #5 0x511532 in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/streams_gen.c:86:21
-    #6 0x7f766e4d05cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-Indirect leak of 37184 byte(s) in 431 object(s) allocated from:
-    #0 0x4d1c88 in realloc (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_streams_gen+0x4d1c88)
-    #1 0x7f766e7bdfb5 in ezxml_parse_str /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:509:30
-    #2 0x7f766e7bed8d in ezxml_parse_fp /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:625:26
-    #3 0x511532 in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/streams_gen.c:86:21
-    #4 0x7f766e4d05cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-Indirect leak of 11860 byte(s) in 23 object(s) allocated from:
-    #0 0x4d1c88 in realloc (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_streams_gen+0x4d1c88)
-    #1 0x7f766e7bc5a0 in ezxml_char_content /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:254:22
-    #2 0x7f766e7beb25 in ezxml_parse_str /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:598:21
-    #3 0x7f766e7bed8d in ezxml_parse_fp /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:625:26
-    #4 0x511532 in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/streams_gen.c:86:21
-    #5 0x7f766e4d05cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-Indirect leak of 4352 byte(s) in 136 object(s) allocated from:
-    #0 0x4d1753 in malloc (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_streams_gen+0x4d1753)
-    #1 0x7f766e7bdfc8 in ezxml_parse_str /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:510:30
-    #2 0x7f766e7bed8d in ezxml_parse_fp /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:625:26
-    #3 0x511532 in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/streams_gen.c:86:21
-    #4 0x7f766e4d05cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-Indirect leak of 2324 byte(s) in 431 object(s) allocated from:
-    #0 0x4d1c88 in realloc (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_streams_gen+0x4d1c88)
-    #1 0x7f766e7be005 in ezxml_parse_str /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:511:37
-    #2 0x7f766e7bed8d in ezxml_parse_fp /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:625:26
-    #3 0x511532 in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/streams_gen.c:86:21
-    #4 0x7f766e4d05cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-Indirect leak of 2000 byte(s) in 25 object(s) allocated from:
-    #0 0x4d1753 in malloc (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_streams_gen+0x4d1753)
-    #1 0x7f766e7bc445 in ezxml_add_child /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:904:29
-    #2 0x7f766e7bc3da in ezxml_open_tag /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:232:26
-    #3 0x7f766e7be4b6 in ezxml_parse_str /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:552:17
-    #4 0x7f766e7bed8d in ezxml_parse_fp /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:625:26
-    #5 0x511532 in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/streams_gen.c:86:21
-    #6 0x7f766e4d05cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-Indirect leak of 288 byte(s) in 1 object(s) allocated from:
-    #0 0x4d1753 in malloc (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_streams_gen+0x4d1753)
-    #1 0x7f766e7bebe5 in ezxml_new /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:845:46
-    #2 0x7f766e7bdcab in ezxml_parse_str /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:479:39
-    #3 0x7f766e7bed8d in ezxml_parse_fp /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:625:26
-    #4 0x511532 in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/streams_gen.c:86:21
-    #5 0x7f766e4d05cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-Indirect leak of 272 byte(s) in 136 object(s) allocated from:
-    #0 0x4d1753 in malloc (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_streams_gen+0x4d1753)
-    #1 0x7f766e7be018 in ezxml_parse_str /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:512:37
-    #2 0x7f766e7bed8d in ezxml_parse_fp /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:625:26
-    #3 0x511532 in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/streams_gen.c:86:21
-    #4 0x7f766e4d05cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-Indirect leak of 88 byte(s) in 1 object(s) allocated from:
-    #0 0x4d1753 in malloc (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_streams_gen+0x4d1753)
-    #1 0x7f766e7bec47 in ezxml_new /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:850:24
-    #2 0x7f766e7bdcab in ezxml_parse_str /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:479:39
-    #3 0x7f766e7bed8d in ezxml_parse_fp /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:625:26
-    #4 0x511532 in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/streams_gen.c:86:21
-    #5 0x7f766e4d05cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-Indirect leak of 81 byte(s) in 3 object(s) allocated from:
-    #0 0x4d1753 in malloc (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_streams_gen+0x4d1753)
-    #1 0x7f766e7bc5c6 in ezxml_char_content /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:255:29
-    #2 0x7f766e7beb25 in ezxml_parse_str /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:598:21
-    #3 0x7f766e7bed8d in ezxml_parse_fp /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:625:26
-    #4 0x511532 in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/streams_gen.c:86:21
-    #5 0x7f766e4d05cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-SUMMARY: AddressSanitizer: 189009 byte(s) leaked in 1732 allocation(s).
-make[2]: *** [mpas/src/core_init_atmosphere/CMakeFiles/gen_init_atmosphere.dir/build.make:114: mpas/src/core_init_atmosphere/streams.init_atmosphere] Error 1
-make[1]: *** [CMakeFiles/Makefile2:52834: mpas/src/core_init_atmosphere/CMakeFiles/gen_init_atmosphere.dir/all] Error 2
-make[1]: *** Waiting for unfinished jobs....
-[ 11%] CORE atmosphere: Parse Registry
-Warning: runtime_format attribute has no effect for immutable stream "lbc_in".
----- GENERATING IMMUTABLE STREAMS ----
-
-=================================================================
-==4062885==ERROR: LeakSanitizer: detected memory leaks
-
-Direct leak of 1036 byte(s) in 5 object(s) allocated from:
-    #0 0x4d1d88 in realloc (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_parse_atmosphere+0x4d1d88)
-    #1 0x7f4ea132b5a0 in ezxml_char_content /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:254:22
-    #2 0x7f4ea132db25 in ezxml_parse_str /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:598:21
-    #3 0x7f4ea132dd8d in ezxml_parse_fp /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:625:26
-    #4 0x511419 in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/registry/parse.c:52:21
-    #5 0x7f4e96a335cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-Direct leak of 240 byte(s) in 5 object(s) allocated from:
-    #0 0x4d1d88 in realloc (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_parse_atmosphere+0x4d1d88)
-    #1 0x7f4ea132cfb5 in ezxml_parse_str /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:509:30
-    #2 0x7f4ea132dd8d in ezxml_parse_fp /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:625:26
-    #3 0x511419 in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/registry/parse.c:52:21
-    #4 0x7f4e96a335cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-Indirect leak of 15 byte(s) in 5 object(s) allocated from:
-    #0 0x4d1d88 in realloc (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_parse_atmosphere+0x4d1d88)
-    #1 0x7f4ea132d005 in ezxml_parse_str /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:511:37
-    #2 0x7f4ea132dd8d in ezxml_parse_fp /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/external/ezxml/ezxml.c:625:26
-    #3 0x511419 in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/registry/parse.c:52:21
-    #4 0x7f4e96a335cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-SUMMARY: AddressSanitizer: 1291 byte(s) leaked in 15 allocation(s).
-make[2]: *** [mpas/src/core_atmosphere/CMakeFiles/gen_atmosphere.dir/build.make:83: mpas/src/core_atmosphere/block_dimension_routines.inc] Error 1
-make[2]: *** Deleting file 'mpas/src/core_atmosphere/block_dimension_routines.inc'
-make[2]: *** Waiting for unfinished jobs....
-[ 11%] CORE atmosphere: Generate Namelist
-
-=================================================================
-==4062907==ERROR: LeakSanitizer: detected memory leaks
-
-Direct leak of 1024 byte(s) in 1 object(s) allocated from:
-    #0 0x4d1753 in malloc (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_namelist_gen+0x4d1753)
-    #1 0x51139e in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/namelist_gen.c:49:15
-    #2 0x7f8a890125cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-Direct leak of 1024 byte(s) in 1 object(s) allocated from:
-    #0 0x4d1753 in malloc (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_namelist_gen+0x4d1753)
-    #1 0x511385 in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/namelist_gen.c:48:13
-    #2 0x7f8a890125cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-Direct leak of 592 byte(s) in 99 object(s) allocated from:
-    #0 0x4b8efe in strdup (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_namelist_gen+0x4b8efe)
-    #1 0x511824 in is_structure_writable /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/test_functions.c:29:13
-    #2 0x5115be in generate_namelist /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/namelist_gen.c:106:16
-    #3 0x51146f in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/namelist_gen.c:65:8
-    #4 0x7f8a890125cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-Direct leak of 67 byte(s) in 13 object(s) allocated from:
-    #0 0x4b8efe in strdup (/scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/build/bin/mpas_namelist_gen+0x4b8efe)
-    #1 0x511824 in is_structure_writable /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/test_functions.c:29:13
-    #2 0x511528 in generate_namelist /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/namelist_gen.c:92:18
-    #3 0x51146f in main /scratch3/NCEPDEV/fv3-cam/Ting.Lei/dr-debug/jedi-bundle/mpas/src/tools/input_gen/namelist_gen.c:65:8
-    #4 0x7f8a890125cf in __libc_start_call_main (/usr/lib64/libc.so.6+0x295cf) (BuildId: d09a919a085d10d01109d735dd5c5b710cae4b2c)
-
-SUMMARY: AddressSanitizer: 2707 byte(s) leaked in 114 allocation(s).
-make[2]: *** [mpas/src/core_atmosphere/CMakeFiles/gen_atmosphere.dir/build.make:109: mpas/src/core_atmosphere/namelist.atmosphere] Error 1
-make[1]: *** [CMakeFiles/Makefile2:52953: mpas/src/core_atmosphere/CMakeFiles/gen_atmosphere.dir/all] Error 2
-[ 14%] Built target gsibec
-[ 17%] Built target oops
-[ 20%] Built target fv3jedilm
-[ 25%] Built target crtm
-[ 33%] Built target mom6
-make: *** [Makefile:166: all] Error 2
+[  0%] Built target oops_test_headers
+[  1%] Built target mgbflib_parents
+[  1%] Built target qg_headers
+[  1%] Built target vader_headers
+[  1%] Built target quench_headers
+[  1%] Built target ezxml
+[  1%] Built target ioda_headers
+[  1%] Built target ioda_test_headers
+[  1%] Built target esmf
+[  1%] Built target init_atmosphere_include_link
+[  1%] Built target atmosphere_include_link
+[  1%] Built target mpas_namelist_gen
+[  1%] Built target mpas_streams_gen
+[  1%] Built target mgbflib
+[  1%] Built target parselib
+[  1%] Built target mpas_parse_atmosphere
+[  1%] Built target mpas_parse_init_atmosphere
+[  1%] Linking Fortran shared library ../../../lib/libgsibec.so
+[  1%] CORE atmosphere: Generate Namelist
+[  6%] Built target gsw
+[  6%] CORE init_atmosphere: Generate Namelist
+ifort: remark #10448: Intel(R) Fortran Compiler Classic (ifort) is now deprecated and will be discontinued late 2024. Intel recommends that customers transition now to using the LLVM-based Intel(R) Fortran Compiler (ifx) for continued Windows* and Linux* support, new language support, new language features, and optimizations. Use '-diag-disable=10448' to disable this message.
+[  6%] CORE atmosphere: Generate Streams
+[  8%] Built target fv3jedilm
+[  8%] CORE init_atmosphere: Generate Streams
+[  9%] Built target gen_init_atmosphere
+[  9%] Built target gsw_poly_check
+[ 10%] Built target framework
+[ 10%] Built target gsw_check_functions
+[ 10%] Built target gen_atmosphere
+[ 10%] Built target operators
+[ 16%] Built target crtm
+[ 16%] Built target check_tropics
+[ 16%] Built target test_check_crtm_random
+[ 16%] Built target test_check_crtm
+[ 16%] Built target Unit_TL_TEST
+[ 17%] Built target core_init_atmosphere
+[ 20%] Built target oops
+[ 20%] Built target Unit_Aerosol_Bypass_adjoint
+[ 20%] Built target Unit_Aerosol_Bypass
+[ 20%] Built target Unit_Aerosol_Bypass_TL
+[ 20%] Built target SpcCoeff_Edit
+[ 20%] Built target SpcCoeff_Inspect
+[ 20%] Built target Unit_Aerosol_Bypass_k_matrix
+[ 21%] Built target SpcCoeff_BIN2NC
+[ 21%] Built target ODAS_BIN2NC
+[ 21%] Built target SpcCoeff_NC2BIN
+[ 21%] Built target ODAS_NC2BIN
+[ 21%] Built target ODPS_BIN2NC
+[ 21%] Built target ODPS_NC2BIN
+[ 21%] Built target CloudCoeff_NC2BIN
+[ 21%] Built target CloudCoeff_BIN2NC
+[ 21%] Built target CloudCoeff_Inspect
+[ 21%] Built target SEcategory_NC2BIN
+[ 21%] Built target SEcategory_BIN2NC
+[ 21%] Built target IRsnowCoeff_NC2BIN
+[ 21%] Built target IRwaterCoeff_BIN2NC
+[ 21%] Built target IRwaterCoeff_NC2BIN
+[ 21%] Built target Spc_IO
+[ 21%] Built target Spc_IO_NC
+[ 21%] Built target TauCoeff_IO_NC
+[ 21%] Built target AerosolCoeff_IO
+[ 21%] Built target AerosolCoeff_IO_NC
+[ 21%] Built target CloudCoeff_IO
+[ 21%] Built target CloudCoeff_IO_NC
+[ 22%] Built target hypsometric_eq
+[ 22%] Built target MWwater_IO
+[ 22%] Built target test_MWSurfEM
+[ 22%] Built target test_forward_test_Simple
+[ 22%] Built target test_forward_test_AOD
+[ 22%] Built target test_forward_test_Zeeman
+[ 22%] Built target test_forward_test_ChannelSubset
+[ 22%] Built target test_forward_test_ClearSky
+[ 22%] Built target test_forward_test_Aircraft
+[ 29%] Built target core_atmosphere
+[ 29%] Built target test_forward_test_Downwelling_Radiance
+[ 29%] Built target test_forward_test_User_Emissivity
+[ 29%] Built target test_forward_test_ScatteringSwitch
+[ 29%] Built target test_forward_test_SOI
+[ 29%] Built target test_forward_test_SSU
+[ 29%] Built target test_forward_test_VerticalCoordinates
+[ 29%] Built target test_k_matrix_test_Simple
+[ 29%] Built target test_k_matrix_test_Zeeman
+[ 29%] Built target test_k_matrix_test_AOD
+[ 30%] Built target test_k_matrix_test_ChannelSubset
+[ 30%] Built target test_k_matrix_test_ClearSky
+[ 30%] Built target test_k_matrix_test_ScatteringSwitch
+[ 30%] Built target test_k_matrix_test_User_Emissivity
+[ 30%] Built target test_k_matrix_test_SOI
+[ 30%] Built target test_k_matrix_test_VerticalCoordinates
+[ 30%] Built target test_k_matrix_test_SSU
+[ 30%] Built target test_adjoint_test_Simple
+[ 30%] Built target test_tangent_linear_test_Simple
+[ 31%] Built target test_adjoint_test_ClearSky
+[ 31%] Built target test_tangent_linear_test_ClearSky
+[ 31%] Built target test_forward_test_OMPoverChannels
+[ 35%] Built target gsibec
+[ 35%] Built target test_AD_Active_Sensor
+[ 36%] Built target test_Active_Sensor
+[ 36%] Built target oops_base_dummy_run
+[ 36%] Built target oops_base_obsvariables
+[ 36%] Built target oops_base_posttimer
+[ 36%] Built target oops_util_signal_trap_fpe_invalid_op
+[ 36%] Built target oops_base_variables
+[ 36%] Built target oops_util_signal_trap_fpe_valid_op
+[ 36%] Built target test_TL_convergence_active_sensor
+[ 36%] Built target oops_util_stacktrace
+[ 36%] Built target oops_util_random
+[ 36%] Built target oops_util_pushstringvector
+[ 36%] Built target oops_util_parameters
+[ 36%] Built target oops_generic_local_interpolator
+[ 36%] Built target oops_generic_gc99
+[ 36%] Built target oops_generic_soar
+[ 37%] Built target oops_generic_global_interpolator
+[ 37%] Built target oops_generic_diffusion
+[ 37%] Built target oops_coupled_splitvariables
+[ 37%] Built target oops_util_partialdatetime
+[ 37%] Built target oops_util_isanypointinvolumeinterior
+[ 38%] Built target oops_util_datetime
+[ 38%] Built target oops_util_duration
+[ 38%] Built target oops_util_intset_parser
+[ 38%] Built target oops_util_scalarormap
+[ 38%] Built target oops_util_floatcompare
+[ 38%] Built target oops_util_compositepath
+[ 38%] Built target oops_util_testreference
+[ 38%] Built target oops_util_stringfunctions
+[ 38%] Built target oops_util_range
+[ 38%] Built target oops_fft_multiple
+[ 38%] Built target oops_util_algorithms
+[ 38%] Built target oops_util_comparenvectors
+[ 38%] Built target oops_util_missingvalues
+[ 38%] Built target oops_util_associativecontainers
+[ 38%] Built target oops_util_propertiesofnvectors
+[ 38%] Built target oops_util_localenvironment
+[ 38%] Built target oops_util_wildcard
+[ 38%] Built target oops_util_typetraits
+[ 38%] Built target oops_util_configfunctions
+[ 38%] Built target oops_util_confighelpers
+[ 38%] Built target oops_util_timewindow
+[ 39%] Built target oops_base_fieldsets
+[ 39%] Built target oops_util_fieldset_helpers_and_operations
+[ 39%] Built target oops_util_parallelfieldsetio_1PE
+[ 39%] Built target oops_util_functionspace_helpers
+[ 39%] Built target oops_assimilation_rotmat
+[ 39%] Built target oops_assimilation_fullgmres
+[ 39%] Built target oops_assimilation_solvematrixequation
+[ 39%] Built target oops_assimilation_spectrallmp
+[ 39%] Built target oops_assimilation_subensemble_splitter
+[ 39%] Built target oops_assimilation_tridiagsolve
+[ 39%] Built target oops_assimilation_testvector3d
+[ 39%] Built target oops_util_for_each
+[ 40%] Built target oops_util_reduction
+[ 40%] Built target mpas_atmosphere
+[ 40%] Built target mpas_init_atmosphere
+[ 40%] Built target mpas_atmosphere_build_tables
+[ 40%] Linking Fortran executable ../../bin/eta_echo.x
+[ 41%] Built target lorenz95
+ifort: remark #10448: Intel(R) Fortran Compiler Classic (ifort) is now deprecated and will be discontinued late 2024. Intel recommends that customers transition now to using the LLVM-based Intel(R) Fortran Compiler (ifx) for continued Windows* and Linux* support, new language support, new language features, and optimizations. Use '-diag-disable=10448' to disable this message.
+[ 41%] Linking Fortran executable ../../bin/test_gsi_bkerror.x
+[ 41%] Linking Fortran executable ../../bin/test_geos_getens.x
+[ 42%] Linking Fortran executable ../../bin/write_berror_global.x
+[ 42%] Built target oops_base_dummy_run_one.x
+ifort: remark #10448: Intel(R) Fortran Compiler Classic (ifort) is now deprecated and will be discontinued late 2024. Intel recommends that customers transition now to using the LLVM-based Intel(R) Fortran Compiler (ifx) for continued Windows* and Linux* support, new language support, new language features, and optimizations. Use '-diag-disable=10448' to disable this message.
+ifort: remark #10448: Intel(R) Fortran Compiler Classic (ifort) is now deprecated and will be discontinued late 2024. Intel recommends that customers transition now to using the LLVM-based Intel(R) Fortran Compiler (ifx) for continued Windows* and Linux* support, new language support, new language features, and optimizations. Use '-diag-disable=10448' to disable this message.
+ifort: remark #10448: Intel(R) Fortran Compiler Classic (ifort) is now deprecated and will be discontinued late 2024. Intel recommends that customers transition now to using the LLVM-based Intel(R) Fortran Compiler (ifx) for continued Windows* and Linux* support, new language support, new language features, and optimizations. Use '-diag-disable=10448' to disable this message.
+[ 45%] Built target qg
+[ 45%] Built target oops_base_dummy_run_bad_arg_zero.x
+[ 45%] Built target eta_echo.x
+[ 45%] Built target oops_base_dummy_run_help.x
+[ 47%] Built target ioda_engines
+[ 47%] Built target test_gsi_bkerror.x
+[ 47%] Built target test_geos_getens.x
+[ 47%] Built target write_berror_global.x
+[ 47%] Built target l95_forecast.x
+[ 47%] Built target oops_base_dummy_run_h.x
+[ 47%] Built target l95_adjointforecast.x
+[ 47%] Built target l95_genpert.x
+[ 47%] Built target l95_ens_mean_variance.x
+[ 47%] Built target l95_sqrtofvertloc.x
+[ 47%] Built target l95_diffstates.x
+[ 47%] Built target l95_addincrement.x
+[ 48%] Built target l95_4dvar.x
+[ 48%] Built target l95_eda.x
+[ 48%] Built target l95_letkf.x
+[ 52%] Built target vader
+[ 52%] Built target l95_hofx.x
+[ 52%] Built target l95_hofx3d.x
+[ 52%] Built target l95_enshofx.x
+[ 52%] Built target oops_l95_geometry
+[ 52%] Built target oops_l95_departuresensemble
+[ 52%] Built target oops_l95_geometry_iterator
+[ 52%] Built target oops_l95_geovals
+[ 52%] Built target oops_l95_state
+[ 52%] Built target oops_l95_getvalues
+[ 52%] Built target oops_l95_modelauxcontrol
+[ 52%] Built target oops_l95_model
+[ 52%] Built target oops_l95_pseudomodel
+[ 52%] Built target oops_l95_pseudomodel_state4d
+[ 52%] Built target oops_l95_identitymodel
+[ 52%] Built target oops_l95_increment
+[ 52%] Built target oops_l95_errorcovariance
+[ 52%] Built target oops_l95_modelauxincrement
+[ 52%] Built target oops_l95_linearmodel
+[ 53%] Built target oops_l95_modelauxcovariance
+[ 53%] Built target oops_l95_obsspace
+[ 53%] Built target oops_l95_obs_iterator
+[ 53%] Built target oops_l95_obslocalization
+[ 53%] Built target oops_l95_obsvector
+[ 53%] Built target oops_l95_obsdatavector
+[ 53%] Built target oops_l95_obslocalizations
+[ 53%] Built target oops_l95_linobsoperator
+[ 53%] Built target oops_l95_obserrorcovar
+[ 53%] Built target oops_l95_obsoperator
+[ 53%] Built target oops_l95_obsauxcovariance
+[ 53%] Built target oops_l95_obsaux
+[ 53%] Built target oops_l95_obsauxincrement
+[ 53%] Built target oops_l95_localization
+[ 53%] Built target oops_l95_eda_4dvar.x
+[ 53%] Built target oops_l95_eda_3dvar_zeromeanpert_compare
+[ 53%] Built target qg_dfi.x
+[ 53%] Built target qg_ens_hofx.x
+[ 53%] Built target qg_ens_forecast.x
+[ 53%] Built target qg_forecast.x
+[ 53%] Built target qg_gen_ens_pert_B.x
+[ 53%] Built target qg_gen_hybrid_linear_model_coeffs.x
+[ 53%] Built target qg_rescale_ens_perts.x
+[ 53%] Built target qg_4dvar.x
+[ 53%] Built target qg_hofx.x
+[ 53%] Built target qg_ControlPert.x
+[ 53%] Built target qg_hofx3d.x
+[ 53%] Built target qg_diffstates.x
+[ 53%] Built target qg_addincrement.x
+[ 53%] Built target qg_eda.x
+[ 53%] Built target qg_convertstate.x
+[ 53%] Built target qg_convertincrement.x
+[ 53%] Built target qg_ens_mean_variance.x
+[ 54%] Built target qg_etkf.x
+[ 54%] Built target qg_hybridgain.x
+[ 54%] Built target qg_ens_recenter.x
+[ 54%] Built target qg_ensemble_inflation.x
+[ 55%] Built target oops_qg_geometry
+[ 55%] Built target qg_templated_eda.x
+[ 55%] Built target oops_qg_geometry_iterator
+[ 55%] Built target qg_tlm_toolbox.x
+[ 55%] Built target oops_qg_geovals
+[ 55%] Built target oops_qg_state
+[ 55%] Built target oops_qg_model
+[ 55%] Built target oops_qg_increment
+[ 55%] Built target oops_qg_verticallocev_io
+[ 55%] Built target oops_qg_verticallocev
+[ 55%] Built target oops_qg_modelauxcovariance
+[ 55%] Built target oops_qg_error_covariance
+[ 55%] Built target oops_qg_linear_model
+[ 55%] Built target oops_qg_hybrid_linear_model_gen_ens
+[ 55%] Built target oops_qg_hybrid_linear_model
+[ 55%] Built target oops_qg_locations
+[ 55%] Built target oops_qg_obsspace
+[ 55%] Built target oops_qg_obsvector
+[ 55%] Built target oops_qg_obsdatavector
+[ 55%] Built target oops_qg_obsoperator
+[ 55%] Built target oops_qg_linear_obsoperator
+[ 55%] Built target oops_qg_obserror_covariance
+[ 55%] Built target oops_qg_obs_aux
+[ 55%] Built target oops_qg_obs_aux_increment
+[ 55%] Built target oops_qg_obs_aux_covariance
+[ 56%] Built target oops_qg_obs_iterator
+[ 56%] Built target oops_qg_obs_localization
+[ 56%] Built target oops_qg_localization
+[ 56%] Built target oops_qg_variable_change
+[ 56%] Built target oops_qg_getvalues
+[ 56%] Built target oops_qg_fieldset4D_seq
+[ 56%] Built target oops_qg_linear_variable_change
+[ 56%] Built target oops_qg_eda_3dvar.x
+[ 56%] Built target oops_coupled_geometry_qg_l95
+[ 56%] Built target oops_qg_diffstates.x
+[ 56%] Built target oops_coupled_modelauxcontrol_qg_l95
+[ 56%] Built target oops_coupled_state_qg_l95
+[ 56%] Built target oops_coupled_increment_qg_l95
+[ 56%] Built target oops_coupled_convertstate_qg_l95
+[ 56%] Built target oops_coupled_model_qg_l95
+[ 56%] Built target oops_coupled_forecast_qg_l95
+[ 56%] Built target oops_coupled_hofx3d_qg_qg
+[ 56%] Built target oops_coupled_var_qg_qg
+[ 56%] Built target test_recipe.x
+[ 56%] Built target test_vader.x
+[ 56%] Built target test_recipe_inline.x
+[ 56%] Built target vader_planvariable
+[ 56%] Built target vader_mo_lookuptables
+[ 56%] Built target vader_print_cookbook
+[ 56%] Built target ioda_test_collective_functions
+[ 56%] Built target ioda-engines_complex_objects_strings
+[ 56%] Built target ioda_chunks_and_filters
+[ 56%] Built target ioda-engines_data-selections
+[ 57%] Built target _ioda_python
+[ 57%] Built target ioda-engines_dim-selectors
+[ 57%] Built target ioda-engines_exception
+[ 57%] Built target ioda_fillvalues
+[ 57%] Built target ioda-engines_io_templated_tests
+[ 57%] Built target ioda-engines_hier_paths
+[ 57%] Built target ioda-engines_obsgroup
+[ 57%] Built target ioda-engines_obsgroup_append
+[ 57%] Built target ioda-engines_obsgroup_append_function
+[ 57%] Built target ioda-engines_sfuncs_concatstringvectors
+[ 57%] Built target ioda-engines_sfuncs_convertv1pathtov2path
+[ 57%] Built target ioda-engines_persist
+[ 57%] Built target ioda-engines_list_objects
+[ 57%] Built target ioda-engines-01
+[ 57%] Built target ioda-engines-02
+[ 57%] Built target ioda-engines-03
+[ 57%] Built target ioda-engines-04
+[ 57%] Built target ioda-engines-05a
+[ 59%] Built target ioda
+[ 59%] Built target ioda-engines-05b
+[ 59%] Built target ioda-engines_chrono
+[ 59%] Built target ioda-engines_complex_objects_array_from_struct
+[ 60%] Built target ioda-engines_fixed_length_strings
+[ 60%] Built target ioda-engines_fixed_length_strings_client
+[ 60%] Built target ioda-engines_named_types
+[ 60%] Built target ioda-engines_units
+[ 60%] Built target ioda-engines_basic_math
+[ 60%] Built target ioda-engines_variables_math
+[ 60%] Built target time_IodaIO.x
+[ 60%] Built target random_ObsVectorIO.x
+[ 60%] Built target ioda-buildInputFileSet.x
+[ 60%] Built target ioda-odfDemo.x
+[ 60%] Built target ioda-odfOutputCheck.x
+[ 60%] Built target ioda-validate.x
+[ 61%] Built target ioda-odfViewTest.x
+[ 61%] Built target ioda-filterObs.x
+[ 61%] Built target ioda_osdf_empty_column
+[ 61%] Built target ioda_metadata_vardimnames
+[ 61%] Built target ioda_osdf_getcolumn
+[ 61%] Built target ioda_osdf_columnfunctions
+[ 61%] Built target ioda_osdf_type_coercion
+[ 61%] Built target ioda_osdf_appendnewcolumn_units_specified
+[ 61%] Built target ioda_osdf_get_data_rows
+[ 61%] Built target ioda_osdf_appendnewrow
+[ 61%] Linking CXX shared library ../../../lib/libsaber.so
+[ 61%] Built target ioda_osdf_validate_column_metadata
+[ 61%] Built target ioda_osdf_get_column_metadata
+[ 61%] Built target ioda_osdf_append
+[ 61%] Built target ioda_osdf_num_rows_cols
+[ 61%] Built target ioda_osdf_cross_constructors
+[ 61%] Built target ioda_osdf_remove_rows
+[ 61%] Built target ioda_osdf_get_data
+[ 61%] Built target ioda_osdf_sort_rows
+[ 61%] Built target ioda_osdf_slice_rows
+[ 62%] Built target ioda_osdf_iframe_slice_frame
+[ 62%] Built target ioda_osdf_ser_deser_column_metadata
+[ 62%] Built target ioda_osdf_frame_metadata
+[ 62%] Built target ioda_osdf_ser_deser_frame_metadata
+[ 62%] Built target ioda_reader_load
+[ 62%] Built target ioda_reader_keepvar
+[ 62%] Built target ioda_reader_filter
+[ 62%] Built target ioda_osdf_dist_assignrecords
+[ 62%] Built target ioda_writer_saveobs
+[ 62%] Built target ioda_remove_hdf5_variable
+[ 62%] Built target ioda_engine_construct_utils
+[ 62%] Built target ioda_engine_factory
+[ 62%] Built target ioda_engine_uniquify_file_name
+[ 62%] Built target ioda_copy_attributes
+[ 62%] Built target ioda_io_pool_factory
+[ 62%] Built target ioda_obs_io_pool
+[ 62%] Built target ioda_obsiterator
+[ 62%] Built target ioda_oops_obsspace
+[ 62%] Built target ioda_obsspace
+[ 62%] Built target ioda_obsspace_reader_pool
+[ 62%] Built target ioda_obsspace_has
+[ 62%] Built target ioda_obsspace_index_recnum
+[ 62%] Built target ioda_obsspace_invalid_numeric
+[ 62%] Built target ioda_obsspace_put_db_channels
+[ 62%] Built target ioda_osdf_create_iframe
+[ 62%] Built target ioda_obsspace_contda
+[ 62%] Built target ioda_osdf_config_columns
+[ 62%] Built target ioda_osdf_prepare_derived_variables
+[ 62%] Built target ioda_obsspace_append
+[ 63%] Built target ioda_obsspace_reduce
+[ 63%] Built target ioda_obsspace_fortran
+[ 63%] Built target ioda_sort
+[ 64%] Built target ioda_extendedobsspace
+[ 64%] Built target ioda_oops_obsdatavector
+[ 64%] Built target ioda_container_facades
+[ 64%] Built target ioda_obsdtype
+[ 64%] Built target ioda_fileformat
+[ 64%] Built target ufo_data_validate_2020100106_metars_small_new.nc.x
+[ 64%] Built target ufo_data_validate_2020100106_metars_small.nc.x
+[ 64%] Built target ufo_data_validate_2020100106_metars_small_oneob.nc4.x
+[ 64%] Built target ufo_data_validate_20220216T00Z_PT1H_amsr2_ufo_sample.nc4.x
+[ 64%] Built target ufo_data_validate_Jason-2-2018-04-15.nc.x
+[ 64%] Built target ufo_data_validate_PCscores_transform_iasi_2024120112.nc4.x
+[ 64%] Built target ufo_data_validate_PStar_obs_20210521T1200Z.nc4.x
+[ 64%] Built target ufo_data_validate_PStar_obs_20210521T1200Z_noflag.nc4.x
+[ 64%] Built target ufo_data_validate_QFEtoQNH_obs_20210521T1200Z.nc4.x
+[ 64%] Built target ufo_data_validate_RadToBT_obs_2021071200.nc4.x
+[ 64%] Built target ufo_data_validate_RadToBT_obs_2021071200_1ob.nc4.x
+[ 64%] Built target ufo_data_validate_Rcov_iasi_metop-b_sea.nc4.x
+[ 64%] Built target ufo_data_validate_T2potentialT_conversion_aircraft.nc4.x
+[ 64%] Built target ufo_data_validate_abi_g16_obs_2018041500_m_qc.nc4.x
+[ 64%] Built target ufo_data_validate_abi_g16_obs_2019042306_m.nc4.x
+[ 64%] Built target ufo_data_validate_ahi_himawari8_obs_2019042306_m.nc4.x
+[ 64%] Built target ufo_data_validate_ahi_himawari8_obs_2019042306_s.nc4.x
+[ 64%] Built target ufo_data_validate_aircraftBCOffline_obs.nc4.x
+[ 64%] Built target ufo_data_validate_aircraft_artificial_bias.nc4.x
+[ 64%] Built target ufo_data_validate_aircraft_artificial_bias_1var.nc4.x
+[ 64%] Built target ufo_data_validate_aircraft_artificial_bias_2.nc4.x
+[ 64%] Built target ufo_data_validate_aircraft_bias_20210731T18Z.nc4.x
+[ 64%] Built target ufo_data_validate_aircraft_bias_20210731T18Z_test1.nc4.x
+[ 64%] Built target ufo_data_validate_aircraft_covariance_20210731T18Z_test1.nc4.x
+[ 64%] Built target ufo_data_validate_aircraft_obs_2018041500_m.nc4.x
+[ 64%] Built target ufo_data_validate_aircraft_obs_2018041500_s.nc4.x
+[ 64%] Built target ufo_data_validate_aircraft_obs_20190801T0000Z_aircraft_predictors.nc4.x
+[ 64%] Built target ufo_data_validate_airnow-v2a-2020081306-sub.nc.x
+[ 64%] Built target ufo_data_validate_airs_aqua_20210701T1200Z_obs_obfn_setsurface.nc4.x
+[ 64%] Built target ufo_data_validate_airs_aqua_obs_2018041500_m.nc4.x
+[ 64%] Built target ufo_data_validate_airs_aqua_obs_2018041500_m_unittest.nc4.x
+[ 64%] Built target ufo_data_validate_amsr2_gcom-w1_obs_2020111500.nc4.x
+[ 64%] Built target ufo_data_validate_amsr2_gcom-w1_obs_2020120100_m.nc4.x
+[ 64%] Built target ufo_data_validate_amsr2_obs_20191230T0000Z_100subset.nc4.x
+[ 64%] Built target ufo_data_validate_amsua_n19_hofxnm_2018041500_m_rttovcpp.nc4.x
+[ 64%] Built target ufo_data_validate_amsua_n19_obs_2018041500_m.nc4.x
+[ 64%] Built target ufo_data_validate_amsua_n19_obs_2018041500_m_miss_val.nc4.x
+[ 64%] Built target ufo_data_validate_amsua_n19_obs_2018041500_m_qc.nc4.x
+[ 64%] Built target ufo_data_validate_amsua_n19_obs_2018041500_m_with_diag_flags.nc4.x
+[ 64%] Built target ufo_data_validate_amsua_n19_obs_2024021900m.nc4.x
+[ 64%] Built target ufo_data_validate_aod_obs_2018041500_m.nc4.x
+[ 64%] Built target ufo_data_validate_aod_obs_2018041500_m_predictors.nc4.x
+[ 64%] Built target ufo_data_validate_artificial_aircraft_obs_forbc.nc4.x
+[ 64%] Built target ufo_data_validate_aod_obs_20210521T1200Z_mo.nc4.x
+[ 64%] Built target ufo_data_validate_atms_n20_obs_20191230T0000_rttov.nc4.x
+[ 64%] Built target ufo_data_validate_atms_n20_obs_20191230T0000_rttov_bad_data.nc4.x
+[ 64%] Built target ufo_data_validate_atms_n20_obs_20191230T0000_rttov_biaspred_redo_scan.nc4.x
+[ 64%] Built target ufo_data_validate_atms_n20_obs_20191230T0000_setsurface_default.nc4.x
+[ 64%] Built target ufo_data_validate_atms_n20_obs_2020040100_allsurfacetypes.nc4.x
+[ 64%] Built target ufo_data_validate_atms_n20_obs_20210701T1200Z_ukv.nc4.x
+[ 64%] Built target ufo_data_validate_atms_npp_obs_2018041500_m_qc.nc4.x
+[ 64%] Built target ufo_data_validate_atms_n20_obs_2022021600.nc4.x
+[ 64%] Built target ufo_data_validate_atms_obs_20191230T0000_rttov_predictors.nc4.x
+[ 64%] Built target ufo_data_validate_atms_obs_2020040100_rttov_multiplatform.nc4.x
+[ 64%] Built target ufo_data_validate_atms_obs_20200401T0000Z_10locs.nc4.x
+[ 64%] Built target ufo_data_validate_atovs_metopb_obs_2021011512_rttov_scatt.nc4.x
+[ 64%] Built target ufo_data_validate_atovs_metopb_obs_2021011512_rttov_scatt_add.nc4.x
+[ 64%] Built target ufo_data_validate_atovs_metopb_obs_2021011512_seaice.nc4.x
+[ 64%] Built target ufo_data_validate_atovs_obs_2021011512_multiplatform.nc4.x
+[ 70%] Built target saber
+[ 70%] Built target ufo_data_validate_background_errors_for_altimeter_test.nc4.x
+[ 70%] Built target ufo_data_validate_background_errors_for_bayesianbgcheck_test.nc4.x
+[ 70%] Built target ufo_data_validate_bayesianbgcheck_filter_testdata.nc4.x
+[ 70%] Built target ufo_data_validate_cloudtoppressure_testdata_obs.nc4.x
+[ 70%] Built target ufo_data_validate_converr_vadwind_obs_2020120112_s.nc4.x
+[ 70%] Built target ufo_data_validate_coolskin_fake_obs_2018041500.nc.x
+[ 70%] Built target ufo_data_validate_cris-fsr_n20_obs_2020121500_m.nc4.x
+[ 70%] Built target ufo_data_validate_cris-fsr_npp_obs_2018041500_m.nc4.x
+[ 70%] Built target ufo_data_validate_cris-fsr_npp_obs_2018041500_m_qc.nc4.x
+[ 70%] Built target ufo_data_validate_cris-fsr_npp_obs_2018041500_m_unittest.nc4.x
+[ 70%] Built target ufo_data_validate_cryosat2-2018-04-15.nc.x
+[ 70%] Built target ufo_data_validate_derived_variables.nc4.x
+[ 70%] Built target ufo_data_validate_drawvaluefromfile_advanced.nc.x
+[ 70%] Built target ufo_data_validate_drawvaluefromfile_advanced4.nc.x
+[ 70%] Built target ufo_data_validate_drawvaluefromfile_advanced5.nc.x
+[ 70%] Built target ufo_data_validate_drawvaluefromfile_extrap.nc.x
+[ 70%] Built target ufo_data_validate_filters_testdata.nc4.x
+[ 70%] Built target ufo_data_validate_drawvaluefromfile_simple.nc.x
+[ 70%] Built target ufo_data_validate_filters_testdata_channels.nc4.x
+[ 70%] Built target ufo_data_validate_function_copybackflags_testdata.nc4.x
+[ 70%] Built target ufo_data_validate_function_datetimeoffset.nc4.x
+[ 70%] Built target ufo_data_validate_function_profilelevelcount.nc4.x
+[ 70%] Built target ufo_data_validate_function_select_testdata.nc4.x
+[ 70%] Built target ufo_data_validate_geocloudcreatecloudcolumn_obs.nc4.x
+[ 70%] Built target ufo_data_validate_geos.mhs_metop-b_obs.2020121500_m.nc4.x
+[ 70%] Built target ufo_data_validate_geos_amsua_n19_obs_2020121500.nc4.x
+[ 70%] Built target ufo_data_validate_geos_aod_obs_2018041500_m.nc4.x
+[ 70%] Built target ufo_data_validate_geos_atms_n20_obs_2020121500.nc4.x
+[ 70%] Built target ufo_data_validate_gmi_gpm_obs_2018041500_m.nc4.x
+[ 70%] Built target ufo_data_validate_gmi_gpm_obs_2020111500.nc4.x
+[ 70%] Built target ufo_data_validate_gmi_gpm_obs_2020120100_m.nc4.x
+[ 70%] Built target ufo_data_validate_gmi_gpm_obs_2020121500_m.nc4.x
+[ 70%] Built target ufo_data_validate_gmi_gpm_obs_2022021600.nc4.x
+[ 70%] Built target ufo_data_validate_gnssro_bend_obs_2022061500_m.nc4.x
+[ 70%] Built target ufo_data_validate_gnssro_obs_2018041500_1obs_bending_angle.nc4.x
+[ 70%] Built target ufo_data_validate_gnssro_obs_2018041500_3prof.nc4.x
+[ 70%] Built target ufo_data_validate_gnssro_obs_2018041500_3prof_avtemp.nc4.x
+[ 70%] Built target ufo_data_validate_gnssro_obs_2018041500_m.nc4.x
+[ 70%] Built target ufo_data_validate_gnssro_obs_2018041500_s.nc4.x
+[ 70%] Built target ufo_data_validate_gnssro_obs_2019050700_1obs.nc4.x
+[ 70%] Built target ufo_data_validate_gnssro_obs_2019123006_refractivity.nc4.x
+[ 70%] Built target ufo_data_validate_gnssro_obs_2019123006_refractivity_nopseudo.nc4.x
+[ 70%] Built target ufo_data_validate_gnssro_obs_2020050106_1dvar.nc4.x
+[ 70%] Built target ufo_data_validate_gnssro_obs_2020050106_nopseudo.nc4.x
+[ 70%] Built target ufo_data_validate_gnssro_obs_20210701T1200Z_profile.nc4.x
+[ 70%] Built target ufo_data_validate_gnssro_obs_6prof_2022090100.nc4.x
+[ 70%] Built target ufo_data_validate_gome_metop-a_obs_2019101700_m.nc4.x
+[ 70%] Built target ufo_data_validate_grosserrorwholereport_filter_testdata.nc4.x
+[ 70%] Built target ufo_data_validate_groundgnss_obs_2019123006_obs.nc.x
+[ 70%] Built target ufo_data_validate_gsisfc_tsen_obs_2018041500_m.nc4.x
+[ 70%] Built target ufo_data_validate_gsisfc_uv_obs_2018041500_m.nc4.x
+[ 70%] Built target ufo_data_validate_hirs4_metop-a_obs_2018041500_m.nc4.x
+[ 70%] Built target ufo_data_validate_iasi_metop-a_obs_2018041500_m.nc4.x
+[ 70%] Built target ufo_data_validate_iasi_metop-a_obs_2018041500_m_qc.nc4.x
+[ 70%] Built target ufo_data_validate_iasi_metop-a_obs_2018041500_m_unittest.nc4.x
+[ 70%] Built target ufo_data_validate_iasi_metop-b_202011012_missingVals.nc4.x
+[ 70%] Built target ufo_data_validate_iasi_metop-b_obs_2021011500.nc4.x
+[ 70%] Built target ufo_data_validate_iasi_metopb_obs_2021011500.nc4.x
+[ 70%] Built target ufo_data_validate_iasi_metopb_obs_2021011500_oneob.nc4.x
+[ 70%] Built target ufo_data_validate_ice_freeboard_to_thickness_testdata.nc.x
+[ 70%] Built target ufo_data_validate_icec-2018-04-15.nc.x
+[ 70%] Built target ufo_data_validate_aircraft_obs_2021121200_m.nc4.x
+[ 70%] Built target ufo_data_validate_aircraft_obs_2020121500_m.nc.x
+[ 70%] Built target ufo_data_validate_buoy_wmo_multi.nc.x
+[ 70%] Built target ufo_data_validate_ompsnp_npp_obs_2020121500.nc.x
+[ 70%] Built target ufo_data_validate_pibal_obs_2021121200_m.nc4.x
+[ 70%] Built target ufo_data_validate_rass_tv_obs_2020121500.nc.x
+[ 70%] Built target ufo_data_validate_satwind_obs_2020121500_m.nc.x
+[ 70%] Built target ufo_data_validate_satwind_obs_2021121200_m.nc4.x
+[ 70%] Built target ufo_data_validate_scatwind_obs_2020121500_m.nc.x
+[ 70%] Built target ufo_data_validate_scatwind_obs_2021121200_m.nc4.x
+[ 70%] Built target ufo_data_validate_sfc_obs_2020121500_m.nc.x
+[ 70%] Built target ufo_data_validate_sfc_obs_2021121200_m.nc4.x
+[ 70%] Built target ufo_data_validate_sfcship_obs_2020121500_m.nc.x
+[ 70%] Built target ufo_data_validate_sfcship_obs_2021121200_m.nc4.x
+[ 70%] Built target ufo_data_validate_sondes_obs_2020121500_m.nc.x
+[ 70%] Built target ufo_data_validate_sondes_obs_2021121200_m.nc4.x
+[ 70%] Built target ufo_data_validate_vadwind_obs_2020121500.nc.x
+[ 70%] Built target ufo_data_validate_abi_g16_obs_2021051700_m.nc4.x
+[ 70%] Built target ufo_data_validate_airs_aqua_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_amsua_aqua_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_amsua_metop-a_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_amsua_metop-c_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_amsua_metop-b_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_amsua_n15_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_amsua_n18_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_amsua_n19_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_atms_n20_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_atms_npp_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_avhrr_metop-a_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_avhrr_n18_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_cpr_cloudsat_obs_2009113003.nc4.x
+[ 70%] Built target ufo_data_validate_cris-fsr_n20_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_cris-fsr_npp_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_iasi_metop-a_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_iasi_metop-b_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_mhs_metop-b_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_mhs_metop-c_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_mhs_n19_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_obs.abi_g16_rf_64km.20220215T180000Z_small.nc4.x
+[ 70%] Built target ufo_data_validate_seviri_m11_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_ssmis_f17_obs_2020110112_m.nc4.x
+[ 70%] Built target ufo_data_validate_ionosonde_obs_20201026_opr_testData.nc4.x
+[ 70%] Built target ufo_data_validate_jopa_gmihigh_20210701T1200Z_out_m.nc4.x
+[ 70%] Built target ufo_data_validate_linear_combination_multichannel_unittest.nc4.x
+[ 70%] Built target ufo_data_validate_logarithm_obs.nc4.x
+[ 70%] Built target ufo_data_validate_logarithm_transform_obs.nc4.x
+[ 70%] Built target ufo_data_validate_met_office_bayesian_background_qc_flags.nc.x
+[ 70%] Built target ufo_data_validate_met_office_buddy_check.nc4.x
+[ 70%] Built target ufo_data_validate_met_office_bayesian_background_qc_flags_missing_variables.nc.x
+[ 70%] Built target ufo_data_validate_met_office_buddy_check_multi_level.nc.x
+[ 70%] Built target ufo_data_validate_met_office_buddy_check_multi_level_diag.nc.x
+[ 70%] Built target ufo_data_validate_met_office_buddy_check_multi_level_diag_extended.nc.x
+[ 70%] Built target ufo_data_validate_met_office_buddy_check_multi_level_extended.nc.x
+[ 70%] Built target ufo_data_validate_met_office_buddy_check_multi_level_diag_nonconsec.nc.x
+[ 70%] Built target ufo_data_validate_met_office_buddy_check_multi_level_nonconsec.nc.x
+[ 70%] Built target ufo_data_validate_met_office_buddy_check_oceanprofile.nc4.x
+[ 70%] Built target ufo_data_validate_met_office_buddy_check_single_level.nc.x
+[ 70%] Built target ufo_data_validate_met_office_buddy_check_single_level_diag.nc.x
+[ 70%] Built target ufo_data_validate_met_office_composite_operator_sonde_obs.nc4.x
+[ 70%] Built target ufo_data_validate_met_office_conventional_profile_processing.nc4.x
+[ 70%] Built target ufo_data_validate_met_office_conventional_profile_processing_average_pressure_obs_extended.nc4.x
+[ 70%] Built target ufo_data_validate_met_office_conventional_profile_processing_average_relativehumidity_obs.nc4.x
+[ 70%] Built target ufo_data_validate_met_office_conventional_profile_processing_average_relativehumidity_obs_extended.nc4.x
+[ 70%] Built target ufo_data_validate_met_office_conventional_profile_processing_average_single_profile_obs.nc4.x
+[ 87%] Built target ufo
+[ 87%] Built target ufo_data_validate_met_office_conventional_profile_processing_average_temperature_obs.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conventional_profile_processing_average_temperature_obs_extended.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conventional_profile_processing_average_windspeed_obs_extended.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conventional_profile_processing_average_windspeed_obs.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conventional_profile_processing_bkgqc_modobs.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conventional_profile_processing_bkgqc_repobs.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conventional_profile_processing_oneprofile.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conventional_profile_processing_oneprofile_wrong.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conventional_profile_processing_pressure_obs.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conventional_profile_processing_profileaverageobs.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conventional_profile_processing_rh_wrong.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conventional_profile_processing_rh.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conventional_profile_processing_sondeflags.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conventional_profile_processing_uinterp.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conventional_profile_processing_unittests.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conventional_profile_processing_unittests_vertaverage.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conventional_profile_processing_unittests_vertaverage_ascending.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conventional_profile_processing_unittests_vertinterp_obs.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conventional_profile_processing_winproflags.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conversion_height2pressure.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conversion_height2pressure_1ob.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conversion_pressure2height.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conversion_pressure2height_1ob.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conversion_pressure2height_levels.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conversion_td2Rh_missing_rh.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conversion_td2Rh_surface.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conversion_td2Rh_surface_oneob.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_conversion_td2Rh_upperair.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_duplicate_check.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_gauss_thinning_groundgnss_obs.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_gauss_thinning_lon_-180_to_180_obs.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_gauss_thinning_lon_0_to_360_obs.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_history_check.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_history_check_wide.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_poisson_disk_thinning.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_poisson_disk_thinning_sort.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_pressure_consistency_check.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_profile_horizontal_drift.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_profile_horizontal_drift_keep_in_window.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_rh_corr_gv.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_rh_corr_obs.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_surfacecloud_cloud_base_height_check.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_surfacecloud_cloud_column_check.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_temporal_thinning_sonde.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_temporal_thinning_surface.nc4.x
+[ 87%] Built target ufo_data_validate_met_office_thinning.nc4.x
+[ 87%] Built target ufo_data_validate_mhs_metop-b_obs_2018041500_m_interpolate_date_from_file_predictors.nc4.x
+[ 87%] Built target ufo_data_validate_mhs_n19_obs_2018041500_m.nc4.x
+[ 87%] Built target ufo_data_validate_mhs_n19_obs_2018041500_m_qc.nc4.x
+[ 87%] Built target ufo_data_validate_mixRatio2RH_conversion_aircraft.nc4.x
+[ 87%] Built target ufo_data_validate_mixRatio2RH_conversion_aircraft_nosupersat.nc4.x
+[ 87%] Built target ufo_data_validate_mixRatio2RH_conversion_aircraft_oneob.nc4.x
+[ 87%] Built target ufo_data_validate_model_level_index_obs.nc4.x
+[ 87%] Built target ufo_data_validate_mopitt_co_2020090318_m.nc4.x
+[ 87%] Built target ufo_data_validate_mpi_rank.nc4.x
+[ 87%] Built target ufo_data_validate_mtgirs_202106241200_5obs.nc4.x
+[ 87%] Built target ufo_data_validate_multichannel_variable_assignment_testdata.nc.x
+[ 87%] Built target ufo_data_validate_nnr_aod_3ch_obs_2018041500_m.nc4.x
+[ 87%] Built target ufo_data_validate_nnr_aod_3ch_obs_log_2018041500_m.nc4.x
+[ 87%] Built target ufo_data_validate_obs.abi_g16.20220215T030000Z.small.nc4.x
+[ 87%] Built target ufo_data_validate_obs.goes16_glm.201905202300.nc.x
+[ 87%] Built target ufo_data_validate_obs_atms_20200401T0000Z_satrad_thinning.nc4.x
+[ 87%] Built target ufo_data_validate_obs_atovs_lwpguess_20210701T1200Z.nc4.x
+[ 87%] Built target ufo_data_validate_obs_atovs_transmittance_20210701T1200Z.nc4.x
+[ 87%] Built target ufo_data_validate_obs_radar_oucaps_2023033120.nc.x
+[ 87%] Built target ufo_data_validate_obs_ssmis_onedvar_20210701T1200Z.nc4.x
+[ 87%] Built target ufo_data_validate_obserror_corr_3var.nc4.x
+[ 87%] Built target ufo_data_validate_obserror_corr_test.nc4.x
+[ 87%] Built target ufo_data_validate_obserror_lower_upper_bounds.nc.x
+[ 87%] Built target ufo_data_validate_obserror_misspelled_variance.nc.x
+[ 87%] Built target ufo_data_validate_obserror_multiple_variances.nc.x
+[ 87%] Built target ufo_data_validate_obsfunction_exponential_testdata.nc4.x
+[ 87%] Built target ufo_data_validate_ocean_pressure_depth_testdata.nc4.x
+[ 87%] Built target ufo_data_validate_ocean_vertical_stability_testdata.nc4.x
+[ 87%] Built target ufo_data_validate_oceanprofile_averageobs_testdata.nc4.x
+[ 87%] Built target ufo_data_validate_oceanprofile_duplicatecheck.nc4.x
+[ 87%] Built target ufo_data_validate_oceanprofile_fake_obsdata.nc4.x
+[ 87%] Built target ufo_data_validate_omi_aura_obs_2019101700_m.nc4.x
+[ 87%] Built target ufo_data_validate_oceanprofile_theta_pressure_testdata.nc4.x
+[ 87%] Built target ufo_data_validate_ompslp_npp_obs_2019101700_m.nc4.x
+[ 87%] Built target ufo_data_validate_ompsnp_npp_obs_2019101700_m.nc4.x
+[ 87%] Built target ufo_data_validate_ompsnp_npp_obs_2019101700_m_colret.nc4.x
+[ 87%] Built target ufo_data_validate_ompsnp_npp_obs_2020051712_m.nc4.x
+[ 87%] Built target ufo_data_validate_ompsnp_npp_obs_2020051712_qc.nc4.x
+[ 87%] Built target ufo_data_validate_ompstc8_npp_obs_2019101700_m.nc4.x
+[ 87%] Built target ufo_data_validate_osw_cygnss_obs_2020121500.nc.x
+[ 87%] Built target ufo_data_validate_pace_radiance_obs_2019032112.nc.x
+[ 87%] Built target ufo_data_validate_poisson_disk_thinning_3x3x3x3_regular_grid.nc4.x
+[ 87%] Built target ufo_data_validate_poisson_disk_thinning_median_selection_3x3x3x3_regular_grid.nc4.x
+[ 87%] Built target ufo_data_validate_productOperator_testData.nc4.x
+[ 87%] Built target ufo_data_validate_profile_2018-04-15.nc.x
+[ 87%] Built target ufo_data_validate_profile_filter_testdata.nc4.x
+[ 87%] Built target ufo_data_validate_qsat_msonet_obs_rrfs.nc4.x
+[ 87%] Built target ufo_data_validate_radar_beam_geometry.nc4.x
+[ 87%] Built target ufo_data_validate_radar_dbz_obs_2019052222.nc4.x
+[ 87%] Built target ufo_data_validate_radar_doppler_wind.nc.x
+[ 87%] Built target ufo_data_validate_radar_doppler_wind_obs.nc4.x
+[ 87%] Built target ufo_data_validate_radar_edge_flag.nc.x
+[ 87%] Built target ufo_data_validate_radar_reflectivity_metoffice_obs.nc4.x
+[ 87%] Built target ufo_data_validate_radar_rw_obs_2020101300_m.nc4.x
+[ 87%] Built target ufo_data_validate_iasi_pcscores_reconstructor.nc4.x
+[ 87%] Built target ufo_data_validate_gnssro_ba_rmatrix_latitude.nc4.x
+[ 87%] Built target ufo_data_validate_amsr_gcomw1_rmatrix_test.nc4.x
+[ 87%] Built target ufo_data_validate_atms_noaa_20_rmatrix_test.nc4.x
+[ 87%] Built target ufo_data_validate_atovs_metopb_rmatrix_test.nc4.x
+[ 87%] Built target ufo_data_validate_gmihigh_gpm_rmatrix_test.nc4.x
+[ 87%] Built target ufo_data_validate_iasi_metopb_rmatrix_test.nc4.x
+[ 87%] Built target ufo_data_validate_mtgirs_s1_rmatrix_fstest.nc4.x
+[ 87%] Built target ufo_data_validate_ssmis_dmspf17_rmatrix_test.nc4.x
+[ 87%] Built target ufo_data_validate_sataltimeter_sla_testdata.nc4.x
+[ 87%] Built target ufo_data_validate_sattcwv_obs_20201230T0600Z.nc4.x
+[ 87%] Built target ufo_data_validate_satwind_obs_1d_2020100106_noinv.nc4.x
+[ 87%] Built target ufo_data_validate_satwind_obs_1d_2020100106_noinv_qiODB.nc4.x
+[ 87%] Built target ufo_data_validate_satwind_obs_1d_2020100106_yesinv.nc4.x
+[ 87%] Built target ufo_data_validate_satwind_obs_1d_2020100106_noinv_qiODB_1ob.nc4.x
+[ 87%] Built target ufo_data_validate_satwind_obs_1d_small_2020100106_noinv.nc4.x
+[ 87%] Built target ufo_data_validate_satwind_obs_2018041500_m.nc4.x
+[ 87%] Built target ufo_data_validate_satwind_obs_2018041500_s.nc4.x
+[ 87%] Built target ufo_data_validate_satwind_obs_errnorm.nc4.x
+[ 87%] Built target ufo_data_validate_sbuv2_n19_obs_2018041500_m.nc4.x
+[ 87%] Built target ufo_data_validate_sbuv2_n19_obs_2020051712_m.nc4.x
+[ 87%] Built target ufo_data_validate_scatwind_components_2021080100_small.nc4.x
+[ 87%] Built target ufo_data_validate_scatwind_obs_1d_2020100106.nc4.x
+[ 87%] Built target ufo_data_validate_scatwind_obs_2d_20220602T1200Z.nc4.x
+[ 87%] Built target ufo_data_validate_scatwind_obs_1d_small_2020100106.nc4.x
+[ 87%] Built target ufo_data_validate_seviri_m08_obs_2018041500_m.nc4.x
+[ 87%] Built target ufo_data_validate_sfc_obs_2018041500_m.nc4.x
+[ 87%] Built target ufo_data_validate_sfc_obs_2018041500_metars_oneob.nc4.x
+[ 87%] Built target ufo_data_validate_sfc_obs_2018041500_metars_small.nc.x
+[ 87%] Built target ufo_data_validate_sfc_obs_2018041500_metars_small2.nc.x
+[ 87%] Built target ufo_data_validate_sfc_obs_2018041500_metars_small2_oneob.nc4.x
+[ 87%] Built target ufo_data_validate_sfc_obs_2018041500_new.nc4.x
+[ 87%] Built target ufo_data_validate_sfcship_obs_2018041500_m.nc4.x
+[ 87%] Built target ufo_data_validate_sfcship_synthetic_airtemp_m.nc4.x
+[ 87%] Built target ufo_data_validate_shiptrack_recordssingleobs_testdata.nc4.x
+[ 87%] Built target ufo_data_validate_smap_smc_obs_20191215.nc.x
+[ 87%] Built target ufo_data_validate_smap_obs_2018041500_m.nc4.x
+[ 87%] Built target ufo_data_validate_sndrd1_g15_obs_2018041500_m.nc4.x
+[ 87%] Built target ufo_data_validate_sndrd2_g15_obs_2018041500_m.nc4.x
+[ 87%] Built target ufo_data_validate_sndrd3_g15_obs_2018041500_m.nc4.x
+[ 87%] Built target ufo_data_validate_sndrd4_g15_obs_2018041500_m.nc4.x
+[ 87%] Built target ufo_data_validate_solar_zenith.nc4.x
+[ 87%] Built target ufo_data_validate_sondes_obs_2018041500_m.nc4.x
+[ 87%] Built target ufo_data_validate_sondes_obs_2018041500_m_conventions.nc4.x
+[ 87%] Built target ufo_data_validate_sondes_fake_20201101.nc4.x
+[ 87%] Built target ufo_data_validate_sondes_obs_2018041500_s.nc4.x
+[ 87%] Built target ufo_data_validate_sondes_obs_2018041500_s_interpolate_data_from_file_predictors.nc4.x
+[ 87%] Built target ufo_data_validate_sondes_obs_2018041500_s_missingp.nc4.x
+[ 87%] Built target ufo_data_validate_sondes_obs_2018041500_s_namemap.nc4.x
+[ 87%] Built target ufo_data_validate_sondes_obs_2018041500_vs.nc4.x
+[ 87%] Built target ufo_data_validate_sondes_q_obs_2020121500_UKMO.nc4.x
+[ 87%] Built target ufo_data_validate_sondes_q_obs_2020121500_singular.nc4.x
+[ 87%] Built target ufo_data_validate_sondes_q_obs_2020121500_vector.nc4.x
+[ 87%] Built target ufo_data_validate_sondes_tv_obs_2018041500_m.nc4.x
+[ 87%] Built target ufo_data_validate_specific_humidity_UKMOQsat.nc4.x
+[ 87%] Built target ufo_data_validate_specific_humidity_UKMOQsat_1ob.nc4.x
+[ 87%] Built target ufo_data_validate_spikestep_testdata.nc4.x
+[ 87%] Built target ufo_data_validate_ssmis_f17_20210521T1200Z_obfn_orbit_angle_ref.nc4.x
+[ 87%] Built target ufo_data_validate_ssmis_f17_20210521T1200Z_obfn_ref.nc4.x
+[ 87%] Built target ufo_data_validate_ssmis_f17_obs_20210701T1200_rttov.nc4.x
+[ 87%] Built target ufo_data_validate_ssmis_f18_obs_2018041500_m.nc4.x
+[ 87%] Built target ufo_data_validate_sst_obs-2018-04-15.nc4.x
+[ 87%] Built target ufo_data_validate_ssmis_obs_20191230T0000Z_orbital_angle.nc4.x
+[ 87%] Built target ufo_data_validate_stringmanipulation_obs.nc4.x
+[ 87%] Built target ufo_data_validate_superob.nc4.x
+[ 87%] Built target ufo_data_validate_superob_testdata_ref.nc4.x
+[ 87%] Built target ufo_data_validate_surface_marine_obs_20210521T1200Z.nc4.x
+[ 87%] Built target ufo_data_validate_surface_obs_20210521T1200Z.nc4.x
+[ 87%] Built target ufo_data_validate_surface_obs_namemap_20210521T1200Z.nc4.x
+[ 87%] Built target ufo_data_validate_surface_tquv_obs_2022052700.nc4.x
+[ 87%] Built target ufo_data_validate_synthetic-adt-2018041500.nc.x
+[ 87%] Built target ufo_data_validate_szacorrection_unit_transforms_2021011500.nc4.x
+[ 87%] Built target ufo_data_validate_tempo_no2_stratosphere.nc.x
+[ 87%] Built target ufo_data_validate_tempo_no2_total.nc.x
+[ 87%] Built target ufo_data_validate_tempo_no2_troposphere.nc.x
+[ 87%] Built target ufo_data_validate_thinning_records.nc4.x
+[ 87%] Built target ufo_data_validate_tms_tropics-01_obs_2022021600.nc4.x
+[ 87%] Built target ufo_data_validate_tropomi_co_total_2021081518_m.nc4.x
+[ 87%] Built target ufo_data_validate_tropomi_no2_total_2020090318_m.nc4.x
+[ 87%] Built target ufo_data_validate_tropomi_no2_tropo_2020090318_m.nc4.x
+[ 87%] Built target ufo_data_validate_tropopauseheight_testdata.nc4.x
+[ 87%] Built target ufo_data_validate_variable_assignment_testdata_channels.nc.x
+[ 87%] Built target ufo_data_validate_viirs_jpss1_oc_l2_2018-04-15.nc.x
+[ 87%] Built target ufo_data_validate_wind_unit_transforms_2018041500.nc4.x
+[ 87%] Built target ufo_data_validate_visibility_diagnostic.nc4.x
+[ 87%] Built target ufo_data_validate_visibility_diagnostic_1ob.nc4.x
+[ 87%] Built target ufo_data_validate_wind_unit_transforms_missing_values_2018041500.nc4.x
+[ 87%] Built target ufo_data_validate_wind_unit_transforms_missing_values_2d_2018041500.nc4.x
+[ 87%] Built target ufo_data_validate_variable_assignment_testdata.nc.x
+[ 87%] Built target ufo_data_validate_windprof_obs_2018041500_m.nc4.x
+[ 87%] Built target ufo_data_validate_wind_unit_transforms_surface.nc4.x
+[ 87%] Built target ufo_data_validate_windspeed10m_obs_2020100106.nc4.x
+[ 87%] Built target ufo_data_validate_write_recnum_obsspace.nc.x
+[ 87%] Built target test_ObsBias.x
+[ 87%] Built target test_ObsDiagnostics.x
+[ 87%] Built target test_ObsError.x
+[ 87%] Built target test_ObsOperator.x
+[ 87%] Built target test_ObsOperatorTLAD.x
+[ 87%] Built target test_EnsembleObsFilters.x
+[ 87%] Built target test_ObsFilters.x
+[ 87%] Built target test_ObsFunction.x
+[ 87%] Built target test_Predictor.x
+[ 87%] Built target test_ConventionalProfileProcessing.x
+[ 87%] Built target test_NearestNeighborInterpolation.x
+[ 87%] Built target test_RecordHandler.x
+[ 87%] Built target test_FortranGeoVaLs.x
+[ 87%] Built target ufo_recursivesplitter
+[ 87%] Built target ufo_dataextractor
+[ 87%] Built target ufo_piecewise_linear_interpolation
+[ 87%] Built target ufo_integral_image
+[ 87%] Built target ufo_geometry_calculations
+[ 87%] Built target ufo_nearest_neighbor_interpolation
+[ 87%] Built target ufo_superob_radar_template
+[ 87%] Built target ufo_parameters
+[ 87%] Built target ufo_variables
+[ 87%] Built target ufo_operator_utils
+[ 88%] Built target ufo_primitive_variables
+[ 88%] Built target ufo_geovals
+[ 88%] Built target ufo_geovals_spec
+[ 88%] Built target ufo_obs_localization
+[ 89%] Built target ufo_sampled_locations
+[ 89%] Built target ufo_recordhandler.x
+[ 89%] Built target ufo_geovals_setup_with_mismatched_nvars.x
+[ 89%] Built target ufo_geovals_setup_with_mismatched_nreduced_vars.x
+[ 89%] Built target ufo_geovals_setup_with_sampling_method_set_to_0.x
+[ 89%] Built target ufo_geovals_setup_with_sampling_method_set_to_3.x
+[ 89%] Built target ufo_geovals_partial_setup_with_mismatched_nvars.x
+[ 89%] Built target ufo_geovals_setup_with_method_mislabelled_as_trivial.x
+[ 89%] Built target ufo_geovals_partial_setup_with_sampling_method_set_to_0.x
+[ 89%] Built target ufo_geovals_partial_setup_with_sampling_method_set_to_3.x
+[ 89%] Built target ufo_geovals_setup_sampling_method_0.x
+[ 89%] Built target ufo_geovals_setup_sampling_method_with_mismatched_nlocs.x
+[ 89%] Built target ufo_geovals_setup_sampling_method_mislabelled_as_trivial.x
+[ 89%] Built target ufo_geovals_setup_trivial_sampling_method_0.x
+[ 89%] Built target ufo_geovals_setup_sampling_method_3.x
+[ 89%] Built target ufo_geovals_setup_trivial_sampling_method_3.x
+[ 89%] Built target ufo_geovals_set_invalid_default_format.x
+[ 89%] Built target ufo_geovals_get_nonexistent_var.x
+[ 89%] Built target ufo_metoffice_error_matrices
+[ 89%] Built target ufo_obserrordiffusion
+[ 89%] Built target ufo_obserror_dirac_diffusion
+[ 89%] Built target ufo_obserror_assign_unittests
+[ 89%] Built target ufo_reconditioning
+[ 89%] Built target ufo_reconditioning_within_group
+[ 89%] Built target ufo_obsfilterdata
+[ 89%] Built target ufo_processwhere
+[ 89%] Built target ufo_qc_gauss_thinning_satrad
+[ 89%] Built target ufo_qc_gauss_thinning_unittests
+[ 89%] Built target ufo_qc_historycheck_unittests
+[ 89%] Built target ufo_qc_met_office_buddy_check_unittests
+[ 89%] Built target ufo_qc_met_office_buddy_pair_finder
+[ 89%] Built target ufo_qc_poisson_disk_thinning_unittests
+[ 89%] Built target ufo_qc_stuckcheck_unittests
+[ 89%] Built target ufo_qc_temporal_thinning_unittests
+[ 89%] Built target ufo_qc_trackcheck_unittests
+[ 89%] Built target ufo_qc_trackcheckship_unittests
+[ 89%] Built target ufo_qc_trackcheckship_mainloop_unittests
+[ 89%] Built target ufo_fov_amsua
+[ 89%] Built target ufo_sample_and_reduce_over_fov
+[ 90%] Built target ufo_fov_ssmis
+[ 90%] Built target ufo_bias_coeff_increment
+[ 90%] Built target ufo_bias_covariance_amsua
+[ 90%] Built target ufo_bias_covariance_aircraft
+[ 90%] Built target ufo_bias_covariance_details
+[ 90%] Built target ufo_bias_coeff_readwrite
+[ 90%] Built target ufo_bias_covariance_details_byrecord
+[ 90%] Built target ufo_bias_coeff_increment_readwrite
+[ 90%] Built target ufo_bias_linear_op
+[ 90%] Built target ufo_utils_metoffice_sort
+[ 90%] Built target ioda-upgrade-v1-to-v2.x
+[ 90%] Built target ufo_crtm.x
+[ 90%] Built target ufo_obserrorcov_diags.x
+[ 90%] Built target ufo_preprocess.x
+[ 90%] Built target ioda-upgrade-v2-to-v3.x
+[ 90%] Linking CXX shared library ../../../lib/libquench.so
+[ 90%] Linking CXX shared library ../../../lib/libmpasjedi.so
+[ 90%] Built target quench
+[ 90%] Linking CXX shared library ../../../lib/libfv3jedi.so
+[ 90%] Linking CXX executable ../../../bin/saber_quench_convertstate.x
+[ 90%] Linking CXX executable ../../../bin/saber_quench_coupled_error_covariance_toolbox.x
+[ 90%] Linking CXX executable ../../../bin/saber_quench_subcomm_error_covariance_toolbox.x
+[ 90%] Linking CXX executable ../../../bin/saber_quench_error_covariance_toolbox.x
+[ 90%] Linking CXX executable ../../../bin/saber_quench_process_perts.x
+[ 92%] Built target mpasjedi
+[ 92%] Linking CXX executable ../../../bin/mpasjedi_saca.x
+[ 92%] Built target saber_quench_convertstate.x
+[ 92%] Linking CXX executable ../../../bin/mpasjedi_enshofx.x
+[ 92%] Built target saber_quench_subcomm_error_covariance_toolbox.x
+[ 92%] Built target saber_quench_process_perts.x
+[ 92%] Built target saber_quench_error_covariance_toolbox.x
+[ 92%] Built target saber_quench_coupled_error_covariance_toolbox.x
+[ 92%] Linking CXX executable ../../../bin/mpasjedi_eda.x
+[ 92%] Linking CXX executable ../../../bin/mpasjedi_forecast.x
+[ 92%] Linking CXX executable ../../../bin/mpasjedi_gen_ens_pert_B.x
+[ 92%] Linking CXX executable ../../../bin/mpasjedi_hofx3d.x
+[ 92%] Linking CXX executable ../../../bin/mpasjedi_hofx.x
+[ 95%] Built target fv3jedi
+[ 96%] Built target mpasjedi_saca.x
+[ 96%] Linking CXX executable ../../../bin/mpasjedi_enkf.x
+[ 96%] Built target mpasjedi_enshofx.x
+[ 96%] Linking CXX executable ../../../bin/mpasjedi_error_covariance_toolbox.x
+[ 96%] Linking CXX executable ../../../bin/mpasjedi_rtpp.x
+[ 96%] Built target mpasjedi_forecast.x
+[ 96%] Linking CXX executable ../../../bin/mpasjedi_ens_mean_variance.x
+[ 96%] Built target mpasjedi_gen_ens_pert_B.x
+[ 96%] Built target mpasjedi_hofx.x
+[ 96%] Built target mpasjedi_eda.x
+[ 96%] Built target mpasjedi_hofx3d.x
+[ 96%] Linking CXX executable ../../../bin/mpasjedi_converttostructuredgrid.x
+[ 96%] Linking CXX executable ../../../bin/mpasjedi_convertstate.x
+[ 96%] Linking CXX executable ../../../bin/mpasjedi_variational.x
+[ 96%] Linking CXX executable ../../../bin/mpasjedi_process_perts.x
+[ 96%] Built target mpasjedi_error_covariance_toolbox.x
+[ 96%] Built target mpasjedi_enkf.x
+[ 96%] Built target mpasjedi_rtpp.x
+[ 96%] Linking CXX executable test_mpasjedi_geometry
+[ 96%] Linking CXX executable test_mpasjedi_state
+[ 96%] Linking CXX executable test_mpasjedi_model
+[ 96%] Built target mpasjedi_ens_mean_variance.x
+[ 96%] Linking CXX executable test_mpasjedi_increment
+[ 96%] Built target mpasjedi_converttostructuredgrid.x
+[ 96%] Built target mpasjedi_convertstate.x
+[ 96%] Built target mpasjedi_process_perts.x
+[ 96%] Linking CXX executable test_mpasjedi_errorcovariance
+[ 96%] Linking CXX executable test_mpasjedi_linvarcha
+[ 96%] Built target mpasjedi_variational.x
+[ 96%] Linking CXX executable test_mpasjedi_getvalues
+[ 96%] Built target test_mpasjedi_geometry
+[ 96%] Built target test_mpasjedi_state
+[ 96%] Linking CXX executable test_mpasjedi_obslocalization
+[ 96%] Built target test_mpasjedi_model
+[ 96%] Linking CXX executable test_mpasjedi_obslocalization_vertical
+[ 97%] Linking CXX executable test_mpasjedi_obslocalizations
+[ 97%] Built target saber_dirac_diffusion_1_1-1.x
+[ 97%] Built target test_mpasjedi_increment
+[ 97%] Built target saber_dirac_diffusion_1_1-2.x
+[ 97%] Built target saber_dirac_diffusion_2_1-1.x
+[ 97%] Built target test_mpasjedi_errorcovariance
+[ 97%] Built target test_mpasjedi_linvarcha
+[ 97%] Built target saber_dirac_diffusion_2_1-2.x
+[ 97%] Built target saber_dirac_diffusion_implicit_vt_1-1.x
+[ 97%] Built target test_mpasjedi_getvalues
+[ 97%] Built target saber_dirac_id_1-1.x
+[ 97%] Built target saber_dirac_id_1-2.x
+[ 97%] Built target saber_dirac_id_seq4d_1-1.x
+[ 97%] Built target saber_dirac_id_seq4d_1-2.x
+[ 97%] Built target test_mpasjedi_obslocalization
+[ 97%] Built target saber_dirac_id_seq4d_timecov_1-1.x
+[ 97%] Built target saber_dirac_id_seq4d_timecov_1-2.x
+[ 97%] Built target saber_dirac_interpolation_2_1-1.x
+[ 97%] Built target test_mpasjedi_obslocalization_vertical
+[ 97%] Built target saber_dirac_interpolation_2_1-2.x
+[ 97%] Built target saber_dirac_interpolation_3_1-1.x
+[ 97%] Built target saber_dirac_interpolation_3_1-2.x
+[ 97%] Built target test_mpasjedi_obslocalizations
+[ 97%] Built target saber_dirac_interpolation_4_1-1.x
+[ 97%] Built target saber_dirac_interpolation_4_1-2.x
+[ 97%] Built target saber_dirac_interpolation_5_1-1.x
+[ 97%] Built target saber_dirac_interpolation_5_1-2.x
+[ 97%] Built target saber_dirac_orographic_interp_1-1.x
+[ 97%] Built target saber_dirac_orographic_interp_1-2.x
+[ 97%] Built target saber_dirac_duplicate_variables_1-1.x
+[ 97%] Built target saber_dirac_duplicate_variables_1-2.x
+[ 97%] Built target saber_error_covariance_training_diffusion_1_1-1.x
+[ 97%] Built target saber_error_covariance_training_diffusion_1_1-2.x
+[ 97%] Built target saber_error_covariance_training_diffusion_2_1-1.x
+[ 97%] Built target saber_error_covariance_training_diffusion_2_1-2.x
+[ 97%] Built target saber_error_covariance_training_diffusion_3_1-1.x
+[ 97%] Built target saber_error_covariance_training_diffusion_3_1-2.x
+[ 97%] Built target saber_error_covariance_training_diffusion_implicit_vt_1-1.x
+[ 97%] Built target saber_process_perts_diffusion_1_1-1.x
+[ 97%] Built target saber_process_perts_diffusion_1_1-2.x
+[ 97%] Built target saber_randomization_diffusion_1_1-1.x
+[ 97%] Built target saber_randomization_diffusion_1_1-2.x
+[ 97%] Built target saber_randomization_diffusion_2_1-1.x
+[ 97%] Built target saber_randomization_diffusion_2_1-2.x
+[ 97%] Built target saber_randomization_increment_variables_1-1.x
+[ 97%] Built target saber_randomization_increment_variables_1-2.x
+[ 97%] Built target saber_coupled_dirac_id_1-1.x
+[ 97%] Built target saber_convertstate_lam.x
+[ 97%] Built target saber_randomization_bump_nicas_lam_1_1-1.x
+[ 97%] Built target saber_randomization_bump_nicas_lam_1_1-2.x
+[ 97%] Built target saber_randomization_bump_nicas_lam_2_1-2.x
+[ 97%] Built target saber_randomization_bump_nicas_lam_2_1-1.x
+[ 97%] Built target saber_randomization_fastlam_1-2.x
+[ 97%] Built target saber_randomization_fastlam_1-1.x
+[ 97%] Built target saber_dirac_fastlam_1_1-1.x
+[ 97%] Built target saber_dirac_fastlam_1_1-2.x
+[ 97%] Built target saber_dirac_fastlam_2_1-1.x
+[ 97%] Built target saber_dirac_fastlam_2_1-2.x
+[ 97%] Built target saber_dirac_fastlam_3_1-2.x
+[ 97%] Built target saber_dirac_fastlam_3_1-1.x
+[ 97%] Built target saber_dirac_fastlam_4_1-1.x
+[ 97%] Built target saber_dirac_fastlam_4_1-2.x
+[ 97%] Built target saber_dirac_fastlam_5_1-1.x
+[ 97%] Built target saber_dirac_fastlam_5_1-2.x
+[ 97%] Built target saber_dirac_fastlam_6_1-1.x
+[ 97%] Built target saber_dirac_fastlam_6_1-2.x
+[ 97%] Built target saber_dirac_fastlam_7_1-1.x
+[ 97%] Built target saber_dirac_fastlam_7_1-2.x
+[ 97%] Built target saber_dirac_fastlam_8_1-1.x
+[ 97%] Built target saber_dirac_fastlam_8_1-2.x
+[ 97%] Built target saber_dirac_fastlam_9_1-1.x
+[ 97%] Built target saber_dirac_fastlam_9_1-2.x
+[ 97%] Built target saber_dirac_fastlam_10_1-1.x
+[ 97%] Built target saber_dirac_fastlam_10_1-2.x
+[ 97%] Built target saber_dirac_fastlam-fftw_1_1-1.x
+[ 97%] Built target saber_dirac_fastlam-fftw_1_1-2.x
+[ 97%] Built target saber_dirac_fastlam-fftw_2_1-1.x
+[ 97%] Built target saber_dirac_fastlam-fftw_2_1-2.x
+[ 97%] Built target saber_convertcov_bifourier_balance_1_1-1.x
+[ 97%] Built target saber_convertcov_bifourier_balance_1_1-2.x
+[ 97%] Built target saber_convertcov_bifourier_balance_2_1-1.x
+[ 97%] Built target saber_convertcov_bifourier_balance_2_1-2.x
+[ 97%] Built target saber_convertcov_bifourier_balance_3_1-1.x
+[ 97%] Built target saber_convertcov_bifourier_balance_3_1-2.x
+[ 97%] Built target saber_convertcov_bifourier_covariance_1_1-1.x
+[ 97%] Built target saber_convertcov_bifourier_covariance_1_1-2.x
+[ 97%] Built target saber_convertcov_bifourier_covariance_2_1-1.x
+[ 97%] Built target saber_convertcov_bifourier_covariance_2_1-2.x
+[ 97%] Built target saber_convertcov_bifourier_covariance_3_1-1.x
+[ 97%] Built target saber_convertcov_bifourier_covariance_3_1-2.x
+[ 97%] Built target saber_error_covariance_training_bifourier_covariance_1_1-1.x
+[ 97%] Built target saber_error_covariance_training_bifourier_covariance_1_1-2.x
+[ 97%] Built target saber_error_covariance_training_bifourier_covariance_2_1-1.x
+[ 97%] Built target saber_error_covariance_training_bifourier_covariance_2_1-2.x
+[ 97%] Built target saber_error_covariance_training_bifourier_1_1-1.x
+[ 97%] Built target saber_error_covariance_training_bifourier_1_1-2.x
+[ 97%] Built target saber_error_covariance_training_bifourier_2_1-1.x
+[ 97%] Built target saber_error_covariance_training_bifourier_2_1-2.x
+[ 97%] Built target saber_error_covariance_training_bifourier_3_1-1.x
+[ 97%] Built target saber_error_covariance_training_bifourier_3_1-2.x
+[ 97%] Built target saber_error_covariance_training_bifourier_4_1-1.x
+[ 97%] Built target saber_error_covariance_training_bifourier_4_1-2.x
+[ 97%] Built target saber_error_covariance_training_bifourier_5_1-1.x
+[ 97%] Built target saber_error_covariance_training_bifourier_5_1-2.x
+[ 97%] Built target saber_error_covariance_training_bifourier_6_1-1.x
+[ 97%] Built target saber_error_covariance_training_bifourier_6_1-2.x
+[ 97%] Built target saber_error_covariance_training_bifourier_7_1-1.x
+[ 97%] Built target saber_error_covariance_training_bifourier_7_1-2.x
+[ 97%] Built target saber_error_covariance_training_bifourier_8_1-1.x
+[ 97%] Built target saber_error_covariance_training_bifourier_8_1-2.x
+[ 97%] Built target saber_dirac_bifourier_balance_1_1-1.x
+[ 97%] Built target saber_dirac_bifourier_balance_1_1-2.x
+[ 97%] Built target saber_dirac_bifourier_balance_2_1-1.x
+[ 97%] Built target saber_dirac_bifourier_balance_2_1-2.x
+[ 97%] Built target saber_dirac_bifourier_balance_3_1-1.x
+[ 97%] Built target saber_dirac_bifourier_balance_3_1-2.x
+[ 97%] Built target saber_dirac_bifourier_covariance_1_1-1.x
+[ 97%] Built target saber_dirac_bifourier_covariance_1_1-2.x
+[ 97%] Built target saber_dirac_bifourier_covariance_2_1-1.x
+[ 97%] Built target saber_dirac_bifourier_covariance_2_1-2.x
+[ 97%] Built target saber_dirac_bifourier_covariance_3_1-1.x
+[ 97%] Built target saber_dirac_bifourier_covariance_3_1-2.x
+[ 97%] Built target saber_dirac_bifourier_1-2.x
+[ 97%] Built target saber_dirac_bifourier_ens_1-1.x
+[ 97%] Built target saber_dirac_bifourier_1-1.x
+[ 97%] Built target saber_dirac_bifourier_ens_1-2.x
+[ 97%] Built target saber_dirac_bifourier_gridtospectral_1-1.x
+[ 97%] Built target saber_dirac_bifourier_vordivtouv_1_1-1.x
+[ 97%] Built target saber_dirac_bifourier_gridtospectral_1-2.x
+[ 97%] Built target saber_dirac_bifourier_vordivtouv_1_1-2.x
+[ 97%] Built target saber_dirac_bifourier_vordivtouv_2_1-1.x
+[ 97%] Built target saber_dirac_bifourier_vordivtouv_2_1-2.x
+[ 97%] Built target saber_dirac_bifourier_vordivtouv_3_1-1.x
+[ 97%] Built target saber_dirac_bifourier_vordivtouv_3_1-2.x
+[ 97%] Built target saber_randomization_bifourier_covariance_1-1.x
+[ 97%] Built target saber_randomization_bifourier_1-1.x
+[ 97%] Built target saber_randomization_bifourier_covariance_1-2.x
+[ 97%] Built target saber_randomization_bifourier_1-2.x
+[ 97%] Built target saber_convertstate_constant.x
+[ 97%] Built target saber_dirac_biperiodization_1_1-1.x
+[ 97%] Built target saber_dirac_biperiodization_1_1-2.x
+[ 97%] Built target saber_dirac_biperiodization_2_1-1.x
+[ 97%] Built target saber_dirac_biperiodization_2_1-2.x
+[ 97%] Built target saber_dirac_bump_1_1-2.x
+[ 97%] Built target saber_dirac_bump_1_1-1.x
+[ 97%] Built target saber_dirac_bump_2_1-1.x
+[ 97%] Built target saber_dirac_bump_2_1-2.x
+[ 97%] Built target saber_dirac_bump_3_1-2.x
+[ 97%] Built target saber_dirac_bump_3_1-1.x
+[ 97%] Built target saber_dirac_bump_4_1-1.x
+[ 97%] Built target saber_dirac_bump_4_1-2.x
+[ 97%] Built target saber_dirac_bump_5_1-2.x
+[ 97%] Built target saber_dirac_bump_5_1-1.x
+[ 97%] Built target saber_dirac_bump_6_1-1.x
+[ 97%] Built target saber_dirac_bump_6_1-2.x
+[ 97%] Built target saber_dirac_bump_7_1-1.x
+[ 97%] Built target saber_dirac_bump_7_1-2.x
+[ 97%] Built target saber_dirac_bump_8_1-1.x
+[ 97%] Built target saber_dirac_bump_8_1-2.x
+[ 97%] Built target saber_dirac_bump_9_1-1.x
+[ 97%] Built target saber_dirac_bump_9_1-2.x
+[ 97%] Built target saber_dirac_localization_bump_1_1-1.x
+[ 97%] Built target saber_dirac_localization_bump_1_1-2.x
+[ 97%] Built target saber_dirac_localization_bump_2_1-1.x
+[ 97%] Built target saber_dirac_localization_bump_2_1-2.x
+[ 97%] Built target saber_dirac_localization_bump_3_1-1.x
+[ 97%] Built target saber_dirac_localization_bump_3_1-2.x
+[ 97%] Built target saber_dirac_localization_bump_4_1-1.x
+[ 97%] Built target saber_dirac_localization_bump_4_1-2.x
+[ 97%] Built target saber_dirac_localization_mixed_1_1-1.x
+[ 97%] Built target saber_dirac_localization_mixed_1_1-2.x
+[ 97%] Built target saber_dirac_multiscale_1_1-1.x
+[ 97%] Built target saber_dirac_multiscale_2_1-1.x
+[ 97%] Built target saber_dirac_multiscale_1_1-2.x
+[ 97%] Built target saber_dirac_multiscale_2_1-2.x
+[ 97%] Built target saber_dirac_multiscale_3_1-1.x
+[ 97%] Built target saber_dirac_multiscale_3_1-2.x
+[ 97%] Built target saber_dirac_shadowlevels_1_1-1.x
+[ 97%] Built target saber_dirac_shadowlevels_1_1-2.x
+[ 97%] Built target saber_dirac_shadowlevels_2_1-1.x
+[ 97%] Built target saber_dirac_shadowlevels_2_1-2.x
+[ 97%] Built target saber_dirac_shadowlevels_3_1-1.x
+[ 97%] Built target saber_dirac_shadowlevels_3_1-2.x
+[ 97%] Built target saber_dirac_shadowlevels_4_1-1.x
+[ 97%] Built target saber_dirac_shadowlevels_4_1-2.x
+[ 97%] Built target saber_dirac_shadowlevels_5_1-1.x
+[ 97%] Built target saber_dirac_shadowlevels_5_1-2.x
+[ 97%] Built target saber_dirac_stddev_1_1-1.x
+[ 97%] Built target saber_dirac_stddev_1_1-2.x
+[ 97%] Built target saber_dirac_stddev_2_1-1.x
+[ 97%] Built target saber_dirac_stddev_2_1-2.x
+[ 97%] Built target saber_dirac_stddev_3_1-1.x
+[ 97%] Built target saber_dirac_stddev_3_1-2.x
+[ 97%] Built target saber_dirac_stddev_4_1-1.x
+[ 97%] Built target saber_dirac_stddev_4_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_1_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_2_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_1_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_2_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_1_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_1_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_2_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_2_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_3_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_4_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_3_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_4_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_5_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_5_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_6_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_6_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_7_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_7_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_8_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_8_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_9_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_9_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_10_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_10_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_11_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_11_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_12_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_12_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_13_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag_13_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag-nicas_1_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag-nicas_1_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag-nicas_2_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag-nicas_2_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag-nicas_4_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag-nicas_4_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag-nicas_5_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_1_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_hdiag-nicas_5_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_1_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_2_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_2_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_3_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_3_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_4_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_4_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_5_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_5_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_6_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_6_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_7_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_7_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_8_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_8_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_9_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_9_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_10_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_10_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_11_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_nicas_11_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_stddev_1_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_stddev_1_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_stddev_2_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_stddev_2_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_stddev_3_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_stddev_3_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_stddev_4_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_stddev_4_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_stddev_5_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_stddev_5_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_stddev_6_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_stddev_6_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_vbal_1_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_vbal_2_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_vbal_1_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_vbal_2_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_vbal_3_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_vbal_3_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_vbal_4_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_vbal_4_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_vbal_5_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_vbal_6_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_vbal_5_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_vbal_6_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_vbal_7_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_wind_1_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_vbal_7_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_wind_1_1-2.x
+[ 97%] Built target saber_error_covariance_training_bump_wind_2_1-1.x
+[ 97%] Built target saber_error_covariance_training_bump_wind_2_1-2.x
+[ 97%] Built target saber_error_covariance_training_multiscale_1_1-1.x
+[ 97%] Built target saber_error_covariance_training_multiscale_1_1-2.x
+[ 97%] Built target saber_error_covariance_training_multiscale_2_1-1.x
+[ 97%] Built target saber_error_covariance_training_multiscale_2_1-2.x
+[ 97%] Built target saber_error_covariance_training_stddev_1_1-1.x
+[ 97%] Built target saber_error_covariance_training_stddev_1_1-2.x
+[ 97%] Built target saber_error_covariance_training_stddev_2_1-1.x
+[ 97%] Built target saber_error_covariance_training_stddev_2_1-2.x
+[ 97%] Built target saber_process_perts_bump_nicas_1_1-1.x
+[ 97%] Built target saber_process_perts_bump_nicas_1_1-2.x
+[ 97%] Built target saber_process_perts_bump_nicas_2_1-1.x
+[ 97%] Built target saber_process_perts_bump_nicas_2_1-2.x
+[ 97%] Built target saber_process_perts_bump_nicas_3_1-1.x
+[ 97%] Built target saber_process_perts_bump_nicas_3_1-2.x
+[ 97%] Built target saber_randomization_bump_nicas_F12L2_1-1.x
+[ 97%] Built target saber_randomization_bump_nicas_F12L2_1-2.x
+[ 97%] Built target saber_randomization_bump_nicas_L10L2_1-2.x
+[ 97%] Built target saber_randomization_bump_nicas_L10L2_1-1.x
+[ 97%] Built target saber_randomization_bump_nicas_L10L2T18_1-1.x
+[ 97%] Built target saber_randomization_bump_nicas_L10L2T18_1-2.x
+[ 97%] Built target saber_randomization_bump_nicas_L10L2_static_1-1.x
+[ 97%] Built target saber_randomization_bump_nicas_L10L2_static_1-2.x
+[ 97%] Built target saber_randomization_bump_nicas_L10L10_1-1.x
+[ 97%] Built target saber_randomization_bump_nicas_L10L10_1-2.x
+[ 97%] Built target saber_randomization_bump_nicas_L12L2_1-1.x
+[ 97%] Built target saber_randomization_bump_nicas_L12L2_1-2.x
+[ 97%] Built target saber_randomization_bump_nicas_unstructured_disc_1-1.x
+[ 97%] Built target saber_randomization_bump_nicas_unstructured_global_1-1.x
+[ 97%] Built target saber_randomization_bump_nicas_unstructured_disc_1-2.x
+[ 97%] Built target saber_randomization_bump_nicas_unstructured_global_1-2.x
+[ 97%] Built target saber_randomization_bump_nicas_unstructured_rectangle_1-1.x
+[ 97%] Built target saber_randomization_bump_nicas_unstructured_rectangle_1-2.x
+[ 97%] Built target saber_randomization_multiscale_1_1-1.x
+[ 97%] Built target saber_randomization_multiscale_1_1-2.x
+[ 97%] Built target saber_dirac_gsi_geos_global_1-1.x
+[ 97%] Built target saber_dirac_gsi_geos_global_1-2.x
+[ 97%] Built target saber_dirac_gsi_geos_global_opt_1_1-1.x
+[ 97%] Built target saber_dirac_gsi_geos_global_opt_1_1-2.x
+[ 97%] Built target saber_dirac_gsi_geos_global_opt_2_1-1.x
+[ 97%] Built target saber_dirac_gsi_geos_global_opt_2_1-2.x
+[ 97%] Built target saber_dirac_gsi_geos_global_opt_3_1-1.x
+[ 97%] Built target saber_dirac_gsi_geos_global_opt_3_1-2.x
+[ 97%] Built target saber_optimization_bump_hdiag_gsi_1_1-1.x
+[ 97%] Built target saber_optimization_bump_hdiag_gsi_2_1-1.x
+[ 97%] Built target saber_optimization_bump_hdiag_gsi_3_1-1.x
+[ 97%] Built target saber_dirac_gsi_gfs_global_1-1.x
+[ 97%] Built target saber_dirac_vader_1-1.x
+[ 97%] Built target saber_dirac_vader_1-2.x
+[ 97%] Linking CXX executable ../../../bin/fv3jedi_addincrement.x
+[ 97%] Linking CXX executable ../../../bin/fv3jedi_convertincrement.x
+[ 97%] Linking CXX executable ../../../bin/fv3jedi_converttostructuredgrid.x
+[ 97%] Linking CXX executable ../../../bin/fv3jedi_diffstates.x
+[ 97%] Linking CXX executable ../../../bin/fv3jedi_controlpert.x
+[ 98%] Linking CXX executable ../../../bin/fv3jedi_convertstate.x
+[ 98%] Linking CXX executable ../../../bin/fv3jedi_eda.x
+[ 98%] Linking CXX executable ../../../bin/fv3jedi_enshofx.x
+[ 98%] Built target fv3jedi_addincrement.x
+[ 98%] Built target fv3jedi_converttostructuredgrid.x
+[ 98%] Built target fv3jedi_diffstates.x
+[ 98%] Built target fv3jedi_convertstate.x
+[ 98%] Built target fv3jedi_convertincrement.x
+[ 98%] Linking CXX executable ../../../bin/fv3jedi_ensrecenter.x
+[ 98%] Linking CXX executable ../../../bin/fv3jedi_ensmeanvariance.x
+[ 98%] Linking CXX executable ../../../bin/fv3jedi_forecast.x
+[ 98%] Built target fv3jedi_enshofx.x
+[ 98%] Linking CXX executable ../../../bin/fv3jedi_EnsGETKF.x
+[ 98%] Linking CXX executable ../../../bin/fv3jedi_gen_hybrid_linear_model_coeffs.x
+[ 98%] Built target fv3jedi_controlpert.x
+[ 98%] Built target fv3jedi_eda.x
+[ 98%] Linking CXX executable ../../../bin/fv3jedi_hofx.x
+[ 98%] Linking CXX executable ../../../bin/fv3jedi_hofx_nomodel.x
+[ 98%] Linking CXX executable ../../../bin/fv3jedi_letkf.x
+[ 98%] Built target fv3jedi_ensrecenter.x
+[ 98%] Built target fv3jedi_ensmeanvariance.x
+[ 98%] Built target fv3jedi_forecast.x
+[ 98%] Built target fv3jedi_EnsGETKF.x
+[ 98%] Linking CXX executable ../../../bin/fv3jedi_error_covariance_toolbox.x
+[ 98%] Built target fv3jedi_gen_hybrid_linear_model_coeffs.x
+[ 98%] Linking CXX executable ../../../bin/fv3jedi_var.x
+[ 98%] Linking CXX executable ../../../bin/fv3jedi_genenspertB.x
+[ 98%] Linking CXX executable ../../../bin/fv3jedi_adjointforecast.x
+[ 98%] Linking CXX executable ../../../bin/fv3jedi_processperts.x
+[ 98%] Built target fv3jedi_hofx.x
+[ 98%] Built target fv3jedi_hofx_nomodel.x
+[ 98%] Built target fv3jedi_letkf.x
+[ 98%] Linking Fortran executable ../../../bin/fv3jedi_a_to_d.x
+[ 98%] Linking Fortran executable ../../../bin/fv3jedi_cold_to_warm.x
+[ 98%] Linking Fortran executable ../../../bin/fv3jedi_d_to_a.x
+ifort: remark #10448: Intel(R) Fortran Compiler Classic (ifort) is now deprecated and will be discontinued late 2024. Intel recommends that customers transition now to using the LLVM-based Intel(R) Fortran Compiler (ifx) for continued Windows* and Linux* support, new language support, new language features, and optimizations. Use '-diag-disable=10448' to disable this message.
+ifort: command line warning #10148: option '-fiopenmp' not supported
+ifort: remark #10448: Intel(R) Fortran Compiler Classic (ifort) is now deprecated and will be discontinued late 2024. Intel recommends that customers transition now to using the LLVM-based Intel(R) Fortran Compiler (ifx) for continued Windows* and Linux* support, new language support, new language features, and optimizations. Use '-diag-disable=10448' to disable this message.
+ifort: command line warning #10148: option '-fiopenmp' not supported
+ifort: remark #10448: Intel(R) Fortran Compiler Classic (ifort) is now deprecated and will be discontinued late 2024. Intel recommends that customers transition now to using the LLVM-based Intel(R) Fortran Compiler (ifx) for continued Windows* and Linux* support, new language support, new language features, and optimizations. Use '-diag-disable=10448' to disable this message.
+ifort: command line warning #10148: option '-fiopenmp' not supported
+[ 98%] Built target fv3jedi_error_covariance_toolbox.x
+[ 98%] Linking Fortran executable ../../../bin/fv3jedi_geos_to_fms.x
+ifort: remark #10448: Intel(R) Fortran Compiler Classic (ifort) is now deprecated and will be discontinued late 2024. Intel recommends that customers transition now to using the LLVM-based Intel(R) Fortran Compiler (ifx) for continued Windows* and Linux* support, new language support, new language features, and optimizations. Use '-diag-disable=10448' to disable this message.
+ifort: command line warning #10148: option '-fiopenmp' not supported
+[ 98%] Built target fv3jedi_adjointforecast.x
+[ 98%] Built target fv3jedi_genenspertB.x
+[ 98%] Built target fv3jedi_processperts.x
+[ 98%] Built target fv3jedi_var.x
+[ 98%] Linking CXX executable ../../bin/test_fv3jedi_errorcovariance.x
+[ 99%] Linking CXX executable ../../../bin/fv3jedi_tlm_toolbox.x
+[ 99%] Linking CXX executable ../../bin/test_fv3jedi_geometry.x
+[ 99%] Linking CXX executable ../../bin/test_fv3jedi_geometry_subcommunicator.x
+[ 99%] Built target fv3jedi_cold_to_warm.x
+[ 99%] Built target fv3jedi_a_to_d.x
+[ 99%] Built target fv3jedi_d_to_a.x
+[ 99%] Linking CXX executable ../../bin/test_fv3jedi_getvalues.x
+[ 99%] Linking CXX executable ../../bin/test_fv3jedi_geometryiterator.x
+[ 99%] Linking CXX executable ../../bin/test_fv3jedi_increment.x
+[ 99%] Built target fv3jedi_geos_to_fms.x
+[ 99%] Built target fv3jedi_tlm_toolbox.x
+[ 99%] Built target test_fv3jedi_geometry_subcommunicator.x
+[ 99%] Built target test_fv3jedi_geometry.x
+[100%] Built target test_fv3jedi_errorcovariance.x
+[100%] Linking CXX executable ../../bin/test_fv3jedi_linearmodel.x
+[100%] Linking CXX executable ../../bin/test_fv3jedi_linearvariablechange.x
+[100%] Linking CXX executable ../../bin/test_fv3jedi_localization.x
+[100%] Linking CXX executable ../../bin/test_fv3jedi_model.x
+[100%] Linking CXX executable ../../bin/test_fv3jedi_obslocalization.x
+[100%] Built target test_fv3jedi_geometryiterator.x
+[100%] Built target test_fv3jedi_getvalues.x
+[100%] Built target test_fv3jedi_increment.x
+[100%] Linking CXX executable ../../bin/test_fv3jedi_obslocalizations.x
+[100%] Linking CXX executable ../../bin/test_fv3jedi_state.x
+[100%] Linking CXX executable ../../bin/test_fv3jedi_comparestates.x
+[100%] Built target test_fv3jedi_linearvariablechange.x
+[100%] Built target test_fv3jedi_linearmodel.x
+[100%] Built target test_fv3jedi_model.x
+[100%] Built target test_fv3jedi_localization.x
+[100%] Linking CXX executable ../../bin/test_fv3jedi_variablechange.x
+[100%] Built target test_fv3jedi_obslocalization.x
+[100%] Built target test_fv3jedi_obslocalizations.x
+[100%] Built target test_fv3jedi_comparestates.x
+[100%] Built target test_fv3jedi_state.x
+[100%] Built target test_fv3jedi_variablechange.x
