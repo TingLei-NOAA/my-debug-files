@@ -1,0 +1,811 @@
+CMake Deprecation Warning at /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/ecbuild-3.7.2-rlvphlb/share/ecbuild/cmake/ecbuild_project.cmake:44 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+Call Stack (most recent call first):
+  CMakeLists.txt:8 (project)
+
+
+-- Cray Programming Environment 2.7.17 C
+-- NOTE: LOADEDMODULES changed since initial config!
+-- NOTE: this may cause unexpected build errors.
+-- Cray Programming Environment 2.7.17 CXX
+-- ecbuild   3.7.2	/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/ecbuild-3.7.2-rlvphlb/share/ecbuild/cmake
+-- cmake     3.27.9	/apps/ops/test/spack-stack-nco-1.9/gcc/12.1.0/cmake-3.27.9-m34clqg/bin/cmake
+-- ---------------------------------------------------------
+-- ---------------------------------------------------------
+-- ---------------------------------------------------------
+-- [32m[jedi-bundle] (8.0.0) [46ea50a][m
+-- Feature TESTS enabled
+-- Feature TESTS enabled
+-- ---------------------------------------------------------
+-- Adding bundle project jedicmake
+failed to create symbolic link '/lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/jedicmake' because existing path cannot be removed: Is a directory
+-- ---------------------------------------------------------
+-- Adding bundle project gsibec
+failed to create symbolic link '/lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/gsibec' because existing path cannot be removed: Is a directory
+-- ---------------------------------------------------------
+-- [32m[gsibec] (1.4.4) [8fc039f][m
+-- Feature TESTS enabled
+-- Found MPI: TRUE (found version "3.1") found components: Fortran 
+-- Found MPI: TRUE (found version "3.1")  
+-- FindNetCDF defines targets:
+--   - NetCDF_VERSION [4.9.2]
+--   - NetCDF_PARALLEL [TRUE]
+--   - NetCDF_C_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/bin/nc-config]
+--   - NetCDF::NetCDF_C [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/lib/libnetcdf.so 
+--   - NetCDF_Fortran_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/bin/nf-config]
+--   - NetCDF::NetCDF_Fortran [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/lib/libnetcdff.so 
+-- Found ip: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/ip-5.1.0-do3yp2e/lib64/libip_4.a (found version "5.1.0")
+-- ---------------------------------------------------------
+-- Adding bundle project crtm
+CRTM_INSTALL_PREFIX set to /usr/local
+-- [32m[crtm] (3.1.2) [46ea50a][0m
+CMAKE_INSTALL_PREFIX set to /usr/local
+CMAKE_INSTALL_LIBDIR set to lib64
+CMAKE_LIBRARY_OUTPUT_DIRECTORY set to /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/lib
+-- Compiler ID: Intel
+-- Compiler: /pe/oneapi/compiler/2024.2/bin/ifort
+-- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
+-- Found OpenMP: TRUE (found version "5.0") found components: Fortran 
+-- Found NetCDF: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/include (found version "4.9.2") found components: Fortran 
+-- FindNetCDF defines targets:
+--   - NetCDF::NetCDF_Fortran [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/lib/libnetcdff.so]
+-- Building tests for CRTM v3.1.2.
+-- Downloading CRTM coeffs files from: https://bin.ssec.wisc.edu/pub/s4/CRTM//fix_REL-3.1.2.0.tgz to /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/test_data/3.1.2/fix_REL-3.1.2.0.tgz
+-- Checking if /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/test_data/3.1.2/fix_REL-3.1.2.0 already exists...
+-- Files have already been untarred. Skipping.
+-- Configuration summary
+-- Project name : crtm
+-- Project version : 3.1.2
+-- Fortran compiler : /pe/oneapi/compiler/2024.2/bin/ifort
+-- Fortran compiler flags : -gcc-name=/opt/cray/pe/gcc/12.1.0/snos/bin/gcc -gxx-name=/opt/cray/pe/gcc/12.1.0/snos/bin/g++ -assume byterecl
+-- Build type : Release
+-- Fortran compiler flags for release : -O3 -ip -unroll -inline -no-heap-arrays
+-- ---------------------------------------------------------
+-- Adding bundle project gsw
+-- ---------------------------------------------------------
+-- [32m[gsw] (3.0.8) [697cbeb][m
+-- Feature TESTS enabled
+-- ---------------------------------------------------------
+-- Adding bundle project oops
+failed to create symbolic link '/lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/oops' because existing path cannot be removed: Is a directory
+-- ---------------------------------------------------------
+-- [32m[oops] (1.13.0) [c49db5f][m
+-- Feature TESTS enabled
+-- Feature WARNINGS enabled
+-- Added CXX flag [-Wall]
+-- Added CXX flag [-Wno-sign-compare]
+-- Added Fortran flag [-warn]
+-- Added CXX flag [-fp-model=precise] to build type DEBUG
+-- Added Fortran flag [-ftrapuv -fp-model=precise -fpe-all=0] to build type DEBUG
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP: TRUE (found version "5.1") found components: CXX Fortran 
+-- Found MPI: TRUE (found version "3.1") found components: C CXX Fortran 
+-- Found MPI: TRUE (found version "3.1")  
+-- Found NetCDF: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/include;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/include;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cwdoxwa/include (found version "4.9.2") found components: C Fortran 
+-- FindNetCDF defines targets:
+--   - NetCDF_VERSION [4.9.2]
+--   - NetCDF_PARALLEL [TRUE]
+--   - NetCDF_C_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/bin/nc-config]
+--   - NetCDF::NetCDF_C [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/lib/libnetcdf.so 
+--   - NetCDF_Fortran_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/bin/nf-config]
+--   - NetCDF::NetCDF_Fortran [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/lib/libnetcdff.so 
+CMake Warning (dev) at oops/CMakeLists.txt:63 (find_package):
+  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  Environment variable BOOST_ROOT is set to:
+
+    /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/boost-1.84.0-w5oyblf
+
+  For compatibility, find_package is ignoring the variable, but code in a
+  .cmake module might still use it.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found Boost: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/boost-1.84.0-w5oyblf/lib/cmake/Boost-1.84.0/BoostConfig.cmake (found suitable version "1.84.0", minimum required is "1.64.0")  
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP: TRUE (found version "5.1") found components: CXX 
+-- Found addr2line at /usr/bin/addr2line.
+-- Using this provider for stacktraces: default.
+-- ---------------------------------------------------------
+-- Adding bundle project jedi-model-data
+-- ---------------------------------------------------------
+-- [32m[jedi-model-data] (1.0.0) [603c853][m
+-- Feature TESTS enabled
+-- ---------------------------------------------------------
+-- Adding bundle project vader
+-- ---------------------------------------------------------
+-- [32m[vader] (1.10.0) [c429f4c][m
+-- Feature TESTS enabled
+-- Feature WARNINGS enabled
+-- Added CXX flag [-Wall]
+-- Added CXX flag [-Wno-sign-compare]
+-- Added Fortran flag [-warn]
+-- Added CXX flag [-fp-model=precise] to build type DEBUG
+-- Added Fortran flag [-ftrapuv -fp-model=precise -fpe-all=0] to build type DEBUG
+-- VADER variables
+--   - ENABLE_VADER_DOC: OFF
+--   - OPENMP: ON
+CMake Warning (dev) at vader/CMakeLists.txt:32 (find_package):
+  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  Environment variable BOOST_ROOT is set to:
+
+    /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/boost-1.84.0-w5oyblf
+
+  For compatibility, find_package is ignoring the variable, but code in a
+  .cmake module might still use it.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found MPI: TRUE (found version "3.1") found components: C Fortran 
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP: TRUE (found version "5.1") found components: CXX Fortran 
+-- Found MPI: TRUE (found version "3.1") found components: CXX Fortran 
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP: TRUE (found version "5.1") found components: CXX 
+-- Found MPI: TRUE (found version "3.1")  
+-- FindNetCDF defines targets:
+--   - NetCDF_VERSION [4.9.2]
+--   - NetCDF_PARALLEL [TRUE]
+--   - NetCDF_C_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/bin/nc-config]
+--   - NetCDF::NetCDF_C [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/lib/libnetcdf.so 
+--   - NetCDF_Fortran_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/bin/nf-config]
+--   - NetCDF::NetCDF_Fortran [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/lib/libnetcdff.so 
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- GSW FOUND; Including Marine Recipes gsw (3.0.8)
+-- jedi-model-data found; building vader tests
+-- ---------------------------------------------------------
+-- Adding bundle project saber
+failed to create symbolic link '/lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/saber' because existing path cannot be removed: Is a directory
+-- ---------------------------------------------------------
+-- [32m[saber] (1.13.0) [21273dd][m
+-- Feature TESTS enabled
+-- Feature WARNINGS enabled
+-- Added CXX flag [-Wall]
+-- Added CXX flag [-Wno-sign-compare]
+-- Added Fortran flag [-warn]
+-- Added CXX flag [-fp-model=precise] to build type DEBUG
+-- Added Fortran flag [-ftrapuv -fp-model=precise -fpe-all=0] to build type DEBUG
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP: TRUE (found version "5.1") found components: CXX Fortran 
+-- Found MPI: TRUE (found version "3.1") found components: Fortran 
+-- Found MPI: TRUE (found version "3.1")  
+-- FindNetCDF defines targets:
+--   - NetCDF_VERSION [4.9.2]
+--   - NetCDF_PARALLEL [TRUE]
+--   - NetCDF_C_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/bin/nc-config]
+--   - NetCDF::NetCDF_C [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/lib/libnetcdf.so 
+--   - NetCDF_Fortran_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/bin/nf-config]
+--   - NetCDF::NetCDF_Fortran [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/lib/libnetcdff.so 
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP: TRUE (found version "5.1") found components: CXX 
+CMake Warning (dev) at /apps/ops/test/spack-stack-nco-1.9/gcc/12.1.0/cmake-3.27.9-m34clqg/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
+  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  Environment variable BOOST_ROOT is set to:
+
+    /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/boost-1.84.0-w5oyblf
+
+  For compatibility, find_package is ignoring the variable, but code in a
+  .cmake module might still use it.
+Call Stack (most recent call first):
+  build/oops/oops-import.cmake:39 (find_dependency)
+  build/oops/oops-config.cmake:83 (include)
+  saber/CMakeLists.txt:92 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found Boost: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/boost-1.84.0-w5oyblf/lib/cmake/Boost-1.84.0/BoostConfig.cmake (found version "1.84.0")  
+-- Found ip: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/ip-5.1.0-do3yp2e/lib64/libip_4.a (found version "5.1.0")
+-- SABER block Bifourier is enabled
+-- SABER block FastLAM spectral layer is enabled
+-- SABER block GSI is enabled
+-- SABER block MGBF is enabled
+-- SABER block SPECTRALB is NOT enabled
+-- Offline code coverage is not enabled
+-- Available FFT backends in BifourierTransform:
+-- - fftw
+-- BUMP instrumentation is not enabled
+-- SABER documentation is not enabled
+-- jedi-model-data found; building saber tests
+-- SABER-QUENCH tests activated:
+-- - BASE
+-- - COUPLED
+-- - FASTLAM
+-- - FASTLAM REGIONAL INTERPOLATION
+-- - FASTLAM FFTW
+-- - BIFOURIER
+-- - BUMP
+-- - GSI GEOS
+-- - GSI GFS
+-- - VADER
+-- - MGBF
+-- Found quench I/O formats:
+-- - Default (NetCDF)
+-- - GMSH
+-- Setup QUENCH data links
+-- ---------------------------------------------------------
+-- Adding bundle project ioda-data
+-- ---------------------------------------------------------
+-- [32m[ioda-data] (2.9.0) [6f06db1][m
+-- Feature TESTS enabled
+-- ---------------------------------------------------------
+-- Adding bundle project ioda
+-- ---------------------------------------------------------
+-- [32m[ioda] (2.12.0) [1842216][m
+-- Feature TESTS enabled
+-- Feature WARNINGS enabled
+-- Added CXX flag [-Wall]
+-- Added CXX flag [-Wno-sign-compare]
+-- Added Fortran flag [-warn]
+-- Added CXX flag [-fp-model=precise] to build type DEBUG
+-- Added Fortran flag [-ftrapuv -fp-model=precise -fpe-all=0] to build type DEBUG
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP: TRUE (found version "5.1") found components: C CXX Fortran 
+-- Found NetCDF: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/include;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/include;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cwdoxwa/include (found version "4.9.2") found components: C Fortran CXX 
+-- FindNetCDF defines targets:
+--   - NetCDF_VERSION [4.9.2]
+--   - NetCDF_PARALLEL [TRUE]
+--   - NetCDF_C_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/bin/nc-config]
+--   - NetCDF::NetCDF_C [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/lib/libnetcdf.so 
+--   - NetCDF_Fortran_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/bin/nf-config]
+--   - NetCDF::NetCDF_Fortran [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/lib/libnetcdff.so 
+--   - NetCDF_CXX_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cwdoxwa/bin/ncxx4-config]
+--   - NetCDF::NetCDF_CXX [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cwdoxwa] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cwdoxwa/lib/libnetcdf_c++4.so 
+CMake Warning (dev) at /apps/ops/test/spack-stack-nco-1.9/gcc/12.1.0/cmake-3.27.9-m34clqg/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
+  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  Environment variable BOOST_ROOT is set to:
+
+    /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/boost-1.84.0-w5oyblf
+
+  For compatibility, find_package is ignoring the variable, but code in a
+  .cmake module might still use it.
+Call Stack (most recent call first):
+  build/oops/oops-import.cmake:39 (find_dependency)
+  build/oops/oops-config.cmake:83 (include)
+  ioda/CMakeLists.txt:51 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP: TRUE (found version "5.1") found components: CXX 
+-- Found Boost: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/boost-1.84.0-w5oyblf/lib/cmake/Boost-1.84.0/BoostConfig.cmake (found suitable version "1.84.0", minimum required is "1.64.0")  
+-- Found bufr: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/bufr-12.1.0-pr3ujej/lib64/libbufr_4.so (found version "12.1.0")
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_abiclr.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_ahiclr.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_aircraft.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_aircraft_write.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_airs.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_altimeter.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_amsr.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_amsub.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_ascatsm.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_aod.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_aod_write.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_aod_write_testdatasets.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_atms.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_atms_write.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_atovs.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_atovs_write.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_cris.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_crisfsr.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_fciasr.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_fciclr.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_geocloud.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_gmihigh.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_gmihigh_write.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_gmilow.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_gnssro.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_gnssro_profile_100.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_gnssro_profile_333.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_groundgps.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_hirasfsr.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_hloswind.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_iasi.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_iasi_write.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_iasi_read_channels_from_yaml.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_icethickness.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_imssnow.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_mtgirs.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_mwri.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_mwsfy3.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_oceancolour.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_oceansound.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_oceansound_truncate_profiles.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_radar_doppler_wind.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_radar_reflectivity.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_radarfreeboard.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_satsst.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_sattcwv.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_satwind.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_scatwind.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_scatwindchosen_write.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_seaice.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_seviriasr.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_seviriclr.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_sonde.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_sonde_history.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_sonde_mixed.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_sonde_time_displacement.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_sonde_truncate_profiles.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_sonde_write.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_sonde_write_mixed.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_ssmis.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_stationsnow.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_surface.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_surfacecloud.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//iodatest_odb_surfacesst.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//odb_default_name_map.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//odb_aircraft_name_map.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//odb_amsr_name_map.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//odb_gnssro_name_map.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//odb_gnssro_profile_name_map.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//odb_oceansound_name_map.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//odb_radiance_name_map.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//odb_sonde_name_map.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//odb_surface_name_map.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//odb_surfacesst_name_map.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ioda/share/test/testinput//validation//ObsSpace.yaml
+-- Use test data from ioda-data repository
+-- ---------------------------------------------------------
+-- Adding bundle project ufo-data
+-- ---------------------------------------------------------
+-- [32m[ufo-data] (1.10.0) [99811ee][m
+-- Feature TESTS enabled
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP: TRUE (found version "5.1") found components: CXX Fortran 
+CMake Warning (dev) at /apps/ops/test/spack-stack-nco-1.9/gcc/12.1.0/cmake-3.27.9-m34clqg/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
+  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  Environment variable BOOST_ROOT is set to:
+
+    /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/boost-1.84.0-w5oyblf
+
+  For compatibility, find_package is ignoring the variable, but code in a
+  .cmake module might still use it.
+Call Stack (most recent call first):
+  build/oops/oops-import.cmake:39 (find_dependency)
+  build/oops/oops-config.cmake:83 (include)
+  /apps/ops/test/spack-stack-nco-1.9/gcc/12.1.0/cmake-3.27.9-m34clqg/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
+  build/ioda/ioda-import.cmake:40 (find_dependency)
+  build/ioda/ioda-config.cmake:64 (include)
+  ufo-data/CMakeLists.txt:21 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found Boost: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/boost-1.84.0-w5oyblf/lib/cmake/Boost-1.84.0/BoostConfig.cmake (found version "1.84.0")  
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP: TRUE (found version "5.1") found components: CXX 
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
+-- Found OpenMP: TRUE (found version "5.1") found components: C CXX Fortran 
+-- Found bufr: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/bufr-12.1.0-pr3ujej/lib64/libbufr_4.so (found version "12.1.0")
+-- ---------------------------------------------------------
+-- Adding bundle project ufo
+-- ---------------------------------------------------------
+-- [32m[ufo] (1.13.0) [eef7f85][m
+-- Feature TESTS enabled
+-- Feature WARNINGS enabled
+-- Added CXX flag [-Wall]
+-- Added CXX flag [-Wno-sign-compare]
+-- Added Fortran flag [-warn]
+-- Added CXX flag [-fp-model=precise] to build type DEBUG
+-- Added Fortran flag [-ftrapuv -fp-model=precise -fpe-all=0] to build type DEBUG
+-- Added CXX flag [-fp-model=strict]
+-- Added Fortran flag [-fp-model=strict]
+-- Found MPI: TRUE (found version "3.1") found components: C CXX Fortran 
+CMake Warning (dev) at ufo/CMakeLists.txt:51 (find_package):
+  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  Environment variable BOOST_ROOT is set to:
+
+    /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/boost-1.84.0-w5oyblf
+
+  For compatibility, find_package is ignoring the variable, but code in a
+  .cmake module might still use it.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found MPI: TRUE (found version "3.1")  
+-- Found NetCDF: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/include;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/include;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cwdoxwa/include (found version "4.9.2") found components: C CXX Fortran 
+-- FindNetCDF defines targets:
+--   - NetCDF_VERSION [4.9.2]
+--   - NetCDF_PARALLEL [TRUE]
+--   - NetCDF_C_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/bin/nc-config]
+--   - NetCDF::NetCDF_C [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/lib/libnetcdf.so 
+--   - NetCDF_CXX_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cwdoxwa/bin/ncxx4-config]
+--   - NetCDF::NetCDF_CXX [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cwdoxwa] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cwdoxwa/lib/libnetcdf_c++4.so 
+--   - NetCDF_Fortran_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/bin/nf-config]
+--   - NetCDF::NetCDF_Fortran [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/lib/libnetcdff.so 
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
+-- Found OpenMP: TRUE (found version "5.1") found components: CXX Fortran 
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP: TRUE (found version "5.1") found components: CXX 
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
+-- Found OpenMP: TRUE (found version "5.1") found components: C CXX Fortran 
+-- Found bufr: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/bufr-12.1.0-pr3ujej/lib64/libbufr_4.so (found version "12.1.0")
+-- Found bufr: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/bufr-12.1.0-pr3ujej/lib64/libbufr_4.so (found version "12.1.0")
+-- CRTM FOUND; Including CRTM Observation Operator (3.1.2)
+-- RTTOV NOT FOUND; Excluding RTTOV Radiance Observation Operator
+-- GSW FOUND; Including Marine Observation Operators (3.0.8)
+-- ROPP NOT FOUND: Excluding GNSSRO Bending angle ROPP Operators
+-- GEOS-AERO NOT FOUND: Excluding AOD operator from GEOS
+-- OASIM NOT FOUND: Excluding Ocean Atmosphere Spectral Irradiance Model
+-- PPRO: Including built-in PPRO dual-polarization radar operator
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ufo/resources/namemap
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ufo/resources/namemap/test_name_map.yaml
+-- Up-to-date: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/ufo/resources/namemap/bayesian_name_map.yaml
+-- CRTM test data path from global property CRTM_TESTFILES_PATH: 
+-- Skipping download of test data from https://bin.ssec.wisc.edu/pub/s4/CRTM/fix_REL-3.1.2.0.tgz since it already exists in /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/test-data-release/crtm/fix_REL-3.1.2.0/fix/
+-- Use test data from ufo-data repository
+-- ---------------------------------------------------------
+-- Adding bundle project fv3-jedi-lm
+CMake Deprecation Warning at fv3-jedi-lm/CMakeLists.txt:10 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Warning (dev) at fv3-jedi-lm/CMakeLists.txt:18 (find_package):
+  Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+  Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  Environment variable ecbuild_ROOT is set to:
+
+    /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/ecbuild-3.7.2-rlvphlb
+
+  For compatibility, CMake is ignoring the variable.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found ecbuild: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/ecbuild-3.7.2-rlvphlb/share/ecbuild/cmake (found suitable version "3.7.2", minimum required is "3.6") 
+-- ---------------------------------------------------------
+-- [32m[fv3jedilm] (1.8.0) [d1826a7][m
+-- Feature TESTS enabled
+-- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
+-- Found OpenMP: TRUE (found version "5.1") found components: C Fortran 
+-- Found MPI: TRUE (found version "3.1") found components: Fortran 
+-- fv3jedilm FOUND MPI
+-- Found package MPI required for feature MPI
+-- Feature MPI enabled
+-- Found MPI: TRUE (found version "3.1")  
+-- Found NetCDF: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/include;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/include;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cwdoxwa/include (found version "4.9.2") found components: Fortran 
+-- FindNetCDF defines targets:
+--   - NetCDF_VERSION [4.9.2]
+--   - NetCDF_PARALLEL [TRUE]
+--   - NetCDF_C_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/bin/nc-config]
+--   - NetCDF::NetCDF_C [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/lib/libnetcdf.so 
+--   - NetCDF_Fortran_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/bin/nf-config]
+--   - NetCDF::NetCDF_Fortran [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/lib/libnetcdff.so 
+-- Found MPI: TRUE (found version "3.1") found components: Fortran 
+-- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
+-- Found OpenMP: TRUE (found version "5.0") found components: Fortran 
+-- Found MPI: TRUE (found version "3.1")  
+-- Found FMS: "/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/fms-2024.02-jm3mxir" (Version: "2024.2.0")
+-- FMS targets:
+--   - FMS::fms_r4 [Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/fms-2024.02-jm3mxir/lib/libfms_r4.a]
+--   - FMS::fms_r8 [Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/fms-2024.02-jm3mxir/lib/libfms_r8.a]
+-- ---------------------------------------------------------
+-- Adding bundle project fv3-jedi-data
+CMake Deprecation Warning at fv3-jedi-data/CMakeLists.txt:10 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- ---------------------------------------------------------
+-- Adding bundle project fv3-jedi
+failed to create symbolic link '/lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/fv3-jedi' because existing path cannot be removed: Is a directory
+CMake Deprecation Warning at fv3-jedi/CMakeLists.txt:10 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Warning (dev) at fv3-jedi/CMakeLists.txt:20 (find_package):
+  Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+  Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  Environment variable ecbuild_ROOT is set to:
+
+    /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/ecbuild-3.7.2-rlvphlb
+
+  For compatibility, CMake is ignoring the variable.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- ---------------------------------------------------------
+-- [32m[fv3jedi] (1.12.0) [550f0ee][m
+-- Feature TESTS enabled
+-- Feature WARNINGS enabled
+-- Added CXX flag [-Wall]
+-- Added CXX flag [-Wno-sign-compare]
+-- Added Fortran flag [-warn]
+-- Added CXX flag [-fp-model=precise] to build type DEBUG
+-- Added Fortran flag [-ftrapuv -fp-model=precise -fpe-all=0] to build type DEBUG
+-- Found NetCDF: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/include;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/include;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cwdoxwa/include (found version "4.9.2") found components: C Fortran 
+-- FindNetCDF defines targets:
+--   - NetCDF_VERSION [4.9.2]
+--   - NetCDF_PARALLEL [TRUE]
+--   - NetCDF_C_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/bin/nc-config]
+--   - NetCDF::NetCDF_C [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/lib/libnetcdf.so 
+--   - NetCDF_Fortran_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/bin/nf-config]
+--   - NetCDF::NetCDF_Fortran [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/lib/libnetcdff.so 
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP: TRUE (found version "5.1") found components: CXX 
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
+-- Found OpenMP: TRUE (found version "5.1") found components: CXX Fortran 
+CMake Warning (dev) at /apps/ops/test/spack-stack-nco-1.9/gcc/12.1.0/cmake-3.27.9-m34clqg/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
+  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  Environment variable BOOST_ROOT is set to:
+
+    /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/boost-1.84.0-w5oyblf
+
+  For compatibility, find_package is ignoring the variable, but code in a
+  .cmake module might still use it.
+Call Stack (most recent call first):
+  build/oops/oops-import.cmake:39 (find_dependency)
+  build/oops/oops-config.cmake:83 (include)
+  fv3-jedi/CMakeLists.txt:63 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
+-- Found OpenMP: TRUE (found version "5.0") found components: Fortran 
+-- Found BLAS: /pe/oneapi/mkl/2024.2/lib/libmkl_intel_lp64.so;/pe/oneapi/mkl/2024.2/lib/libmkl_intel_thread.so;/pe/oneapi/mkl/2024.2/lib/libmkl_core.so;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/intel-oneapi-runtime-2024.2.1-4wub53n/lib/libiomp5.so;-lm;-ldl  
+-- Found LAPACK: /pe/oneapi/mkl/2024.2/lib/libmkl_intel_lp64.so;/pe/oneapi/mkl/2024.2/lib/libmkl_intel_thread.so;/pe/oneapi/mkl/2024.2/lib/libmkl_core.so;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/intel-oneapi-runtime-2024.2.1-4wub53n/lib/libiomp5.so;-lm;-ldl;-lm;-ldl  
+-- FFTW targets:
+--     FFTW::fftw3 (double precision)  [/pe/oneapi/mkl/2024.2/lib/libmkl_intel_lp64.so;/pe/oneapi/mkl/2024.2/lib/libmkl_sequential.so;/pe/oneapi/mkl/2024.2/lib/libmkl_core.so]
+-- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
+-- Found BLAS: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/openblas-0.3.24-farujqr/lib/libopenblas.so  
+-- Found LAPACK: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/openblas-0.3.24-farujqr/lib/libopenblas.so;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/openblas-0.3.24-farujqr/lib/libopenblas.so  
+-- Found ip: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/ip-5.1.0-do3yp2e/lib64/libip_4.a (found version "5.1.0")
+-- CRTM found: enabling CRTM-dependent code paths and tests
+-- FV3-SABER block GSI is enabled
+-- Found ip: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/ip-5.1.0-do3yp2e/lib64/libip_4.a (found version "5.1.0")
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
+-- Found OpenMP: TRUE (found version "5.1") found components: C CXX Fortran 
+-- Found bufr: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/bufr-12.1.0-pr3ujej/lib64/libbufr_4.so (found version "12.1.0")
+-- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
+-- Found OpenMP: TRUE (found version "5.0") found components: Fortran 
+-- Found MPI: TRUE (found version "3.1") found components: CXX Fortran 
+-- Found MPI: TRUE (found version "3.1") found components: Fortran 
+-- Found MPI: TRUE (found version "3.1")  
+-- Found FMS: "/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/fms-2024.02-jm3mxir" (Version: "2024.2.0")
+-- FMS targets:
+--   - FMS::fms_r4 [Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/fms-2024.02-jm3mxir/lib/libfms_r4.a]
+--   - FMS::fms_r8 [Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/fms-2024.02-jm3mxir/lib/libfms_r8.a]
+-- Use crtm test data provided by ufo in /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/test-data-release/crtm/fix_REL-3.1.2.0/fix/
+-- Skipping download of test data from https://bin.ssec.wisc.edu/pub/s4/CRTM/file/fv3-jedi_testinput_tier_1_1.9.0.tar.gz since it already exists
+-- Creating static B yaml files for cycle: 2020-12-14:21
+-- Creating static B yaml files for cycle: 2020-12-15:00
+-- Creating static B yaml files for cycle: 2020-12-15:03
+-- Creating static B yaml files for cycle: 2020-12-14:21
+-- Creating static B yaml files for cycle: 2020-12-15:00
+-- Creating static B yaml files for cycle: 2020-12-15:03
+-- Creating static B yaml files for cycle: 2018-04-14:21
+-- Creating static B yaml files for cycle: 2018-04-15:00
+-- Creating static B yaml files for cycle: 2018-04-15:03
+-- Creating ensemble B yaml files for cycle: 2020-12-14:21
+-- Creating ensemble B yaml files for cycle: 2020-12-15:00
+-- Creating ensemble B yaml files for cycle: 2020-12-15:03
+-- ---------------------------------------------------------
+-- Adding bundle project mpas
+-- [OPTION] MPAS_CORES: init_atmosphere;atmosphere
+-- [OPTION] MPAS_DOUBLE_PRECISION: ON
+-- [OPTION] MPAS_PROFILE: OFF
+-- [OPTION] MPAS_OPENMP: ON
+-- [OPTION] BUILD_SHARED_LIBS: ON
+-- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
+-- Found MPI: TRUE (found version "3.1") found components: Fortran 
+-- Found NetCDF: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/include;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/include;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cwdoxwa/include (found version "4.9.2") found components: Fortran C 
+-- FindNetCDF [/lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/mpas/cmake/Modules/FindNetCDF.cmake]:
+--   - NetCDF_VERSION [4.9.2]
+--   - NetCDF_PARALLEL [TRUE]
+--   - NetCDF_C_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/bin/nc-config]
+--   - NetCDF::NetCDF_C [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/lib/libnetcdf.so 
+--   - NetCDF_Fortran_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/bin/nf-config]
+--   - NetCDF::NetCDF_Fortran [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/lib/libnetcdff.so 
+-- FindPnetCDF:
+--   - PnetCDF_VERSION [1.12.3]
+--   - PnetCDF_PREFIX [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/parallel-netcdf-1.12.3-a2gwscp]
+--   - PnetCDF Components Found: Fortran;C;CXX
+-- FindPIO:
+--   - PIO_PREFIX [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/parallelio-2.6.2-slbsfox]
+--   - PIO Components Found: Fortran;C;SHARED
+-- Unknown compiler: IntelLLVM
+-- Configure MPAS for internal ESMF
+CPP_EXTRA_FLAGS: -DCORE_INIT_ATMOSPHERE;-DMPAS_NAMELIST_SUFFIX=init_atmosphere;-DMPAS_EXE_NAME=mpas_init_atmosphere;-DMPAS_GIT_VERSION=v8.2.1;-DMPAS_BUILD_TARGET=Intel
+-- Directory  already exists, skipping clone
+CPP_EXTRA_FLAGS: -DCORE_ATMOSPHERE;-DMPAS_NAMELIST_SUFFIX=atmosphere;-DMPAS_EXE_NAME=mpas_atmosphere;-DMPAS_GIT_VERSION=v8.2.1;-DMPAS_BUILD_TARGET=Intel
+-- MPAS-Data source dir: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/_deps/mpas_data-src
+-- ---------------------------------------------------------
+-- Adding bundle project mpas-jedi-data
+-- ---------------------------------------------------------
+-- Adding bundle project mpas-jedi
+-- Found ecbuild: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/ecbuild-3.7.2-rlvphlb/share/ecbuild/cmake (found suitable version "3.7.2", minimum required is "3.3.2") 
+-- ---------------------------------------------------------
+-- [32m[mpasjedi] (3.1.0) [3a9a58b][m
+-- Feature TESTS enabled
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP: TRUE (found version "5.1") found components: CXX Fortran 
+-- Found MPI: TRUE (found version "3.1") found components: CXX Fortran 
+CMake Warning (dev) at mpas-jedi/CMakeLists.txt:38 (find_package):
+  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  Environment variable BOOST_ROOT is set to:
+
+    /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/boost-1.84.0-w5oyblf
+
+  For compatibility, find_package is ignoring the variable, but code in a
+  .cmake module might still use it.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- FindPnetCDF:
+--   - PnetCDF_VERSION [1.12.3]
+--   - PnetCDF_PREFIX [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/parallel-netcdf-1.12.3-a2gwscp]
+--   - PnetCDF Components Found: Fortran;C;CXX
+-- Found MPAS: (version: "8.2.1") (components: SHARED;OpenMP;DOUBLE_PRECISION;core_atmosphere;core_init_atmosphere)
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP: TRUE (found version "5.1") found components: CXX 
+-- Configure mpas-jedi for internal ESMF
+-- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
+-- Found OpenMP: TRUE (found version "5.0") found components: Fortran 
+-- Found BLAS: /pe/oneapi/mkl/2024.2/lib/libmkl_intel_lp64.so;/pe/oneapi/mkl/2024.2/lib/libmkl_intel_thread.so;/pe/oneapi/mkl/2024.2/lib/libmkl_core.so;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/intel-oneapi-runtime-2024.2.1-4wub53n/lib/libiomp5.so;-lm;-ldl  
+-- Found LAPACK: /pe/oneapi/mkl/2024.2/lib/libmkl_intel_lp64.so;/pe/oneapi/mkl/2024.2/lib/libmkl_intel_thread.so;/pe/oneapi/mkl/2024.2/lib/libmkl_core.so;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/intel-oneapi-runtime-2024.2.1-4wub53n/lib/libiomp5.so;-lm;-ldl;-lm;-ldl  
+-- FFTW targets:
+--     FFTW::fftw3 (double precision)  [/pe/oneapi/mkl/2024.2/lib/libmkl_intel_lp64.so;/pe/oneapi/mkl/2024.2/lib/libmkl_sequential.so;/pe/oneapi/mkl/2024.2/lib/libmkl_core.so]
+-- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
+-- Found BLAS: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/openblas-0.3.24-farujqr/lib/libopenblas.so  
+-- Found LAPACK: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/openblas-0.3.24-farujqr/lib/libopenblas.so;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/openblas-0.3.24-farujqr/lib/libopenblas.so  
+-- Found ip: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/ip-5.1.0-do3yp2e/lib64/libip_4.a (found version "5.1.0")
+-- Found OpenMP_CXX: -fiopenmp (found version "5.1") 
+-- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
+-- Found OpenMP: TRUE (found version "5.1") found components: C CXX Fortran 
+-- Found bufr: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/bufr-12.1.0-pr3ujej/lib64/libbufr_4.so (found version "12.1.0")
+-- Found MPI: TRUE (found version "3.1")  
+-- Found NetCDF: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/include;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/include;/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-cxx4-4.3.1-cwdoxwa/include (found version "4.9.2") found components: Fortran 
+-- FindNetCDF defines targets:
+--   - NetCDF_VERSION [4.9.2]
+--   - NetCDF_PARALLEL [TRUE]
+--   - NetCDF_C_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/bin/nc-config]
+--   - NetCDF::NetCDF_C [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-c-4.9.2-zjvomwn/lib/libnetcdf.so 
+--   - NetCDF_Fortran_CONFIG_EXECUTABLE [/apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/bin/nf-config]
+--   - NetCDF::NetCDF_Fortran [SHARED] [Root: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7] Lib: /apps/ops/test/spack-stack-nco-1.9/oneapi/2024.2.1/netcdf-fortran-4.6.1-oykkcn7/lib/libnetcdff.so 
+-- Use crtm test data provided by ufo in /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/test-data-release/crtm/fix_REL-3.1.2.0/fix/
+-- Skipping download of test data from https://bin.ssec.wisc.edu/pub/s4/CRTM/file/mpas-jedi_testinput_tier_1_3.1.0.jcsda.tar.gz since it already exists
+-- ---------------------------------------------------------
+-- Bundle jedi-bundle
+-- ---------------------------------------------------------
+-- ---------------------------------------------------------
+-- Build summary
+-- ---------------------------------------------------------
+-- system : [dlogin04] [Linux-5.14.21-150400.24.219-default] [linux.64]
+-- processor        : [x86_64]
+-- endiness         : Little Endian -- IEEE []
+-- build type       : [Release]
+-- timestamp        : [20260825162704]
+-- install prefix   : [/usr/local]
+--   bin dir        : [/usr/local/bin]
+--   lib dir        : [/usr/local/lib64]
+--   include dir    : [/usr/local/include]
+--   data dir       : [/usr/local/share/jedi-bundle]
+--   cmake dir      : [/usr/local/lib64/cmake/jedi-bundle]
+-- ---------------------------------------------------------
+-- C -- IntelLLVM 2024.2.1
+--     compiler   : /opt/cray/pe/craype/2.7.17/bin/cc
+--     flags      : --gcc-toolchain=/opt/cray/pe/gcc/12.1.0/snos/ -O3 -DNDEBUG  
+--     link flags : 
+-- CXX -- IntelLLVM 2024.2.1
+--     compiler   : /opt/cray/pe/craype/2.7.17/bin/CC
+--     flags      : --gcc-toolchain=/opt/cray/pe/gcc/12.1.0/snos/ -O3 -DNDEBUG  
+--     link flags : 
+-- Fortran -- Intel 2021.1.0.20240703
+--     compiler   : /pe/oneapi/compiler/2024.2/bin/ifort
+--     flags      : -gcc-name=/opt/cray/pe/gcc/12.1.0/snos/bin/gcc -gxx-name=/opt/cray/pe/gcc/12.1.0/snos/bin/g++ -O3 -DNDEBUG -unroll -inline -heap-arrays 32  
+--     link flags : 
+-- linker : /usr/bin/ld
+-- ar     : /usr/bin/ar
+-- ranlib : /usr/bin/ranlib
+-- link flags
+--     executable [    -Wl,--disable-new-dtags ]
+--     shared lib [ -Wl,--disable-new-dtags ]
+--     static lib [ -Wl,--disable-new-dtags ]
+-- install rpath  : $ORIGIN/../lib64
+-- common definitions: 
+-- ---------------------------------------------------------
+-- Feature summary
+-- ---------------------------------------------------------
+-- The following features have been enabled:
+
+ * TESTS, jedi-bundle: Enable the unit tests, jedi-bundle: Enable the unit tests, gsibec: Enable the unit tests, gsw: Enable the unit tests, oops: Enable the unit tests, jedi-model-data: Enable the unit tests, vader: Enable the unit tests, saber: Enable the unit tests, ioda-data: Enable the unit tests, ioda: Enable the unit tests, ufo-data: Enable the unit tests, ufo: Enable the unit tests, fv3jedilm: Enable the unit tests, fv3jedi: Enable the unit tests, mpasjedi: Enable the unit tests
+ * WARNINGS, oops: Add warnings to compiler, vader: Add warnings to compiler, saber: Add warnings to compiler, ioda: Add warnings to compiler, ufo: Add warnings to compiler, fv3jedi: Add warnings to compiler
+ * Python, Build Python bindings using pybind11
+ * MPI, fv3jedilm: Support for MPI distributed parallelism
+
+-- The following OPTIONAL packages have been found:
+
+ * jedi-model-data (required version >= 1.0.0)
+ * Python3
+ * pybind11
+ * ioda-data
+ * ufo-data
+ * Git
+ * PkgConfig
+ * Perl
+
+-- The following REQUIRED packages have been found:
+
+ * FMS (required version >= 2023.04)
+ * fv3jedilm (required version >= 1.8.0)
+ * ecbuild (required version >= 3.3.2)
+ * boost_headers (required version == 1.84.0)
+ * Boost
+ * PnetCDF
+ * PIO
+ * MPAS (required version >= 8.0)
+ * eckit
+ * hic
+ * Eigen3
+ * atlas (required version >= 0.35.0)
+ * jedicmake
+ * MKL
+ * oops (required version >= 1.10.0)
+ * gsw
+ * FFTW
+ * gsibec
+ * BLAS
+ * saber (required version >= 1.10.0)
+ * Threads
+ * HDF5
+ * gsl-lite
+ * udunits (required version >= 2.2.0)
+ * OpenMP
+ * bufr (required version >= 12.0.1)
+ * ioda (required version >= 2.9.0)
+ * MPI, fv3jedilm: Support for MPI distributed parallelism
+ * NetCDF
+ * ufo (required version >= 1.10.0)
+
+-- The following OPTIONAL packages have not been found:
+
+ * nlohmann_json
+ * nlohmann_json_schema_validator
+ * ECTRANS (required version >= 1.6.0)
+ * odc (required version >= 1.4.6)
+ * bufr_query
+ * geos-aero
+ * oasim
+ * fv3-jedi-data
+ * rttov (required version >= 12.1.0)
+ * ropp-ufo
+ * mpas-jedi-data
+
+-- Configuring done (488.6s)
+-- Generating done (149.7s)
+-- Build files have been written to: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build
