@@ -47,7 +47,7 @@ output:
   filetype: fms restart
   regional restart: true
   datapath: ./
-  prefix: p1936-hyb-online_dual-vdl
+  prefix: dev-p1936-hyb-online_dual-vdl
   frequency: PT1H
 
 cost function:

@@ -45,6 +45,7 @@ variational:
 
 output:
   filetype: fms restart
+  use_fms_lib:  false
   regional restart: true
   datapath: ./
   prefix: dev-p1960-ens3dvar-online_dual-vdl
@@ -85,6 +86,7 @@ cost function:
   background:
     datetime: &analysisDate 2024-05-27T01:00:00Z
     filetype: fms restart
+    use_fms_lib:  false
     regional restart: true
     datapath: data/bkg
     filename_core: 20240527.010000.fv_core.res.tile1.nc
@@ -145,6 +147,7 @@ cost function:
     - covariance:
         covariance model: SABER
         covariance type: hybrid
+        change background resolution: true   
         run components recursively: false
         run in parallel: true
         comm redistribution method: straight
@@ -200,6 +203,7 @@ cost function:
               template:
                 datetime: 2024-05-27T01:00:00Z
                 filetype: fms restart
+                use_fms_lib:  false
                 regional restart: true
                 state variables: *3dvars
                 field io names: *io_names
