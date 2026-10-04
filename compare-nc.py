@@ -2,6 +2,7 @@
 
 import argparse
 import re
+import sys
 import numpy as np
 import xarray as xr
 
@@ -92,6 +93,40 @@ def compare_variable(name, a, b, atol, rtol):
     return result
 
 
+def io_name_map(yaml_path):
+    """{name in the file: long name}, from "field io names" in the top-level "output" block
+    of a JEDI YAML (empty when no YAML is given or it has no such block)."""
+    if not yaml_path:
+        return {}
+    try:
+        import yaml
+    except ImportError:
+        sys.exit("compare-nc.py: --yaml1/--yaml2 need PyYAML (python -m pip install pyyaml)")
+    with open(yaml_path) as f:
+        doc = yaml.safe_load(f) or {}
+    output = doc.get("output") or {}
+    names = output.get("field io names") or {}
+    return {str(io_name): str(long_name) for long_name, io_name in names.items()}
+
+
+def to_long_names(ds, mapping, label):
+    """Rename the variables of ds that use an io name back to their long name."""
+    rename = {}
+    for io_name, long_name in mapping.items():
+        if io_name == long_name or io_name not in ds.variables:
+            continue
+        if long_name in ds.variables:
+            print(f"WARNING: {label} has both {io_name} and {long_name}; {io_name} is not renamed")
+            continue
+        rename[io_name] = long_name
+    if rename:
+        print(f"\n{label}: io names mapped to long names (from its YAML's field io names):")
+        for io_name, long_name in sorted(rename.items()):
+            print(f"  {io_name:20s} -> {long_name}")
+        ds = ds.rename_vars(rename)
+    return ds
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="""
@@ -126,6 +161,16 @@ to the smallest.
         help="Relative tolerance (default: 0)"
     )
 
+    parser.add_argument(
+        "--yaml1",
+        help="JEDI YAML that wrote file 1: its output \"field io names\" map file names to long names"
+    )
+
+    parser.add_argument(
+        "--yaml2",
+        help="JEDI YAML that wrote file 2 (same use as --yaml1)"
+    )
+
     args = parser.parse_args()
 
     print("\nOpening files...")
@@ -133,6 +178,9 @@ to the smallest.
     print(f"FILE 2: {args.file2}")
     print(f"ATOL  : {args.atol:g}")
     print(f"RTOL  : {args.rtol:g}")
+    if args.yaml1 or args.yaml2:
+        print(f"YAML 1: {args.yaml1 or '-'}")
+        print(f"YAML 2: {args.yaml2 or '-'}")
 
     ds1 = xr.open_dataset(
         args.file1,
@@ -143,6 +191,10 @@ to the smallest.
         args.file2,
         decode_times=False
     )
+
+    # Compare by long name: a file written with "field io names" stores io names (T, delp, ...)
+    ds1 = to_long_names(ds1, io_name_map(args.yaml1), "file 1")
+    ds2 = to_long_names(ds2, io_name_map(args.yaml2), "file 2")
 
     vars1 = set(ds1.variables)
     vars2 = set(ds2.variables)
@@ -249,35 +301,35 @@ to the smallest.
     ds1.close()
     ds2.close()
 
-    # Final verdict, read by compare_run.sh.  Axis variables (xaxis_N, yaxis_N, zaxis_N, Time)
-    # only label the dimensions: the FMS and regional writers name them differently
-    # (e.g. yaxis_1 vs yaxis_2) and may leave their values unset, so they are reported but
-    # do not decide the verdict.  Identical = every other variable is in both files and is
-    # OK or SAME.
+    # Final verdict, read by compare_run.sh.  File 1 is the control: identical means every
+    # control data variable is also in file 2 and is OK or SAME.  Extra variables in file 2
+    # are listed but do not fail.  Axis variables (xaxis_N, yaxis_N, zaxis_N, Time) only
+    # label the dimensions: the FMS and regional writers name them differently (e.g. yaxis_1
+    # vs yaxis_2) and may leave their values unset, so they are listed but ignored.
     def is_axis(name):
         return re.fullmatch(r"[xyz]axis_\d+", name) is not None or name == "Time"
 
     differing = [r["name"] for r in results
                  if r["status"] not in ("OK", "SAME") and not is_axis(r["name"])]
-    missing1 = [n for n in only2 if not is_axis(n)]   # data variables absent from file 1
-    missing2 = [n for n in only1 if not is_axis(n)]   # data variables absent from file 2
+    missing = [n for n in only1 if not is_axis(n)]    # control variables not in file 2
+    extra = [n for n in only2 if not is_axis(n)]      # file 2 variables not in the control
     axis_notes = ([f"{r['name']} ({r['status']})" for r in results
                    if r["status"] not in ("OK", "SAME") and is_axis(r["name"])]
                   + [f"{n} (only in file 1)" for n in only1 if is_axis(n)]
                   + [f"{n} (only in file 2)" for n in only2 if is_axis(n)])
 
     print("\n" + "=" * 140)
-    print("SUMMARY (axis variables excluded from the verdict)")
+    print("SUMMARY (file 1 = control; axis variables excluded from the verdict)")
     print("=" * 140)
-    print(f"Data variables that differ   : {', '.join(differing) if differing else 'none'}")
-    print(f"Data variables only in file 1: {', '.join(missing2) if missing2 else 'none'}")
-    print(f"Data variables only in file 2: {', '.join(missing1) if missing1 else 'none'}")
-    print(f"Axis variables, ignored      : {', '.join(axis_notes) if axis_notes else 'all match'}")
-    if not differing and not missing1 and not missing2:
+    print(f"Control variables that differ    : {', '.join(differing) if differing else 'none'}")
+    print(f"Control variables missing in 2   : {', '.join(missing) if missing else 'none'}")
+    print(f"Extra variables in 2 (not judged): {', '.join(extra) if extra else 'none'}")
+    print(f"Axis variables (not judged)      : {', '.join(axis_notes) if axis_notes else 'all match'}")
+    if not differing and not missing:
         print("OVERALL: IDENTICAL")
     else:
-        print(f"OVERALL: DIFFERENT ({len(differing)} data variables differ, "
-              f"{len(missing1) + len(missing2)} data variables in only one file)")
+        print(f"OVERALL: DIFFERENT ({len(differing)} control variables differ, "
+              f"{len(missing)} control variables missing in file 2)")
 
 
 if __name__ == "__main__":

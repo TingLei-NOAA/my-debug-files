@@ -77,8 +77,9 @@ for TEST_YAML in "${TEST_YAMLS[@]}"; do
     if [ ! -f "$ctrl_file" ]; then
       result="CONTROL MISSING ($ctrl_file)"; status=1
     elif [[ "$CMP" == *compare-nc.py* ]]; then
-      # compare-nc.py reports differences in its output, not in its exit status
-      if ! $CMP "$ctrl_file" "$test_file" > "$log" 2>&1; then
+      # compare-nc.py reports differences in its output, not in its exit status.  The two
+      # YAMLs let it match variables by long name through their "field io names".
+      if ! $CMP --yaml1 "$CTRL_YAML" --yaml2 "$TEST_YAML" "$ctrl_file" "$test_file" > "$log" 2>&1; then
         result="COMPARE FAILED (see $log)"; status=1
       else
         verdict=$(grep '^OVERALL:' "$log" | tail -n 1)
