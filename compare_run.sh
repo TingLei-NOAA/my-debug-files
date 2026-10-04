@@ -20,7 +20,8 @@ TEST_YAMLS=(                           # the test runs, one per line
 )
 
 # Comparison command, run as:  $CMP CONTROL_FILE TEST_FILE
-# exit status 0 = identical, non-zero = different.
+# compare-nc.py: its last "OVERALL: IDENTICAL" / "OVERALL: DIFFERENT" line decides (it
+# always exits 0 when it runs); any other tool: exit status 0 = identical, non-zero = different.
 # Leave empty to use "python compare-nc.py" if compare-nc.py is here, else "nccmp -dfs".
 CMP=""
 # ------------------------------------------------------------------------------------------
@@ -75,6 +76,18 @@ for TEST_YAML in "${TEST_YAMLS[@]}"; do
     log=compare_logs/$TEST_PREFIX$suffix.log
     if [ ! -f "$ctrl_file" ]; then
       result="CONTROL MISSING ($ctrl_file)"; status=1
+    elif [[ "$CMP" == *compare-nc.py* ]]; then
+      # compare-nc.py reports differences in its output, not in its exit status
+      if ! $CMP "$ctrl_file" "$test_file" > "$log" 2>&1; then
+        result="COMPARE FAILED (see $log)"; status=1
+      else
+        verdict=$(grep '^OVERALL:' "$log" | tail -n 1)
+        case "$verdict" in
+          "OVERALL: IDENTICAL")   result="identical" ;;
+          "OVERALL: DIFFERENT"*)  result="DIFFERENT (see $log)"; status=1 ;;
+          *)                      result="NO VERDICT (see $log)"; status=1 ;;
+        esac
+      fi
     elif $CMP "$ctrl_file" "$test_file" > "$log" 2>&1; then
       result="identical"
     else

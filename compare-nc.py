@@ -248,6 +248,16 @@ to the smallest.
     ds1.close()
     ds2.close()
 
+    # Final verdict, one line, read by compare_run.sh: identical only if both files have the
+    # same variables and every common variable is OK or SAME
+    ndiff = sum(1 for r in results if r["status"] not in ("OK", "SAME"))
+    nonly = len(only1) + len(only2)
+    print("\n" + "=" * 140)
+    if ndiff == 0 and nonly == 0:
+        print("OVERALL: IDENTICAL")
+    else:
+        print(f"OVERALL: DIFFERENT ({ndiff} variables differ, {nonly} variables in only one file)")
+
 
 if __name__ == "__main__":
     main()
