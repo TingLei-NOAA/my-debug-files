@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import re
 import numpy as np
 import xarray as xr
 
@@ -248,15 +249,35 @@ to the smallest.
     ds1.close()
     ds2.close()
 
-    # Final verdict, one line, read by compare_run.sh: identical only if both files have the
-    # same variables and every common variable is OK or SAME
-    ndiff = sum(1 for r in results if r["status"] not in ("OK", "SAME"))
-    nonly = len(only1) + len(only2)
+    # Final verdict, read by compare_run.sh.  Axis variables (xaxis_N, yaxis_N, zaxis_N, Time)
+    # only label the dimensions: the FMS and regional writers name them differently
+    # (e.g. yaxis_1 vs yaxis_2) and may leave their values unset, so they are reported but
+    # do not decide the verdict.  Identical = every other variable is in both files and is
+    # OK or SAME.
+    def is_axis(name):
+        return re.fullmatch(r"[xyz]axis_\d+", name) is not None or name == "Time"
+
+    differing = [r["name"] for r in results
+                 if r["status"] not in ("OK", "SAME") and not is_axis(r["name"])]
+    missing1 = [n for n in only2 if not is_axis(n)]   # data variables absent from file 1
+    missing2 = [n for n in only1 if not is_axis(n)]   # data variables absent from file 2
+    axis_notes = ([f"{r['name']} ({r['status']})" for r in results
+                   if r["status"] not in ("OK", "SAME") and is_axis(r["name"])]
+                  + [f"{n} (only in file 1)" for n in only1 if is_axis(n)]
+                  + [f"{n} (only in file 2)" for n in only2 if is_axis(n)])
+
     print("\n" + "=" * 140)
-    if ndiff == 0 and nonly == 0:
+    print("SUMMARY (axis variables excluded from the verdict)")
+    print("=" * 140)
+    print(f"Data variables that differ   : {', '.join(differing) if differing else 'none'}")
+    print(f"Data variables only in file 1: {', '.join(missing2) if missing2 else 'none'}")
+    print(f"Data variables only in file 2: {', '.join(missing1) if missing1 else 'none'}")
+    print(f"Axis variables, ignored      : {', '.join(axis_notes) if axis_notes else 'all match'}")
+    if not differing and not missing1 and not missing2:
         print("OVERALL: IDENTICAL")
     else:
-        print(f"OVERALL: DIFFERENT ({ndiff} variables differ, {nonly} variables in only one file)")
+        print(f"OVERALL: DIFFERENT ({len(differing)} data variables differ, "
+              f"{len(missing1) + len(missing2)} data variables in only one file)")
 
 
 if __name__ == "__main__":
