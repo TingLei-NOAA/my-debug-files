@@ -3,7 +3,7 @@ _write_mult: &write_mult true
 #_layout: &fv3_layout [32, 40] # 1280 tasks, original SKD test
 #_layout: &fv3_layout [20, 24] # 8 ppn
 #_layout: &fv3_layout [30, 32] # 16 ppn
-_layout: &fv3_layout [60, 49] # 1960 total ranks
+_layout: &fv3_layout [60, 49] # 2940 total ranks
 #_layout: &fv3_layout [60, 64] # 64 ppn
 _xlayout: &xlayout 60 
 _ylayout: &ylayout 49 
@@ -151,24 +151,25 @@ cost function:
         run components recursively: false
         run in parallel: true
         comm redistribution method: straight
-        # 1960 ranks / 10 ensemble groups = 196 ranks (14 x 14) per group.
         # 2940 ranks / 15 ensemble groups = 196 ranks (14 x 14) per group.
+        # One entry per component; each must round to 196 (0.066 gives 194 and
+        # fails the rank-sum assertion).
         parallel covariance relative cpu weight:
-        - 0.066
-        - 0.066
-        - 0.066
-        - 0.066
-        - 0.066
-        - 0.066
-        - 0.066
-        - 0.066
-        - 0.066
-        - 0.066
-        - 0.066
-        - 0.066
-        - 0.066
-        - 0.066
-        - 0.066
+        - 0.0666666667
+        - 0.0666666667
+        - 0.0666666667
+        - 0.0666666667
+        - 0.0666666667
+        - 0.0666666667
+        - 0.0666666667
+        - 0.0666666667
+        - 0.0666666667
+        - 0.0666666667
+        - 0.0666666667
+        - 0.0666666667
+        - 0.0666666667
+        - 0.0666666667
+        - 0.0666666667
         geometry:
           fms initialization:
             namelist filename: DataFix/fmsmpp.nml
@@ -181,8 +182,8 @@ cost function:
           ntiles: 1
         adjoint test: false
         square-root test: false
-        # Read the 30 members once, on the full 29400-rank parent communicator,
-        # before it is split into the ten component communicators. OOPS converts
+        # Read the 30 members once, on the full 2940-rank parent communicator,
+        # before it is split into the fifteen component communicators. OOPS converts
         # each state to increment resolution during the read, and perturbations
         # are then formed about a single common 30-member mean. Each component is
         # handed only the members assigned to it, so the files are read once
@@ -225,13 +226,13 @@ cost function:
           # weight below must equal 1/29. This is checked before any ensemble I/O.
           normalization denominator: 29
         components:
-        # Ensemble group 1: members 001-003
+        # Ensemble group 1: members 001-002
         - covariance:
             covariance model: SABER
             covariance type: ensemble
             adjoint test: false
             square-root test: false
-            shared ensemble members: [1, 2, 3]
+            shared ensemble members: [1, 2]
             localization: &mgbf_localization
               saber central block:
                 saber block name: MGBF_covariance
@@ -267,101 +268,156 @@ cost function:
           weight:
             # Members arrive unnormalized, so this weight carries the full 1/(30-1).
             value: 0.034482758620689655
-        # Ensemble group 2: members 004-006
+        # Ensemble group 2: members 003-004
         - covariance:
             covariance model: SABER
             covariance type: ensemble
             adjoint test: false
             square-root test: false
-            shared ensemble members: [4, 5, 6]
+            shared ensemble members: [3, 4]
             localization: *mgbf_localization
           weight:
             # Members arrive unnormalized, so this weight carries the full 1/(30-1).
             value: 0.034482758620689655
-        # Ensemble group 3: members 007-009
+        # Ensemble group 3: members 005-006
         - covariance:
             covariance model: SABER
             covariance type: ensemble
             adjoint test: false
             square-root test: false
-            shared ensemble members: [7, 8, 9]
+            shared ensemble members: [5, 6]
             localization: *mgbf_localization
           weight:
             # Members arrive unnormalized, so this weight carries the full 1/(30-1).
             value: 0.034482758620689655
-        # Ensemble group 4: members 010-012
+        # Ensemble group 4: members 007-008
         - covariance:
             covariance model: SABER
             covariance type: ensemble
             adjoint test: false
             square-root test: false
-            shared ensemble members: [10, 11, 12]
+            shared ensemble members: [7, 8]
             localization: *mgbf_localization
           weight:
             # Members arrive unnormalized, so this weight carries the full 1/(30-1).
             value: 0.034482758620689655
-        # Ensemble group 5: members 013-015
+        # Ensemble group 5: members 009-010
         - covariance:
             covariance model: SABER
             covariance type: ensemble
             adjoint test: false
             square-root test: false
-            shared ensemble members: [13, 14, 15]
+            shared ensemble members: [9, 10]
             localization: *mgbf_localization
           weight:
             # Members arrive unnormalized, so this weight carries the full 1/(30-1).
             value: 0.034482758620689655
-        # Ensemble group 6: members 016-018
+        # Ensemble group 6: members 011-012
         - covariance:
             covariance model: SABER
             covariance type: ensemble
             adjoint test: false
             square-root test: false
-            shared ensemble members: [16, 17, 18]
+            shared ensemble members: [11, 12]
             localization: *mgbf_localization
           weight:
             # Members arrive unnormalized, so this weight carries the full 1/(30-1).
             value: 0.034482758620689655
-        # Ensemble group 7: members 019-021
+        # Ensemble group 7: members 013-014
         - covariance:
             covariance model: SABER
             covariance type: ensemble
             adjoint test: false
             square-root test: false
-            shared ensemble members: [19, 20, 21]
+            shared ensemble members: [13, 14]
             localization: *mgbf_localization
           weight:
             # Members arrive unnormalized, so this weight carries the full 1/(30-1).
             value: 0.034482758620689655
-        # Ensemble group 8: members 022-024
+        # Ensemble group 8: members 015-016
         - covariance:
             covariance model: SABER
             covariance type: ensemble
             adjoint test: false
             square-root test: false
-            shared ensemble members: [22, 23, 24]
+            shared ensemble members: [15, 16]
             localization: *mgbf_localization
           weight:
             # Members arrive unnormalized, so this weight carries the full 1/(30-1).
             value: 0.034482758620689655
-        # Ensemble group 9: members 025-027
+        # Ensemble group 9: members 017-018
         - covariance:
             covariance model: SABER
             covariance type: ensemble
             adjoint test: false
             square-root test: false
-            shared ensemble members: [25, 26, 27]
+            shared ensemble members: [17, 18]
             localization: *mgbf_localization
           weight:
             # Members arrive unnormalized, so this weight carries the full 1/(30-1).
             value: 0.034482758620689655
-        # Ensemble group 10: members 028-030
+        # Ensemble group 10: members 019-020
         - covariance:
             covariance model: SABER
             covariance type: ensemble
             adjoint test: false
             square-root test: false
-            shared ensemble members: [28, 29, 30]
+            shared ensemble members: [19, 20]
+            localization: *mgbf_localization
+          weight:
+            # Members arrive unnormalized, so this weight carries the full 1/(30-1).
+            value: 0.034482758620689655
+        # Ensemble group 11: members 021-022
+        - covariance:
+            covariance model: SABER
+            covariance type: ensemble
+            adjoint test: false
+            square-root test: false
+            shared ensemble members: [21, 22]
+            localization: *mgbf_localization
+          weight:
+            # Members arrive unnormalized, so this weight carries the full 1/(30-1).
+            value: 0.034482758620689655
+        # Ensemble group 12: members 023-024
+        - covariance:
+            covariance model: SABER
+            covariance type: ensemble
+            adjoint test: false
+            square-root test: false
+            shared ensemble members: [23, 24]
+            localization: *mgbf_localization
+          weight:
+            # Members arrive unnormalized, so this weight carries the full 1/(30-1).
+            value: 0.034482758620689655
+        # Ensemble group 13: members 025-026
+        - covariance:
+            covariance model: SABER
+            covariance type: ensemble
+            adjoint test: false
+            square-root test: false
+            shared ensemble members: [25, 26]
+            localization: *mgbf_localization
+          weight:
+            # Members arrive unnormalized, so this weight carries the full 1/(30-1).
+            value: 0.034482758620689655
+        # Ensemble group 14: members 027-028
+        - covariance:
+            covariance model: SABER
+            covariance type: ensemble
+            adjoint test: false
+            square-root test: false
+            shared ensemble members: [27, 28]
+            localization: *mgbf_localization
+          weight:
+            # Members arrive unnormalized, so this weight carries the full 1/(30-1).
+            value: 0.034482758620689655
+        # Ensemble group 15: members 029-030
+        - covariance:
+            covariance model: SABER
+            covariance type: ensemble
+            adjoint test: false
+            square-root test: false
+            shared ensemble members: [29, 30]
             localization: *mgbf_localization
           weight:
             # Members arrive unnormalized, so this weight carries the full 1/(30-1).
