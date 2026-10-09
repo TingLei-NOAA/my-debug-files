@@ -1,0 +1,108 @@
+# Stage 1: create the BUMP/NICAS localization fix files from the explicit settings below
+# (no ensemble, no diagnosis -- NICAS is computed directly from the given length-scales).
+#   mpiexec -n 1936 fv3jedi_error_covariance_toolbox.x bump-loc-nicas-400km40km-p1936.yaml
+# The files are written PER RANK ("local nicas"), so the ens3dvar run that reads them must use
+# the same 1936 ranks and the same geometry (6 km, layout 44x44, logp vertical coordinate).
+# Create the output directory first:  mkdir -p DataFix/bump_400km40km_0p3logp_p1936
+
+_layout: &fv3_layout [44, 44] # 1936 ranks
+
+_vars: &3dvars
+- ozone_mass_mixing_ratio
+- cloud_liquid_water
+- cloud_liquid_ice
+- rain_water
+- snow_water
+- graupel
+- eastward_wind
+- northward_wind
+- air_temperature
+- water_vapor_mixing_ratio_wrt_moist_air
+- air_pressure_at_surface
+
+# Same 6 km geometry as the variational iterations of the ens3dvar run (the ensemble /
+# increment grid), plus "vert coordinate: logp" so BUMP's vertical coordinate is -ln(p)
+# and the 0.3 vertical length-scale below is in ln(p) units (fv3-jedi default is sigma).
+geometry:
+  fms initialization:
+    namelist filename: DataFix/fmsmpp.nml
+    field table filename: DataFix/field_table
+  namelist filename: ../dr-convert2state/dr-6km/INPUT/sam_p1936_input.nml
+  akbk: DataFix/fix/akbk66.nc
+  npz: 65
+  layout: *fv3_layout
+  io_layout: [1,1]
+  ntiles: 1
+  vert coordinate: logp
+  fieldsets:
+  - fieldset: DataFix/fix/dynamics_lam_cmaq.yaml
+
+# Only supplies the variable list and the grid; any 6 km member will do.
+background:
+  datetime: 2024-05-27T01:00:00Z
+  filetype: fms restart
+  state variables: *3dvars
+  field io names: &io_names
+    eastward_wind: ua
+    northward_wind: va
+    air_temperature: T
+    air_pressure_thickness: delp
+    water_vapor_mixing_ratio_wrt_moist_air: sphum
+    cloud_liquid_ice: ice_wat
+    cloud_liquid_water: liq_wat
+    rain_water: rainwat
+    snow_water: snowwat
+    graupel: graupel
+    ozone_mass_mixing_ratio: o3mr
+  datapath: ../dr-convert2state/dr-6km/Data/inputs/mem001/
+  filename_core: 20240527.010000.NA_6km.fv_core.res.nc
+  filename_trcr: 20240527.010000.NA_6km.fv_tracer.res.nc
+  filename_cplr: 20240527.010000.NA_6km.coupler.res
+
+background error:
+  covariance model: SABER
+  saber central block:
+    saber block name: BUMP_NICAS
+    calibration:
+      io:
+        files prefix: DataFix/bump_400km40km_0p3logp_p1936/bumploc
+      model:
+        groups:
+        - group name: large_scale         # 400 km cutoff
+          variables:
+          - eastward_wind
+          - northward_wind
+          - air_temperature
+          - water_vapor_mixing_ratio_wrt_moist_air
+          - air_pressure_at_surface
+          - ozone_mass_mixing_ratio
+        - group name: small_scale         # 40 km cutoff
+          variables:
+          - cloud_liquid_water
+          - cloud_liquid_ice
+          - rain_water
+          - snow_water
+          - graupel
+      drivers:
+        # duplicated: one localization control vector per group, copied to every variable in it
+        # -> ensemble cross-covariances kept within a group, zero between groups (GSI-like VDL).
+        # (univariate would zero ALL cross-variable covariances -- not wanted for EnVar.)
+        multivariate strategy: duplicated
+        compute nicas: true
+        write local nicas: true
+      nicas:
+        resolution: 8.0
+        # Default 15000 caps both groups. Each group gets its own subgrid:
+        #   400 km -> ~5e4 points (~50 km spacing); 40 km -> capped at the 6 km grid itself.
+        max horizontal grid size: 5000000
+        explicit length-scales: true
+        # Horizontal: Gaspari-Cohn support radius = cutoff distance [m]
+        horizontal length-scale:
+        - groups: [large_scale]
+          value: 400.0e3
+        - groups: [small_scale]
+          value: 40.0e3
+        # Vertical: GC support radius in -ln(p) (needs "vert coordinate: logp" above)
+        vertical length-scale:
+        - groups: [large_scale, small_scale]
+          value: 0.3
