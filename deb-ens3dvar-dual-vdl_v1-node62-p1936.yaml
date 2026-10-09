@@ -45,7 +45,6 @@ variational:
 
 output:
   filetype: fms restart
-  use_fms_lib:  false
   datapath: ./
   prefix: p1936-dual-vdl1-ens3dvar
   frequency: PT1H
@@ -82,7 +81,6 @@ cost function:
   background:
     datetime: &analysisDate 2024-05-27T01:00:00Z
     filetype: fms restart
-    use_fms_lib:  false
     datapath: data/bkg
     filename_core: 20240527.010000.fv_core.res.tile1.nc
     filename_trcr: 20240527.010000.fv_tracer.res.tile1.nc
@@ -122,10 +120,9 @@ cost function:
           template:
             datetime: 2024-05-27T01:00:00Z
             filetype: fms restart
-            use_fms_lib:  false
             state variables: *3dvars
             field io names: *io_names
-            datapath: ../dr-convert2state/dr-6km/Data/mem%mem%/
+            datapath: ../dr-convert2state/dr-6km/Data/inputs/mem%mem%/
             filename_core: 20240527.010000.NA_6km.fv_core.res.nc
             filename_trcr: 20240527.010000.NA_6km.fv_tracer.res.nc
             filename_cplr: 20240527.010000.NA_6km.coupler.res
