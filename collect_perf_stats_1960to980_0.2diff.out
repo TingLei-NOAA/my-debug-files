@@ -1,0 +1,167 @@
+runs:   /lfs/h2/emc/da/noscrub/Ting.Lei/dr-NA-Ens3Dvar-MGBF/perf_results/perf_runs.tsv (24 runs)
+values: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-NA-Ens3Dvar-MGBF/perf_results/perf_timers_long.tsv (8426 rows)
+
+=== 1. Sanity   (A = 1960 ranks/10 groups, B = 980 ranks/5 groups)
+  setup A: 12 runs, 12 complete; final J: 17084.2 (x12)
+  setup B: 12 runs, 12 complete; final J: 17084.2 (x12)
+  timers whose call count varies between runs of one setup: 0
+
+=== 2. Milestones: seconds since start, paired over same-node pairs (B - A < 0: B earlier)
+milestone                                  n     mean A     mean B     B - A          95% interval  sig
+Run start                                 12      48.55      15.62    -32.93   [  -38.61,   -27.25]  yes
+Variational start                         12      48.55      15.62    -32.93   [  -38.61,   -27.25]  yes
+IncrementalAssimilation start             12      53.97      20.08    -33.89   [  -42.80,   -24.99]  yes
+IncrementalAssimilation iteration 0       12      53.97      20.08    -33.89   [  -42.80,   -24.99]  yes
+IncrementalAssimilation linearize 0       12     214.62     163.26    -51.35   [  -72.80,   -29.91]  yes
+DRPCG start                               12     214.70     163.40    -51.30   [  -72.80,   -29.80]  yes
+DRPCG iteration 1                         12     217.66     167.86    -49.79   [  -71.44,   -28.15]  yes
+DRPCG iteration 2                         12     220.43     172.25    -48.18   [  -69.86,   -26.51]  yes
+DRPCG iteration 3                         12     223.20     176.74    -46.46   [  -68.19,   -24.74]  yes
+DRPCG iteration 4                         12     225.97     181.04    -44.93   [  -66.66,   -23.20]  yes
+DRPCG iteration 5                         12     228.74     185.41    -43.33   [  -65.08,   -21.57]  yes
+DRPCG iteration 10                        12     242.64     207.03    -35.61   [  -57.37,   -13.85]  yes
+DRPCG iteration 15                        12     256.61     228.89    -27.72   [  -49.47,    -5.97]  yes
+DRPCG iteration 20                        12     270.65     251.03    -19.62   [  -41.38,    +2.14]   no
+DRPCG iteration 25                        12     285.14     273.31    -11.83   [  -33.70,   +10.04]   no
+DRPCG iteration 30                        12     299.34     295.75     -3.59   [  -25.43,   +18.25]   no
+DRPCG iteration 35                        12     313.59     318.47     +4.88   [  -17.00,   +26.75]   no
+DRPCG iteration 40                        12     327.89     341.42    +13.53   [   -8.36,   +35.42]   no
+DRPCG iteration 45                        12     342.75     364.45    +21.70   [   -0.60,   +44.00]   no
+DRPCG iteration 50                        12     357.30     387.67    +30.37   [   +8.16,   +52.58]  yes
+DRPCG end                                 12     360.19     392.33    +32.13   [   +9.92,   +54.34]  yes
+IncrementalAssimilation iteration 1       12     361.11     393.37    +32.25   [  +10.09,   +54.41]  yes
+IncrementalAssimilation linearize 1       12     493.82     521.11    +27.28   [   +4.08,   +50.49]  yes
+DRPCG start#2                             12     494.06     521.93    +27.88   [   +4.24,   +51.51]  yes
+DRPCG iteration 1#2                       12     497.05     526.38    +29.32   [   +5.57,   +53.08]  yes
+DRPCG iteration 2#2                       12     499.81     530.74    +30.93   [   +7.19,   +54.67]  yes
+DRPCG iteration 3#2                       12     502.57     535.21    +32.64   [   +8.90,   +56.37]  yes
+DRPCG iteration 4#2                       12     506.22     539.59    +33.37   [   +9.42,   +57.31]  yes
+DRPCG iteration 5#2                       12     508.99     543.90    +34.91   [  +10.97,   +58.85]  yes
+DRPCG iteration 10#2                      12     523.47     566.18    +42.71   [  +18.26,   +67.15]  yes
+DRPCG iteration 15#2                      12     537.42     588.25    +50.83   [  +26.30,   +75.36]  yes
+DRPCG iteration 20#2                      12     551.57     611.25    +59.68   [  +34.37,   +84.99]  yes
+DRPCG iteration 25#2                      12     565.86     633.81    +67.95   [  +42.61,   +93.29]  yes
+DRPCG iteration 30#2                      12     581.03     656.58    +75.55   [  +49.63,  +101.46]  yes
+DRPCG iteration 35#2                      12     595.44     679.18    +83.74   [  +57.91,  +109.58]  yes
+DRPCG iteration 40#2                      12     609.84     702.70    +92.87   [  +67.31,  +118.43]  yes
+DRPCG iteration 45#2                      12     624.29     726.03   +101.75   [  +76.41,  +127.08]  yes
+DRPCG iteration 50#2                      12     639.06     749.33   +110.27   [  +85.29,  +135.24]  yes
+DRPCG end#2                               12     641.96     754.09   +112.13   [  +87.21,  +137.05]  yes
+IncrementalAssimilation end               12     642.82     755.13   +112.32   [  +87.41,  +137.22]  yes
+Variational end                           12     668.98     777.28   +108.30   [  +85.19,  +131.41]  yes
+Run end                                   12     671.17     778.44   +107.28   [  +83.81,  +130.74]  yes
+NonB (derived)                            12     116.70     128.61    +11.91   [   +3.33,   +20.49]  yes
+
+=== 3. Timers whose mean paired difference |B - A| > 0.2 s, largest first (table: par = max over ranks, r0 = rank 0)
+tab  timer                                                 n     mean A     mean B     B - A          95% interval     B/A  sig
+r0   saber::SaberHybridBlockChain::parallelComponentMult  12     192.95     364.97   +172.02   [ +171.38,  +172.65]  1.8915  yes
+r0   saber::SaberEnsembleBlockChain::multiply             12     192.94     364.96   +172.02   [ +171.37,  +172.66]  1.8916  yes
+par  saber::SaberHybridBlockChain::parallelComponentMult  12     206.89     373.43   +166.54   [ +164.86,  +168.23]  1.8050  yes
+par  saber::SaberEnsembleBlockChain::multiply             12     206.88     373.43   +166.54   [ +164.86,  +168.22]  1.8050  yes
+r0   saber::SaberEnsembleBlockChain::localizationMultipl  12     153.38     302.29   +148.90   [ +148.22,  +149.59]  1.9708  yes
+r0   saber::SaberParametricBlockChain::multiply           12     153.38     302.28   +148.90   [ +148.22,  +149.59]  1.9709  yes
+par  oops::Covariance::hybrid::multiply                   12     279.34     427.04   +147.70   [ +142.90,  +152.51]  1.5302  yes
+r0   oops::Covariance::hybrid::multiply                   12     279.21     426.87   +147.66   [ +142.85,  +152.46]  1.5303  yes
+par  oops::Covariance::SABER::multiply                    12     278.92     425.39   +146.47   [ +141.67,  +151.26]  1.5265  yes
+par  saber::ErrorCovariance::doMultiply                   12     278.92     425.38   +146.47   [ +141.67,  +151.26]  1.5265  yes
+r0   oops::Covariance::SABER::multiply                    12     278.75     425.12   +146.37   [ +141.57,  +151.18]  1.5265  yes
+r0   saber::ErrorCovariance::doMultiply                   12     278.75     425.12   +146.37   [ +141.57,  +151.18]  1.5265  yes
+r0   SaberHybridBlockChain::multiply                      12     277.10     421.51   +144.42   [ +139.61,  +149.22]  1.5226  yes
+r0   util::Timers::measured                               12     621.41     761.99   +140.57   [ +122.32,  +158.82]  1.2301  yes
+par  util::Timers::measured                               12     622.20     762.44   +140.24   [ +121.72,  +158.76]  1.2294  yes
+par  oops::Run::execute                                   12     622.63     762.83   +140.20   [ +121.60,  +158.80]  1.2292  yes
+r0   oops::Run::execute                                   12     622.46     762.55   +140.09   [ +121.56,  +158.63]  1.2291  yes
+par  saber::SaberEnsembleBlockChain::localizationMultipl  12     168.30     307.34   +139.04   [ +137.43,  +140.66]  1.8261  yes
+par  saber::SaberParametricBlockChain::multiply           12     168.30     307.34   +139.04   [ +137.43,  +140.65]  1.8261  yes
+r0   saber::SaberParametricBlockChain::centralBlockMulti  12      75.08     146.04    +70.96   [  +70.70,   +71.21]  1.9450  yes
+r0   saber::mgbf::Covariance::multiply                    12      74.96     145.82    +70.86   [  +70.61,   +71.11]  1.9452  yes
+par  saber::SaberParametricBlockChain::centralBlockMulti  12      80.88     148.91    +68.04   [  +66.71,   +69.37]  1.8413  yes
+par  saber::mgbf::Covariance::multiply                    12      80.76     148.69    +67.93   [  +66.61,   +69.26]  1.8412  yes
+r0   saber::SaberOuterBlockChain::applyOuterBlocksAD      12      46.55      96.35    +49.80   [  +49.22,   +50.38]  2.0703  yes
+r0   saber::OuterBlock::interpolation::multiplyAD         12      46.54      96.34    +49.80   [  +49.22,   +50.38]  2.0703  yes
+par  saber::SaberOuterBlockChain::applyOuterBlocksAD      12      56.84      96.89    +40.05   [  +39.52,   +40.58]  1.7046  yes
+par  saber::OuterBlock::interpolation::multiplyAD         12      56.84      96.88    +40.05   [  +39.52,   +40.57]  1.7046  yes
+par  saber::SaberOuterBlockChain::applyOuterBlocks        12      48.75      80.71    +31.97   [  +31.58,   +32.35]  1.6558  yes
+par  saber::OuterBlock::interpolation::multiply           12      48.74      80.71    +31.96   [  +31.58,   +32.35]  1.6558  yes
+r0   saber::SaberOuterBlockChain::applyOuterBlocks        12      31.74      59.89    +28.14   [  +27.81,   +28.48]  1.8869  yes
+r0   saber::OuterBlock::interpolation::multiply           12      31.74      59.88    +28.14   [  +27.81,   +28.47]  1.8869  yes
+par  oops::Covariance::HybridCovariance                   12     230.20     209.33    -20.87   [  -33.89,    -7.86]  0.9163  yes
+par  saber::ErrorCovariance::ErrorCovariance              12     230.20     209.33    -20.87   [  -33.89,    -7.86]  0.9163  yes
+r0   oops::Covariance::HybridCovariance                   12     227.01     208.82    -18.19   [  -31.19,    -5.19]  0.9274  yes
+r0   saber::ErrorCovariance::ErrorCovariance              12     227.01     208.82    -18.19   [  -31.19,    -5.19]  0.9274  yes
+r0   CommStraightRedistribution::broadcastToSubMembers    12      44.43      26.94    -17.49   [  -17.55,   -17.43]  0.6063  yes
+par  oops::UnstructuredInterpolator::apply                12      17.12      32.19    +15.07   [  +14.59,   +15.56]  1.8838  yes
+par  oops::State::State                                   12     200.82     186.73    -14.09   [  -30.09,    +1.91]  0.9446   no
+r0   oops::State::State                                   12     199.95     186.68    -13.27   [  -28.30,    +1.77]  0.9473   no
+r0   CommStraightRedistribution::gatherToParent           12      32.74      20.89    -11.85   [  -11.91,   -11.79]  0.6380  yes
+r0   saber::SaberHybridBlockChain::parallelGatherAndSum   12      33.44      21.66    -11.78   [  -11.85,   -11.70]  0.6478  yes
+par  saber::SaberHybridBlockChain::parallelGatherAndSum   12      33.60      21.85    -11.75   [  -11.82,   -11.68]  0.6504  yes
+par  saber::SaberHybridBlockChain::parallelScatter        12      32.34      21.40    -10.94   [  -15.82,    -6.06]  0.6720  yes
+r0   saber::SaberHybridBlockChain::parallelScatter        12      31.94      21.06    -10.87   [  -15.76,    -5.99]  0.6698  yes
+par  oops::UnstructuredInterpolator::applyAD              12      10.67      21.11    +10.44   [  +10.42,   +10.45]  1.9777  yes
+r0   fv3jedi::IOFms::read state                           12      41.35      32.98     -8.37   [  -20.33,    +3.60]  0.9123   no
+par  oops::Increment::dot_product_with                    12       5.82      13.84     +8.02   [   +7.92,    +8.12]  2.3806  yes
+r0   oops::Increment::dot_product_with                    12       4.73      12.00     +7.27   [   +7.16,    +7.39]  2.5412  yes
+par  oops::Increment::axpy                                12       2.91       9.53     +6.63   [   +6.59,    +6.66]  3.2784  yes
+par  saber::mgbf::Covariance::Covariance                  12      13.41       6.82     -6.59   [  -10.16,    -3.03]  0.5839  yes
+r0   oops::Increment::axpy                                12       2.85       9.30     +6.45   [   +6.42,    +6.48]  3.2618  yes
+par  saber::SaberHybridBlockChain::parallelBarrier        12      16.00      10.21     -5.80   [   -6.68,    -4.91]  0.6295  yes
+r0   saber::SaberHybridBlockChain::parallelBarrier        12      15.16       9.51     -5.65   [   -6.78,    -4.52]  0.6151  yes
+par  oops::Geometry::Geometry                             12      11.69      16.85     +5.16   [   -5.47,   +15.79]  1.4223   no
+par  oops::Increment::diff                                12      29.37      25.38     -3.98   [   -7.40,    -0.57]  0.8851  yes
+r0   saber::mgbf::Covariance::Covariance                  12      10.18       6.24     -3.94   [   -7.19,    -0.69]  0.7401  yes
+par  saber::mgbf::Covariance::~Covariance                  3       6.32       2.96     -3.36   [  -13.21,    +6.50]  0.5484   no
+par  oops::State::write                                   12      12.98       9.68     -3.30   [  -12.38,    +5.77]  0.9832   no
+r0   fv3jedi::IOFms::write state                          12      11.40       8.40     -3.00   [  -12.68,    +6.69]  1.0696   no
+r0   oops::State::write                                   12      11.40       8.40     -3.00   [  -12.68,    +6.69]  1.0696   no
+par  oops::Increment::Increment                           12       1.15       3.79     +2.64   [   +2.60,    +2.67]  3.2853  yes
+r0   oops::Increment::Increment                           12       1.06       3.56     +2.50   [   +2.48,    +2.53]  3.3677  yes
+par  oops::LinearVariableChange::changeVarAD              12       1.54       3.97     +2.42   [   +1.01,    +3.84]  2.5918  yes
+r0   oops::Increment::diff                                12      26.85      24.44     -2.41   [   -5.04,    +0.22]  0.9256   no
+par  oops::LocalInterpolator::preprocess                  12      12.34      10.20     -2.14   [   -9.70,    +5.42]  1.0426   no
+par  oops::Increment::operator=                            9       0.73       2.82     +2.09   [   +2.08,    +2.10]  3.8719  yes
+r0   oops::Geometry::Geometry                             12      10.73      12.72     +1.99   [   -1.35,    +5.34]  1.2232   no
+r0   oops::Increment::operator=                           12       0.72       2.69     +1.97   [   +1.96,    +1.98]  3.7515  yes
+par  oops::LocalInterpolator::LocalInterpolator           12      23.34      21.48     -1.85   [   -3.97,    +0.26]  0.9330   no
+par  oops::GetValues::GetValues                           12      34.71      32.90     -1.81   [   -3.64,    +0.02]  0.9526   no
+r0   oops::LinearVariableChange::changeVarAD              12       1.47       3.25     +1.78   [   +1.76,    +1.79]  2.2088  yes
+par  oops::Increment::operator+=                           9       0.76       2.35     +1.59   [   +1.58,    +1.60]  3.0925  yes
+r0   oops::Increment::operator+=                          12       0.75       2.30     +1.55   [   +1.54,    +1.56]  3.0739  yes
+r0   CommStraightRedistribution::CommStraightRedistribut  12       2.67       1.16     -1.51   [   -1.54,    -1.48]  0.4353  yes
+r0   oops::GetValues::GetValues                           12      33.50      32.43     -1.07   [   -1.80,    -0.35]  0.9689  yes
+r0   oops::ObsSpace::save                                 12       1.58       0.52     -1.06   [   -3.51,    +1.39]  1.0914   no
+par  oops::VariableChange::changeVar                      12       1.16       2.19     +1.04   [   +1.00,    +1.07]  1.9003  yes
+par  oops::Increment::fromFieldSet                        12       0.89       1.85     +0.96   [   +0.94,    +0.98]  2.0865  yes
+r0   oops::Increment::fromFieldSet                        12       0.85       1.73     +0.88   [   +0.88,    +0.89]  2.0399  yes
+par  oops::Increment::toFieldSet                          12       0.98       1.80     +0.82   [   +0.82,    +0.83]  1.8405  yes
+r0   oops::UnstructuredInterpolator::apply                12       0.80       1.61     +0.81   [   +0.77,    +0.85]  2.0138  yes
+r0   oops::Increment::toFieldSet                          12       0.94       1.74     +0.80   [   +0.79,    +0.81]  1.8500  yes
+r0   oops::Increment::operator*=                          12       0.31       0.79     +0.48   [   +0.47,    +0.49]  2.5282  yes
+r0   oops::LocalInterpolator::LocalInterpolator           12      21.00      20.55     -0.45   [   -0.50,    -0.41]  0.9784  yes
+r0   oops::VariableChange::changeVar                      12       0.63       1.07     +0.44   [   +0.40,    +0.49]  1.7026  yes
+r0   oops::MeshTriangulation::containingTriangleAndBaryc  12       0.44       0.82     +0.38   [   +0.38,    +0.38]  1.8536  yes
+par  oops::UnstructuredInterpolator::UnstructuredInterpo  12       1.71       2.06     +0.35   [   +0.34,    +0.35]  1.2023  yes
+r0   oops::UnstructuredInterpolator::UnstructuredInterpo  12       0.71       1.04     +0.33   [   +0.33,    +0.33]  1.4639  yes
+r0   oops::GetValues::processTL                           12       0.60       0.30     -0.30   [   -0.31,    -0.28]  0.5039  yes
+r0   oops::Increment::operator+=(State, Increment)        12       1.53       1.80     +0.27   [   +0.14,    +0.41]  1.1932  yes
+r0   ObsFilter::Perform Action::preProcess                12       0.48       0.23     -0.25   [   -0.65,    +0.15]  0.7654   no
+r0   ufo::ObsFilter::preProcess                           12       0.49       0.25     -0.25   [   -0.65,    +0.15]  0.7773   no
+r0   oops::Increment::zero                                12       0.22       0.47     +0.25   [   +0.24,    +0.26]  2.1385  yes
+par  oops::Increment::operator+=(State, Increment)        12       1.59       1.82     +0.23   [   +0.08,    +0.38]  1.1612  yes
+r0   oops::LocalInterpolator::preprocess                  12       2.39       2.17     -0.22   [   -1.67,    +1.23]  1.5935   no
+
+=== 4. Per job (each job = one node set): mean over its complete runs [s]
+job      set   n     RunEnd    RunExec      Bmult   MGBFmult    Scatter     Gather    StateIO       NonB
+job1     A     4     667.92     618.12     275.85      80.57      30.42      33.55     198.19     117.31
+job1     B     4     769.10     753.98     424.45     146.76      22.88      21.76     184.73     127.37
+job2     A     4     657.45     611.12     285.66      80.83      37.16      33.65     190.59     107.97
+job2     B     4     785.04     766.50     429.05     151.46      21.74      21.89     189.19     129.18
+job3     A     4     688.13     638.65     275.24      80.86      29.43      33.59     213.70     124.81
+job3     B     4     781.19     768.01     422.65     147.85      19.58      21.91     186.28     129.27
+
+=== 5. Outliers: Run end more than 3 scaled MADs from the setup median
+  (none)
+
+All values: perf_timers_long.tsv
+Per setup statistics: perf_stats_all.tsv
+Paired comparison:    perf_paired_all.tsv
