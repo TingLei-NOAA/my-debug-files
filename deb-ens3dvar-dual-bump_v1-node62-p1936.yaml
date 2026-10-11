@@ -28,7 +28,7 @@ variational:
       vert coordinate: logp   # BUMP vertical coordinate = -ln(p); must match the nicas yaml
       fieldsets:
       - fieldset: DataFix/fix/dynamics_lam_cmaq.yaml
-  - ninner: 50
+  - ninner: 50 
     gradient norm reduction: 1e-8
     geometry:
       fms initialization:
@@ -48,7 +48,7 @@ variational:
 output:
   filetype: fms restart
   datapath: ./
-  prefix: p1936-dual-bump1-ens3dvar
+  prefix: p1936-11var-dual-bump1-ens3dvar
   frequency: PT1H
 
 cost function:
@@ -57,7 +57,7 @@ cost function:
       begin: 2024-05-26T22:00:00Z
       length: PT6H
   jb evaluation: false
-  analysis variables: &3dvars
+  analysis variables: &3dvars 
   - ozone_mass_mixing_ratio
   - cloud_liquid_water
   - cloud_liquid_ice
@@ -100,11 +100,20 @@ cost function:
       - water_vapor_mixing_ratio_wrt_moist_air
       - cloud_liquid_ice
       - cloud_liquid_water
-      - ozone_mass_mixing_ratio
       - rain_water
       - snow_water
       - graupel
+      - ozone_mass_mixing_ratio
       - geopotential_at_surface
+      - ratio_of_wind_at_surface_adjacent_layer_to_wind_at_10m
+      - slmsk
+      - sheleg
+      - skin_temperature_at_surface
+      - vtype
+      - stype
+      - vfrac
+      - tslb 
+      - smois
       - eastward_wind_at_surface
       - northward_wind_at_surface
       - air_pressure_at_surface
@@ -115,16 +124,17 @@ cost function:
       #air_pressure_thickness: DELP
       air_pressure_thickness: delp
       water_vapor_mixing_ratio_wrt_moist_air: sphum
-      cloud_liquid_ice: ice_wat
-      cloud_liquid_water: liq_wat
-      ozone_mass_mixing_ratio: o3mr
       rain_water: rainwat
       snow_water: snowwat
       graupel: graupel
+      cloud_liquid_ice: ice_wat
+      cloud_liquid_water: liq_wat
+      ozone_mass_mixing_ratio: o3mr
       geopotential_at_surface: phis
       skin_temperature_at_surface: tsfc
       eastward_wind_at_surface: u_srf
       northward_wind_at_surface: v_srf
+      ratio_of_wind_at_surface_adjacent_layer_to_wind_at_10m: f10m
   background error:
         covariance model: ensemble
         members from template:
@@ -133,10 +143,10 @@ cost function:
             filetype: fms restart
             state variables: *3dvars
             field io names: *io_names
-            datapath: ../dr-convert2state/dr-6km/Data/inputs/mem%mem%/
-            filename_core: 20240527.010000.NA_6km.fv_core.res.nc
-            filename_trcr: 20240527.010000.NA_6km.fv_tracer.res.nc
-            filename_cplr: 20240527.010000.NA_6km.coupler.res
+            datapath: ../dr-convert2state/dr-6km/Data/mem%mem%/
+            filename_core: NA_6km.20240527.010000.fv_core.res.nc
+            filename_trcr: NA_6km.20240527.010000.fv_tracer.res.nc
+            filename_cplr: NA_6km.20240527.010000.coupler.res
           pattern: "%mem%"
           nmembers: 30 
           zero padding: 3

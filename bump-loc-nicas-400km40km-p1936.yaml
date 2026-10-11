@@ -54,10 +54,10 @@ background:
     snow_water: snowwat
     graupel: graupel
     ozone_mass_mixing_ratio: o3mr
-  datapath: ../dr-convert2state/dr-6km/Data/inputs/mem001/
-  filename_core: 20240527.010000.NA_6km.fv_core.res.nc
-  filename_trcr: 20240527.010000.NA_6km.fv_tracer.res.nc
-  filename_cplr: 20240527.010000.NA_6km.coupler.res
+  datapath: ../dr-convert2state/dr-6km/Data/mem001/
+  filename_core: NA_6km.20240527.010000.fv_core.res.nc
+  filename_trcr: NA_6km.20240527.010000.fv_tracer.res.nc
+  filename_cplr: NA_6km.20240527.010000.coupler.res
 
 background error:
   covariance model: SABER
