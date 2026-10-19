@@ -1,0 +1,124 @@
+runs:   /lfs/h2/emc/da/noscrub/Ting.Lei/dr-NA-Ens3Dvar-MGBF/perf_results_serial/perf_runs.tsv (24 runs)
+values: /lfs/h2/emc/da/noscrub/Ting.Lei/dr-NA-Ens3Dvar-MGBF/perf_results_serial/perf_timers_long.tsv (8473 rows)
+
+=== 1. Sanity   (A = 1936 ranks/serial, B = 1960 ranks/10 groups)
+  setup A: 12 runs, 12 complete; final J: 12813.4 (x12)
+  setup B: 12 runs, 12 complete; final J: 17084.2 (x12)
+  timers whose call count varies between runs of one setup: 0
+
+=== 2. Milestones: seconds since start, paired over same-node pairs (B - A < 0: B earlier)
+milestone                                  n     mean A     mean B     B - A          95% interval  sig
+Run start                                 12      48.92      48.89     -0.03   [   -3.35,    +3.28]   no
+Variational start                         12      48.92      48.89     -0.03   [   -3.35,    +3.28]   no
+IncrementalAssimilation start             12      53.17      52.80     -0.37   [   -5.22,    +4.49]   no
+IncrementalAssimilation iteration 0       12      53.17      52.80     -0.37   [   -5.22,    +4.48]   no
+IncrementalAssimilation linearize 0       12     177.66     210.11    +32.45   [  +18.06,   +46.83]  yes
+DRPCG start                               12     177.72     210.18    +32.46   [  +18.09,   +46.82]  yes
+DRPCG iteration 1                         12     181.09     212.99    +31.91   [  +17.57,   +46.24]  yes
+DRPCG iteration 2                         12     184.41     215.81    +31.41   [  +17.09,   +45.73]  yes
+DRPCG iteration 3                         12     187.74     218.57    +30.83   [  +16.50,   +45.15]  yes
+DRPCG iteration 4                         12     191.06     221.33    +30.27   [  +15.94,   +44.59]  yes
+DRPCG iteration 5                         12     194.39     224.27    +29.88   [  +15.56,   +44.21]  yes
+DRPCG iteration 10                        12     211.08     238.16    +27.08   [  +12.76,   +41.40]  yes
+DRPCG iteration 15                        12     227.83     252.50    +24.67   [  +10.37,   +38.98]  yes
+DRPCG iteration 20                        12     244.61     267.21    +22.60   [   +8.24,   +36.95]  yes
+DRPCG iteration 25                        12     261.47     281.78    +20.31   [   +5.74,   +34.88]  yes
+DRPCG iteration 30                        12     278.38     295.98    +17.59   [   +3.00,   +32.19]  yes
+DRPCG iteration 35                        12     295.35     310.44    +15.09   [   +0.56,   +29.62]  yes
+DRPCG iteration 40                        12     312.39     324.71    +12.31   [   -2.23,   +26.85]   no
+DRPCG iteration 45                        12     329.48     339.01     +9.54   [   -5.02,   +24.09]   no
+DRPCG iteration 50                        12     346.61     353.43     +6.82   [   -7.75,   +21.39]   no
+DRPCG end                                 12     350.04     356.30     +6.26   [   -8.31,   +20.83]   no
+IncrementalAssimilation iteration 1       12     350.94     357.15     +6.21   [   -8.48,   +20.90]   no
+IncrementalAssimilation linearize 1       12     458.66     500.82    +42.17   [   +8.24,   +76.10]  yes
+DRPCG start#2                             12     458.71     500.88    +42.17   [   +8.24,   +76.10]  yes
+DRPCG iteration 1#2                       12     462.03     503.63    +41.60   [   +7.66,   +75.54]  yes
+DRPCG iteration 2#2                       12     465.37     506.40    +41.03   [   +7.08,   +74.99]  yes
+DRPCG iteration 3#2                       12     468.70     509.16    +40.46   [   +6.51,   +74.42]  yes
+DRPCG iteration 4#2                       12     472.05     512.01    +39.96   [   +5.99,   +73.94]  yes
+DRPCG iteration 5#2                       12     475.39     514.78    +39.38   [   +5.41,   +73.36]  yes
+DRPCG iteration 10#2                      12     492.17     528.63    +36.47   [   +2.48,   +70.45]  yes
+DRPCG iteration 15#2                      12     508.99     543.47    +34.48   [   +0.11,   +68.84]  yes
+DRPCG iteration 20#2                      12     525.89     557.46    +31.57   [   -2.77,   +65.91]   no
+DRPCG iteration 25#2                      12     542.85     572.37    +29.52   [   -4.88,   +63.93]   no
+DRPCG iteration 30#2                      12     559.80     586.77    +26.97   [   -7.45,   +61.39]   no
+DRPCG iteration 35#2                      12     576.81     602.01    +25.20   [   -9.51,   +59.91]   no
+DRPCG iteration 40#2                      12     593.85     617.57    +23.72   [  -11.15,   +58.60]   no
+DRPCG iteration 45#2                      12     610.93     632.98    +22.05   [  -12.99,   +57.09]   no
+DRPCG iteration 50#2                      12     628.06     647.81    +19.75   [  -15.37,   +54.86]   no
+DRPCG end#2                               12     631.51     650.79    +19.28   [  -15.86,   +54.42]   no
+IncrementalAssimilation end               12     632.35     651.69    +19.34   [  -15.92,   +54.60]   no
+Variational end                           12     653.14     671.84    +18.70   [  -19.57,   +56.96]   no
+Run end                                   12     655.68     676.17    +20.49   [  -18.53,   +59.52]   no
+NonB (derived)                            12     109.11     111.41     +2.30   [   -9.41,   +14.01]   no
+
+=== 3. Timers whose mean paired difference |B - A| > 1 s, largest first (table: par = max over ranks, r0 = rank 0)
+tab  timer                                                 n     mean A     mean B     B - A          95% interval     B/A  sig
+r0   saber::ParametricBlockChain::multiply                12     281.76     153.74   -128.02   [ -128.47,  -127.57]  0.5457  yes
+par  saber::ParametricBlockChain::multiply                12     287.16     168.65   -118.51   [ -118.88,  -118.14]  0.5873  yes
+par  saber::OuterBlockChain::applyOuterBlocksAD           12     152.75      57.33    -95.42   [  -95.88,   -94.97]  0.3753  yes
+par  saber::OuterBlock::interpolation::multiplyAD         12     152.74      57.33    -95.41   [  -95.86,   -94.95]  0.3754  yes
+r0   saber::OuterBlockChain::applyOuterBlocksAD           12     141.32      46.35    -94.97   [  -95.70,   -94.24]  0.3280  yes
+r0   saber::OuterBlock::interpolation::multiplyAD         12     141.31      46.35    -94.96   [  -95.69,   -94.23]  0.3280  yes
+par  oops::Covariance::HybridCovariance                   12     167.80     236.66    +68.87   [  +41.12,   +96.61]  1.4444  yes
+r0   oops::Covariance::HybridCovariance                   12     167.78     230.85    +63.07   [  +35.62,   +90.53]  1.4097  yes
+par  oops::Covariance::hybrid::multiply                   12     331.59     282.23    -49.36   [  -55.41,   -43.31]  0.8511  yes
+r0   oops::Covariance::hybrid::multiply                   12     329.80     282.11    -47.69   [  -53.75,   -41.62]  0.8554  yes
+par  saber::OuterBlockChain::applyOuterBlocks             12      88.51      49.29    -39.22   [  -39.42,   -39.01]  0.5569  yes
+par  saber::OuterBlock::interpolation::multiply           12      88.49      49.29    -39.20   [  -39.41,   -38.99]  0.5570  yes
+par  saber::mgbf::Covariance::Covariance                  12       1.16      31.09    +29.94   [  +16.63,   +43.24] 30.9445  yes
+par  saber::ParametricBlockChain::centralBlockMultiply    12     107.73      80.79    -26.94   [  -27.22,   -26.67]  0.7499  yes
+par  saber::mgbf::Covariance::multiply                    12     106.57      80.67    -25.90   [  -26.18,   -25.63]  0.7570  yes
+r0   saber::ParametricBlockChain::centralBlockMultiply    12      99.97      75.24    -24.73   [  -24.95,   -24.52]  0.7526  yes
+r0   saber::mgbf::Covariance::Covariance                  12       1.13      25.26    +24.13   [  +12.16,   +36.10] 26.2142  yes
+r0   saber::mgbf::Covariance::multiply                    12      98.79      75.12    -23.67   [  -23.87,   -23.46]  0.7604  yes
+par  oops::Run::execute                                   12     606.71     627.30    +20.60   [  -20.11,   +61.30]  1.0384   no
+par  util::Timers::measured                               12     606.51     627.05    +20.54   [  -20.22,   +61.30]  1.0383   no
+par  oops::Increment::fromFieldSet                        12      19.08       0.88    -18.20   [  -18.27,   -18.14]  0.0461  yes
+r0   util::Timers::measured                               12     606.26     623.99    +17.72   [  -22.26,   +57.70]  1.0339   no
+r0   oops::Run::execute                                   12     606.68     624.37    +17.69   [  -22.22,   +57.59]  1.0338   no
+r0   oops::Increment::fromFieldSet                        12      17.12       0.85    -16.26   [  -16.31,   -16.22]  0.0498  yes
+par  oops::Increment::diff                                12      23.90      38.50    +14.61   [   +6.29,   +22.92]  1.6657  yes
+par  oops::Increment::toFieldSet                          12      14.28       0.99    -13.29   [  -13.34,   -13.24]  0.0694  yes
+par  oops::State::State                                   12     176.86     189.77    +12.90   [  -14.87,   +40.67]  1.0968   no
+par  saber::mgbf::Covariance::~Covariance                 11       3.26      16.07    +12.81   [   +3.16,   +22.47]  6.4197  yes
+r0   oops::Increment::toFieldSet                          12      12.82       0.94    -11.88   [  -11.96,   -11.81]  0.0734  yes
+r0   oops::State::State                                   12     176.49     188.23    +11.74   [  -13.67,   +37.15]  1.0888   no
+r0   saber::OuterBlockChain::applyOuterBlocks             12      40.44      32.15     -8.29   [   -8.68,    -7.89]  0.7952  yes
+r0   saber::OuterBlock::interpolation::multiply           12      40.42      32.15     -8.27   [   -8.67,    -7.88]  0.7955  yes
+par  oops::Increment::Increment                           12       8.54       1.14     -7.40   [   -7.44,    -7.36]  0.1336  yes
+r0   oops::Increment::Increment                           12       7.33       1.05     -6.28   [   -6.30,    -6.25]  0.1439  yes
+r0   oops::Increment::diff                                12      23.70      29.11     +5.41   [   +0.03,   +10.79]  1.2630  yes
+par  oops::Geometry::Geometry                             12       6.78      11.60     +4.82   [   +2.76,    +6.88]  1.9052  yes
+r0   oops::Geometry::Geometry                             12       6.67      11.17     +4.51   [   +2.64,    +6.38]  1.8642  yes
+par  oops::Increment::operator+=                          11       4.66       0.76     -3.90   [   -3.92,    -3.89]  0.1626  yes
+par  oops::Increment::operator=                            9       4.47       0.73     -3.74   [   -3.77,    -3.71]  0.1628  yes
+r0   fv3jedi::IOFms::read state                           12      22.56      25.48     +2.93   [   +0.69,    +5.17]  1.1529  yes
+r0   oops::Increment::operator+=                          12       3.35       0.74     -2.61   [   -2.62,    -2.59]  0.2211  yes
+r0   oops::Increment::operator=                           12       3.13       0.71     -2.42   [   -2.45,    -2.39]  0.2275  yes
+r0   saber::mgbf::Covariance::~Covariance                 12       3.15       0.74     -2.41   [   -3.33,    -1.49]  0.2484  yes
+par  oops::ObsSpace::save                                  1       2.75       0.92     -1.83   [   -1.83,    -1.83]  0.3354   no
+r0   oops::Increment::dot_product_with                    12       6.10       4.51     -1.60   [   -1.66,    -1.53]  0.7385  yes
+r0   fv3jedi::IOFms::write state                          12       6.79       5.23     -1.56   [   -4.27,    +1.15]  0.9088   no
+r0   oops::State::write                                   12       6.79       5.23     -1.56   [   -4.27,    +1.15]  0.9088   no
+par  oops::Increment::dot_product_with                    12       6.99       5.57     -1.43   [   -1.52,    -1.33]  0.7964  yes
+r0   oops::LocalInterpolator::preprocess                  12       1.80       3.17     +1.37   [   -0.11,    +2.85]  2.5376   no
+par  oops::UnstructuredInterpolator::applyAD              12      11.80      10.79     -1.00   [   -1.12,    -0.88]  0.9150  yes
+
+=== 4. Per job (each job = one node set): mean over its complete runs [s]
+job      set   n     RunEnd    RunExec      Bmult   MGBFmult    Scatter     Gather    StateIO       NonB
+ser1     A     4     647.23     596.31     331.56     106.45         NA         NA     169.45     105.27
+ser1     B     4     673.52     625.78     285.73      81.00         NA         NA     180.19     104.53
+ser2     A     4     673.83     627.73     331.79     106.55         NA         NA     191.63     116.56
+ser2     B     4     679.97     629.36     276.64      80.47         NA         NA     207.21     116.24
+ser3     A     4     645.97     596.07     331.42     106.72         NA         NA     169.51     105.49
+ser3     B     4     675.02     626.77     284.31      80.54         NA         NA     181.89     113.45
+
+=== 5. Outliers: Run end more than 3 scaled MADs from the setup median
+  ser1 pair 1 setup A: 690.7 s (median 635.5, MAD 10.3), position 1 in its pair
+  ser2 pair 1 setup A: 800.2 s (median 635.5, MAD 10.3), position 2 in its pair
+  ser3 pair 1 setup A: 691.4 s (median 635.5, MAD 10.3), position 1 in its pair
+
+All values: perf_timers_long.tsv
+Per setup statistics: perf_stats_all.tsv
+Paired comparison:    perf_paired_all.tsv
