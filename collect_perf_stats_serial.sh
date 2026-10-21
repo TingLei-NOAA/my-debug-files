@@ -227,7 +227,7 @@ END {
 
   # ---- 4. Per job (node set)
   print "\n=== 4. Per job (each job = one node set): mean over its complete runs [s]"
-  ns = split("mile|Run end;par|oops::Run::execute;par|oops::Covariance::hybrid::multiply;par|saber::mgbf::Covariance::multiply;par|saber::SaberHybridBlockChain::parallelScatter;par|saber::SaberHybridBlockChain::parallelGatherAndSum;par|oops::State::State;derived|NonB", sel, ";")
+  ns = split("mile|Run end;par|oops::Run::execute;par|oops::Covariance::hybrid::multiply;par|saber::mgbf::Covariance::multiply;par|saber::HybridBlockChain::parallelScatter;par|saber::HybridBlockChain::parallelGatherAndSum;par|oops::State::State;derived|NonB", sel, ";")
   split("RunEnd RunExec Bmult MGBFmult Scatter Gather StateIO NonB", sh, " ")
   printf "%-8s %-3s %3s", "job", "set", "n"; for (k = 1; k <= ns; k++) printf " %10s", sh[k]; printf "\n"
   for (j = 1; j <= njob; j++) for (si = 1; si <= 2; si++) {
