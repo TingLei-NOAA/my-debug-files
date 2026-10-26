@@ -143,7 +143,7 @@ OOPS_STATS oops::ModelAuxIncrement::zero                       :         0.02   
 OOPS_STATS oops::ModelAuxIncrement::~ModelAuxIncrement         :         0.12     444            0.0003
 OOPS_STATS oops::ModelData::ModelData                          :         0.00       2            0.0018
 OOPS_STATS oops::ModelData::modelData                          :         0.13       2            0.0670
-nid002347.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelData::~ModelData                         :         0.00       2            0.0014
+OOPS_STATS oops::ModelData::~ModelData                         :         0.00       2            0.0014
 OOPS_STATS oops::ObsAuxControl::ObsAuxControl                  :         0.23      15            0.0154
 OOPS_STATS oops::ObsAuxControl::print                          :         0.01      18            0.0004
 OOPS_STATS oops::ObsAuxControl::requiredHdiagnostics           :         0.00       9            0.0002
