@@ -1,106 +1,366 @@
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0: MPICH processor detected:
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   AMD Rome (23:49:0) (family:model:stepping)
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0: MPICH environment settings =====================================
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_ENV_DISPLAY                              = 1
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_VERSION_DISPLAY                          = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_ABORT_ON_ERROR                           = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_CPUMASK_DISPLAY                          = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_STATS_DISPLAY                            = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_RANK_REORDER_METHOD                      = 1
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_RANK_REORDER_DISPLAY                     = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_MEMCPY_MEM_CHECK                         = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_USE_SYSTEM_MEMCPY                        = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_OPTIMIZED_MEMCPY                         = 1
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_ALLOC_MEM_PG_SZ                          = 4096
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_ALLOC_MEM_POLICY                         = PREFERRED
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_ALLOC_MEM_AFFINITY                       = SYS_DEFAULT
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_MALLOC_FALLBACK                          = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_MEM_DEBUG_FNAME                          = 
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_INTERNAL_MEM_AFFINITY                    = SYS_DEFAULT
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_NO_BUFFER_ALIAS_CHECK                    = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_COLL_SYNC                                = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_SINGLE_HOST_ENABLED                        = 1
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0: MPICH/RMA environment settings =================================
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_RMA_MAX_PENDING                          = 128
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_RMA_SHM_ACCUMULATE                       = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0: MPICH/Dynamic Process Management environment settings ==========
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_DPM_DIR                                  = 28576736
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_LOCAL_SPAWN_SERVER                       = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0: MPICH/SMP environment settings =================================
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_SMP_SINGLE_COPY_MODE                     = CMA
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_SMP_SINGLE_COPY_SIZE                     = 8192
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_SHM_PROGRESS_MAX_BATCH_SIZE              = 8
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0: MPICH CH4 OFI detected 1 NIC/node on host nid003135
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0: MPICH CH4 OFI netmod using verbs;ofi_rxm provider (domain_name=mlx5_0-xrc, src_addr=10.253.136.95)
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0: MPICH/OFI environment settings =================================
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_OFI_USE_PROVIDER                         = verbs;ofi_rxm
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_OFI_VERBOSE                              = 1
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_OFI_NIC_VERBOSE                          = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   FI_OFI_RXM_SAR_LIMIT                           = 262144
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   FI_OFI_RXM_BUFFER_SIZE                         = 16384
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   FI_OFI_RXM_RX_SIZE                             = 4096
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   FI_OFI_RXM_USE_SRX                             = 1
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   FI_VERBS_PREFER_XRC                            = 1
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   FI_VERBS_MIN_RNR_TIMER                         = 6
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_OFI_XRCD_BASE_DIR                        = /tmp
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_OFI_NIC_POLICY                           = BLOCK
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_OFI_NIC_MAPPING                          = NULL
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_OFI_NUM_NICS                             = NULL
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_CH4_OFI_ENABLE_CONTROL_AUTO_PROGRESS     = -1
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_CH4_OFI_ENABLE_DATA_AUTO_PROGRESS        = -1
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_OFI_RMA_STARTUP_CONNECT                  = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_OFI_SKIP_NIC_SYMMETRY_TEST               = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_OFI_STARTUP_CONNECT                      = 1
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0: MPICH/COLLECTIVE environment settings ==========================
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_COLL_OPT_OFF                             = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_BCAST_ONLY_TREE                          = 1
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_BCAST_INTERNODE_RADIX                    = 4
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_BCAST_INTRANODE_RADIX                    = 4
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_ALLTOALL_SHORT_MSG                       = 64-512
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_ALLTOALL_SYNC_FREQ                       = 1-24
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_ALLTOALLV_THROTTLE                       = 484
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_ALLGATHER_VSHORT_MSG                     = 1024-4096
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_ALLGATHERV_VSHORT_MSG                    = 1024-4096
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_GATHERV_SHORT_MSG                        = 131072
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_GATHERV_MIN_COMM_SIZE                    = 64
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_GATHERV_MAX_TMP_SIZE                     = 536870912
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_GATHERV_SYNC_FREQ                        = 16
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_IGATHERV_RAND_COMMSIZE                   = 2048
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_IGATHERV_RAND_RECVLIST                   = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_SCATTERV_SHORT_MSG                       = 2048-8192
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_SCATTERV_MIN_COMM_SIZE                   = 64
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_SCATTERV_MAX_TMP_SIZE                    = 536870912
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_SCATTERV_SYNC_FREQ                       = 16
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_SCATTERV_SYNCHRONOUS                     = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_ALLREDUCE_MAX_SMP_SIZE                   = 262144
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_ALLREDUCE_BLK_SIZE                       = 716800
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_GPU_ALLREDUCE_USE_KERNEL                 = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_ALLREDUCE_NO_SMP                         = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_REDUCE_NO_SMP                            = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_REDUCE_SCATTER_COMMUTATIVE_LONG_MSG_SIZE = 524288
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_REDUCE_SCATTER_MAX_COMMSIZE              = 1000
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_SHARED_MEM_COLL_OPT                      = 1
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_SHARED_MEM_COLL_NCELLS                   = 8
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_SHARED_MEM_COLL_CELLSZ                   = 256
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0: MPICH MPIIO environment settings ===============================
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_MPIIO_HINTS_DISPLAY                      = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_MPIIO_HINTS                              = NULL
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_MPIIO_ABORT_ON_RW_ERROR                  = disable
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_MPIIO_CB_ALIGN                           = 2
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_MPIIO_DVS_MAXNODES                       = -1
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_MPIIO_AGGREGATOR_PLACEMENT_DISPLAY       = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_MPIIO_AGGREGATOR_PLACEMENT_STRIDE        = -1
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_MPIIO_MAX_NUM_IRECV                      = 50
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_MPIIO_MAX_NUM_ISEND                      = 50
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_MPIIO_MAX_SIZE_ISEND                     = 10485760
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_MPIIO_OFI_STARTUP_CONNECT                = disable
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_MPIIO_OFI_STARTUP_NODES_AGGREGATOR        = 2
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0: MPICH MPIIO statistics environment settings ====================
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_MPIIO_STATS                              = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_MPIIO_TIMERS                             = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_MPIIO_WRITE_EXIT_BARRIER                 = 1
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0: MPICH Thread Safety settings ===================================
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_ASYNC_PROGRESS                           = 0
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   MPICH_OPT_THREAD_SYNC                          = 1
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0:   rank 0 required = single, was provided = single
-nid003135.cactus.wcoss2.ncep.noaa.gov 0: PE 0: MPICH CH4 OFI global connections for 3872 ranks took 162.937 seconds.
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read    1 npes  3872 layout   88   44 setup_rebuilt T
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     1.967     1.265     1.265     0.016     0.125     3.367
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     1.849     0.000     0.000     0.004     0.114     3.248
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read    2 npes  3872 layout   88   44 setup_rebuilt T
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.645     0.431     0.431     0.010     0.092     1.170
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.560     0.000     0.000     0.002     0.083     1.084
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read    3 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.696     0.696     0.008     0.084     0.780
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     0.776
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read    4 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.743     0.743     0.008     0.085     0.829
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.823
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read    5 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.608     0.608     0.007     0.083     0.692
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.687
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read    6 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.788     0.788     0.009     0.084     0.873
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.869
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read    7 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.960     0.960     0.008     0.083     1.044
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.074     1.040
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read    8 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.894     0.894     0.008     0.083     0.978
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.974
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read    9 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.917     0.918     0.008     0.084     1.002
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.997
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   10 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.621     0.622     0.008     0.084     0.706
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.701
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   11 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.656     0.656     0.008     0.083     0.739
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.736
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   12 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     1.399     1.399     0.008     0.085     1.484
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     1.463
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   13 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.683     0.683     0.008     0.084     0.768
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     0.764
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   14 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.602     0.602     0.008     0.084     0.686
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     0.682
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   15 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.977     0.978     0.008     0.084     1.062
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     1.007
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   16 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     1.423     1.423     0.008     0.083     1.507
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     1.502
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   17 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     1.061     1.061     0.008     0.084     1.146
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     1.134
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   18 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.761     0.761     0.008     0.084     0.846
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     0.842
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   19 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     1.161     1.161     0.008     0.084     1.246
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     1.242
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   20 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     1.335     1.335     0.008     0.083     1.419
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     1.414
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   21 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     1.126     1.127     0.008     0.083     1.210
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     1.207
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   22 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.768     0.769     0.008     0.083     0.852
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.848
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   23 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.892     0.893     0.008     0.083     0.977
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.971
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   24 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.929     0.930     0.008     0.084     1.013
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.000     0.074     1.008
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   25 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.994     0.994     0.008     0.084     1.079
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     1.073
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   26 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     2.236     2.236     0.008     0.083     2.320
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     2.316
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   27 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     1.315     1.316     0.008     0.085     1.400
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     1.397
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   28 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.817     0.817     0.008     0.084     0.902
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.898
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   29 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.748     0.748     0.008     0.084     0.832
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     0.828
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   30 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     1.614     1.614     0.008     0.084     1.698
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     1.695
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   31 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     1.023     1.023     0.007     0.084     1.107
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     1.103
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   32 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.113     0.116     0.007     0.079     0.195
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.070     0.133
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   33 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.114     0.115     0.008     0.084     0.199
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.138
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   34 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.100     0.100     0.008     0.084     0.185
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.136
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   35 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.110     0.111     0.008     0.084     0.195
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     0.139
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   36 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.102     0.103     0.008     0.084     0.187
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     0.137
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   37 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.112     0.113     0.009     0.085     0.198
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.000     0.075     0.138
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   38 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.114     0.115     0.008     0.084     0.198
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.138
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   39 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.113     0.114     0.008     0.084     0.198
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.136
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   40 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.130     0.130     0.008     0.084     0.214
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.137
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   41 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.117     0.118     0.008     0.084     0.202
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.147
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   42 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.127     0.128     0.008     0.084     0.211
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     0.140
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   43 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.111     0.112     0.008     0.084     0.195
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     0.138
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   44 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.112     0.113     0.008     0.084     0.197
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     0.138
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   45 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.118     0.119     0.008     0.084     0.202
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.141
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   46 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.105     0.106     0.008     0.084     0.189
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     0.139
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   47 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.105     0.106     0.008     0.084     0.189
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.137
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   48 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.127     0.128     0.008     0.084     0.212
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     0.137
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   49 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.111     0.111     0.008     0.084     0.195
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.137
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   50 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.108     0.109     0.009     0.084     0.193
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.139
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   51 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.106     0.107     0.008     0.084     0.191
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.137
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   52 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.107     0.108     0.008     0.084     0.192
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.136
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   53 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.124     0.126     0.008     0.083     0.209
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.135
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   54 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.114     0.114     0.008     0.084     0.198
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.139
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   55 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.099     0.101     0.008     0.084     0.184
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     0.137
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   56 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.109     0.109     0.008     0.083     0.194
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.138
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   57 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.112     0.114     0.008     0.084     0.197
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.135
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   58 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.105     0.106     0.008     0.084     0.190
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     0.138
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   59 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.110     0.111     0.008     0.084     0.195
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.000     0.076     0.137
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   60 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.105     0.106     0.008     0.084     0.189
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.135
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   61 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.109     0.109     0.008     0.084     0.193
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872.log:nid003066.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.138
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read    1 npes  3872 layout   88   44 setup_rebuilt T
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     1.742     0.845     0.846     0.937     6.647     9.431
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     1.644     0.000     0.000     0.111     5.734     9.071
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read    2 npes  3872 layout   88   44 setup_rebuilt T
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     1.305     0.620     0.620     0.011     0.092     2.020
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.508     0.000     0.000     0.002     0.083     1.222
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read    3 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     1.272     1.273     0.008     0.084     1.356
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     1.352
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read    4 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.750     0.750     0.008     0.084     0.834
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.830
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read    5 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     1.103     1.104     0.008     0.084     1.188
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     1.183
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read    6 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     1.378     1.379     0.008     0.083     1.463
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     1.459
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read    7 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.856     0.857     0.008     0.083     0.940
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.935
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read    8 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.822     0.823     0.008     0.083     0.907
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.074     0.902
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read    9 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.773     0.774     0.008     0.084     0.858
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.853
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   10 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.867     0.868     0.008     0.084     0.951
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.947
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   11 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     2.414     2.415     0.008     0.084     2.499
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     2.494
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   12 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     1.302     1.304     0.008     0.083     1.386
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     1.382
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   13 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     1.111     1.112     0.008     0.084     1.196
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     1.192
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   14 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     2.894     2.895     0.008     0.084     2.979
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     2.974
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   15 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.721     0.722     0.008     0.084     0.805
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.802
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   16 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.696     0.697     0.008     0.083     0.780
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.776
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   17 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.907     0.908     0.008     0.083     0.992
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.987
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   18 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.814     0.814     0.008     0.084     0.898
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.894
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   19 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.710     0.711     0.008     0.084     0.795
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.790
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   20 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     1.046     1.047     0.008     0.084     1.132
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     1.127
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   21 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.755     0.755     0.008     0.084     0.838
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.834
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   22 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.672     0.672     0.008     0.083     0.756
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.752
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   23 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.635     0.635     0.008     0.084     0.719
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.715
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   24 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.775     0.776     0.008     0.083     0.860
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.855
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   25 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.680     0.681     0.008     0.083     0.765
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.074     0.759
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   26 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.686     0.686     0.008     0.084     0.770
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.765
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   27 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.761     0.762     0.008     0.084     0.846
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.824
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   28 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     1.546     1.547     0.008     0.083     1.630
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.074     1.626
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   29 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.894     0.894     0.008     0.084     0.978
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.975
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   30 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.867     0.868     0.008     0.083     0.951
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.947
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   31 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.811     0.811     0.008     0.083     0.895
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.074     0.880
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   32 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.871     0.872     0.007     0.079     0.951
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.071     0.142
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   33 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.115     0.116     0.008     0.084     0.200
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.137
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   34 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.107     0.108     0.008     0.083     0.191
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.137
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   35 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.105     0.106     0.008     0.084     0.190
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.138
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   36 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.111     0.111     0.008     0.083     0.194
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.138
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   37 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.108     0.108     0.008     0.084     0.191
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.136
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   38 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.134     0.134     0.008     0.083     0.217
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.143
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   39 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.125     0.125     0.008     0.083     0.208
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.137
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   40 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.121     0.121     0.008     0.083     0.205
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.125
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   41 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.136     0.138     0.008     0.083     0.221
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.074     0.138
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   42 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.131     0.132     0.008     0.084     0.215
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.133
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   43 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.110     0.110     0.008     0.083     0.193
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.074     0.134
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   44 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.116     0.116     0.008     0.084     0.200
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.131
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   45 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.104     0.104     0.008     0.083     0.187
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.074     0.135
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   46 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.113     0.113     0.008     0.083     0.197
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.135
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   47 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.112     0.112     0.008     0.083     0.196
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.132
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   48 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.113     0.115     0.008     0.083     0.197
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.074     0.136
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   49 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.109     0.111     0.008     0.083     0.193
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.139
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   50 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.120     0.120     0.008     0.084     0.204
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.133
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   51 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.110     0.110     0.008     0.084     0.193
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.138
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   52 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.101     0.103     0.008     0.084     0.186
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.138
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   53 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.123     0.123     0.008     0.083     0.206
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.127
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   54 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.118     0.118     0.009     0.086     0.203
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.076     0.137
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   55 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.110     0.110     0.008     0.086     0.196
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.078     0.145
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   56 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.114     0.115     0.008     0.084     0.199
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.136
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   57 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.115     0.116     0.008     0.083     0.198
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.138
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   58 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.127     0.128     0.008     0.084     0.212
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.138
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   59 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.101     0.101     0.008     0.083     0.184
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.135
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   60 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.108     0.108     0.008     0.083     0.192
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.135
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing: read   61 npes  3872 layout   88   44 setup_rebuilt F
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing max (setup io barrier scat1 scat2 total):     0.000     0.119     0.120     0.008     0.083     0.203
+deb-dupvar-11var-ens3dvar-dual-vdl_v1-2grp-p3872-setup1.log:nid003050.cactus.wcoss2.ncep.noaa.gov 0: read_restart_fields_reg timing min (setup io barrier scat1 scat2 total):     0.000     0.000     0.000     0.001     0.075     0.137
