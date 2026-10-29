@@ -1,0 +1,1161 @@
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS --------------------------------------------------------------------------------------------
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS Name                                                :   total (ms)   count    time/call (ms)
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::AcceptList::ObsFilter                    :        18.29     142            0.1288
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::AcceptList::postFilter                   :         0.03     140            0.0002
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::AcceptList::preProcess                   :     11696.92     142           82.3727
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::AcceptList::priorFilter                  :         0.06     140            0.0004
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Background Check::ObsFilter              :         8.96     288            0.0311
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Background Check::postFilter             :      5816.22     288           20.1952
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Background Check::preProcess             :        14.54     276            0.0527
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Background Check::priorFilter            :         0.15     276            0.0005
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::BlackList::ObsFilter                     :         1.24      15            0.0825
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::BlackList::postFilter                    :        87.37      15            5.8245
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Bounds Check::ObsFilter                  :        32.51     303            0.1073
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Bounds Check::postFilter                 :     22739.78     295           77.0840
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Bounds Check::preProcess                 :       663.36     234            2.8349
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Bounds Check::priorFilter                :         2.67     226            0.0118
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Create Diagnostic Flags::ObsFilter       :         0.38       8            0.0477
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Create Diagnostic Flags::preProcess      :        14.21       8            1.7757
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Difference Check::ObsFilter              :         0.41      12            0.0343
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Difference Check::postFilter             :         0.00      12            0.0002
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Difference Check::preProcess             :         0.02      12            0.0014
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Difference Check::priorFilter            :         0.94      12            0.0783
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Domain Check::ObsFilter                  :         2.20      22            0.0999
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Domain Check::postFilter                 :         8.30      16            0.5184
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Domain Check::preProcess                 :      1768.14       7          252.5912
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Domain Check::priorFilter                :         0.00       1            0.0010
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::DuplicateThinning::ObsFilter             :        11.24      53            0.2120
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::DuplicateThinning::postFilter            :         0.01      53            0.0002
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::DuplicateThinning::preProcess            :      1278.48      53           24.1222
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::DuplicateThinning::priorFilter           :         0.03      53            0.0005
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Gaussian Thinning::ObsFilter             :        18.31      10            1.8315
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Gaussian Thinning::postFilter            :       185.19       6           30.8657
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Gaussian Thinning::preProcess            :       464.49       4          116.1225
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Perform Action::ObsFilter                :        79.88     677            0.1180
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Perform Action::postFilter               :     14274.02     671           21.2728
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Perform Action::preProcess               :     17334.12     628           27.6021
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Perform Action::priorFilter              :       391.99     626            0.6262
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::RejectList::ObsFilter                    :         5.08      59            0.0860
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::RejectList::postFilter                   :         0.36      59            0.0061
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::RejectList::preProcess                   :        69.88      51            1.3703
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::RejectList::priorFilter                  :         0.03      51            0.0005
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Variable Assignment::ObsFilter           :        37.01     163            0.2270
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Variable Assignment::postFilter          :       507.75     151            3.3626
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Variable Assignment::preProcess          :       208.87      92            2.2703
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Variable Assignment::priorFilter         :         8.00      88            0.0909
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Variable Transforms::ObsFilter           :        23.30      16            1.4562
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Variable Transforms::postFilter          :         0.00      14            0.0002
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Variable Transforms::preProcess          :       274.90      16           17.1811
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ObsFilter::Variable Transforms::priorFilter         :         2.66      14            0.1900
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS Vader::Vader                                        :       426.92       5           85.3839
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS Vader::changeVar                                    :       254.73       3           84.9087
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS Vader::changeVarTraj                                :        77.57       2           38.7868
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::IOFms::IOFms                               :        70.73      32            2.2102
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::IOFms::read state                          :    157433.96      31         5078.5148
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::IOFms::write increment                     :      5951.40       1         5951.4018
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::IOFms::~IOFms                              :         9.00      32            0.2814
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::LinVarChaC2A::LinVarChaC2A                 :        15.58       1           15.5764
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::LinVarChaC2A::multiply                     :      1157.79      51           22.7019
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::LinVarChaC2A::multiplyAD                   :     15892.41      51          311.6159
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::LinVarChaC2A::~LinVarChaC2A                :         1.69       1            1.6926
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::LinVarChaModel2GeoVaLs::LinVarChaModel2Geo :         7.63       1            7.6263
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::LinVarChaModel2GeoVaLs::multiply           :       811.28      50           16.2255
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::LinVarChaModel2GeoVaLs::multiplyAD         :      1470.65      51           28.8363
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::LinVarChaModel2GeoVaLs::~LinVarChaModel2Ge :        13.30       1           13.2958
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::VarChaModel2GeoVaLs::VarChaModel2GeoVaLs   :         2.19       3            0.7300
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::VarChaModel2GeoVaLs::changeVar             :      1532.51       3          510.8355
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS fv3jedi::VarChaModel2GeoVaLs::~VarChaModel2GeoVaLs  :         1.07       3            0.3576
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ioda::ObsSpace::get_db(DateTime)                    :         6.76     316            0.0214
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ioda::ObsSpace::get_db(bool)                        :       773.32  101081            0.0077
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ioda::ObsSpace::get_db(double)                      :       214.65   30243            0.0071
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ioda::ObsSpace::get_db(float)                       :       116.57   12633            0.0092
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ioda::ObsSpace::get_db(int)                         :        80.26    3302            0.0243
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ioda::ObsSpace::get_db(string)                      :         3.44     287            0.0120
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ioda::ObsSpace::load                                :     15845.40      64          247.5844
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ioda::ObsSpace::put_db(bool)                        :       597.51   61220            0.0098
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ioda::ObsSpace::put_db(double)                      :       234.59   30450            0.0077
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ioda::ObsSpace::put_db(float)                       :       153.68   20818            0.0074
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ioda::ObsSpace::put_db(int)                         :        63.21    5356            0.0118
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::EnsembleCovariance                :    249959.43       1       249959.4261
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::HybridCovariance                  :    274187.38       1       274187.3825
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::SABER::Constructor                :       248.42       1          248.4245
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::SABER::multiply                   :    294557.72      51         5775.6416
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::ensemble::Constructor             :         0.01       1            0.0096
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::ensemble::multiply                :   1726426.86      51        33851.5070
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::hybrid::Constructor               :         0.01       1            0.0075
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::hybrid::multiply                  :   2029233.31      51        39788.8885
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GeoVaLs::GeoVaLs                              :      1219.51    6656            0.1832
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GeoVaLs::fill                                 :       169.42   62182            0.0027
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GeoVaLs::fillAD                               :       166.16   45084            0.0037
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GeoVaLs::~GeoVaLs                             :       167.45    6656            0.0252
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Geometry::Geometry                            :     25100.91       4         6275.2287
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Geometry::variableSizes                       :         3.17     642            0.0049
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Geometry::~Geometry                           :        16.03       4            4.0066
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::GetValues                          :    347603.45     192         1810.4346
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::fillGeoVaLs                        :        27.51     192            0.1433
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::fillGeoVaLsAD                      :       662.56    3264            0.2030
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::fillGeoVaLsTL                      :     12994.85    3200            4.0609
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::finalize                           :        41.19     192            0.2145
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::finalizeAD                         :       134.42    3264            0.0412
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::finalizeTL                         :       509.40    3200            0.1592
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::initialize                         :        24.78     192            0.1291
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::initializeAD                       :        75.33    3264            0.0231
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::initializeTL                       :       537.09    3200            0.1678
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::process                            :       406.06     192            2.1149
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::processAD                          :      7970.47    3264            2.4419
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::processTL                          :      6732.47    3200            2.1039
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::Increment                          :    132351.99    3670           36.0632
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::axpy                               :     16682.46    1375           12.1327
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::diff                               :     43324.99      34         1274.2645
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::dot_product_with                   :     65093.03    1479           44.0115
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::fromFieldSet                       :     38484.07    1632           23.5809
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::operator*=                         :      2308.78     253            9.1256
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::operator+=                         :     45599.44    1863           24.4764
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::operator+=(State, Increment)       :      1294.30       1         1294.2965
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::operator-=                         :       184.82      30            6.1605
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::operator=                          :     47022.00    2155           21.8200
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::print                              :      3157.20       7          451.0289
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::schur_product_with                 :     64937.82    3060           21.2215
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::serialSize                         :         5.26     222            0.0237
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::toFieldSet                         :     26296.93    1682           15.6343
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::write                              :      5951.88       1         5951.8810
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::zero                               :      1481.37     205            7.2262
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::~Increment                         :       594.29    3670            0.1619
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::abi_g16::LinearObsOperator     :        25.36       1           25.3554
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::abi_g16::requiredVars          :         0.00       1            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::abi_g16::setTrajectory         :       909.35       1          909.3515
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::abi_g16::simulateObsAD         :     37530.50      51          735.8922
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::abi_g16::simulateObsTL         :      1043.77      50           20.8754
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::abi_g16::~LinearObsOperator    :        89.55       1           89.5470
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::abi_g18::LinearObsOperator     :         0.37       1            0.3651
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::abi_g18::requiredVars          :         0.00       1            0.0005
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::abi_g18::setTrajectory         :       127.94       1          127.9351
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::abi_g18::simulateObsAD         :      2028.54      51           39.7753
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::abi_g18::simulateObsTL         :        54.05      50            1.0810
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::abi_g18::~LinearObsOperator    :         4.86       1            4.8646
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_airTemperatureAt2M_181: :         0.03       1            0.0287
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_airTemperatureAt2M_181: :         0.00       1            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_airTemperatureAt2M_181: :         0.03       1            0.0309
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_airTemperatureAt2M_181: :         0.37      51            0.0073
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_airTemperatureAt2M_181: :         0.45      50            0.0091
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_airTemperatureAt2M_181: :         0.01       1            0.0115
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_airTemperatureAt2M_183: :         0.02       1            0.0243
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_airTemperatureAt2M_183: :         0.00       1            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_airTemperatureAt2M_183: :         0.03       1            0.0288
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_airTemperatureAt2M_183: :         0.20      51            0.0039
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_airTemperatureAt2M_183: :         0.12      50            0.0025
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_airTemperatureAt2M_183: :         0.32       1            0.3187
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_airTemperatureAt2M_187: :         0.02       1            0.0229
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_airTemperatureAt2M_187: :         0.00       1            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_airTemperatureAt2M_187: :         0.03       1            0.0302
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_airTemperatureAt2M_187: :         0.20      51            0.0039
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_airTemperatureAt2M_187: :         0.13      50            0.0025
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_airTemperatureAt2M_187: :         0.00       1            0.0037
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_specificHumidityAt2M_18 :         0.02       1            0.0238
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_specificHumidityAt2M_18 :         0.00       1            0.0004
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_specificHumidityAt2M_18 :         0.03       1            0.0319
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_specificHumidityAt2M_18 :         0.21      51            0.0041
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_specificHumidityAt2M_18 :         0.14      50            0.0028
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_specificHumidityAt2M_18 :         0.00       1            0.0026
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_specificHumidityAt2M_18 :         0.03       1            0.0264
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_specificHumidityAt2M_18 :         0.00       1            0.0009
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_specificHumidityAt2M_18 :         0.03       1            0.0301
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_specificHumidityAt2M_18 :         0.18      51            0.0036
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_specificHumidityAt2M_18 :         0.12      50            0.0024
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_specificHumidityAt2M_18 :         0.00       1            0.0020
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_specificHumidityAt2M_18 :         0.02       1            0.0239
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_specificHumidityAt2M_18 :         0.00       1            0.0004
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_specificHumidityAt2M_18 :         0.03       1            0.0297
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_specificHumidityAt2M_18 :         0.19      51            0.0038
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_specificHumidityAt2M_18 :         0.12      50            0.0024
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_specificHumidityAt2M_18 :         0.00       1            0.0026
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_stationPressure_181::Li :         0.02       1            0.0162
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_stationPressure_181::re :         0.00       1            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_stationPressure_181::se :         0.03       1            0.0304
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_stationPressure_181::si :         0.19      51            0.0038
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_stationPressure_181::si :         0.14      50            0.0027
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_stationPressure_181::~L :         0.01       1            0.0060
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_stationPressure_187::Li :         0.01       1            0.0149
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_stationPressure_187::re :         0.00       1            0.0005
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_stationPressure_187::se :         0.03       1            0.0301
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_stationPressure_187::si :         0.18      51            0.0036
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_stationPressure_187::si :         0.13      50            0.0027
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_stationPressure_187::~L :         0.01       1            0.0054
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_winds_281::LinearObsOpe :         0.07       1            0.0658
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_winds_281::requiredVars :         0.00       1            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_winds_281::setTrajector :         0.58       1            0.5828
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_winds_281::simulateObsA :         0.29      51            0.0058
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_winds_281::simulateObsT :         0.20      50            0.0040
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_winds_281::~LinearObsOp :         2.82       1            2.8202
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_winds_284::LinearObsOpe :         0.06       1            0.0602
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_winds_284::requiredVars :         0.00       1            0.0004
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_winds_284::setTrajector :         0.05       1            0.0488
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_winds_284::simulateObsA :         0.18      51            0.0035
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_winds_284::simulateObsT :         0.12      50            0.0024
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_winds_284::~LinearObsOp :         0.01       1            0.0062
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_winds_287::LinearObsOpe :         0.07       1            0.0729
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_winds_287::requiredVars :         0.00       1            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_winds_287::setTrajector :         0.05       1            0.0453
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_winds_287::simulateObsA :         0.18      51            0.0035
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_winds_287::simulateObsT :         0.13      50            0.0026
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpsfc_winds_287::~LinearObsOp :         0.01       1            0.0138
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_airTemperature_120::Lin :         5.08       1            5.0785
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_airTemperature_120::req :         0.00       1            0.0021
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_airTemperature_120::set :        38.04       1           38.0371
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_airTemperature_120::sim :        19.22      51            0.3769
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_airTemperature_120::sim :       417.92      50            8.3583
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_airTemperature_120::~Li :        92.02       1           92.0226
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_airTemperature_132::Lin :         0.05       1            0.0461
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_airTemperature_132::req :         0.00       1            0.0009
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_airTemperature_132::set :         0.07       1            0.0671
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_airTemperature_132::sim :         0.43      51            0.0084
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_airTemperature_132::sim :         1.89      50            0.0378
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_airTemperature_132::~Li :         9.43       1            9.4260
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_specificHumidity_120::L :         0.04       1            0.0444
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_specificHumidity_120::r :         0.00       1            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_specificHumidity_120::s :         0.23       1            0.2337
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_specificHumidity_120::s :         0.45      51            0.0089
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_specificHumidity_120::s :         0.56      50            0.0111
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_specificHumidity_120::~ :         3.22       1            3.2179
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_specificHumidity_132::L :         0.04       1            0.0439
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_specificHumidity_132::r :         0.00       1            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_specificHumidity_132::s :         0.04       1            0.0365
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_specificHumidity_132::s :         0.17      51            0.0033
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_specificHumidity_132::s :         0.15      50            0.0030
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_specificHumidity_132::~ :         0.03       1            0.0287
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_stationPressure_120::Li :         0.04       1            0.0386
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_stationPressure_120::re :         0.00       1            0.0010
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_stationPressure_120::se :         0.42       1            0.4246
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_stationPressure_120::si :         2.22      51            0.0435
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_stationPressure_120::si :        67.16      50            1.3432
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_stationPressure_120::~L :        16.70       1           16.7026
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_winds_220::LinearObsOpe :         0.05       1            0.0458
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_winds_220::requiredVars :         0.00       1            0.0010
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_winds_220::setTrajector :         0.30       1            0.2991
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_winds_220::simulateObsA :         0.84      51            0.0164
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_winds_220::simulateObsT :         2.53      50            0.0505
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_winds_220::~LinearObsOp :         4.32       1            4.3200
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_winds_232::LinearObsOpe :         0.04       1            0.0420
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_winds_232::requiredVars :         0.00       1            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_winds_232::setTrajector :         0.04       1            0.0361
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_winds_232::simulateObsA :         0.33      51            0.0065
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_winds_232::simulateObsT :         0.14      50            0.0028
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::adpupa_winds_232::~LinearObsOp :         0.01       1            0.0120
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::Lin :         0.04       1            0.0425
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::req :         0.00       1            0.0005
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::set :         0.06       1            0.0621
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::sim :         0.26      51            0.0051
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::sim :         0.27      50            0.0055
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_airTemperature_133::~Li :         0.29       1            0.2914
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::L :         0.04       1            0.0425
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::r :         0.00       1            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::s :         0.21       1            0.2133
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::s :         0.21      51            0.0041
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::s :         0.15      50            0.0031
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_specificHumidity_133::~ :         2.81       1            2.8137
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_winds_233::LinearObsOpe :         0.04       1            0.0437
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_winds_233::requiredVars :         0.00       1            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_winds_233::setTrajector :         0.04       1            0.0390
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_winds_233::simulateObsA :         0.18      51            0.0035
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_winds_233::simulateObsT :         0.15      50            0.0030
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircar_winds_233::~LinearObsOp :         0.01       1            0.0086
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_130::Lin :         0.04       1            0.0420
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_130::req :         0.00       1            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_130::set :         0.04       1            0.0360
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_130::sim :         0.15      51            0.0029
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_130::sim :         0.11      50            0.0022
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_130::~Li :         0.00       1            0.0047
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_131::Lin :         0.04       1            0.0415
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_131::req :         0.00       1            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_131::set :         0.03       1            0.0348
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_131::sim :         0.15      51            0.0030
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_131::sim :         0.11      50            0.0021
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_131::~Li :         0.01       1            0.0091
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_134::Lin :         0.04       1            0.0419
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_134::req :         0.00       1            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_134::set :         0.04       1            0.0406
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_134::sim :         0.14      51            0.0028
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_134::sim :         0.10      50            0.0021
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_134::~Li :         0.00       1            0.0043
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_135::Lin :         0.04       1            0.0419
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_135::req :         0.00       1            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_135::set :         0.03       1            0.0348
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_135::sim :         0.16      51            0.0031
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_135::sim :        16.30      50            0.3259
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_airTemperature_135::~Li :         0.01       1            0.0063
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_specificHumidity_134::L :         0.04       1            0.0424
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_specificHumidity_134::r :         0.00       1            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_specificHumidity_134::s :         0.03       1            0.0337
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_specificHumidity_134::s :         0.15      51            0.0029
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_specificHumidity_134::s :        11.72      50            0.2343
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_specificHumidity_134::~ :         0.01       1            0.0054
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_230::LinearObsOpe :         0.04       1            0.0433
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_230::requiredVars :         0.00       1            0.0003
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_230::setTrajector :         0.04       1            0.0377
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_230::simulateObsA :         0.19      51            0.0037
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_230::simulateObsT :         5.33      50            0.1066
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_230::~LinearObsOp :         0.00       1            0.0042
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_231::LinearObsOpe :         0.04       1            0.0426
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_231::requiredVars :         0.00       1            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_231::setTrajector :         0.03       1            0.0338
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_231::simulateObsA :         0.17      51            0.0034
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_231::simulateObsT :         0.23      50            0.0046
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_231::~LinearObsOp :         0.01       1            0.0065
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_234::LinearObsOpe :         0.04       1            0.0432
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_234::requiredVars :         0.00       1            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_234::setTrajector :         0.03       1            0.0347
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_234::simulateObsA :         0.16      51            0.0032
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_234::simulateObsT :         0.11      50            0.0023
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_234::~LinearObsOp :         0.02       1            0.0207
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_235::LinearObsOpe :         0.04       1            0.0425
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_235::requiredVars :         0.00       1            0.0005
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_235::setTrajector :         0.03       1            0.0349
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_235::simulateObsA :         0.18      51            0.0036
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_235::simulateObsT :         0.12      50            0.0024
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::aircft_winds_235::~LinearObsOp :         0.89       1            0.8918
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::amsua_metop-b::LinearObsOperat :         0.35       1            0.3511
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::amsua_metop-b::requiredVars    :         0.00       1            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::amsua_metop-b::setTrajectory   :       230.31       1          230.3105
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::amsua_metop-b::simulateObsAD   :      1854.32      51           36.3591
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::amsua_metop-b::simulateObsTL   :         8.74      50            0.1747
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::amsua_metop-b::~LinearObsOpera :         0.29       1            0.2872
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::amsua_metop-c::LinearObsOperat :         0.35       1            0.3531
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::amsua_metop-c::requiredVars    :         0.00       1            0.0005
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::amsua_metop-c::setTrajectory   :       195.42       1          195.4249
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::amsua_metop-c::simulateObsAD   :      1830.11      51           35.8845
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::amsua_metop-c::simulateObsTL   :         5.31      50            0.1062
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::amsua_metop-c::~LinearObsOpera :         6.05       1            6.0504
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::amsua_n19::LinearObsOperator   :         0.34       1            0.3406
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::amsua_n19::requiredVars        :         0.00       1            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::amsua_n19::setTrajectory       :       332.43       1          332.4292
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::amsua_n19::simulateObsAD       :      1667.90      51           32.7040
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::amsua_n19::simulateObsTL       :        10.83      50            0.2167
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::amsua_n19::~LinearObsOperator  :         4.60       1            4.6036
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::atms_n20::LinearObsOperator    :         0.35       1            0.3498
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::atms_n20::requiredVars         :         0.00       1            0.0010
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::atms_n20::setTrajectory        :       112.84       1          112.8411
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::atms_n20::simulateObsAD        :      1916.74      51           37.5831
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::atms_n20::simulateObsTL        :         6.79      50            0.1357
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::atms_n20::~LinearObsOperator   :         0.53       1            0.5325
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::atms_n21::LinearObsOperator    :         0.35       1            0.3452
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::atms_n21::requiredVars         :         0.00       1            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::atms_n21::setTrajectory        :      1097.68       1         1097.6811
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::atms_n21::simulateObsAD        :      1795.36      51           35.2031
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::atms_n21::simulateObsTL        :        92.24      50            1.8449
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::atms_n21::~LinearObsOperator   :         8.83       1            8.8315
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::atms_npp::LinearObsOperator    :         0.34       1            0.3442
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::atms_npp::requiredVars         :         0.00       1            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::atms_npp::setTrajectory        :       845.00       1          845.0038
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::atms_npp::simulateObsAD        :      2103.30      51           41.2411
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::atms_npp::simulateObsTL        :        73.32      50            1.4665
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::atms_npp::~LinearObsOperator   :         6.22       1            6.2194
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::iasi_metop-b::LinearObsOperato :        12.71       1           12.7066
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::iasi_metop-b::requiredVars     :         0.00       1            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::iasi_metop-b::setTrajectory    :      1217.88       1         1217.8827
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::iasi_metop-b::simulateObsAD    :      9067.38      51          177.7918
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::iasi_metop-b::simulateObsTL    :         3.25      50            0.0649
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::iasi_metop-b::~LinearObsOperat :         0.16       1            0.1555
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::iasi_metop-c::LinearObsOperato :        12.16       1           12.1553
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::iasi_metop-c::requiredVars     :         0.00       1            0.0005
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::iasi_metop-c::setTrajectory    :      1215.50       1         1215.4955
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::iasi_metop-c::simulateObsAD    :      8687.12      51          170.3357
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::iasi_metop-c::simulateObsTL    :         2.45      50            0.0489
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::iasi_metop-c::~LinearObsOperat :         0.22       1            0.2151
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_airTemperatureAt2M_188: :         0.03       1            0.0261
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_airTemperatureAt2M_188: :         0.00       1            0.0012
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_airTemperatureAt2M_188: :         0.04       1            0.0354
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_airTemperatureAt2M_188: :         0.24      51            0.0047
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_airTemperatureAt2M_188: :         0.17      50            0.0034
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_airTemperatureAt2M_188: :         0.00       1            0.0037
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_specificHumidityAt2M_18 :         0.03       1            0.0263
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_specificHumidityAt2M_18 :         0.00       1            0.0005
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_specificHumidityAt2M_18 :         0.03       1            0.0347
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_specificHumidityAt2M_18 :         0.22      51            0.0044
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_specificHumidityAt2M_18 :         0.16      50            0.0033
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_specificHumidityAt2M_18 :         0.00       1            0.0026
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_stationPressure_188::Li :         0.02       1            0.0155
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_stationPressure_188::re :         0.00       1            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_stationPressure_188::se :         0.05       1            0.0545
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_stationPressure_188::si :         0.23      51            0.0044
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_stationPressure_188::si :         0.17      50            0.0034
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_stationPressure_188::~L :         0.00       1            0.0046
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_winds_288::LinearObsOpe :         0.06       1            0.0587
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_winds_288::requiredVars :         0.00       1            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_winds_288::setTrajector :         0.06       1            0.0624
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_winds_288::simulateObsA :         0.24      51            0.0047
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_winds_288::simulateObsT :         0.27      50            0.0054
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::msonet_winds_288::~LinearObsOp :         0.01       1            0.0081
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::proflr_winds_227::LinearObsOpe :         0.04       1            0.0436
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::proflr_winds_227::requiredVars :         0.00       1            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::proflr_winds_227::setTrajector :         0.05       1            0.0454
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::proflr_winds_227::simulateObsA :         0.18      51            0.0035
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::proflr_winds_227::simulateObsT :         0.14      50            0.0028
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::proflr_winds_227::~LinearObsOp :         0.01       1            0.0054
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::rassda_airTemperature_126::Lin :         0.04       1            0.0420
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::rassda_airTemperature_126::req :         0.00       1            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::rassda_airTemperature_126::set :         0.05       1            0.0544
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::rassda_airTemperature_126::sim :         0.26      51            0.0052
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::rassda_airTemperature_126::sim :         0.17      50            0.0034
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::rassda_airTemperature_126::~Li :         0.00       1            0.0039
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::refl10cm::LinearObsOperator    :         0.05       1            0.0485
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::refl10cm::requiredVars         :         0.00       1            0.0005
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::refl10cm::setTrajectory        :         0.11       1            0.1099
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::refl10cm::simulateObsAD        :         0.64      51            0.0126
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::refl10cm::simulateObsTL        :         0.64      50            0.0129
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::refl10cm::~LinearObsOperator   :         0.00       1            0.0045
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_245_270::LinearOb :         0.04       1            0.0425
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_245_270::required :         0.00       1            0.0005
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_245_270::setTraje :         0.04       1            0.0422
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_245_270::simulate :         0.20      51            0.0039
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_245_270::simulate :         0.16      50            0.0032
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_245_270::~LinearO :         0.00       1            0.0046
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_245_272::LinearOb :         0.04       1            0.0440
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_245_272::required :         0.00       1            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_245_272::setTraje :         0.05       1            0.0487
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_245_272::simulate :         0.19      51            0.0037
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_245_272::simulate :         0.20      50            0.0039
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_245_272::~LinearO :         0.00       1            0.0034
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_246_270::LinearOb :         0.04       1            0.0435
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_246_270::required :         0.00       1            0.0002
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_246_270::setTraje :         0.04       1            0.0382
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_246_270::simulate :         0.17      51            0.0034
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_246_270::simulate :         0.14      50            0.0027
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_246_270::~LinearO :         0.01       1            0.0058
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_246_272::LinearOb :         0.04       1            0.0444
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_246_272::required :         0.00       1            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_246_272::setTraje :         0.04       1            0.0402
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_246_272::simulate :         0.16      51            0.0031
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_246_272::simulate :         0.13      50            0.0026
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_246_272::~LinearO :         0.00       1            0.0035
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_247_270::LinearOb :         0.04       1            0.0446
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_247_270::required :         0.00       1            0.0005
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_247_270::setTraje :         0.04       1            0.0365
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_247_270::simulate :         0.16      51            0.0032
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_247_270::simulate :         0.15      50            0.0030
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_247_270::~LinearO :         0.01       1            0.0054
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_247_272::LinearOb :         0.04       1            0.0422
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_247_272::required :         0.00       1            0.0005
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_247_272::setTraje :         0.03       1            0.0347
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_247_272::simulate :         0.19      51            0.0038
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_247_272::simulate :         0.13      50            0.0025
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::satwnd_winds_247_272::~LinearO :         0.00       1            0.0046
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_airTemperatureAt2M_180: :         0.02       1            0.0246
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_airTemperatureAt2M_180: :         0.00       1            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_airTemperatureAt2M_180: :         0.04       1            0.0367
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_airTemperatureAt2M_180: :         0.19      51            0.0036
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_airTemperatureAt2M_180: :         0.15      50            0.0030
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_airTemperatureAt2M_180: :         0.00       1            0.0046
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_airTemperatureAt2M_182: :         0.02       1            0.0239
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_airTemperatureAt2M_182: :         0.00       1            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_airTemperatureAt2M_182: :         0.04       1            0.0380
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_airTemperatureAt2M_182: :         0.16      51            0.0031
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_airTemperatureAt2M_182: :         0.14      50            0.0029
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_airTemperatureAt2M_182: :         0.00       1            0.0027
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_airTemperatureAt2M_183: :         0.03       1            0.0254
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_airTemperatureAt2M_183: :         0.00       1            0.0012
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_airTemperatureAt2M_183: :         0.03       1            0.0338
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_airTemperatureAt2M_183: :         0.16      51            0.0031
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_airTemperatureAt2M_183: :         0.12      50            0.0024
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_airTemperatureAt2M_183: :         1.52       1            1.5167
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_specificHumidityAt2M_18 :         0.02       1            0.0233
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_specificHumidityAt2M_18 :         0.00       1            0.0005
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_specificHumidityAt2M_18 :         0.04       1            0.0354
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_specificHumidityAt2M_18 :         0.17      51            0.0033
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_specificHumidityAt2M_18 :         0.13      50            0.0027
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_specificHumidityAt2M_18 :         0.00       1            0.0022
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_specificHumidityAt2M_18 :         0.02       1            0.0236
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_specificHumidityAt2M_18 :         0.00       1            0.0009
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_specificHumidityAt2M_18 :         0.03       1            0.0344
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_specificHumidityAt2M_18 :         0.17      51            0.0033
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_specificHumidityAt2M_18 :         0.13      50            0.0025
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_specificHumidityAt2M_18 :         0.00       1            0.0021
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_specificHumidityAt2M_18 :         0.02       1            0.0236
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_specificHumidityAt2M_18 :         0.00       1            0.0004
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_specificHumidityAt2M_18 :         0.03       1            0.0330
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_specificHumidityAt2M_18 :         0.17      51            0.0034
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_specificHumidityAt2M_18 :         0.12      50            0.0025
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_specificHumidityAt2M_18 :         0.04       1            0.0427
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_stationPressure_180::Li :         0.02       1            0.0154
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_stationPressure_180::re :         0.00       1            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_stationPressure_180::se :         0.03       1            0.0272
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_stationPressure_180::si :         0.16      51            0.0032
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_stationPressure_180::si :         0.13      50            0.0025
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_stationPressure_180::~L :         0.00       1            0.0022
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_stationPressure_182::Li :         0.02       1            0.0150
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_stationPressure_182::re :         0.00       1            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_stationPressure_182::se :         0.03       1            0.0273
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_stationPressure_182::si :         0.16      51            0.0032
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_stationPressure_182::si :         0.12      50            0.0023
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_stationPressure_182::~L :         0.00       1            0.0034
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_winds_280::LinearObsOpe :         0.06       1            0.0614
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_winds_280::requiredVars :         0.00       1            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_winds_280::setTrajector :         0.04       1            0.0439
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_winds_280::simulateObsA :         0.25      51            0.0049
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_winds_280::simulateObsT :         0.18      50            0.0036
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_winds_280::~LinearObsOp :         1.30       1            1.2959
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_winds_282::LinearObsOpe :         0.06       1            0.0592
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_winds_282::requiredVars :         0.00       1            0.0004
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_winds_282::setTrajector :         0.04       1            0.0428
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_winds_282::simulateObsA :         0.17      51            0.0034
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_winds_282::simulateObsT :         0.13      50            0.0026
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_winds_282::~LinearObsOp :         0.01       1            0.0060
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_winds_284::LinearObsOpe :         0.06       1            0.0601
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_winds_284::requiredVars :         0.00       1            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_winds_284::setTrajector :         0.04       1            0.0420
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_winds_284::simulateObsA :         0.17      51            0.0033
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_winds_284::simulateObsT :         0.13      50            0.0026
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::sfcshp_winds_284::~LinearObsOp :         0.01       1            0.0081
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearVariableChange::LinearVariableChange    :         0.92       2            0.4613
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearVariableChange::changeVarAD             :     33527.29     102          328.6989
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearVariableChange::changeVarTL             :     25282.12     101          250.3180
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearVariableChange::changeVarTraj           :       278.98       2          139.4925
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearVariableChange::~LinearVariableChange   :       160.99       2           80.4961
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LocalInterpolator::LocalInterpolator          :    299026.66  371712            0.8045
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LocalInterpolator::apply                      :       184.77  371712            0.0005
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LocalInterpolator::applyAD                    :      4401.02 6319104            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LocalInterpolator::applyTL                    :      3256.72 6195200            0.0005
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LocalInterpolator::preprocess                 :     12783.38      53          241.1958
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LocalInterpolator::preprocessAD               :      4692.67      51           92.0132
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LocalInterpolator::~LocalInterpolator         :        91.59  371712            0.0002
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Localization::Localization                    :      5094.98       1         5094.9801
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Localization::multiply                        :   1511775.43    1530          988.0885
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Localization::~Localization                   :       713.41       1          713.4086
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::MeshTriangulation::containingTriangleAndBaryc :       615.01   74672            0.0082
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::MeshTriangulation::setLocalTree               :        44.83       4           11.2074
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::MeshTriangulationache::setMeshAndTriangulatio :      1187.68       4          296.9198
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxControl::ModelAuxControl              :         0.01       5            0.0028
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxControl::print                        :         0.00       3            0.0009
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxControl::~ModelAuxControl             :         0.04       5            0.0076
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxCovariance::ModelAuxCovariance        :         0.00       1            0.0023
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxCovariance::linearize                 :         0.00       1            0.0002
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxCovariance::multiply                  :         0.01      51            0.0003
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxCovariance::~ModelAuxCovariance       :         0.00       1            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::ModelAuxIncrement          :         0.43     222            0.0020
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::axpy                       :         0.77    1375            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::diff                       :         0.00       4            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::dot_product_with           :         0.74    1479            0.0005
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::operator*=                 :         0.09      99            0.0009
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::operator+=                 :         0.19     150            0.0012
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::operator+=ModelAuxControl  :         0.00       1            0.0004
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::operator=                  :         0.03      54            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::print                      :         0.01       7            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::serialSize                 :         0.02     222            0.0001
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::write                      :         0.00       1            0.0001
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::zero                       :         0.02      51            0.0004
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelAuxIncrement::~ModelAuxIncrement         :         0.09     222            0.0004
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelData::ModelData                          :         0.07       2            0.0361
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelData::modelData                          :         0.19       2            0.0961
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ModelData::~ModelData                         :         0.01       2            0.0071
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxControl::ObsAuxControl                  :      6785.75     320           21.2055
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxControl::print                          :         5.71     192            0.0297
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxControl::requiredHdiagnostics           :         0.02     128            0.0002
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxControl::requiredVars                   :         0.11     384            0.0003
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxControl::write                          :       417.33      64            6.5207
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxControl::~ObsAuxControl                 :         4.22     320            0.0132
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxCovariance::ObsAuxCovariance            :       699.38      64           10.9278
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxCovariance::inverseMultiply             :         6.00    3264            0.0018
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxCovariance::linearize                   :       682.45      64           10.6633
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxCovariance::multiply                    :       176.39    3264            0.0540
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxCovariance::preconditioner              :         0.08      64            0.0012
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxCovariance::write                       :       154.18      64            2.4090
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxCovariance::~ObsAuxCovariance           :         0.20      64            0.0031
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::ObsAuxIncrement              :       764.83   14208            0.0538
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::axpy                         :       195.17   88000            0.0022
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::diff                         :         0.28     256            0.0011
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::dot_product_with             :       146.44   94656            0.0015
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::operator*=                   :         8.40    6336            0.0013
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::operator+=                   :        24.21    9600            0.0025
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::operator=                    :        14.92    3456            0.0043
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::print                        :        10.94     448            0.0244
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::serialSize                   :         1.74   28416            0.0001
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::zero                         :         4.06    3264            0.0012
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxIncrement::~ObsAuxIncrement             :        25.68   14208            0.0018
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxPreconditioner::multiply                :         5.61    3264            0.0017
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxPreconditioner::~ObsAuxPreconditioner   :         0.08     191            0.0004
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsDataVector::ObsDataVector                  :        24.37     319            0.0764
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsDataVector::mask                           :         0.09     128            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsDataVector::operator=                      :         0.58     128            0.0046
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsDataVector::print                          :      1766.54     128           13.8011
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsDataVector::save                           :       104.16     256            0.4069
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsDataVector::~ObsDataVector                 :         1.43     319            0.0045
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsDiagnostics::ObsDiagnostics                :        27.70     128            0.2164
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsDiagnostics::~ObsDiagnostics               :         6.45     128            0.0504
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsError::getRMSE                             :        27.36     220            0.1244
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsError::inverseMultiply                     :        76.66    3328            0.0230
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsError::obserrors                           :         1.49     348            0.0043
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsError::update                              :       233.62     128            1.8251
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsError::~ObsError                           :         0.85      64            0.0133
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::abi_g16::ObsOperator             :       143.23       2           71.6160
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::abi_g16::computeReducedVars      :        12.69       3            4.2316
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::abi_g16::locations               :         0.61       3            0.2044
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::abi_g16::requiredVars            :         0.01       3            0.0018
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::abi_g16::simulateObs             :      2300.65       2         1150.3233
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::abi_g16::~ObsOperator            :        42.20       2           21.0982
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::abi_g18::ObsOperator             :        14.22       2            7.1115
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::abi_g18::computeReducedVars      :         2.05       3            0.6834
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::abi_g18::locations               :         0.19       3            0.0647
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::abi_g18::requiredVars            :         0.00       3            0.0009
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::abi_g18::simulateObs             :       638.56       2          319.2779
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::abi_g18::~ObsOperator            :         2.16       2            1.0807
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_airTemperatureAt2M_181::O :         0.29       2            0.1434
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_airTemperatureAt2M_181::c :         0.02       3            0.0066
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_airTemperatureAt2M_181::l :         0.16       3            0.0521
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_airTemperatureAt2M_181::r :         0.01       3            0.0031
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_airTemperatureAt2M_181::s :         1.66       2            0.8322
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_airTemperatureAt2M_181::~ :        17.16       2            8.5819
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_airTemperatureAt2M_183::O :         0.03       2            0.0158
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_airTemperatureAt2M_183::c :         0.02       3            0.0071
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_airTemperatureAt2M_183::l :         0.16       3            0.0537
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_airTemperatureAt2M_183::r :         0.00       3            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_airTemperatureAt2M_183::s :         0.01       2            0.0025
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_airTemperatureAt2M_183::~ :         0.08       2            0.0404
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_airTemperatureAt2M_187::O :         0.03       2            0.0157
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_airTemperatureAt2M_187::c :         0.02       3            0.0060
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_airTemperatureAt2M_187::l :         0.15       3            0.0505
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_airTemperatureAt2M_187::r :         0.00       3            0.0009
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_airTemperatureAt2M_187::s :         0.01       2            0.0031
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_airTemperatureAt2M_187::~ :         0.00       2            0.0024
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_specificHumidityAt2M_181: :         0.03       2            0.0142
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_specificHumidityAt2M_181: :         0.02       3            0.0071
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_specificHumidityAt2M_181: :         0.15       3            0.0508
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_specificHumidityAt2M_181: :         0.00       3            0.0009
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_specificHumidityAt2M_181: :         0.01       2            0.0031
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_specificHumidityAt2M_181: :         0.01       2            0.0027
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_specificHumidityAt2M_183: :         0.03       2            0.0144
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_specificHumidityAt2M_183: :         0.02       3            0.0071
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_specificHumidityAt2M_183: :         0.16       3            0.0526
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_specificHumidityAt2M_183: :         0.00       3            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_specificHumidityAt2M_183: :         0.01       2            0.0031
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_specificHumidityAt2M_183: :         0.00       2            0.0019
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_specificHumidityAt2M_187: :         0.03       2            0.0145
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_specificHumidityAt2M_187: :         0.02       3            0.0067
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_specificHumidityAt2M_187: :         0.17       3            0.0566
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_specificHumidityAt2M_187: :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_specificHumidityAt2M_187: :         0.01       2            0.0030
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_specificHumidityAt2M_187: :         0.01       2            0.0030
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_stationPressure_181::ObsO :         0.12       2            0.0604
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_stationPressure_181::comp :         0.04       3            0.0129
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_stationPressure_181::loca :         0.15       3            0.0496
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_stationPressure_181::requ :         0.00       3            0.0009
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_stationPressure_181::simu :        12.19       2            6.0937
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_stationPressure_181::~Obs :         5.25       2            2.6270
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_stationPressure_187::ObsO :         0.11       2            0.0556
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_stationPressure_187::comp :         0.03       3            0.0112
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_stationPressure_187::loca :         0.15       3            0.0499
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_stationPressure_187::requ :         0.00       3            0.0009
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_stationPressure_187::simu :         0.09       2            0.0453
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_stationPressure_187::~Obs :         0.02       2            0.0109
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_winds_281::ObsOperator    :         0.21       2            0.1059
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_winds_281::computeReduced :         0.03       3            0.0115
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_winds_281::locations      :         0.16       3            0.0539
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_winds_281::requiredVars   :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_winds_281::simulateObs    :         1.12       2            0.5590
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_winds_281::~ObsOperator   :         0.22       2            0.1115
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_winds_284::ObsOperator    :         0.20       2            0.1000
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_winds_284::computeReduced :         0.03       3            0.0108
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_winds_284::locations      :         0.16       3            0.0534
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_winds_284::requiredVars   :         0.00       3            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_winds_284::simulateObs    :         0.04       2            0.0221
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_winds_284::~ObsOperator   :         0.01       2            0.0045
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_winds_287::ObsOperator    :         0.23       2            0.1135
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_winds_287::computeReduced :         0.03       3            0.0101
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_winds_287::locations      :         0.15       3            0.0498
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_winds_287::requiredVars   :         0.00       3            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_winds_287::simulateObs    :         0.05       2            0.0248
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpsfc_winds_287::~ObsOperator   :         0.01       2            0.0050
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_airTemperature_120::ObsOp :       188.77       2           94.3830
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_airTemperature_120::compu :         0.92       3            0.3083
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_airTemperature_120::locat :         1.31       3            0.4382
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_airTemperature_120::requi :         0.01       3            0.0021
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_airTemperature_120::simul :        82.82       2           41.4115
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_airTemperature_120::~ObsO :        32.13       2           16.0637
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_airTemperature_132::ObsOp :         0.18       2            0.0910
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_airTemperature_132::compu :         0.03       3            0.0085
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_airTemperature_132::locat :         0.17       3            0.0559
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_airTemperature_132::requi :         0.00       3            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_airTemperature_132::simul :         0.04       2            0.0206
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_airTemperature_132::~ObsO :         0.02       2            0.0095
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_specificHumidity_120::Obs :         0.15       2            0.0761
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_specificHumidity_120::com :         0.03       3            0.0113
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_specificHumidity_120::loc :         0.26       3            0.0874
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_specificHumidity_120::req :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_specificHumidity_120::sim :         0.36       2            0.1796
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_specificHumidity_120::~Ob :         4.98       2            2.4889
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_specificHumidity_132::Obs :         0.15       2            0.0765
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_specificHumidity_132::com :         0.02       3            0.0082
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_specificHumidity_132::loc :         0.17       3            0.0577
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_specificHumidity_132::req :         0.00       3            0.0010
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_specificHumidity_132::sim :         0.03       2            0.0156
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_specificHumidity_132::~Ob :         0.02       2            0.0087
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_stationPressure_120::ObsO :       118.39       2           59.1932
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_stationPressure_120::comp :         0.06       3            0.0206
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_stationPressure_120::loca :         0.15       3            0.0501
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_stationPressure_120::requ :         0.01       3            0.0027
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_stationPressure_120::simu :        30.00       2           14.9997
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_stationPressure_120::~Obs :         7.95       2            3.9753
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_winds_220::ObsOperator    :         0.22       2            0.1076
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_winds_220::computeReduced :         0.06       3            0.0185
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_winds_220::locations      :         0.24       3            0.0811
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_winds_220::requiredVars   :         0.00       3            0.0009
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_winds_220::simulateObs    :         0.38       2            0.1924
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_winds_220::~ObsOperator   :         0.02       2            0.0092
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_winds_232::ObsOperator    :         0.18       2            0.0908
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_winds_232::computeReduced :         0.03       3            0.0093
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_winds_232::locations      :         0.16       3            0.0531
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_winds_232::requiredVars   :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_winds_232::simulateObs    :         0.03       2            0.0172
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::adpupa_winds_232::~ObsOperator   :         0.01       2            0.0041
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::ObsOp :         0.15       2            0.0764
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::compu :         0.02       3            0.0073
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::locat :         0.16       3            0.0547
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::requi :         0.00       3            0.0009
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::simul :         0.10       2            0.0495
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_airTemperature_133::~ObsO :         0.40       2            0.1980
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::Obs :         0.15       2            0.0746
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::com :         0.02       3            0.0082
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::loc :         0.16       3            0.0520
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::req :         0.00       3            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::sim :         0.04       2            0.0189
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_specificHumidity_133::~Ob :         0.01       2            0.0045
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_winds_233::ObsOperator    :         0.19       2            0.0940
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_winds_233::computeReduced :         0.03       3            0.0094
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_winds_233::locations      :         0.17       3            0.0580
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_winds_233::requiredVars   :         0.00       3            0.0009
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_winds_233::simulateObs    :         0.03       2            0.0172
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircar_winds_233::~ObsOperator   :         0.01       2            0.0063
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_130::ObsOp :         0.14       2            0.0702
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_130::compu :         0.02       3            0.0071
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_130::locat :         0.16       3            0.0526
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_130::requi :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_130::simul :         0.03       2            0.0160
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_130::~ObsO :         0.01       2            0.0040
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_131::ObsOp :         0.15       2            0.0749
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_131::compu :         0.02       3            0.0078
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_131::locat :         0.16       3            0.0536
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_131::requi :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_131::simul :         0.04       2            0.0177
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_131::~ObsO :         0.01       2            0.0047
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_134::ObsOp :         0.14       2            0.0702
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_134::compu :         0.02       3            0.0071
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_134::locat :         0.16       3            0.0539
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_134::requi :         0.00       3            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_134::simul :         0.03       2            0.0152
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_134::~ObsO :         0.01       2            0.0036
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_135::ObsOp :         0.14       2            0.0721
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_135::compu :         0.02       3            0.0075
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_135::locat :         0.16       3            0.0535
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_135::requi :         0.00       3            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_135::simul :         0.03       2            0.0161
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_airTemperature_135::~ObsO :         0.01       2            0.0041
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_specificHumidity_134::Obs :         0.14       2            0.0711
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_specificHumidity_134::com :         0.02       3            0.0082
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_specificHumidity_134::loc :         0.16       3            0.0537
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_specificHumidity_134::req :         0.00       3            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_specificHumidity_134::sim :         0.03       2            0.0153
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_specificHumidity_134::~Ob :         0.01       2            0.0044
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_230::ObsOperator    :         0.18       2            0.0889
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_230::computeReduced :         0.03       3            0.0093
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_230::locations      :         0.16       3            0.0523
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_230::requiredVars   :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_230::simulateObs    :         0.03       2            0.0160
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_230::~ObsOperator   :         0.02       2            0.0098
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_231::ObsOperator    :         0.19       2            0.0940
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_231::computeReduced :         0.03       3            0.0088
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_231::locations      :         0.16       3            0.0533
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_231::requiredVars   :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_231::simulateObs    :         0.03       2            0.0160
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_231::~ObsOperator   :         0.01       2            0.0032
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_234::ObsOperator    :         0.18       2            0.0875
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_234::computeReduced :         0.03       3            0.0088
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_234::locations      :         0.16       3            0.0525
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_234::requiredVars   :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_234::simulateObs    :         0.03       2            0.0156
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_234::~ObsOperator   :         0.01       2            0.0044
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_235::ObsOperator    :         0.18       2            0.0902
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_235::computeReduced :         0.03       3            0.0091
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_235::locations      :         0.18       3            0.0605
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_235::requiredVars   :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_235::simulateObs    :         0.03       2            0.0157
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::aircft_winds_235::~ObsOperator   :         0.01       2            0.0046
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::amsua_metop-b::ObsOperator       :        51.46       2           25.7317
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::amsua_metop-b::computeReducedVar :         0.24       3            0.0808
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::amsua_metop-b::locations         :         0.16       3            0.0538
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::amsua_metop-b::requiredVars      :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::amsua_metop-b::simulateObs       :       784.98       2          392.4900
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::amsua_metop-b::~ObsOperator      :         0.03       2            0.0138
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::amsua_metop-c::ObsOperator       :        11.75       2            5.8737
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::amsua_metop-c::computeReducedVar :         0.27       3            0.0893
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::amsua_metop-c::locations         :         0.18       3            0.0590
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::amsua_metop-c::requiredVars      :         0.00       3            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::amsua_metop-c::simulateObs       :       704.33       2          352.1665
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::amsua_metop-c::~ObsOperator      :         2.71       2            1.3568
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::amsua_n19::ObsOperator           :        87.52       2           43.7610
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::amsua_n19::computeReducedVars    :         0.24       3            0.0798
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::amsua_n19::locations             :         0.16       3            0.0545
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::amsua_n19::requiredVars          :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::amsua_n19::simulateObs           :      1016.32       2          508.1585
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::amsua_n19::~ObsOperator          :         0.45       2            0.2237
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_n20::ObsOperator            :        29.97       2           14.9865
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_n20::computeReducedVars     :         0.24       3            0.0804
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_n20::locations              :         0.16       3            0.0543
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_n20::requiredVars           :         0.00       3            0.0010
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_n20::simulateObs            :       832.05       2          416.0249
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_n20::~ObsOperator           :         0.03       2            0.0130
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_n21::ObsOperator            :        15.61       2            7.8038
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_n21::computeReducedVars     :         0.27       3            0.0887
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_n21::locations              :         0.19       3            0.0630
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_n21::requiredVars           :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_n21::simulateObs            :      2495.13       2         1247.5645
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_n21::~ObsOperator           :         0.06       2            0.0276
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_npp::ObsOperator            :        18.49       2            9.2469
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_npp::computeReducedVars     :         0.26       3            0.0867
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_npp::locations              :         0.20       3            0.0652
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_npp::requiredVars           :         0.00       3            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_npp::simulateObs            :      2190.95       2         1095.4754
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_npp::~ObsOperator           :         0.05       2            0.0262
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::iasi_metop-b::ObsOperator        :       101.02       2           50.5106
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::iasi_metop-b::computeReducedVars :         0.20       3            0.0667
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::iasi_metop-b::locations          :         0.20       3            0.0683
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::iasi_metop-b::requiredVars       :         0.00       3            0.0012
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::iasi_metop-b::simulateObs        :      5546.05       2         2773.0242
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::iasi_metop-b::~ObsOperator       :         0.03       2            0.0156
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::iasi_metop-c::ObsOperator        :        82.96       2           41.4824
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::iasi_metop-c::computeReducedVars :         0.23       3            0.0752
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::iasi_metop-c::locations          :         0.22       3            0.0733
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::iasi_metop-c::requiredVars       :         0.00       3            0.0011
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::iasi_metop-c::simulateObs        :      6074.14       2         3037.0698
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::iasi_metop-c::~ObsOperator       :         0.03       2            0.0169
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_airTemperatureAt2M_188::O :         0.04       2            0.0192
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_airTemperatureAt2M_188::c :         0.03       3            0.0084
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_airTemperatureAt2M_188::l :         0.18       3            0.0597
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_airTemperatureAt2M_188::r :         0.00       3            0.0009
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_airTemperatureAt2M_188::s :         0.01       2            0.0029
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_airTemperatureAt2M_188::~ :         0.02       2            0.0077
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_specificHumidityAt2M_188: :         0.03       2            0.0151
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_specificHumidityAt2M_188: :         0.02       3            0.0081
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_specificHumidityAt2M_188: :         0.19       3            0.0623
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_specificHumidityAt2M_188: :         0.00       3            0.0009
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_specificHumidityAt2M_188: :         0.01       2            0.0034
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_specificHumidityAt2M_188: :         0.01       2            0.0032
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_stationPressure_188::ObsO :         0.11       2            0.0557
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_stationPressure_188::comp :         0.04       3            0.0134
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_stationPressure_188::loca :         0.17       3            0.0561
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_stationPressure_188::requ :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_stationPressure_188::simu :         0.13       2            0.0643
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_stationPressure_188::~Obs :         0.03       2            0.0167
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_winds_288::ObsOperator    :         0.20       2            0.1010
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_winds_288::computeReduced :         0.03       3            0.0112
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_winds_288::locations      :         0.17       3            0.0551
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_winds_288::requiredVars   :         0.00       3            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_winds_288::simulateObs    :         0.06       2            0.0279
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::msonet_winds_288::~ObsOperator   :         0.02       2            0.0083
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::proflr_winds_227::ObsOperator    :         0.18       2            0.0880
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::proflr_winds_227::computeReduced :         0.03       3            0.0087
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::proflr_winds_227::locations      :         0.16       3            0.0524
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::proflr_winds_227::requiredVars   :         0.00       3            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::proflr_winds_227::simulateObs    :         0.04       2            0.0185
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::proflr_winds_227::~ObsOperator   :         0.01       2            0.0033
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::rassda_airTemperature_126::ObsOp :         0.14       2            0.0721
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::rassda_airTemperature_126::compu :         0.02       3            0.0071
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::rassda_airTemperature_126::locat :         0.16       3            0.0519
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::rassda_airTemperature_126::requi :         0.00       3            0.0009
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::rassda_airTemperature_126::simul :         0.06       2            0.0289
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::rassda_airTemperature_126::~ObsO :         0.01       2            0.0035
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::refl10cm::ObsOperator            :         0.42       2            0.2108
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::refl10cm::computeReducedVars     :         0.03       3            0.0087
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::refl10cm::locations              :         0.28       3            0.0935
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::refl10cm::requiredVars           :         0.00       3            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::refl10cm::simulateObs            :         0.13       2            0.0638
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::refl10cm::~ObsOperator           :         0.01       2            0.0034
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_245_270::ObsOperato :         0.19       2            0.0933
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_245_270::computeRed :         0.03       3            0.0107
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_245_270::locations  :         0.15       3            0.0506
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_245_270::requiredVa :         0.00       3            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_245_270::simulateOb :         0.05       2            0.0244
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_245_270::~ObsOperat :         0.01       2            0.0043
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_245_272::ObsOperato :         0.18       2            0.0909
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_245_272::computeRed :         0.03       3            0.0115
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_245_272::locations  :         0.17       3            0.0550
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_245_272::requiredVa :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_245_272::simulateOb :         0.04       2            0.0211
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_245_272::~ObsOperat :         0.01       2            0.0031
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_246_270::ObsOperato :         0.18       2            0.0897
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_246_270::computeRed :         0.03       3            0.0108
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_246_270::locations  :         0.15       3            0.0495
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_246_270::requiredVa :         0.00       3            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_246_270::simulateOb :         0.03       2            0.0173
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_246_270::~ObsOperat :         0.01       2            0.0039
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_246_272::ObsOperato :         0.18       2            0.0919
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_246_272::computeRed :         0.03       3            0.0103
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_246_272::locations  :         0.15       3            0.0494
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_246_272::requiredVa :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_246_272::simulateOb :         0.03       2            0.0167
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_246_272::~ObsOperat :         0.01       2            0.0031
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_247_270::ObsOperato :         0.18       2            0.0889
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_247_270::computeRed :         0.03       3            0.0108
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_247_270::locations  :         0.15       3            0.0508
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_247_270::requiredVa :         0.00       3            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_247_270::simulateOb :         0.04       2            0.0183
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_247_270::~ObsOperat :         0.01       2            0.0033
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_247_272::ObsOperato :         0.18       2            0.0899
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_247_272::computeRed :         0.04       3            0.0120
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_247_272::locations  :         0.15       3            0.0494
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_247_272::requiredVa :         0.00       3            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_247_272::simulateOb :         0.03       2            0.0158
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::satwnd_winds_247_272::~ObsOperat :         0.01       2            0.0037
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_airTemperatureAt2M_180::O :         0.04       2            0.0181
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_airTemperatureAt2M_180::c :         0.02       3            0.0070
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_airTemperatureAt2M_180::l :         0.17       3            0.0578
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_airTemperatureAt2M_180::r :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_airTemperatureAt2M_180::s :         0.00       2            0.0025
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_airTemperatureAt2M_180::~ :         0.01       2            0.0055
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_airTemperatureAt2M_182::O :         0.03       2            0.0143
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_airTemperatureAt2M_182::c :         0.03       3            0.0085
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_airTemperatureAt2M_182::l :         0.16       3            0.0546
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_airTemperatureAt2M_182::r :         0.00       3            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_airTemperatureAt2M_182::s :         0.01       2            0.0026
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_airTemperatureAt2M_182::~ :         0.01       2            0.0040
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_airTemperatureAt2M_183::O :         0.03       2            0.0142
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_airTemperatureAt2M_183::c :         0.02       3            0.0072
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_airTemperatureAt2M_183::l :         0.16       3            0.0530
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_airTemperatureAt2M_183::r :         0.00       3            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_airTemperatureAt2M_183::s :         0.00       2            0.0024
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_airTemperatureAt2M_183::~ :         0.02       2            0.0111
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_specificHumidityAt2M_180: :         0.03       2            0.0143
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_specificHumidityAt2M_180: :         0.02       3            0.0081
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_specificHumidityAt2M_180: :         0.17       3            0.0577
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_specificHumidityAt2M_180: :         0.00       3            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_specificHumidityAt2M_180: :         0.01       2            0.0027
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_specificHumidityAt2M_180: :         0.00       2            0.0025
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_specificHumidityAt2M_182: :         0.03       2            0.0142
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_specificHumidityAt2M_182: :         0.02       3            0.0075
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_specificHumidityAt2M_182: :         0.16       3            0.0544
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_specificHumidityAt2M_182: :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_specificHumidityAt2M_182: :         0.01       2            0.0027
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_specificHumidityAt2M_182: :         0.01       2            0.0026
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_specificHumidityAt2M_183: :         0.03       2            0.0141
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_specificHumidityAt2M_183: :         0.02       3            0.0071
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_specificHumidityAt2M_183: :         0.18       3            0.0607
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_specificHumidityAt2M_183: :         0.00       3            0.0006
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_specificHumidityAt2M_183: :         0.01       2            0.0029
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_specificHumidityAt2M_183: :         0.01       2            0.0036
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_stationPressure_180::ObsO :         0.11       2            0.0571
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_stationPressure_180::comp :         0.03       3            0.0115
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_stationPressure_180::loca :         0.16       3            0.0545
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_stationPressure_180::requ :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_stationPressure_180::simu :         0.09       2            0.0456
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_stationPressure_180::~Obs :         0.55       2            0.2752
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_stationPressure_182::ObsO :         0.11       2            0.0528
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_stationPressure_182::comp :         0.03       3            0.0115
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_stationPressure_182::loca :         0.16       3            0.0550
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_stationPressure_182::requ :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_stationPressure_182::simu :         0.09       2            0.0442
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_stationPressure_182::~Obs :         0.02       2            0.0093
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_winds_280::ObsOperator    :         0.21       2            0.1048
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_winds_280::computeReduced :         0.03       3            0.0106
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_winds_280::locations      :         0.15       3            0.0508
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_winds_280::requiredVars   :         0.00       3            0.0008
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_winds_280::simulateObs    :         0.05       2            0.0255
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_winds_280::~ObsOperator   :         0.41       2            0.2073
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_winds_282::ObsOperator    :         0.23       2            0.1146
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_winds_282::computeReduced :         0.03       3            0.0107
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_winds_282::locations      :         0.17       3            0.0567
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_winds_282::requiredVars   :         0.00       3            0.0009
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_winds_282::simulateObs    :         0.05       2            0.0233
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_winds_282::~ObsOperator   :         0.01       2            0.0044
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_winds_284::ObsOperator    :         0.20       2            0.1002
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_winds_284::computeReduced :         0.03       3            0.0101
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_winds_284::locations      :         0.17       3            0.0581
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_winds_284::requiredVars   :         0.00       3            0.0007
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_winds_284::simulateObs    :         0.04       2            0.0222
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::sfcshp_winds_284::~ObsOperator   :         0.01       2            0.0056
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsSpace::ObsSpace                            :     16363.67      64          255.6823
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsSpace::obsvariables                        :         0.02     192            0.0001
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsSpace::save                                :    171505.16      64         2679.7682
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsSpace::~ObsSpace                           :       141.74      64            2.2146
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::ObsVector                          :      1050.88    7516            0.1398
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::dot_product                        :         7.01     220            0.0319
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::info                               :       750.38     384            1.9541
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::operator*=                         :         0.02     128            0.0002
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::operator-=                         :         0.05     128            0.0004
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::operator=                          :         1.36     256            0.0053
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::rms                                :        13.24     220            0.0602
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::save                               :        68.38     384            0.1781
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::zero                               :        12.52    3328            0.0038
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsVector::~ObsVector                         :        24.34    7516            0.0032
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Parameters::deserialize                       :      9482.29    4869            1.9475
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Parameters::serialize                         :       125.82    6611            0.0190
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ProximitySearch::setGlobalTree                :     12953.39       4         3238.3483
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Run::execute                                  :   3428810.88       1      3428810.8758
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::SampledLocations::SampledLocations            :         0.06     256            0.0002
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::SampledLocations::latitudes                   :         0.02     192            0.0001
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::SampledLocations::longitudes                  :         0.01     192            0.0001
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::SampledLocations::times                       :         0.01     192            0.0001
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::SampledLocations::~SampledLocations           :        10.49     512            0.0205
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::State::State                                  :    246277.69     103         2391.0455
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::State::print                                  :       620.00       3          206.6670
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::State::toFieldSet                             :       714.38       7          102.0546
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::State::variables                              :         0.00      58            0.0000
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::State::zero                                   :       164.67      30            5.4891
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::State::~State                                 :         5.53     103            0.0537
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::UnstructuredInterpolator::UnstructuredInterpo :      5255.59  456896            0.0115
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::UnstructuredInterpolator::apply               :      1993.42 9710976            0.0002
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::UnstructuredInterpolator::applyAD             :       431.57 9379920            0.0000
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::VariableChange::VariableChange                :       787.30       3          262.4349
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::VariableChange::changeVar                     :      3976.14       3         1325.3810
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::VariableChange::~VariableChange               :         9.08       3            3.0261
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::ErrorCovariance::ErrorCovariance             :     23978.72       1        23978.7160
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::ErrorCovariance::doMultiply                  :    246140.49      51         4826.2840
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::ErrorCovariance::~ErrorCovariance            :         0.00       1            0.0002
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::Localization::Localization                   :      5094.97       1         5094.9666
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::Localization::multiply                       :   1477243.31    1530          965.5185
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::Localization::~Localization                  :         0.00       1            0.0002
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::gsi::StaticCovariance::multiply              :    207269.12      51         4064.1003
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::gsi::StaticCovariance::~StaticCovariance     :         0.07       1            0.0685
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::mgbf::Covariance::Covariance                 :      1120.36       1         1120.3600
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::mgbf::Covariance::multiply                   :    927904.44    1530          606.4735
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::mgbf::Covariance::~Covariance                :       711.80       1          711.7976
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ufo::ObsFilter::ObsFilter                           :       240.37    1768            0.1360
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ufo::ObsFilter::checkFilterData                     :        40.33    4730            0.0085
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ufo::ObsFilter::postFilter                          :     43620.03    1720           25.3605
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ufo::ObsFilter::preProcess                          :     33789.08    1523           22.1859
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ufo::ObsFilter::priorFilter                         :       407.33    1487            0.2739
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ufo::ObsFilter::~ObsFilter                          :        86.84    4232            0.0205
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS util::Timers::measured                              :   3306577.48       1      3306577.4811
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: 
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ------------------------------------------------------------------------------------------------------------------
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ---------------------------------- Parallel Timing Statistics (1936 MPI tasks) -----------------------------------
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ------------------------------------------------------------------------------------------------------------------
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS Name                                                :     min (ms)    max (ms)    avg (ms)     % total   imbal (%)
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::EnsembleCovariance                :    249337.93   250229.92   249850.32        7.29        0.36
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::HybridCovariance                  :    274164.26   274188.09   274181.55        8.00        0.01
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::SABER::multiply                   :    292350.18   301695.36   296538.45        8.65        3.15
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::ensemble::multiply                :   1723229.00  1733138.78  1729275.25       50.43        0.57
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Covariance::hybrid::multiply                  :   2025223.46  2036314.14  2032491.79       59.28        0.55
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Geometry::Geometry                            :     24677.40    25775.90    25277.00        0.74        4.35
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::GetValues                          :    338006.81   356084.92   348422.79       10.16        5.19
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::fillGeoVaLsTL                      :      7627.45    20909.66    13253.04        0.39      100.22
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::processAD                          :      6654.91     8295.57     7243.54        0.21       22.65
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::GetValues::processTL                          :      6186.88    10216.75     6895.45        0.20       58.44
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::Increment                          :     30949.71   166684.16   130552.96        3.81      103.97
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::axpy                               :      8579.21    24424.94    16051.86        0.47       98.72
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::diff                               :     18093.63    45511.50    42011.76        1.23       65.26
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::dot_product_with                   :     51968.84    82127.43    63831.46        1.86       47.25
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::fromFieldSet                       :     12890.20    53011.39    31711.94        0.92      126.52
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::operator+=                         :      6613.91    57872.23    40899.22        1.19      125.33
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::operator=                          :     12751.22    67632.71    48409.63        1.41      113.37
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::schur_product_with                 :      9040.32    82447.99    61163.23        1.78      120.02
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::toFieldSet                         :     15617.96    54112.82    30361.03        0.89      126.79
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Increment::write                              :      1167.20    10495.43     4169.97        0.12      223.70
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::abi_g16::simulateObsAD         :     27913.44    38669.89    34685.83        1.01       31.01
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::iasi_metop-b::simulateObsAD    :      8784.59     9076.82     9033.51        0.26        3.23
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearObsOper::iasi_metop-c::simulateObsAD    :      8686.70     8806.45     8773.12        0.26        1.36
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearVariableChange::changeVarAD             :     29269.56    38870.70    33926.44        0.99       28.30
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LinearVariableChange::changeVarTL             :     21025.64    36671.46    27325.08        0.80       57.26
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LocalInterpolator::LocalInterpolator          :    293415.14   311215.48   298629.83        8.71        5.96
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LocalInterpolator::applyAD                    :      3080.59     4698.09     3681.16        0.11       43.94
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LocalInterpolator::preprocess                 :     12172.93    18081.06    15458.58        0.45       38.22
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::LocalInterpolator::preprocessAD               :      4366.24    11430.76     7856.37        0.23       89.92
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Localization::Localization                    :      3578.90     9740.84     5799.10        0.17      106.26
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Localization::multiply                        :   1450821.38  1695815.66  1525207.98       44.48       16.06
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsAuxControl::ObsAuxControl                  :      6551.11     6944.76     6654.98        0.19        5.92
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_n21::simulateObs            :      2087.58    34475.58     3854.33        0.11      840.30
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::atms_npp::simulateObs            :      1817.71    50772.96     4627.64        0.13     1057.89
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::iasi_metop-b::simulateObs        :      4062.84     6261.97     5170.07        0.15       42.54
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsOperator::iasi_metop-c::simulateObs        :      4608.40    13774.29     7110.01        0.21      128.92
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsSpace::ObsSpace                            :     16355.27    16374.54    16361.96        0.48        0.12
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ObsSpace::save                                :    171505.16   171956.26   171859.13        5.01        0.26
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Parameters::deserialize                       :      8940.00    12502.79     9605.82        0.28       37.09
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::ProximitySearch::setGlobalTree                :     10286.63    13714.47    12496.93        0.36       27.43
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::State::State                                  :    244915.46   247585.08   246211.93        7.18        1.08
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::UnstructuredInterpolator::apply               :       999.21    54640.97    27394.65        0.80      195.81
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::UnstructuredInterpolator::applyAD             :       391.38    12964.65     6861.13        0.20      183.25
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::VariableChange::changeVar                     :      2609.94     4417.53     3454.56        0.10       52.32
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::ErrorCovariance::ErrorCovariance             :     20894.80    24549.97    24092.67        0.70       15.17
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::ErrorCovariance::doMultiply                  :    243463.24   251195.51   247826.75        7.23        3.12
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::Localization::Localization                   :      3578.88     9740.82     5799.07        0.17      106.26
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::Localization::multiply                       :   1407111.56  1685009.83  1481746.60       43.21       18.75
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::gsi::StaticCovariance::multiply              :    197411.48   213274.80   204331.55        5.96        7.76
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS saber::mgbf::Covariance::multiply                   :    891676.50  1113880.22   990018.96       28.87       22.44
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS util::Timers::measured                              :   3302241.84  3386900.14  3311286.52       96.57        2.56
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS oops::Run::execute                                  :   3428797.69  3428916.73  3428854.26      100.00        0.00
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS ---------------------------------- Parallel Timing Statistics (1936 MPI tasks) -----------------------------------
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: 
+nid003068.cactus.wcoss2.ncep.noaa.gov 0: OOPS_STATS Run end                                  - Runtime:   3499.77 sec,  Memory: total: 10812.64 GB, per task: min =     5.36 GB, max =     5.78 GB
+nid003068.cactus.wcoss2.ncep.noaa.gov 0:  Run: Finishing oops::Variational<FV3JEDI, UFO and IODA observations> with status = 0
+nid003068.cactus.wcoss2.ncep.noaa.gov 0:  [TestReference] Comparison is done
+nid003068.cactus.wcoss2.ncep.noaa.gov 0:  OOPS Ending   2026-10-29 18:44:14 (UTC+0000)
+PBS: Running epilogue on parent mom node: nid003068...
+##### Job 295706037.cbqs01 - PBS Job Script:
+(Note: Duplicate #PBS entries are a function how PBS interprets and caches the original job script.)
+
+#!/bin/bash
+#PBS -A RRFS-DEV
+#PBS -q dev
+#PBS -l walltime=01:45:00
+#PBS -l select=44:mpiprocs=128:ncpus=128:ompthreads=1
+#PBS -l place=vscatter:exclhost
+#PBS -N deb-na3km 
+##PBS -l debug=true
+#PBS -j oe -o deb-rdas.log
+
+
+#/lfs/h2/emc/da/noscrub/Shun.Liu/rrfs/testD/ufs-srweather-app/regional_workflow/ush/load_modules_run_task.sh run_anal_gsi /lfs/h2/emc/da/noscrub/Shun.Liu/rrfs/testD/ufs-srweather-app/regional_workflow/jobs/JREGIONAL_RUN_ANAL
+
+#source /lfs/h2/emc/lam/noscrub/emc.lam/rrfs/v0.6.9/ufs-srweather-app/env/build_wcoss2_intel.env
+moduledir="/lfs/h2/emc/da/noscrub/Ting.Lei/dr-emc-rdasapp/RDASApp/modulefiles"
+module use $moduledir
+module load RDAS/wcoss2.intel
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/opt/cray/pe/mpich/8.1.19/ofi/intel/19.0/lib"
+
+
+ulimit -s unlimited
+ulimit -a
+
+echo "start time:"
+date
+
+
+#rundir=/lfs/h2/emc/ptmp/emc.lam/Shun.Liu/anal_conv_gsi_spinup
+rundir=/lfs/h2/emc/da/noscrub/Ting.Lei/dr-sam/rundir-rrfs_fv3jedi_na3km_2024052701_analysis/
+
+cd $rundir
+
+export OMP_NUM_THREADS=1
+export OMP_PLACES=cores
+export OMP_PROC_BIND=close
+export OMP_STACKSIZE=512M
+export MPICH_ALLTOALLV_THROTTLE=484
+#last_run=$(ls nodiagwrt_nosat_stdout.* 2>/dev/null | sort -n -t. -k 2 | tail -1)
+
+#EXEC=/lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/bin/fv3jedi_var.x
+rm -f fv3jedi_var.x
+EXEC=/lfs/h2/emc/da/noscrub/Ting.Lei/dr-emc-rdasapp/RDASApp/build/bin/fv3jedi_var.x
+#cltorg export JEDI_LIBS="/lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/lib64:/lfs/h2/emc/da/noscrub/Ting.Lei/dr-jedi-bundle-dev/jedi-bundle/build/lib"
+export JEDI_LIBS="/lfs/h2/emc/da/noscrub/Ting.Lei/dr-emc-rdasapp/RDASApp/build/lib64:/lfs/h2/emc/da/noscrub/Ting.Lei/dr-emc-rdasapp/RDASApp/build/lib"
+# add subproject libs if present:
+# JEDI_LIBS="$JEDI_LIBS:/lfs/.../oops/build/lib64:/lfs/.../saber/build/lib64:/lfs/.../ufo/build/lib64"
+
+# include MKL/compiler runtimes if you linked them:
+module load intel-oneapi-mkl intel-oneapi-compiler  # or whatever sets MKLROOT
+export LD_LIBRARY_PATH="$JEDI_LIBS:$MKLROOT/lib/intel64:$LD_LIBRARY_PATH"
+export MPICH_OFI_STARTUP_CONNECT=1
+export MPICH_ENV_DISPLAY=1      # prints the effective MPICH settings at startup
+export MPICH_OFI_VERBOSE=1      # prints the provider in use (should be verbs;ofi_rxm)
+env | grep -E '^FI_'            # check FI_VERBS_PREFER_XRC and FI_OFI_RXM_USE_SRX
+
+
+
+# make sure mpiexec propagates env (Hydra/PALS understands -env or -genv):
+mpiexec  -l --line-buffer  -n 1936 -ppn 44 --cpu-bind core --depth 1 --label \
+  -env LD_LIBRARY_PATH "$LD_LIBRARY_PATH" \
+  $EXEC \
+   deb.yaml   deb.out
+exit
+
+
+##### End of job script
+------------------------------------------------------------------
+
