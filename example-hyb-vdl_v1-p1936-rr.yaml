@@ -154,13 +154,17 @@ cost function:
           active variables:
           - eastward_wind
           - northward_wind
-          - virtual_temperature
+          - air_temperature
           - water_vapor_mixing_ratio_wrt_moist_air
           - air_pressure_at_surface
+          - cloud_liquid_water
+          - cloud_liquid_ice
           - rain_water
           - snow_water
           - graupel
           - equivalent_reflectivity_factor
+
+
           read:
             gsi akbk: fv3_akbk
             gsi error covariance file: berror_stats
@@ -215,7 +219,7 @@ cost function:
           input variables:
           - eastward_wind
           - northward_wind
-          - virtual_temperature
+          - air_temperature
           - water_vapor_mixing_ratio_wrt_moist_air
           - air_pressure_at_surface
           - cloud_liquid_ice
@@ -272,7 +276,7 @@ cost function:
           localization method: SABER
           saber central block:
             saber block name: MGBF_covariance
-            mgbf sdl and vdl init namelist file: dr-mgbf-fix/norm-dbz_vdl_v1_init-p1936.nml
+            mgbf sdl and vdl init namelist file: dr-mgbf-fix/filt_once-norm-dbz_vdl_v1_init-p1936.nml
           saber outer blocks:
           -  saber block name: interpolation
              inner geometry:
