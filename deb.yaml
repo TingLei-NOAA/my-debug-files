@@ -104802,54 +104802,8 @@ variational:
             graupel: graupel
             upward_air_velocity: W
             equivalent_reflectivity_factor: ref_f3d
-final:
-  diagnostics:
-    departures: oman
+output:
   increment:
-    output:
-      state component:
-        filetype: fms restart
-        use_fms_lib: false
-        lustre stripe size: 4194304
-        default output resolution: 32bit
-        datapath: ./
-        prepend files with date: false
-        prefix: inc_jedi
-        frequency: PT1H
-        state variables:
-        - equivalent_reflectivity_factor
-        - cloud_liquid_water
-        - cloud_liquid_ice
-        - rain_water
-        - snow_water
-        - graupel
-        - eastward_wind
-        - northward_wind
-        - air_temperature
-        - water_vapor_mixing_ratio_wrt_moist_air
-        - ozone_mass_mixing_ratio
-        - air_pressure_at_surface
-        field io names:
-          eastward_wind: ua
-          northward_wind: va
-          air_temperature: T
-          air_pressure_at_surface: ps
-          air_pressure_thickness: delp
-          water_vapor_mixing_ratio_wrt_moist_air: sphum
-          cloud_liquid_ice: ice_wat
-          cloud_liquid_water: liq_wat
-          ozone_mass_mixing_ratio: o3mr
-          geopotential_at_surface: phis
-          skin_temperature_at_surface: tsfc
-          tslb: tslb
-          smois: smois
-          eastward_wind_at_surface: u_srf
-          northward_wind_at_surface: v_srf
-          rain_water: rainwat
-          snow_water: snowwat
-          graupel: graupel
-          upward_air_velocity: W
-          equivalent_reflectivity_factor: ref_f3d
     geometry:
       fms initialization:
         namelist filename: fmsmpp.nml
@@ -104864,4 +104818,45 @@ final:
       - 1
       - 1
       ntiles: 1
-final j evaluation: true
+    filetype: fms restart
+    use_fms_lib: false
+    lustre stripe size: 4194304
+    default output resolution: 32bit
+    datapath: ./
+    prepend files with date: false
+    prefix: inc_jedi
+    frequency: PT1H
+    variables:
+    - equivalent_reflectivity_factor
+    - cloud_liquid_water
+    - cloud_liquid_ice
+    - rain_water
+    - snow_water
+    - graupel
+    - eastward_wind
+    - northward_wind
+    - air_temperature
+    - water_vapor_mixing_ratio_wrt_moist_air
+    - ozone_mass_mixing_ratio
+    - air_pressure_at_surface
+    field io names:
+      eastward_wind: ua
+      northward_wind: va
+      air_temperature: T
+      air_pressure_at_surface: ps
+      air_pressure_thickness: delp
+      water_vapor_mixing_ratio_wrt_moist_air: sphum
+      cloud_liquid_ice: ice_wat
+      cloud_liquid_water: liq_wat
+      ozone_mass_mixing_ratio: o3mr
+      geopotential_at_surface: phis
+      skin_temperature_at_surface: tsfc
+      tslb: tslb
+      smois: smois
+      eastward_wind_at_surface: u_srf
+      northward_wind_at_surface: v_srf
+      rain_water: rainwat
+      snow_water: snowwat
+      graupel: graupel
+      upward_air_velocity: W
+      equivalent_reflectivity_factor: ref_f3d
